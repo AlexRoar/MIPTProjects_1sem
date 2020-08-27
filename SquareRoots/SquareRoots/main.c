@@ -20,6 +20,7 @@ void handleNegativeZero(double* value);
 int printProcessingOutput(int solNumber, double x1, double x2);
 bool isAlmostZero(double value);
 
+
 int main() {
     
     printf("Square equation solution\n"
@@ -126,6 +127,7 @@ void handleNegativeZero(double* value){
     if (isAlmostZero(*value)) // handling "-0" case
         *value = 0;
 }
+
 
 /**
  * @param value [in] value to be checked
