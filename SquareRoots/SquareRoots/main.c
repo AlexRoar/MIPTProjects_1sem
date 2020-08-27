@@ -8,7 +8,6 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <assert.h>
 
 #define PRECISION_DELTA 1e-5
 #define INF_SQUARE_SOLUTIONS -1
