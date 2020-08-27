@@ -16,7 +16,7 @@
 
 int squareRoots(double, double, double, double*, double*);
 double squareDiscriminant(double, double, double);
-void hangleNegativeZero(double*);
+void handleNegativeZero(double*);
 
 int main(int argc, char *argv[]) {
     
@@ -78,8 +78,8 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
                 return 0;
         }
         *x1 = *x2 = -c / b;
-        hangleNegativeZero(x1);
-        hangleNegativeZero(x2);
+        handleNegativeZero(x1);
+        handleNegativeZero(x2);
         
         return 1;
     } else { // discriminant solution
@@ -87,19 +87,18 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
         
         if (dis < 0)
             return 0;
-
         
         if (fabs(dis) <= PRECISION_DELTA) {
             *x1 = *x2 = (-b + sqrt(dis)) / (2 * a);
-            hangleNegativeZero(x1);
-            hangleNegativeZero(x2);
+            handleNegativeZero(x1);
+            handleNegativeZero(x2);
             
             return 1;
         } else {
             *x1 = (-b + sqrt(dis)) / (2 * a);
             *x2 = (-b - sqrt(dis)) / (2 * a);
-            hangleNegativeZero(x1);
-            hangleNegativeZero(x2);
+            handleNegativeZero(x1);
+            handleNegativeZero(x2);
             
             return 2;
         }
@@ -123,7 +122,7 @@ double squareDiscriminant(double a, double b, double c) {
  * Casts -0 to 0 with PRECISION_DELTA precision
  * @param value  Value to cast (passed by reference)
  */
-void hangleNegativeZero(double* value){
+void handleNegativeZero(double* value){
     if (fabs(*value) <= PRECISION_DELTA) // handling "-0" case
         *value = 0;
 }
