@@ -72,11 +72,10 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
     
     if (fabs(a) <= PRECISION_DELTA) { // linear solution
         if (fabs(b) <= PRECISION_DELTA) {
-            if (fabs(c) <= PRECISION_DELTA) {
+            if (fabs(c) <= PRECISION_DELTA)
                 return INF_SQUARE_SOLUTIONS;
-            } else{
+            else
                 return 0;
-            }
         }
         *x1 = *x2 = -c / b;
         hangleNegativeZero(x1);
@@ -86,9 +85,9 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
     } else { // discriminant solution
         double dis = squareDiscriminant(a, b, c);
         
-        if (dis < 0) {
+        if (dis < 0)
             return 0;
-        }
+
         
         if (fabs(dis) <= PRECISION_DELTA) {
             *x1 = *x2 = (-b + sqrt(dis)) / (2 * a);
