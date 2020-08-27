@@ -9,59 +9,42 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <stdbool.h>
 
 #define PRECISION_DELTA 1e-5
 #define INF_SQUARE_SOLUTIONS -1
 
 
-int squareRoots(double, double, double, double*, double*);
-double squareDiscriminant(double, double, double);
-void handleNegativeZero(double*);
+int squareRoots(double a, double b, double c, double* x1, double* x2);
+void handleNegativeZero(double* value);
+int printProcessingOutput(int solNumber, double x1, double x2);
+bool isAlmostZero(double value);
 
-int main(int argc, char *argv[]) {
+int main() {
     
-    double a, b, c;
-    a = b = c = 0;
+    printf("Square equation solution\n"
+           "(c) Aleksandr Dremov 2019\n\n");
+    printf("Enter 3 coefficients, separated by space: ");
     
-    printf("Square equation solution\n(c) Aleksandr Dremov 2019\n\n");
-    printf("Enter 3 coeeficients, separated by space: ");
-    scanf("%lg %lg %lg", &a, &b, &c);
+    double a = 0, b = 0, c = 0;
+    int num = scanf("%lg %lg %lg", &a, &b, &c);
+    printf("Recieved %d arguments\n", num);
     
-    double x1, x2;
-    x1 = x2 = 0;
-    
+    double x1 = 0, x2 = 0;
     int solNumber = squareRoots(a, b, c, &x1, &x2);
     
-    switch (solNumber) {
-        case INF_SQUARE_SOLUTIONS:
-            printf("Infinite solutions\n");
-            break;
-        case 0:
-            printf("No solutions\n");
-            break;
-        case 1:
-            printf("One solution: %lg\n", x1);
-            break;
-        case 2:
-            printf("Two solutions: %lg and %lg\n", x1, x2);
-            break;
-        default:
-            printf("main() ERROR: unhandled squareRoots() return value\n");
-            return 1;
-    }
-    
-    return 0;
+    return printProcessingOutput(solNumber, x1, x2);
 }
 
 
 /**
  *  Square roots calculation
  *
- *  @param a first coefficient
- *  @param b second coefficient
- *  @param c third coefficient
- *  @param x1 first root (passed by reference)
- *  @param x2 second root (passed by reference)
+ *  @param a [in] first coefficient
+ *  @param b [in] second coefficient
+ *  @param c [in] third coefficient
+ *  @param x1 [out] first root (passed by reference)
+ *  @param x2 [out] second root (passed by reference)
  *  @return number of roots. INF_SQUARE_SOLUTIONS if infinite number of solutions
  */
 int squareRoots(double a, double b, double c, double* x1, double* x2) {
@@ -70,9 +53,9 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
     assert(x1 != NULL);
     assert(x2 != NULL);
     
-    if (fabs(a) <= PRECISION_DELTA) { // linear solution
-        if (fabs(b) <= PRECISION_DELTA) {
-            if (fabs(c) <= PRECISION_DELTA)
+    if (isAlmostZero(a)) { // linear solution
+        if (isAlmostZero(b)) {
+            if (isAlmostZero(c))
                 return INF_SQUARE_SOLUTIONS;
             else
                 return 0;
@@ -83,13 +66,13 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
         
         return 1;
     } else { // discriminant solution
-        double dis = squareDiscriminant(a, b, c);
+        double dis = b * b - 4 * a * c;
         
         if (dis < 0)
             return 0;
         
-        if (fabs(dis) <= PRECISION_DELTA) {
-            *x1 = *x2 = (-b + sqrt(dis)) / (2 * a);
+        if (isAlmostZero(dis)) {
+            *x1 = *x2 = (-b) / (2 * a);
             handleNegativeZero(x1);
             handleNegativeZero(x2);
             
@@ -107,22 +90,47 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
 
 
 /**
- *  Discriminant calculation
- *
- *  @param a first coefficient
- *  @param b second coefficient
- *  @param c third coefficient
- *  @return discriminant value
+ * Generates output for task solution
+ * @param solNumber [in] number of solutions
+ * @param x1  [in] first x
+ * @param x2  [in] second x
+ * @return exit code
  */
-double squareDiscriminant(double a, double b, double c) {
-    return b * b - 4 * a * c;
+int printProcessingOutput(int solNumber, double x1, double x2){
+    switch (solNumber) {
+        case INF_SQUARE_SOLUTIONS:
+            printf("Infinite solutions\n");
+            break;
+        case 0:
+            printf("No solutions\n");
+            break;
+        case 1:
+            printf("One solution: %lg\n", x1);
+            break;
+        case 2:
+            printf("Two solutions: %lg and %lg\n", x1, x2);
+            break;
+        default:
+            printf("main() ERROR: unhandled squareRoots() return value\n");
+            return 1;
+    }
+    return 0;
 }
+
 
 /**
  * Casts -0 to 0 with PRECISION_DELTA precision
- * @param value  Value to cast (passed by reference)
+ * @param value  [in + out]   Value to cast (passed by reference)
  */
 void handleNegativeZero(double* value){
-    if (fabs(*value) <= PRECISION_DELTA) // handling "-0" case
+    if (isAlmostZero(*value)) // handling "-0" case
         *value = 0;
+}
+
+/**
+ * @param value [in] value to be checked
+ * @return if the value is almost zero with precision PRECISION_DELTA
+ */
+bool isAlmostZero(double value){
+    return fabs(value) <= PRECISION_DELTA;
 }
