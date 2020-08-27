@@ -29,6 +29,18 @@ int main() {
     
     double a = 0, b = 0, c = 0;
     int num = scanf("%lg %lg %lg", &a, &b, &c);
+    
+    if (num != 3){
+        printf("Wrong input format\n");
+        return 2;
+    }
+    
+//    while (num != 3) {
+//        printf("Error receiving parameters, "
+//               "please try again\n");
+//        num = scanf("%lg %lg %lg", &a, &b, &c);
+//    }
+    
     printf("Recieved %d arguments\n", num);
     
     double x1 = 0, x2 = 0;
