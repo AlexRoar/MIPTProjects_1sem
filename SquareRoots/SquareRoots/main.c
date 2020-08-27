@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 #include <assert.h>
 #include <stdbool.h>
@@ -15,9 +16,9 @@
 #define INF_SQUARE_SOLUTIONS -1
 
 
-int squareRoots(double a, double b, double c, double* x1, double* x2);
-void handleNegativeZero(double* value);
-int printProcessingOutput(int solNumber, double x1, double x2);
+int  squareRoots(double a, double b, double c, double* x1, double* x2);
+void normalizeNegativeZero(double* value);
+int  printProcessingOutput(int solNumber, double x1, double x2);
 bool isAlmostZero(double value);
 
 
@@ -30,11 +31,11 @@ int main() {
     double a = 0, b = 0, c = 0;
     int num = scanf("%lg %lg %lg", &a, &b, &c);
     
-    char trash[100];
     while (num != 3) {
         printf("Error receiving parameters, "
                "please try again\n");
-        scanf("%s", trash);
+        while (getchar() != '\n'){}
+        printf("Enter 3 coefficients, separated by space: ");
         num = scanf("%lg %lg %lg", &a, &b, &c);
     }
     
@@ -71,8 +72,8 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
                 return 0;
         }
         *x1 = *x2 = -c / b;
-        handleNegativeZero(x1);
-        handleNegativeZero(x2);
+        normalizeNegativeZero(x1);
+        normalizeNegativeZero(x2);
         
         return 1;
     } else { // discriminant solution
@@ -83,15 +84,15 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
         
         if (isAlmostZero(dis)) {
             *x1 = *x2 = (-b) / (2 * a);
-            handleNegativeZero(x1);
-            handleNegativeZero(x2);
+            normalizeNegativeZero(x1);
+            normalizeNegativeZero(x2);
             
             return 1;
         } else {
             *x1 = (-b + sqrt(dis)) / (2 * a);
             *x2 = (-b - sqrt(dis)) / (2 * a);
-            handleNegativeZero(x1);
-            handleNegativeZero(x2);
+            normalizeNegativeZero(x1);
+            normalizeNegativeZero(x2);
             
             return 2;
         }
@@ -122,9 +123,9 @@ int printProcessingOutput(int solNumber, double x1, double x2){
             break;
         default:
             printf("main() ERROR: unhandled squareRoots() return value\n");
-            return 1;
+            return EXIT_FAILURE;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 
@@ -132,7 +133,7 @@ int printProcessingOutput(int solNumber, double x1, double x2){
  * Casts -0 to 0 with PRECISION_DELTA precision
  * @param value  [in + out]   Value to cast (passed by reference)
  */
-void handleNegativeZero(double* value){
+void normalizeNegativeZero(double* value){
     if (isAlmostZero(*value)) // handling "-0" case
         *value = 0;
 }
