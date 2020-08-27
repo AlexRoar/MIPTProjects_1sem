@@ -1,0 +1,5 @@
+Square equation solution
+(c) Aleksandr Dremov 2019
+
+Enter 3 coefficients, separated by space: Recieved 3 arguments
+One solution: -3
