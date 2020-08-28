@@ -20,12 +20,26 @@ int  squareRoots(double a, double b, double c, double* x1, double* x2);
 void normalizeNegativeZero(double* value);
 int  printProcessingOutput(int solNumber, double x1, double x2);
 bool isAlmostZero(double value);
+bool unitTestsSquareSolve(int* numberFailed, int* firstFailed);
+bool performAllUnits(int* numberFailed, int* firstFailed);
 
 
 int main() {
     
     printf("Square equation solution\n"
-           "(c) Aleksandr Dremov 2019\n\n");
+           "(c) Aleksandr Dremov 2019\n");
+    printf("Performing unit tests: ");
+    
+    int numberFailed = 0;
+    int firstFailed = -1;
+    
+    if (performAllUnits(&numberFailed, &firstFailed)) {
+        printf("success\n\n");
+    } else {
+        printf("failed! (%d failed,  №%d first failed)\n"
+               "USAGE IS NOT SAFE\n\n", numberFailed, firstFailed);
+    }
+    
     printf("Enter 3 coefficients, separated by space: ");
     
     double a = 0, b = 0, c = 0;
@@ -89,8 +103,8 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
             
             return 1;
         } else {
-            *x1 = (-b + sqrt(dis)) / (2 * a);
-            *x2 = (-b - sqrt(dis)) / (2 * a);
+            *x1 = (-b - sqrt(dis)) / (2 * a);
+            *x2 = (-b + sqrt(dis)) / (2 * a);
             normalizeNegativeZero(x1);
             normalizeNegativeZero(x2);
             
@@ -145,4 +159,62 @@ void normalizeNegativeZero(double* value){
  */
 bool isAlmostZero(double value){
     return fabs(value) <= PRECISION_DELTA;
+}
+
+
+/**
+ * Performs checks for squareRoots function
+ * @param numberFailed - number of total tests failed
+ * @param firstFailed - first test failed
+ */
+bool unitTestsSquareSolve(int* numberFailed, int* firstFailed){
+    double tests[][6] = { // tests in format {a, b, c, x1, x2, returnValue}
+        {0, 0, 0,    0, 0, INF_SQUARE_SOLUTIONS},
+        {0, 0, 1,    0, 0, 0},
+        {1, -3, 2,   1, 2, 2},
+        {1, 3, 2,   -2, -1, 2},
+        {1, 2, 1,   -1, -1, 1},
+        {1, 4, 4,   -2, -2, 1},
+    };
+    
+    int numberOfTests = sizeof(tests) / sizeof(tests[0]);
+    
+    for (int i = 0; i < numberOfTests; i++) {
+        double testX1 = 0, testX2 = 0;
+        int retValue = 0;
+        
+        retValue = squareRoots(tests[i][0], tests[i][1], tests[i][2], &testX1, &testX2);
+        if (retValue != tests[i][5]) {
+            (*numberFailed)++;
+            if (*firstFailed == -1){
+                *firstFailed = i + 1;
+            }
+            continue;
+        }
+        
+        if (testX1 != tests[i][3] || testX2 != tests[i][4]) {
+            (*numberFailed)++;
+            if (*firstFailed == -1){
+                *firstFailed = i + 1;
+            }
+            continue;
+        }
+        
+    }
+    return *numberFailed == 0;
+}
+
+
+/**
+ * Performs all unit tests for this scope
+ * @param numberFailed - number of total tests failed
+ * @param firstFailed - first test failed
+*/
+bool performAllUnits(int* numberFailed, int* firstFailed) {
+    *numberFailed = 0;
+    *firstFailed = -1;
+    
+    unitTestsSquareSolve(numberFailed, firstFailed);
+    
+    return *numberFailed == 0;
 }
