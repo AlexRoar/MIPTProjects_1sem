@@ -37,7 +37,7 @@ int main() {
     if (performAllUnits(&numberFailed, &firstFailed)) {
         printf("success\n\n");
     } else {
-        printf("failed! (%d failed,  №%d first failed)\n"
+        printf("failed! (%d failed,  #%d first failed)\n"
                "USAGE IS NOT SAFE\n\n", numberFailed, firstFailed);
     }
     
