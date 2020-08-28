@@ -6,6 +6,7 @@
  * @copyright 2020 alexdremov. All rights reserved.
  */
 
+// =============================================================================
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,12 +17,67 @@
 #define PRECISION_DELTA 1e-5
 #define INF_SQUARE_SOLUTIONS -1
 
-
+/**
+ * Used for pretty indices in unit test data
+ */
+enum Test_Indices
+{
+    A, B, C,
+    X1, X2,
+    NROOTS,
+};
+typedef enum Test_Indices Test_Indices;
+ 
+/**
+*  Square roots calculation
+*
+*  @param a [in] first coefficient
+*  @param b [in] second coefficient
+*  @param c [in] third coefficient
+*  @param x1 [out] first root (passed by reference)
+*  @param x2 [out] second root (passed by reference)
+*  @return number of roots. INF_SQUARE_SOLUTIONS if infinite number of solutions
+*/
 int  squareRoots(double a, double b, double c, double* x1, double* x2);
+
+
+/**
+* Casts -0 to 0 with PRECISION_DELTA precision
+* @param value  [in + out]   Value to cast (passed by reference)
+*/
 void normalizeNegativeZero(double* value);
+
+
+/**
+* Generates output for task solution
+* @param solNumber [in] number of solutions
+* @param x1  [in] first x
+* @param x2  [in] second x
+* @return exit code
+*/
 int  printProcessingOutput(int solNumber, double x1, double x2);
+
+
+/**
+* @param value [in] value to be checked
+* @return if the value is almost zero with precision PRECISION_DELTA
+*/
 bool isAlmostZero(double value);
+
+
+/**
+* Performs checks for squareRoots function
+* @param numberFailed - number of total tests failed
+* @param firstFailed - first test failed
+*/
 bool unitTestsSquareSolve(int* numberFailed, int* firstFailed);
+
+
+/**
+ * Performs all unit tests for this scope
+ * @param numberFailed - number of total tests failed
+ * @param firstFailed - first test failed
+*/
 bool performAllUnits(int* numberFailed, int* firstFailed);
 
 
@@ -63,16 +119,6 @@ int main() {
 }
 
 
-/**
- *  Square roots calculation
- *
- *  @param a [in] first coefficient
- *  @param b [in] second coefficient
- *  @param c [in] third coefficient
- *  @param x1 [out] first root (passed by reference)
- *  @param x2 [out] second root (passed by reference)
- *  @return number of roots. INF_SQUARE_SOLUTIONS if infinite number of solutions
- */
 int squareRoots(double a, double b, double c, double* x1, double* x2) {
     
     assert(x1 != x2);
@@ -115,13 +161,6 @@ int squareRoots(double a, double b, double c, double* x1, double* x2) {
 }
 
 
-/**
- * Generates output for task solution
- * @param solNumber [in] number of solutions
- * @param x1  [in] first x
- * @param x2  [in] second x
- * @return exit code
- */
 int printProcessingOutput(int solNumber, double x1, double x2){
     switch (solNumber) {
         case INF_SQUARE_SOLUTIONS:
@@ -144,30 +183,17 @@ int printProcessingOutput(int solNumber, double x1, double x2){
 }
 
 
-/**
- * Casts -0 to 0 with PRECISION_DELTA precision
- * @param value  [in + out]   Value to cast (passed by reference)
- */
 void normalizeNegativeZero(double* value){
     if (isAlmostZero(*value)) // handling "-0" case
         *value = 0;
 }
 
 
-/**
- * @param value [in] value to be checked
- * @return if the value is almost zero with precision PRECISION_DELTA
- */
 bool isAlmostZero(double value){
     return fabs(value) <= PRECISION_DELTA;
 }
 
 
-/**
- * Performs checks for squareRoots function
- * @param numberFailed - number of total tests failed
- * @param firstFailed - first test failed
- */
 bool unitTestsSquareSolve(int* numberFailed, int* firstFailed){
     double tests[][6] = { // tests in format {a, b, c, x1, x2, returnValue}
         {0, 0, 0,    0, 0, INF_SQUARE_SOLUTIONS},
@@ -184,8 +210,16 @@ bool unitTestsSquareSolve(int* numberFailed, int* firstFailed){
         double testX1 = 0, testX2 = 0;
         int retValue = 0;
         
-        retValue = squareRoots(tests[i][0], tests[i][1], tests[i][2], &testX1, &testX2);
-        if (retValue != tests[i][5]) {
+        Test_Indices ind;
+        
+        retValue = squareRoots(
+                               tests[i][ind = A],
+                               tests[i][ind = B],
+                               tests[i][ind = C],
+                               &testX1,
+                               &testX2
+                               );
+        if (retValue != tests[i][ind = NROOTS]) {
             (*numberFailed)++;
             if (*firstFailed == -1){
                 *firstFailed = i + 1;
@@ -193,7 +227,7 @@ bool unitTestsSquareSolve(int* numberFailed, int* firstFailed){
             continue;
         }
         
-        if (testX1 != tests[i][3] || testX2 != tests[i][4]) {
+        if (testX1 != tests[i][ind = X1] || testX2 != tests[i][ind = X2]) {
             (*numberFailed)++;
             if (*firstFailed == -1){
                 *firstFailed = i + 1;
@@ -206,12 +240,11 @@ bool unitTestsSquareSolve(int* numberFailed, int* firstFailed){
 }
 
 
-/**
- * Performs all unit tests for this scope
- * @param numberFailed - number of total tests failed
- * @param firstFailed - first test failed
-*/
 bool performAllUnits(int* numberFailed, int* firstFailed) {
+    
+    assert(numberFailed != NULL);
+    assert(firstFailed != NULL);
+    
     *numberFailed = 0;
     *firstFailed = -1;
     
@@ -219,3 +252,4 @@ bool performAllUnits(int* numberFailed, int* firstFailed) {
     
     return *numberFailed == 0;
 }
+
