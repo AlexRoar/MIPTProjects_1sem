@@ -16,6 +16,8 @@ typedef struct SortedLinesContainer {
     unsigned long size;
     unsigned long availableSize;
     int allocIncrement;
+    unsigned long* sizes;
+    
     void (*add)(struct SortedLinesContainer* this, char* line, bool fromEnd);
     void (*containerRealloc)(struct SortedLinesContainer* this);
     void (*cellRealloc)(struct SortedLinesContainer* this, unsigned long pos, unsigned long len);
@@ -71,7 +73,7 @@ void reverse(char* line, unsigned long len) {
 
 void shiftLeft(struct SortedLinesContainer* this, unsigned long pos) {
     for (unsigned long i = this->size; i > pos; i--){
-        unsigned long sourceLen = strlen(*(this->sortedContainer + i - 1));
+        unsigned long sourceLen = *(this->sizes + i - 1);
         if (*(this->sortedContainer + i) == NULL) {
             this->cellRealloc(this, i, sourceLen);
         } else {
@@ -81,44 +83,49 @@ void shiftLeft(struct SortedLinesContainer* this, unsigned long pos) {
             }
         }
         strcpy(*(this->sortedContainer + i), *(this->sortedContainer + i - 1));
+        *(this->sizes + i) = sourceLen;
     }
 }
 
 void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
+    unsigned long len = strlen(line);
     if (this->size == 0){
         this->containerRealloc(this);
-        this->cellRealloc(this, 0, strlen(line));
+        this->cellRealloc(this, 0, len);
         strcpy(*(this->sortedContainer), line);
+        *(this->sizes) = len;
         this->size += 1;
         return;
     }
     
     for (int i = 0; i < this->size; i++){
         int cmpresult = strlexcmp(*(this->sortedContainer + i), line, fromEnd);
-//        printf("%s comparison %s - %d(%d)\n", line, *(this->sortedContainer + i), i, cmpresult);
+        //        printf("%s comparison %s - %d(%d)\n", line, *(this->sortedContainer + i), i, cmpresult);
         if (cmpresult > 0) {
-//            printf("%s higher than %s - %d(%d)\n", line, *(this->sortedContainer + i), i, cmpresult);
-//            for(int i = 0; i < this->size + 1; i++){
-//                printf("\t1\t%d: %s\n", (i+1), *(this->sortedContainer + i));
-//            }
+            //            printf("%s higher than %s - %d(%d)\n", line, *(this->sortedContainer + i), i, cmpresult);
+            //            for(int i = 0; i < this->size + 1; i++){
+            //                printf("\t1\t%d: %s\n", (i+1), *(this->sortedContainer + i));
+            //            }
             this->containerRealloc(this);
             this->shiftLeft(this, i);
-//            for(int i = 0; i < this->size + 1; i++){
-//                printf("\t2\t%d: %s\n", (i+1), *(this->sortedContainer + i));
-//            }
-            this->cellRealloc(this, i, strlen(line));
+            //            for(int i = 0; i < this->size + 1; i++){
+            //                printf("\t2\t%d: %s\n", (i+1), *(this->sortedContainer + i));
+            //            }
+            this->cellRealloc(this, i, len);
             strcpy(*(this->sortedContainer + i), line);
-//            for(int i = 0; i < this->size + 2; i++){
-//                printf("\t3\t%d: %s\n", (i+1), *(this->sortedContainer + i));
-//            }
+            *(this->sizes + i) = len;
+            //            for(int i = 0; i < this->size + 2; i++){
+            //                printf("\t3\t%d: %s\n", (i+1), *(this->sortedContainer + i));
+            //            }
             this->size += 1;
             return;
         }
     }
     
     this->containerRealloc(this);
-    this->cellRealloc(this, this->size, strlen(line));
+    this->cellRealloc(this, this->size, len);
     strcpy(*(this->sortedContainer + this->size), line);
+    *(this->sizes + + this->size) = len;
     this->size += 1;
 }
 
@@ -126,24 +133,25 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
 void containerRealloc(struct SortedLinesContainer* this) {
     if (this->sortedContainer == NULL){
         this->sortedContainer = calloc(this->allocIncrement, sizeof(char*));
+        this->sizes = calloc(this->allocIncrement, sizeof(unsigned long));
         this->availableSize = this->allocIncrement;
         return;
     }
     if (this->size + 1 > this->availableSize){
-        this->sortedContainer = realloc(
-                                        this->sortedContainer,
-                                        sizeof(char*) * (this->availableSize + this->allocIncrement)
-                                        );
+        this->sortedContainer = realloc(this->sortedContainer,
+                                        sizeof(char*) * (this->availableSize + this->allocIncrement));
+        this->sizes = realloc(this->sizes,
+                              sizeof(unsigned long) * (this->availableSize + this->allocIncrement));
         this->availableSize += this->allocIncrement;
     }
 }
 
 void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned long len) {
-     if (*(this->sortedContainer + pos) == NULL){
-         *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
-     }else{
-         *(this->sortedContainer + pos) = realloc(*(this->sortedContainer + pos) ,(len + 1) * sizeof(char));
-     }
+    if (*(this->sortedContainer + pos) == NULL){
+        *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
+    }else{
+        *(this->sortedContainer + pos) = realloc(*(this->sortedContainer + pos) ,(len + 1) * sizeof(char));
+    }
 }
 
 
@@ -172,6 +180,8 @@ int main(int argc, const char * argv[]) {
     }
     
     SortedLinesContainer container;
+    unsigned long sizes[] = {};
+    
     container.size = 0;
     container.availableSize = 0;
     container.allocIncrement = 64;
@@ -179,13 +189,14 @@ int main(int argc, const char * argv[]) {
     container.containerRealloc = &containerRealloc;
     container.cellRealloc = &cellRealloc;
     container.shiftLeft = &shiftLeft;
+    container.sizes = sizes;
     
-    container.add(&container, "bbcd", false);
-    container.add(&container, "abcd", false);
-    container.add(&container, "accd", false);
-    container.add(&container, "accd", false);
+    container.add(&container, "bbc", false);
+    container.add(&container, "abcdf", false);
+    container.add(&container, "accdee", false);
+    container.add(&container, "accdeeee", false);
     
     for(int i = 0; i < container.size; i++){
-        printf("%d: %s\n", (i+1), *(container.sortedContainer + i));
+        printf("%d: %s(%d)\n", (i+1), *(container.sortedContainer + i), *(container.sizes + i));
     }
 }
