@@ -1,10 +1,11 @@
-//
-//  main.c
-//  SquareRoots
-//
-//  Created by Александр Дремов on 27.08.2020.
-//  Copyright © 2020 alexdremov. All rights reserved.
-//
+/**
+ * @file
+ * @author Александр Дремов <dremov.me@gmail.com>
+ * @version 1.0 *
+ * @section LICENSE *
+ * @copyright 2020 alexdremov. All rights reserved.
+ */
+
 
 #include <stdio.h>
 #include <stdlib.h>

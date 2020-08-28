@@ -1,0 +1,143 @@
+\hypertarget{main_8c}{}\doxysection{Square\+Roots/main.c File Reference}
+\label{main_8c}\index{SquareRoots/main.c@{SquareRoots/main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a125fa513d408d9da97aae516d784fad2}\label{main_8c_a125fa513d408d9da97aae516d784fad2}} 
+\#define {\bfseries P\+R\+E\+C\+I\+S\+I\+O\+N\+\_\+\+D\+E\+L\+TA}~1e-\/5
+\item 
+\mbox{\Hypertarget{main_8c_a9a0b6c981393c90d74c458bb7ca999d4}\label{main_8c_a9a0b6c981393c90d74c458bb7ca999d4}} 
+\#define {\bfseries I\+N\+F\+\_\+\+S\+Q\+U\+A\+R\+E\+\_\+\+S\+O\+L\+U\+T\+I\+O\+NS}~-\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_af81b407d8d769f725648ee6bf936be66}{square\+Roots}} (double a, double b, double c, double $\ast$x1, double $\ast$x2)
+\item 
+void \mbox{\hyperlink{main_8c_a2f93b00381444c65b84339c94b6f99a9}{normalize\+Negative\+Zero}} (double $\ast$value)
+\item 
+int \mbox{\hyperlink{main_8c_a5243c13cc8fd8363cdeebf10fc049838}{print\+Processing\+Output}} (int sol\+Number, double x1, double x2)
+\item 
+bool \mbox{\hyperlink{main_8c_ac18565822b8b6a32e8d69739f95073cd}{is\+Almost\+Zero}} (double value)
+\item 
+bool \mbox{\hyperlink{main_8c_a939e689c3d71c4702076199ca18abd3e}{unit\+Tests\+Square\+Solve}} (int $\ast$number\+Failed, int $\ast$first\+Failed)
+\item 
+bool \mbox{\hyperlink{main_8c_ac43352fb581adf84bc507666f6a55280}{perform\+All\+Units}} (int $\ast$number\+Failed, int $\ast$first\+Failed)
+\item 
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Александр Дремов \href{mailto:dremov.me@gmail.com}{\texttt{ dremov.\+me@gmail.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 $\ast$ 
+\end{DoxyVersion}
+\hypertarget{main_8c_LICENSE}{}\doxysubsection{$\ast$}\label{main_8c_LICENSE}
+\begin{DoxyCopyright}{Copyright}
+2020 alexdremov. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ac18565822b8b6a32e8d69739f95073cd}\label{main_8c_ac18565822b8b6a32e8d69739f95073cd}} 
+\index{main.c@{main.c}!isAlmostZero@{isAlmostZero}}
+\index{isAlmostZero@{isAlmostZero}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{isAlmostZero()}{isAlmostZero()}}
+{\footnotesize\ttfamily bool is\+Almost\+Zero (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{[}in\mbox{]} value to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the value is almost zero with precision P\+R\+E\+C\+I\+S\+I\+O\+N\+\_\+\+D\+E\+L\+TA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a2f93b00381444c65b84339c94b6f99a9}\label{main_8c_a2f93b00381444c65b84339c94b6f99a9}} 
+\index{main.c@{main.c}!normalizeNegativeZero@{normalizeNegativeZero}}
+\index{normalizeNegativeZero@{normalizeNegativeZero}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{normalizeNegativeZero()}{normalizeNegativeZero()}}
+{\footnotesize\ttfamily void normalize\+Negative\+Zero (\begin{DoxyParamCaption}\item[{double $\ast$}]{value }\end{DoxyParamCaption})}
+
+Casts -\/0 to 0 with P\+R\+E\+C\+I\+S\+I\+O\+N\+\_\+\+D\+E\+L\+TA precision 
+\begin{DoxyParams}{Parameters}
+{\em value} & \mbox{[}in + out\mbox{]} Value to cast (passed by reference) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ac43352fb581adf84bc507666f6a55280}\label{main_8c_ac43352fb581adf84bc507666f6a55280}} 
+\index{main.c@{main.c}!performAllUnits@{performAllUnits}}
+\index{performAllUnits@{performAllUnits}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{performAllUnits()}{performAllUnits()}}
+{\footnotesize\ttfamily bool perform\+All\+Units (\begin{DoxyParamCaption}\item[{int $\ast$}]{number\+Failed,  }\item[{int $\ast$}]{first\+Failed }\end{DoxyParamCaption})}
+
+Performs all unit tests for this scope 
+\begin{DoxyParams}{Parameters}
+{\em number\+Failed} & -\/ number of total tests failed \\
+\hline
+{\em first\+Failed} & -\/ first test failed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a5243c13cc8fd8363cdeebf10fc049838}\label{main_8c_a5243c13cc8fd8363cdeebf10fc049838}} 
+\index{main.c@{main.c}!printProcessingOutput@{printProcessingOutput}}
+\index{printProcessingOutput@{printProcessingOutput}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{printProcessingOutput()}{printProcessingOutput()}}
+{\footnotesize\ttfamily int print\+Processing\+Output (\begin{DoxyParamCaption}\item[{int}]{sol\+Number,  }\item[{double}]{x1,  }\item[{double}]{x2 }\end{DoxyParamCaption})}
+
+Generates output for task solution 
+\begin{DoxyParams}{Parameters}
+{\em sol\+Number} & \mbox{[}in\mbox{]} number of solutions \\
+\hline
+{\em x1} & \mbox{[}in\mbox{]} first x \\
+\hline
+{\em x2} & \mbox{[}in\mbox{]} second x \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+exit code 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_af81b407d8d769f725648ee6bf936be66}\label{main_8c_af81b407d8d769f725648ee6bf936be66}} 
+\index{main.c@{main.c}!squareRoots@{squareRoots}}
+\index{squareRoots@{squareRoots}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{squareRoots()}{squareRoots()}}
+{\footnotesize\ttfamily int square\+Roots (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b,  }\item[{double}]{c,  }\item[{double $\ast$}]{x1,  }\item[{double $\ast$}]{x2 }\end{DoxyParamCaption})}
+
+Square roots calculation
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \mbox{[}in\mbox{]} first coefficient \\
+\hline
+{\em b} & \mbox{[}in\mbox{]} second coefficient \\
+\hline
+{\em c} & \mbox{[}in\mbox{]} third coefficient \\
+\hline
+{\em x1} & \mbox{[}out\mbox{]} first root (passed by reference) \\
+\hline
+{\em x2} & \mbox{[}out\mbox{]} second root (passed by reference) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of roots. I\+N\+F\+\_\+\+S\+Q\+U\+A\+R\+E\+\_\+\+S\+O\+L\+U\+T\+I\+O\+NS if infinite number of solutions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a939e689c3d71c4702076199ca18abd3e}\label{main_8c_a939e689c3d71c4702076199ca18abd3e}} 
+\index{main.c@{main.c}!unitTestsSquareSolve@{unitTestsSquareSolve}}
+\index{unitTestsSquareSolve@{unitTestsSquareSolve}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{unitTestsSquareSolve()}{unitTestsSquareSolve()}}
+{\footnotesize\ttfamily bool unit\+Tests\+Square\+Solve (\begin{DoxyParamCaption}\item[{int $\ast$}]{number\+Failed,  }\item[{int $\ast$}]{first\+Failed }\end{DoxyParamCaption})}
+
+Performs checks for square\+Roots function 
+\begin{DoxyParams}{Parameters}
+{\em number\+Failed} & -\/ number of total tests failed \\
+\hline
+{\em first\+Failed} & -\/ first test failed \\
+\hline
+\end{DoxyParams}

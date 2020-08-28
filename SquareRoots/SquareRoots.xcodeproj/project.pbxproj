@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		A06C32DC24F7C54300CA8FE2 /* SquareRoots */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SquareRoots; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06C32DF24F7C54300CA8FE2 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		A06C330C24F8F2DC00CA8FE2 /* Doxyfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +42,7 @@
 		A06C32D324F7C54300CA8FE2 = {
 			isa = PBXGroup;
 			children = (
+				A06C330C24F8F2DC00CA8FE2 /* Doxyfile */,
 				A06C32DE24F7C54300CA8FE2 /* SquareRoots */,
 				A06C32DD24F7C54300CA8FE2 /* Products */,
 			);
