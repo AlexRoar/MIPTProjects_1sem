@@ -147,6 +147,13 @@ void freeContainer(struct SortedLinesContainer* this);
 
 
 /**
+ * Tests for SortedLinesContainer
+ * @return success
+ */
+bool testContainer(void);
+
+
+/**
  * Main function of the program Sorts input file lexicographically and outputs to the output file.
  * Command line parameters can be passed:
  * @arg -r – sort from the end
@@ -217,12 +224,19 @@ int strlexcmp(char* line1, char* line2, bool fromEnd){
     if (!fromEnd){
         return strcmp(line1, line2);
     } else {
-        char tmpLine1[firstLen + 1], tmpLine2[secondLen + 1];
+        char* tmpLine1 = calloc(firstLen + 1, sizeof(char));
+        char* tmpLine2 = calloc(secondLen + 1, sizeof(char));
+        
         strcpy(tmpLine1, line1);
         strcpy(tmpLine2, line2);
         reverse(tmpLine1, firstLen);
         reverse(tmpLine2, secondLen);
-        return strcmp(tmpLine1, tmpLine2);
+        int compareResult = strcmp(tmpLine1, tmpLine2);
+        
+        free(tmpLine1);
+        free(tmpLine2);
+        
+        return compareResult;
     }
 }
 
@@ -453,4 +467,8 @@ void freeContainer(struct SortedLinesContainer* this) {
     free(this->sortedContainer);
     free(this->sizes);
     this->sortedContainer = NULL;
+}
+
+bool testContainer(void){
+    return true;
 }
