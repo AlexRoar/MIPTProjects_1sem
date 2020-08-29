@@ -178,7 +178,13 @@ int main(int argc, const char * argv[]) {
         if (strcmp("-output", *(argv + i)) == 0){
             i++;
             unsigned long len = strlen(*(argv + i));
-            outputFileName = realloc(outputFileName, sizeof(char) * (len + 1));
+            char* outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
+            if (outputFileNameNew == NULL){
+                printf("Can't realloc memory for output file name\n");
+                return EXIT_FAILURE;
+            } else {
+                outputFileName = outputFileNameNew;
+            }
             strcpy(outputFileName, *(argv + i));
             i++;
             continue;
@@ -186,7 +192,15 @@ int main(int argc, const char * argv[]) {
         if (strcmp("-input", *(argv + i)) == 0){
             i++;
             unsigned long len = strlen(*(argv + i));
-            inputFileName = realloc(inputFileName, sizeof(char) * (len + 1));
+            
+            char* inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
+            if (inputFileNameNew == NULL){
+                printf("Can't realloc memory for input file name\n");
+                return EXIT_FAILURE;
+            } else {
+                inputFileName = inputFileNameNew;
+            }
+            
             strcpy(inputFileName, *(argv + i));
             i++;
             continue;
