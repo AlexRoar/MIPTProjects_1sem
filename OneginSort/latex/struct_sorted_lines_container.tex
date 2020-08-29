@@ -1,0 +1,68 @@
+\hypertarget{struct_sorted_lines_container}{}\doxysection{Sorted\+Lines\+Container Struct Reference}
+\label{struct_sorted_lines_container}\index{SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a684fef466637147f34cf5d3557233c36}{sorted\+Container}}
+\item 
+unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a6b51145973ebebc2c86b4c3197b2e696}{size}}
+\item 
+unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a8a414dd537099bb3c6e12c33abdff473}{available\+Size}}
+\item 
+int \mbox{\hyperlink{struct_sorted_lines_container_afdbe966d559c02f4242112cd74a1a937}{alloc\+Increment}}
+\item 
+unsigned long $\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a5e35ddb8c5c33aedabb77b6d3a4c36da}{sizes}}
+\item 
+\mbox{\Hypertarget{struct_sorted_lines_container_aefb495bf1164d09182e0b4014ba32175}\label{struct_sorted_lines_container_aefb495bf1164d09182e0b4014ba32175}} 
+void($\ast$ {\bfseries add} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$line, bool from\+End)
+\item 
+\mbox{\Hypertarget{struct_sorted_lines_container_ac8b1856bb2be9afabd80f9d42ee13cc9}\label{struct_sorted_lines_container_ac8b1856bb2be9afabd80f9d42ee13cc9}} 
+void($\ast$ {\bfseries container\+Realloc} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+\mbox{\Hypertarget{struct_sorted_lines_container_a3867b77445bd165b6e49a0933852958b}\label{struct_sorted_lines_container_a3867b77445bd165b6e49a0933852958b}} 
+void($\ast$ {\bfseries cell\+Realloc} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, unsigned long pos, unsigned long len)
+\item 
+\mbox{\Hypertarget{struct_sorted_lines_container_af7f30b2a82894155e25d35051f07efd4}\label{struct_sorted_lines_container_af7f30b2a82894155e25d35051f07efd4}} 
+void($\ast$ {\bfseries shift\+Right} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, unsigned long pos)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Container to store strings in lexicographical order 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_sorted_lines_container_afdbe966d559c02f4242112cd74a1a937}\label{struct_sorted_lines_container_afdbe966d559c02f4242112cd74a1a937}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!allocIncrement@{allocIncrement}}
+\index{allocIncrement@{allocIncrement}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{allocIncrement}{allocIncrement}}
+{\footnotesize\ttfamily int Sorted\+Lines\+Container\+::alloc\+Increment}
+
+How much additional memory will be allocated when available size is not enough \mbox{\Hypertarget{struct_sorted_lines_container_a8a414dd537099bb3c6e12c33abdff473}\label{struct_sorted_lines_container_a8a414dd537099bb3c6e12c33abdff473}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!availableSize@{availableSize}}
+\index{availableSize@{availableSize}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{availableSize}{availableSize}}
+{\footnotesize\ttfamily unsigned long Sorted\+Lines\+Container\+::available\+Size}
+
+Allocated memory for sorted\+Container (number of elements) \mbox{\Hypertarget{struct_sorted_lines_container_a6b51145973ebebc2c86b4c3197b2e696}\label{struct_sorted_lines_container_a6b51145973ebebc2c86b4c3197b2e696}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!size@{size}}
+\index{size@{size}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily unsigned long Sorted\+Lines\+Container\+::size}
+
+Current number of strings \mbox{\Hypertarget{struct_sorted_lines_container_a5e35ddb8c5c33aedabb77b6d3a4c36da}\label{struct_sorted_lines_container_a5e35ddb8c5c33aedabb77b6d3a4c36da}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!sizes@{sizes}}
+\index{sizes@{sizes}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{sizes}{sizes}}
+{\footnotesize\ttfamily unsigned long$\ast$ Sorted\+Lines\+Container\+::sizes}
+
+Sizes of strings in sorted\+Container \mbox{\Hypertarget{struct_sorted_lines_container_a684fef466637147f34cf5d3557233c36}\label{struct_sorted_lines_container_a684fef466637147f34cf5d3557233c36}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!sortedContainer@{sortedContainer}}
+\index{sortedContainer@{sortedContainer}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{sortedContainer}{sortedContainer}}
+{\footnotesize\ttfamily char$\ast$$\ast$ Sorted\+Lines\+Container\+::sorted\+Container}
+
+Array to pointers of strings, sorted in lexicographicl order 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Onegin\+Sort/\mbox{\hyperlink{main_8c}{main.\+c}}\end{DoxyCompactItemize}
