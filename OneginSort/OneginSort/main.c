@@ -17,7 +17,7 @@
  */
 typedef struct SortedLinesContainer {
     /**
-     * Array to pointers of strings, sorted in lexicographicl order
+     * Array to pointers of strings, sorted in lexicographical order
      */
     char** sortedContainer;
     
@@ -303,7 +303,7 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
     this->containerRealloc(this);
     this->cellRealloc(this, this->size, len);
     strcpy(*(this->sortedContainer + this->size), line);
-    *(this->sizes + + this->size) = len;
+    *(this->sizes + this->size) = len;
     this->size += 1;
 }
 
