@@ -105,7 +105,7 @@ int main() {
     while (num != 3) {
         printf("Error receiving parameters, "
                "please try again\n");
-        while (getchar() != '\n'){}
+        while (getchar() != '\n' && getchar() != '\0' && getchar() != EOF){}
         printf("Enter 3 coefficients, separated by space: ");
         num = scanf("%lg %lg %lg", &a, &b, &c);
     }
