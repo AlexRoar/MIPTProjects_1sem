@@ -313,17 +313,17 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
         int cmpresult = strlexcmp(noPunctLine1, noPunctLine2, lenOut1, lenOut2, fromEnd);
         free(noPunctLine1);
         free(noPunctLine2);
-
+        
         if (cmpresult > 0) {
             this->containerRealloc(this);
             this->shiftRight(this, i);
-
+            
             *(this->sortedContainer + i) = NULL;
             this->cellRealloc(this, i, len);
             
             strcpy(*(this->sortedContainer + i), line);
             *(this->sizes + i) = len;
-
+            
             this->size += 1;
             return;
         }
@@ -428,14 +428,14 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
     char* newLine = NULL;
     size_t len = 0;
     unsigned long linesReaded = 0;
-
+    
     fp = fopen(fileName, "r");
     
     if (fp == NULL){
         printf("Could not open %s file\n", fileName);
         return 0;
     }
-
+    
     while ((getline(&newLine, &len, fp)) != -1) {
         if (!(strcmp(newLine, "\n") == 0 || strcmp(newLine, " ") == 0)){
             this->add(this, newLine, reversed);
@@ -444,7 +444,7 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
     }
     if (newLine)
         free(newLine);
-
+    
     fclose(fp);
     
     return linesReaded;
@@ -486,6 +486,7 @@ void freeContainer(struct SortedLinesContainer* this) {
         free(this->sizes);
     this->sortedContainer = NULL;
 }
+
 
 bool testContainer(void){
     int failedNum = 0;
@@ -555,3 +556,5 @@ bool testContainer(void){
     
     return failedNum == 0;
 }
+
+
