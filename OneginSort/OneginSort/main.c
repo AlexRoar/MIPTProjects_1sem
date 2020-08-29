@@ -186,7 +186,13 @@ int main(int argc, const char * argv[]) {
     printf("Aleksandr Dremov\n"
            "(c) 2020 all rights reserved\n\n");
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
-    printf("Is sort from the end: %s\n\n", (reversed) ? "true" : "false");
+    printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
+    if (testContainer()){
+        printf("Tests performed succesfully\n\n");
+    } else {
+        printf("Some tests failed. Review printed messages\n\n");
+        exit(EXIT_FAILURE);
+    }
     
     SortedLinesContainer container;
     defaultContainer(&container);
@@ -388,7 +394,6 @@ void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned 
 
 void defaultContainer(struct SortedLinesContainer* this) {
     assert(this != NULL);
-    
     this->size = 0;
     this->availableSize = 0;
     this->allocIncrement = 2048;
@@ -397,6 +402,7 @@ void defaultContainer(struct SortedLinesContainer* this) {
     this->cellRealloc = &cellRealloc;
     this->shiftRight = &shiftRight;
     this->free = &freeContainer;
+    this->sizes = NULL;
 }
 
 
@@ -474,14 +480,78 @@ void freeContainer(struct SortedLinesContainer* this) {
             *(this->sortedContainer) = NULL;
         }
     }
-    free(this->sortedContainer);
-    free(this->sizes);
+    if (this->sortedContainer != NULL)
+        free(this->sortedContainer);
+    if (this->sizes != NULL)
+        free(this->sizes);
     this->sortedContainer = NULL;
 }
 
 bool testContainer(void){
-//    char *tests = {
-//
-//    };
-    return true;
+    int failedNum = 0;
+    int number = 1;
+    
+    SortedLinesContainer container;
+    defaultContainer(&container);
+    
+    container.add(&container, "abcd", false);
+    if (!(container.size == 1 && strcmp(*(container.sortedContainer), "abcd") == 0)){
+        failedNum++;
+        printf("Failed testContainer test %d \n", number);
+    }
+    freeContainer(&container);
+    number++;
+    
+    defaultContainer(&container);
+    container.add(&container, "abcd", true);
+    if (!(container.size == 1 && strcmp(*(container.sortedContainer), "abcd") == 0)){
+        failedNum++;
+        printf("Failed testContainer test %d \n", number);
+    }
+    freeContainer(&container);
+    number++;
+    
+    defaultContainer(&container);
+    container.add(&container, "abcd", false);
+    container.add(&container, "accd", false);
+    if (!(container.size == 2 && strcmp(*(container.sortedContainer), "abcd") == 0 && strcmp(*(container.sortedContainer + 1), "accd") == 0)){
+        failedNum++;
+        printf("Failed testContainer test %d \n", number);
+    }
+    freeContainer(&container);
+    number++;
+    
+    defaultContainer(&container);
+    container.add(&container, "abca", true);
+    container.add(&container, "accb", true);
+    if (!(container.size == 2 && strcmp(*(container.sortedContainer), "abca") == 0 && strcmp(*(container.sortedContainer + 1), "accb") == 0)){
+        failedNum++;
+        printf("Failed testContainer test %d \n", number);
+    }
+    freeContainer(&container);
+    number++;
+    
+    defaultContainer(&container);
+    container.add(&container, "abca", false);
+    container.add(&container, "accb", false);
+    container.add(&container, "aaaaaaaaa", false);
+    if (!(container.size == 3 &&
+          strcmp(*(container.sortedContainer), "aaaaaaaaa") == 0 &&
+          strcmp(*(container.sortedContainer + 1), "abca") == 0 &&
+          strcmp(*(container.sortedContainer + 2), "accb") == 0)){
+        failedNum++;
+        printf("Failed testContainer test %d \n", number);
+    }
+    freeContainer(&container);
+    number++;
+    
+    defaultContainer(&container);
+    if (!(container.size == 0)){
+        failedNum++;
+        printf("Failed testContainer test %d \n", number);
+    }
+    freeContainer(&container);
+    number++;
+    
+    return failedNum == 0;
 }
