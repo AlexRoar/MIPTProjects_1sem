@@ -10,6 +10,7 @@
 #include <string.h>
 #include <ctype.h>
 
+
 /**
  * Container to store strings in lexicographical order
  */
@@ -127,6 +128,7 @@ void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen);
  */
 unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName, bool reversed);
 
+
 /**
  * Outputs container to the file.
  * @param this [in] container
@@ -204,7 +206,6 @@ int main(int argc, const char * argv[]) {
 }
 
 
-
 int strlexcmp(char* line1, char* line2, bool fromEnd){
     unsigned long firstLen  = strlen(line1);
     unsigned long secondLen = strlen(line2);
@@ -239,6 +240,7 @@ void reverse(char* line, unsigned long len) {
     }
 }
 
+
 void shiftRight(struct SortedLinesContainer* this, unsigned long pos) {
     for (unsigned long i = this->size; i > pos; i--){
         unsigned long sourceLen = *(this->sizes + i - 1);
@@ -254,6 +256,7 @@ void shiftRight(struct SortedLinesContainer* this, unsigned long pos) {
         *(this->sizes + i) = sourceLen;
     }
 }
+
 
 void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
     unsigned long len = strlen(line);
@@ -331,6 +334,7 @@ void containerRealloc(struct SortedLinesContainer* this) {
     }
 }
 
+
 void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned long len) {
     if (*(this->sortedContainer + pos) == NULL || *(this->sizes + pos) == 0){
         *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
@@ -359,6 +363,7 @@ void defaultContainer(struct SortedLinesContainer* this) {
     this->free = &freeContainer;
 }
 
+
 void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
     char* outPos = lineOut;
     for (unsigned long i = 0; i<inpLen;i++){
@@ -367,6 +372,7 @@ void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
         *(outPos++) = *(lineIn + i);
     }
 }
+
 
 unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName, bool reversed) {
     FILE* fp;
@@ -395,6 +401,7 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
     return linesReaded;
 }
 
+
 unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
     FILE* fp;
     
@@ -411,6 +418,7 @@ unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
     fclose(fp);
     return this->size;
 }
+
 
 void freeContainer(struct SortedLinesContainer* this) {
     for (unsigned long i = 0; i < this->availableSize; i++) {
