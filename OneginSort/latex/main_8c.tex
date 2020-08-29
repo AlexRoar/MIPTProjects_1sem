@@ -39,8 +39,13 @@ void \mbox{\hyperlink{main_8c_a041889d582387b35ded6cfee002e22b4}{default\+Contai
 \item 
 void \mbox{\hyperlink{main_8c_a1c0c8c2cd1210aa57d62b742856d01db}{line\+Without\+Punctuation}} (char $\ast$line\+In, char $\ast$line\+Out, unsigned long inp\+Len)
 \item 
-\mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
-int {\bfseries main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+unsigned long \mbox{\hyperlink{main_8c_a9082651d40e229f6b18a03e0c12d2946}{add\+File\+Lines\+To\+Container}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$file\+Name, bool reversed)
+\item 
+unsigned long \mbox{\hyperlink{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}{output\+Container}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$file\+Name)
+\item 
+void \mbox{\hyperlink{main_8c_a8b5489b599da81ac0e2b085beedd614c}{free\+Container}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+int \mbox{\hyperlink{main_8c_ac0f2228420376f4db7e1274f2b41667c}{main}} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 
 
@@ -77,6 +82,24 @@ Function that adds string to the container, taking order into account.
 {\em from\+End} & \mbox{[}in\mbox{]} whether to compare lines from the end \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a9082651d40e229f6b18a03e0c12d2946}\label{main_8c_a9082651d40e229f6b18a03e0c12d2946}} 
+\index{main.c@{main.c}!addFileLinesToContainer@{addFileLinesToContainer}}
+\index{addFileLinesToContainer@{addFileLinesToContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{addFileLinesToContainer()}{addFileLinesToContainer()}}
+{\footnotesize\ttfamily unsigned long add\+File\+Lines\+To\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{char $\ast$}]{file\+Name,  }\item[{bool}]{reversed }\end{DoxyParamCaption})}
+
+Adds lines from the file to the container. 
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in+out\mbox{]} container \\
+\hline
+{\em file\+Name} & \mbox{[}in\mbox{]} file name \\
+\hline
+{\em reversed} & \mbox{[}in\mbox{]} reversed sort (from the end) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of readed lines 
+\end{DoxyReturn}
 \mbox{\Hypertarget{main_8c_acbc12809a15ec66061b32d1d45df4ed4}\label{main_8c_acbc12809a15ec66061b32d1d45df4ed4}} 
 \index{main.c@{main.c}!cellRealloc@{cellRealloc}}
 \index{cellRealloc@{cellRealloc}!main.c@{main.c}}
@@ -114,6 +137,17 @@ Sets default values for the container
 {\em this} & \mbox{[}out\mbox{]} pointer to the \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a8b5489b599da81ac0e2b085beedd614c}\label{main_8c_a8b5489b599da81ac0e2b085beedd614c}} 
+\index{main.c@{main.c}!freeContainer@{freeContainer}}
+\index{freeContainer@{freeContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{freeContainer()}{freeContainer()}}
+{\footnotesize\ttfamily void free\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+Frees memory allocated for container 
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in\mbox{]} container \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{main_8c_a1c0c8c2cd1210aa57d62b742856d01db}\label{main_8c_a1c0c8c2cd1210aa57d62b742856d01db}} 
 \index{main.c@{main.c}!lineWithoutPunctuation@{lineWithoutPunctuation}}
 \index{lineWithoutPunctuation@{lineWithoutPunctuation}!main.c@{main.c}}
@@ -129,6 +163,30 @@ Creates a line copy without punctuation marks.
 {\em inp\+Len} & \mbox{[}in\mbox{]} input line length \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Main function of the program Sorts input file lexicographically and outputs to the output file. Command line parameters can be passed\+: \begin{DoxyItemize}
+\item -\/r – sort from the end \item -\/input $<$filename$>$ -\/ name of the input file \item -\/output $<$filename$>$ -\/ name of the output file \end{DoxyItemize}
+\mbox{\Hypertarget{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}\label{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}} 
+\index{main.c@{main.c}!outputContainer@{outputContainer}}
+\index{outputContainer@{outputContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{outputContainer()}{outputContainer()}}
+{\footnotesize\ttfamily unsigned long output\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+Outputs container to the file. 
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in\mbox{]} container \\
+\hline
+{\em file\+Name} & \mbox{[}in\mbox{]} file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of lines written 
+\end{DoxyReturn}
 \mbox{\Hypertarget{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}\label{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}} 
 \index{main.c@{main.c}!reverse@{reverse}}
 \index{reverse@{reverse}!main.c@{main.c}}

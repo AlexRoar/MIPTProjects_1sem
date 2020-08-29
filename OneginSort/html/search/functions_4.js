@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reverse_22',['reverse',['../main_8c.html#aac99d85f10c0383daf31644cf8f9dc8a',1,'main.c']]]
+  ['linewithoutpunctuation_27',['lineWithoutPunctuation',['../main_8c.html#a1c0c8c2cd1210aa57d62b742856d01db',1,'main.c']]]
 ];

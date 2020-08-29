@@ -48,6 +48,7 @@ typedef struct SortedLinesContainer {
     void (*containerRealloc)(struct SortedLinesContainer* this);
     void (*cellRealloc)(struct SortedLinesContainer* this, unsigned long pos, unsigned long len);
     void (*shiftRight)(struct SortedLinesContainer* this, unsigned long pos);
+    void (*free)(struct SortedLinesContainer* this);
 } SortedLinesContainer;
 
 
@@ -134,6 +135,21 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
  */
 unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
 
+
+/**
+ * Frees memory allocated for container
+ * @param this [in] container
+ */
+void freeContainer(struct SortedLinesContainer* this);
+
+
+/**
+ * Main function of the program Sorts input file lexicographically and outputs to the output file.
+ * Command line parameters can be passed:
+ * @arg -r – sort from the end
+ * @arg -input <filename> - name of the input file
+ * @arg -output <filename> - name of the output file
+ */
 int main(int argc, const char * argv[]) {
     
     bool reversed = false;
@@ -160,7 +176,7 @@ int main(int argc, const char * argv[]) {
     printf("Aleksandr Dremov\n"
            "(c) 2020 all rights reserved\n\n");
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
-    printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
+    printf("Is sort from the end: %s\n\n", (reversed) ? "true" : "false");
     
     SortedLinesContainer container;
     defaultContainer(&container);
@@ -170,6 +186,7 @@ int main(int argc, const char * argv[]) {
         printf("Readed %lu lines\n", linesReaded);
     else {
         printf("Error reading lines");
+        container.free(&container);
         return EXIT_FAILURE;
     }
     unsigned long linesWritten = outputContainer(&container, outputFileName);
@@ -178,8 +195,10 @@ int main(int argc, const char * argv[]) {
         printf("Wrote %lu lines\n", linesWritten);
     else {
         printf("Error writing lines");
+        container.free(&container);
         return EXIT_FAILURE;
     }
+    container.free(&container);
     
     return EXIT_SUCCESS;
 }
@@ -227,7 +246,7 @@ void shiftRight(struct SortedLinesContainer* this, unsigned long pos) {
             this->cellRealloc(this, i, sourceLen);
         } else {
             unsigned long distinLen = strlen(*(this->sortedContainer + i));
-            if (distinLen < sourceLen){
+            if (distinLen <= sourceLen){
                 this->cellRealloc(this, i, sourceLen);
             }
         }
@@ -254,24 +273,18 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
         lineWithoutPunctuation(line, noPunctLine2, len);
         
         int cmpresult = strlexcmp(noPunctLine1, noPunctLine2, fromEnd);
-        //        printf("%s comparison %s - %d(%d)\n", line, *(this->sortedContainer + i), i, cmpresult);
+        free(noPunctLine1);
+        free(noPunctLine2);
+
         if (cmpresult > 0) {
-            //            printf("%s higher than %s - %d(%d)\n", line, *(this->sortedContainer + i), i, cmpresult);
-            //            for(int i = 0; i < this->size + 1; i++){
-            //                printf("\t1\t%d: %s\n", (i+1), *(this->sortedContainer + i));
-            //            }
             this->containerRealloc(this);
             this->shiftRight(this, i);
-            //            for(int i = 0; i < this->size + 1; i++){
-            //                printf("\t2\t%d: %s\n", (i+1), *(this->sortedContainer + i));
-            //            }
-            if (*(this->sizes + i) < len)
+
+            if (*(this->sizes + i) <= len)
                 this->cellRealloc(this, i, len);
             strcpy(*(this->sortedContainer + i), line);
             *(this->sizes + i) = len;
-            //            for(int i = 0; i < this->size + 2; i++){
-            //                printf("\t3\t%d: %s\n", (i+1), *(this->sortedContainer + i));
-            //            }
+
             this->size += 1;
             return;
         }
@@ -286,7 +299,7 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
 
 
 void containerRealloc(struct SortedLinesContainer* this) {
-    if (this->sortedContainer == NULL){
+    if (this->sortedContainer == NULL || this->availableSize == 0){
         this->sortedContainer = calloc(this->allocIncrement, sizeof(char*));
         if (this->sortedContainer == NULL){
             printf("Failed allocating memory for sortedContainer\n");
@@ -303,6 +316,7 @@ void containerRealloc(struct SortedLinesContainer* this) {
     if (this->size + 1 >= this->availableSize){
         this->sortedContainer = realloc(this->sortedContainer,
                                         sizeof(char*) * (this->availableSize + this->allocIncrement));
+        
         if (this->sortedContainer == NULL){
             printf("Failed reallocating memory for sortedContainer\n");
             exit(EXIT_FAILURE);
@@ -318,16 +332,14 @@ void containerRealloc(struct SortedLinesContainer* this) {
 }
 
 void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned long len) {
-    if (*(this->sortedContainer + pos) == NULL){
+    if (*(this->sortedContainer + pos) == NULL || *(this->sizes + pos) == 0){
         *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
-    }else{
-        char* newArea;
-        if ((newArea =  realloc(*(this->sortedContainer + pos), (len + 1) * sizeof(char))) == NULL) {
-            free (newArea);
+        if (*(this->sortedContainer + pos) == NULL){
             printf("Failed reallocating memory for sortedContainer cell\n");
             exit(EXIT_FAILURE);
         }
-        *(this->sortedContainer + pos) = newArea;
+    }else{
+        *(this->sortedContainer + pos) = realloc(*(this->sortedContainer + pos), (len + 1) * sizeof(char));
     }
     if (this->sortedContainer == NULL){
         printf("Failed reallocating memory for sortedContainer cell\n");
@@ -344,6 +356,7 @@ void defaultContainer(struct SortedLinesContainer* this) {
     this->containerRealloc = &containerRealloc;
     this->cellRealloc = &cellRealloc;
     this->shiftRight = &shiftRight;
+    this->free = &freeContainer;
 }
 
 void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
@@ -359,7 +372,6 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
     FILE* fp;
     char* newLine = NULL;
     size_t len = 0;
-    ssize_t read;
     unsigned long linesReaded = 0;
 
     fp = fopen(fileName, "r");
@@ -369,16 +381,16 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
         return 0;
     }
 
-    while ((read = getline(&newLine, &len, fp)) != -1) {
+    while ((getline(&newLine, &len, fp)) != -1) {
         if (!(strcmp(newLine, "\n") == 0 || strcmp(newLine, " ") == 0)){
             this->add(this, newLine, reversed);
             linesReaded++;
         }
     }
-
-    fclose(fp);
     if (newLine)
         free(newLine);
+
+    fclose(fp);
     
     return linesReaded;
 }
@@ -398,4 +410,16 @@ unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
     
     fclose(fp);
     return this->size;
+}
+
+void freeContainer(struct SortedLinesContainer* this) {
+    for (unsigned long i = 0; i < this->availableSize; i++) {
+        if (*(this->sortedContainer) != NULL) {
+            free(*(this->sortedContainer));
+            *(this->sortedContainer) = NULL;
+        }
+    }
+    free(this->sortedContainer);
+    free(this->sizes);
+    this->sortedContainer = NULL;
 }

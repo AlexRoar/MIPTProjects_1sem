@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['reverse_8',['reverse',['../main_8c.html#aac99d85f10c0383daf31644cf8f9dc8a',1,'main.c']]]
+  ['main_9',['main',['../main_8c.html#ac0f2228420376f4db7e1274f2b41667c',1,'main.c']]],
+  ['main_2ec_10',['main.c',['../main_8c.html',1,'']]]
 ];

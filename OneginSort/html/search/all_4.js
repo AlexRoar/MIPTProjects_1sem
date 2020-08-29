@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_2ec_7',['main.c',['../main_8c.html',1,'']]]
+  ['linewithoutpunctuation_8',['lineWithoutPunctuation',['../main_8c.html#a1c0c8c2cd1210aa57d62b742856d01db',1,'main.c']]]
 ];

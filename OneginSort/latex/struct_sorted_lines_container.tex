@@ -9,7 +9,7 @@ unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a6b51145973ebebc2c8
 \item 
 unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a8a414dd537099bb3c6e12c33abdff473}{available\+Size}}
 \item 
-int \mbox{\hyperlink{struct_sorted_lines_container_afdbe966d559c02f4242112cd74a1a937}{alloc\+Increment}}
+unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a0996b237e1ca9aa65e23d82a340036ba}{alloc\+Increment}}
 \item 
 unsigned long $\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a5e35ddb8c5c33aedabb77b6d3a4c36da}{sizes}}
 \item 
@@ -24,6 +24,9 @@ void($\ast$ {\bfseries cell\+Realloc} )(struct \mbox{\hyperlink{struct_sorted_li
 \item 
 \mbox{\Hypertarget{struct_sorted_lines_container_af7f30b2a82894155e25d35051f07efd4}\label{struct_sorted_lines_container_af7f30b2a82894155e25d35051f07efd4}} 
 void($\ast$ {\bfseries shift\+Right} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, unsigned long pos)
+\item 
+\mbox{\Hypertarget{struct_sorted_lines_container_a9e25395b1003ab70af0ebb71dd2f4cef}\label{struct_sorted_lines_container_a9e25395b1003ab70af0ebb71dd2f4cef}} 
+void($\ast$ {\bfseries free} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
 \end{DoxyCompactItemize}
 
 
@@ -31,11 +34,11 @@ void($\ast$ {\bfseries shift\+Right} )(struct \mbox{\hyperlink{struct_sorted_lin
 Container to store strings in lexicographical order 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{struct_sorted_lines_container_afdbe966d559c02f4242112cd74a1a937}\label{struct_sorted_lines_container_afdbe966d559c02f4242112cd74a1a937}} 
+\mbox{\Hypertarget{struct_sorted_lines_container_a0996b237e1ca9aa65e23d82a340036ba}\label{struct_sorted_lines_container_a0996b237e1ca9aa65e23d82a340036ba}} 
 \index{SortedLinesContainer@{SortedLinesContainer}!allocIncrement@{allocIncrement}}
 \index{allocIncrement@{allocIncrement}!SortedLinesContainer@{SortedLinesContainer}}
 \doxysubsubsection{\texorpdfstring{allocIncrement}{allocIncrement}}
-{\footnotesize\ttfamily int Sorted\+Lines\+Container\+::alloc\+Increment}
+{\footnotesize\ttfamily unsigned long Sorted\+Lines\+Container\+::alloc\+Increment}
 
 How much additional memory will be allocated when available size is not enough \mbox{\Hypertarget{struct_sorted_lines_container_a8a414dd537099bb3c6e12c33abdff473}\label{struct_sorted_lines_container_a8a414dd537099bb3c6e12c33abdff473}} 
 \index{SortedLinesContainer@{SortedLinesContainer}!availableSize@{availableSize}}

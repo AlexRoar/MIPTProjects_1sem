@@ -110,8 +110,13 @@ Functions</h2></td></tr>
 <tr class="separator:a041889d582387b35ded6cfee002e22b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c0c8c2cd1210aa57d62b742856d01db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1c0c8c2cd1210aa57d62b742856d01db">lineWithoutPunctuation</a> (char *lineIn, char *lineOut, unsigned long inpLen)</td></tr>
 <tr class="separator:a1c0c8c2cd1210aa57d62b742856d01db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top"><a id="ac0f2228420376f4db7e1274f2b41667c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, const char *argv[])</td></tr>
+<tr class="memitem:a9082651d40e229f6b18a03e0c12d2946"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9082651d40e229f6b18a03e0c12d2946">addFileLinesToContainer</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, char *fileName, bool reversed)</td></tr>
+<tr class="separator:a9082651d40e229f6b18a03e0c12d2946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d075cbc8fa03f48ba2210eeb4046d9"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a74d075cbc8fa03f48ba2210eeb4046d9">outputContainer</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, char *fileName)</td></tr>
+<tr class="separator:a74d075cbc8fa03f48ba2210eeb4046d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b5489b599da81ac0e2b085beedd614c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8b5489b599da81ac0e2b085beedd614c">freeContainer</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this)</td></tr>
+<tr class="separator:a8b5489b599da81ac0e2b085beedd614c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac0f2228420376f4db7e1274f2b41667c">main</a> (int argc, const char *argv[])</td></tr>
 <tr class="separator:ac0f2228420376f4db7e1274f2b41667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -173,6 +178,49 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a9082651d40e229f6b18a03e0c12d2946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9082651d40e229f6b18a03e0c12d2946">&#9670;&nbsp;</a></span>addFileLinesToContainer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long addFileLinesToContainer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reversed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adds lines from the file to the container. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>[in+out] container </td></tr>
+    <tr><td class="paramname">fileName</td><td>[in] file name </td></tr>
+    <tr><td class="paramname">reversed</td><td>[in] reversed sort (from the end) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of readed lines </dd></dl>
 
 </div>
 </div>
@@ -266,6 +314,30 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
+<a id="a8b5489b599da81ac0e2b085beedd614c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b5489b599da81ac0e2b085beedd614c">&#9670;&nbsp;</a></span>freeContainer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void freeContainer </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *&#160;</td>
+          <td class="paramname"><em>this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Frees memory allocated for container </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>[in] container </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1c0c8c2cd1210aa57d62b742856d01db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c0c8c2cd1210aa57d62b742856d01db">&#9670;&nbsp;</a></span>lineWithoutPunctuation()</h2>
 
@@ -305,6 +377,75 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac0f2228420376f4db7e1274f2b41667c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f2228420376f4db7e1274f2b41667c">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Main function of the program Sorts input file lexicographically and outputs to the output file. Command line parameters can be passed: </p><ul>
+<li>-r – sort from the end </li>
+<li>-input &lt;filename&gt; - name of the input file </li>
+<li>-output &lt;filename&gt; - name of the output file </li>
+</ul>
+
+</div>
+</div>
+<a id="a74d075cbc8fa03f48ba2210eeb4046d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d075cbc8fa03f48ba2210eeb4046d9">&#9670;&nbsp;</a></span>outputContainer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long outputContainer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs container to the file. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>[in] container </td></tr>
+    <tr><td class="paramname">fileName</td><td>[in] file name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of lines written </dd></dl>
 
 </div>
 </div>
