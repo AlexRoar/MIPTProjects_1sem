@@ -225,6 +225,11 @@ int strlexcmp(char* line1, char* line2, unsigned long len1, unsigned long len2, 
         char* tmpLine1 = calloc(len1 + 1, sizeof(char));
         char* tmpLine2 = calloc(len2 + 1, sizeof(char));
         
+        if (tmpLine1 == NULL || tmpLine2 == NULL){
+            printf("Failed allocating memory in strlexcmp()\n");
+            exit(EXIT_FAILURE);
+        }
+        
         strcpy(tmpLine1, line1);
         strcpy(tmpLine2, line2);
         reverse(tmpLine1, len1);
@@ -291,6 +296,11 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
         char* noPunctLine1 = calloc(*(this->sizes + i) + 1, sizeof(char));
         char* noPunctLine2 = calloc(len + 1, sizeof(char));
         
+        if (noPunctLine1 == NULL || noPunctLine2 == NULL){
+            printf("Failed allocating memory in add()\n");
+            exit(EXIT_FAILURE);
+        }
+        
         unsigned long lenOut1 = lineWithoutPunctuation(*(this->sortedContainer + i), noPunctLine1, *(this->sizes + i));
         unsigned long lenOut2 = lineWithoutPunctuation(line, noPunctLine2, len);
         
@@ -327,12 +337,12 @@ void containerRealloc(struct SortedLinesContainer* this) {
     if (this->sortedContainer == NULL || this->availableSize == 0){
         this->sortedContainer = calloc(this->allocIncrement, sizeof(char*));
         if (this->sortedContainer == NULL){
-            printf("Failed allocating memory for sortedContainer\n");
+            printf("Failed allocating memory for sortedContainer in containerRealloc()\n");
             exit(EXIT_FAILURE);
         }
         this->sizes = calloc(this->allocIncrement, sizeof(unsigned long));
         if (this->sizes == NULL){
-            printf("Failed allocating memory for sizes\n");
+            printf("Failed allocating memory for sizes in containerRealloc()\n");
             exit(EXIT_FAILURE);
         }
         this->availableSize = this->allocIncrement;
@@ -363,7 +373,7 @@ void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned 
     if (*(this->sortedContainer + pos) == NULL || *(this->sizes + pos) == 0){
         *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
         if (*(this->sortedContainer + pos) == NULL){
-            printf("Failed reallocating memory for sortedContainer cell\n");
+            printf("Failed reallocating memory for sortedContainer cell in cellRealoc()\n");
             exit(EXIT_FAILURE);
         }
     }else{
