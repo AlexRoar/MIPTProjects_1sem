@@ -60,7 +60,7 @@ typedef struct SortedLinesContainer {
  * @param line2 [in] second line to compare
  * @param fromEnd [in] whether to compare from the end of the lines
  */
-int  strlexcmp(char* line1, char* line2, bool fromEnd);
+int  strlexcmp(char* line1, char* line2, unsigned long len1, unsigned long len2, bool fromEnd);
 
 
 /**
@@ -116,8 +116,9 @@ void defaultContainer(struct SortedLinesContainer* this);
  * @param lineIn [in] input line
  * @param lineOut [out] output line
  * @param inpLen [in] input line length
+ * @return output length
  */
-void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen);
+unsigned long lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen);
 
 
 /**
@@ -213,24 +214,21 @@ int main(int argc, const char * argv[]) {
 }
 
 
-int strlexcmp(char* line1, char* line2, bool fromEnd){
+int strlexcmp(char* line1, char* line2, unsigned long len1, unsigned long len2, bool fromEnd){
     assert(line1 != NULL);
     assert(line2 != NULL);
     assert(line1 != line2);
     
-    unsigned long firstLen  = strlen(line1);
-    unsigned long secondLen = strlen(line2);
-    
     if (!fromEnd){
         return strcmp(line1, line2);
     } else {
-        char* tmpLine1 = calloc(firstLen + 1, sizeof(char));
-        char* tmpLine2 = calloc(secondLen + 1, sizeof(char));
+        char* tmpLine1 = calloc(len1 + 1, sizeof(char));
+        char* tmpLine2 = calloc(len2 + 1, sizeof(char));
         
         strcpy(tmpLine1, line1);
         strcpy(tmpLine2, line2);
-        reverse(tmpLine1, firstLen);
-        reverse(tmpLine2, secondLen);
+        reverse(tmpLine1, len1);
+        reverse(tmpLine2, len2);
         int compareResult = strcmp(tmpLine1, tmpLine2);
         
         free(tmpLine1);
@@ -291,11 +289,12 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
     
     for (unsigned long i = 0; i < this->size; i++){
         char* noPunctLine1 = calloc(*(this->sizes + i) + 1, sizeof(char));
-        char* noPunctLine2= calloc(len + 1, sizeof(char));
-        lineWithoutPunctuation(*(this->sortedContainer + i), noPunctLine1, *(this->sizes + i));
-        lineWithoutPunctuation(line, noPunctLine2, len);
+        char* noPunctLine2 = calloc(len + 1, sizeof(char));
         
-        int cmpresult = strlexcmp(noPunctLine1, noPunctLine2, fromEnd);
+        unsigned long lenOut1 = lineWithoutPunctuation(*(this->sortedContainer + i), noPunctLine1, *(this->sizes + i));
+        unsigned long lenOut2 = lineWithoutPunctuation(line, noPunctLine2, len);
+        
+        int cmpresult = strlexcmp(noPunctLine1, noPunctLine2, lenOut1, lenOut2, fromEnd);
         free(noPunctLine1);
         free(noPunctLine2);
 
@@ -391,7 +390,7 @@ void defaultContainer(struct SortedLinesContainer* this) {
 }
 
 
-void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
+unsigned long lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
     assert(lineIn != NULL);
     assert(lineOut != NULL);
     assert(lineOut != lineIn);
@@ -402,6 +401,7 @@ void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
             continue;
         *(outPos++) = *(lineIn + i);
     }
+    return (unsigned long)(outPos - lineOut);
 }
 
 
@@ -470,5 +470,8 @@ void freeContainer(struct SortedLinesContainer* this) {
 }
 
 bool testContainer(void){
+//    char *tests = {
+//
+//    };
     return true;
 }
