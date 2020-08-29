@@ -163,8 +163,11 @@ bool testContainer(void);
  */
 int main(int argc, const char * argv[]) {
     bool reversed = false;
-    char* inputFileName = "input.txt";
-    char* outputFileName = "output.txt";
+    char* inputFileName = malloc(10 * sizeof(char));
+    char* outputFileName = malloc(11 * sizeof(char));
+    
+    strcpy(inputFileName, "input.txt");
+    strcpy(outputFileName, "output.txt");
     
     for(int i = 0; i < argc; i++){
         if (strcmp("-r", *(argv + i)) == 0){
@@ -174,12 +177,18 @@ int main(int argc, const char * argv[]) {
         
         if (strcmp("-output", *(argv + i)) == 0){
             i++;
-            strcpy(outputFileName, *(argv + i++));
+            unsigned long len = strlen(*(argv + i));
+            outputFileName = realloc(outputFileName, sizeof(char) * (len + 1));
+            strcpy(outputFileName, *(argv + i));
+            i++;
             continue;
         }
         if (strcmp("-input", *(argv + i)) == 0){
             i++;
-            strcpy(inputFileName, *(argv + i++));
+            unsigned long len = strlen(*(argv + i));
+            inputFileName = realloc(inputFileName, sizeof(char) * (len + 1));
+            strcpy(inputFileName, *(argv + i));
+            i++;
             continue;
         }
     }
@@ -217,6 +226,8 @@ int main(int argc, const char * argv[]) {
         return EXIT_FAILURE;
     }
     container.free(&container);
+    free(outputFileName);
+    free(inputFileName);
     
     return EXIT_SUCCESS;
 }
