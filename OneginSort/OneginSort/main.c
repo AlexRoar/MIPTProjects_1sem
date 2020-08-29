@@ -254,13 +254,8 @@ void shiftRight(struct SortedLinesContainer* this, unsigned long pos) {
         unsigned long sourceLen = *(this->sizes + i - 1);
         if (*(this->sortedContainer + i) == NULL) {
             this->cellRealloc(this, i, sourceLen);
-        } else {
-            unsigned long distinLen = strlen(*(this->sortedContainer + i));
-            if (distinLen <= sourceLen){
-                this->cellRealloc(this, i, sourceLen);
-            }
         }
-        strcpy(*(this->sortedContainer + i), *(this->sortedContainer + i - 1));
+        *(this->sortedContainer + i) = *(this->sortedContainer + i - 1);
         *(this->sizes + i) = sourceLen;
     }
 }
@@ -294,8 +289,9 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
             this->containerRealloc(this);
             this->shiftRight(this, i);
 
-            if (*(this->sizes + i) <= len)
-                this->cellRealloc(this, i, len);
+            *(this->sortedContainer + i) = NULL;
+            this->cellRealloc(this, i, len);
+            
             strcpy(*(this->sortedContainer + i), line);
             *(this->sizes + i) = len;
 
