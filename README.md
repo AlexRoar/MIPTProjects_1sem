@@ -1,4 +1,5 @@
 # MIPTProjects_1sem
+[![CodeFactor](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/badge/master)](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/overview/master)
 
 Ну ставьте звездочки хотя бы 
 
