@@ -35,7 +35,7 @@ typedef struct SortedLinesContainer {
     /**
      * How much additional memory will be allocated when available size is not enough
      */
-    int allocIncrement;
+    unsigned long allocIncrement;
     
     
     /**
@@ -117,6 +117,23 @@ void defaultContainer(struct SortedLinesContainer* this);
 void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen);
 
 
+/**
+ * Adds lines from the file to the container.
+ * @param this [in+out] container
+ * @param fileName [in] file name
+ * @param reversed [in] reversed sort (from the end)
+ * @return number of readed lines
+ */
+unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName, bool reversed);
+
+/**
+ * Outputs container to the file.
+ * @param this [in] container
+ * @param fileName [in] file name
+ * @return number of lines written
+ */
+unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
+
 int main(int argc, const char * argv[]) {
     
     bool reversed = false;
@@ -140,42 +157,29 @@ int main(int argc, const char * argv[]) {
             continue;
         }
     }
+    printf("Aleksandr Dremov\n"
+           "(c) 2020 all rights reserved\n\n");
+    printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
+    printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
     
     SortedLinesContainer container;
     defaultContainer(&container);
     
-    FILE * fp;
-    char * newLine = NULL;
-    size_t len = 0;
-    ssize_t read;
-
-    fp = fopen(inputFileName, "r");
-    
-    if (fp == NULL){
-        printf("Could not open %s file\n", inputFileName);
+    unsigned long linesReaded = addFileLinesToContainer(&container, inputFileName, reversed);
+    if (linesReaded != 0)
+        printf("Readed %lu lines\n", linesReaded);
+    else {
+        printf("Error reading lines");
         return EXIT_FAILURE;
     }
-
-    while ((read = getline(&newLine, &len, fp)) != -1) {
-        if (strcmp(newLine, "\n") == 0 || strcmp(newLine, " ") == 0)
-            continue;
-        container.add(&container, newLine, reversed);
-    }
-
-    fclose(fp);
-    if (newLine)
-        free(newLine);
+    unsigned long linesWritten = outputContainer(&container, outputFileName);
     
-    fp = fopen(outputFileName, "w");
-    if (fp == NULL){
-        printf("Could not open %s file\n", outputFileName);
+    if (linesWritten != 0)
+        printf("Wrote %lu lines\n", linesWritten);
+    else {
+        printf("Error writing lines");
         return EXIT_FAILURE;
     }
-    
-    for(int i = 0; i < container.size; i++){
-        fputs(*(container.sortedContainer + i), fp);
-    }
-    fclose(fp);
     
     return EXIT_SUCCESS;
 }
@@ -206,7 +210,7 @@ void reverse(char* line, unsigned long len) {
     char* begin = line;
     char* end = line + len - 1;
     char c;
-    for (int i = 0; i < len / 2; i++){
+    for (unsigned long i = 0; i < len / 2; i++){
         c = *end;
         *end = *begin;
         *begin = c;
@@ -243,7 +247,7 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
         return;
     }
     
-    for (int i = 0; i < this->size; i++){
+    for (unsigned long i = 0; i < this->size; i++){
         char* noPunctLine1 = calloc(*(this->sizes + i) + 1, sizeof(char));
         char* noPunctLine2= calloc(len + 1, sizeof(char));
         lineWithoutPunctuation(*(this->sortedContainer + i), noPunctLine1, *(this->sizes + i));
@@ -261,7 +265,8 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
             //            for(int i = 0; i < this->size + 1; i++){
             //                printf("\t2\t%d: %s\n", (i+1), *(this->sortedContainer + i));
             //            }
-            this->cellRealloc(this, i, len);
+            if (*(this->sizes + i) < len)
+                this->cellRealloc(this, i, len);
             strcpy(*(this->sortedContainer + i), line);
             *(this->sizes + i) = len;
             //            for(int i = 0; i < this->size + 2; i++){
@@ -283,15 +288,31 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
 void containerRealloc(struct SortedLinesContainer* this) {
     if (this->sortedContainer == NULL){
         this->sortedContainer = calloc(this->allocIncrement, sizeof(char*));
+        if (this->sortedContainer == NULL){
+            printf("Failed allocating memory for sortedContainer\n");
+            exit(EXIT_FAILURE);
+        }
         this->sizes = calloc(this->allocIncrement, sizeof(unsigned long));
+        if (this->sizes == NULL){
+            printf("Failed allocating memory for sizes\n");
+            exit(EXIT_FAILURE);
+        }
         this->availableSize = this->allocIncrement;
         return;
     }
-    if (this->size + 1 > this->availableSize){
+    if (this->size + 1 >= this->availableSize){
         this->sortedContainer = realloc(this->sortedContainer,
                                         sizeof(char*) * (this->availableSize + this->allocIncrement));
+        if (this->sortedContainer == NULL){
+            printf("Failed reallocating memory for sortedContainer\n");
+            exit(EXIT_FAILURE);
+        }
         this->sizes = realloc(this->sizes,
                               sizeof(unsigned long) * (this->availableSize + this->allocIncrement));
+        if (this->sizes == NULL){
+            printf("Failed reallocating memory for sizes\n");
+            exit(EXIT_FAILURE);
+        }
         this->availableSize += this->allocIncrement;
     }
 }
@@ -300,8 +321,17 @@ void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned 
     if (*(this->sortedContainer + pos) == NULL){
         *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
     }else{
-//        printf("%d\n", *(this->sortedContainer + pos));
-        *(this->sortedContainer + pos) = realloc(*(this->sortedContainer + pos) ,(len + 1) * sizeof(char));
+        char* newArea;
+        if ((newArea =  realloc(*(this->sortedContainer + pos), (len + 1) * sizeof(char))) == NULL) {
+            free (newArea);
+            printf("Failed reallocating memory for sortedContainer cell\n");
+            exit(EXIT_FAILURE);
+        }
+        *(this->sortedContainer + pos) = newArea;
+    }
+    if (this->sortedContainer == NULL){
+        printf("Failed reallocating memory for sortedContainer cell\n");
+        exit(EXIT_FAILURE);
     }
 }
 
@@ -318,9 +348,54 @@ void defaultContainer(struct SortedLinesContainer* this) {
 
 void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
     char* outPos = lineOut;
-    for (int i = 0; i<inpLen;i++){
+    for (unsigned long i = 0; i<inpLen;i++){
         if (ispunct(*(lineIn + i)) || *(lineIn + i) == ' ')
             continue;
         *(outPos++) = *(lineIn + i);
     }
+}
+
+unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName, bool reversed) {
+    FILE* fp;
+    char* newLine = NULL;
+    size_t len = 0;
+    ssize_t read;
+    unsigned long linesReaded = 0;
+
+    fp = fopen(fileName, "r");
+    
+    if (fp == NULL){
+        printf("Could not open %s file\n", fileName);
+        return 0;
+    }
+
+    while ((read = getline(&newLine, &len, fp)) != -1) {
+        if (!(strcmp(newLine, "\n") == 0 || strcmp(newLine, " ") == 0)){
+            this->add(this, newLine, reversed);
+            linesReaded++;
+        }
+    }
+
+    fclose(fp);
+    if (newLine)
+        free(newLine);
+    
+    return linesReaded;
+}
+
+unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
+    FILE* fp;
+    
+    fp = fopen(fileName, "w");
+    if (fp == NULL){
+        printf("Could not open %s file\n", fileName);
+        return 0;
+    }
+    
+    for(unsigned long i = 0; i < this->size; i++){
+        fputs(*(this->sortedContainer + i), fp);
+    }
+    
+    fclose(fp);
+    return this->size;
 }
