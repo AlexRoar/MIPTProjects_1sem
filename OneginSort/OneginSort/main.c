@@ -9,6 +9,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 
 
 /**
@@ -153,7 +154,6 @@ void freeContainer(struct SortedLinesContainer* this);
  * @arg -output <filename> - name of the output file
  */
 int main(int argc, const char * argv[]) {
-    
     bool reversed = false;
     char* inputFileName = "input.txt";
     char* outputFileName = "output.txt";
@@ -207,6 +207,10 @@ int main(int argc, const char * argv[]) {
 
 
 int strlexcmp(char* line1, char* line2, bool fromEnd){
+    assert(line1 != NULL);
+    assert(line2 != NULL);
+    assert(line1 != line2);
+    
     unsigned long firstLen  = strlen(line1);
     unsigned long secondLen = strlen(line2);
     
@@ -224,6 +228,8 @@ int strlexcmp(char* line1, char* line2, bool fromEnd){
 
 
 void reverse(char* line, unsigned long len) {
+    assert(line != NULL);
+    
     if (len <= 1)
         return;
     
@@ -242,6 +248,8 @@ void reverse(char* line, unsigned long len) {
 
 
 void shiftRight(struct SortedLinesContainer* this, unsigned long pos) {
+    assert(this != NULL);
+    
     for (unsigned long i = this->size; i > pos; i--){
         unsigned long sourceLen = *(this->sizes + i - 1);
         if (*(this->sortedContainer + i) == NULL) {
@@ -259,6 +267,9 @@ void shiftRight(struct SortedLinesContainer* this, unsigned long pos) {
 
 
 void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
+    assert(this != NULL);
+    assert(line != NULL);
+    
     unsigned long len = strlen(line);
     if (this->size == 0){
         this->containerRealloc(this);
@@ -302,6 +313,8 @@ void add(struct SortedLinesContainer* this, char* line, bool fromEnd) {
 
 
 void containerRealloc(struct SortedLinesContainer* this) {
+    assert(this != NULL);
+    
     if (this->sortedContainer == NULL || this->availableSize == 0){
         this->sortedContainer = calloc(this->allocIncrement, sizeof(char*));
         if (this->sortedContainer == NULL){
@@ -336,6 +349,8 @@ void containerRealloc(struct SortedLinesContainer* this) {
 
 
 void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned long len) {
+    assert(this != NULL);
+    
     if (*(this->sortedContainer + pos) == NULL || *(this->sizes + pos) == 0){
         *(this->sortedContainer + pos) = calloc(len + 1, sizeof(char));
         if (*(this->sortedContainer + pos) == NULL){
@@ -353,6 +368,8 @@ void cellRealloc(struct SortedLinesContainer* this, unsigned long pos, unsigned 
 
 
 void defaultContainer(struct SortedLinesContainer* this) {
+    assert(this != NULL);
+    
     this->size = 0;
     this->availableSize = 0;
     this->allocIncrement = 2048;
@@ -365,6 +382,10 @@ void defaultContainer(struct SortedLinesContainer* this) {
 
 
 void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
+    assert(lineIn != NULL);
+    assert(lineOut != NULL);
+    assert(lineOut != lineIn);
+    
     char* outPos = lineOut;
     for (unsigned long i = 0; i<inpLen;i++){
         if (ispunct(*(lineIn + i)) || *(lineIn + i) == ' ')
@@ -375,6 +396,8 @@ void lineWithoutPunctuation(char* lineIn, char* lineOut, unsigned long inpLen) {
 
 
 unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName, bool reversed) {
+    assert(this != NULL);
+    
     FILE* fp;
     char* newLine = NULL;
     size_t len = 0;
@@ -403,6 +426,8 @@ unsigned long addFileLinesToContainer(SortedLinesContainer* this, char* fileName
 
 
 unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
+    assert(this != NULL);
+    
     FILE* fp;
     
     fp = fopen(fileName, "w");
@@ -421,6 +446,8 @@ unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
 
 
 void freeContainer(struct SortedLinesContainer* this) {
+    assert(this != NULL);
+    
     for (unsigned long i = 0; i < this->availableSize; i++) {
         if (*(this->sortedContainer) != NULL) {
             free(*(this->sortedContainer));
