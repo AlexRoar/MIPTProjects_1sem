@@ -187,11 +187,12 @@ int main(int argc, const char * argv[]) {
            "(c) 2020 all rights reserved\n\n");
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
     printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
+    
     if (testContainer()){
         printf("Tests performed succesfully\n\n");
     } else {
         printf("Some tests failed. Review printed messages\n\n");
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
     
     SortedLinesContainer container;
@@ -205,6 +206,7 @@ int main(int argc, const char * argv[]) {
         container.free(&container);
         return EXIT_FAILURE;
     }
+    
     unsigned long linesWritten = outputContainer(&container, outputFileName);
     
     if (linesWritten != 0)
