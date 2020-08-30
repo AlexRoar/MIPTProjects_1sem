@@ -247,6 +247,12 @@ void trimUnprintable(string* line);
 
 
 /**
+ * Tests for trimUnprintable()
+ */
+bool tests_trimUnprintable(void);
+
+
+/**
  * Is char is visible
  * @param c char to be checked
  */
@@ -343,7 +349,7 @@ int main(int argc, const char * argv[]) {
 
 
 bool performAllTests(){
-    return tests_hasVisibleContent() && tests_lineWithoutPunctuation();
+    return tests_hasVisibleContent() && tests_lineWithoutPunctuation() && tests_trimUnprintable();
 }
 
 
@@ -649,14 +655,14 @@ bool tests_lineWithoutPunctuation(){
     string inputs[] = {
         {" aasd,", 6, false},
         {"", 0, false},
-        {"asd  ", 3, false},
+        {"asd  ", 5, false},
         {"-,a:,", 5, false}
     };
     
     string outputs[] = {
         {" aasd", 5, false},
         {"", 0, false},
-        {"asd", 3, false},
+        {"asd  ", 5, false},
         {"a", 1, false},
     };
     
@@ -674,8 +680,6 @@ bool tests_lineWithoutPunctuation(){
         }
         free(out.contents);
     }
-    
-    
     
     return valid;
 }
@@ -699,16 +703,63 @@ void trimUnprintable(string* line) {
     
     for (i = line->len; i > 0; i--){
         if (isprintable(line->contents[i])){
-            line->contents[i + 1] = '\0';
-            line->len = i + 1;
+            line->contents[i+1] = '\0';
+            line->len = i+1;
             break;
         }
     }
     if (i == 0){
-        line->len = 0;
+        line->len = 1;
+        if (line->contents[0] == '\0')
+            line->len = 0;
         line->contents[1] = '\0';
     }
 }
+
+
+bool tests_trimUnprintable(){
+    string inputs[] = {
+        {" \n\raasd ", 8, false},
+        {"\n  345", 6, false},
+        {"asd  ", 5, false},
+        {"a", 1, false},
+        {"", 0, false},
+        {"    ", 4, false},
+        {"a    ", 5, false}
+    };
+    
+    string outputs[] = {
+        {"aasd", 4, false},
+        {"345", 3, false},
+        {"asd", 3, false},
+        {"a", 1, false},
+        {"", 0, false},
+        {"", 0, false},
+        {"a", 1, false},
+    };
+    
+    assert(sizeof(outputs)/sizeof(string) == sizeof(inputs)/sizeof(string));
+    
+    int totalNumber = sizeof(outputs)/sizeof(string);
+    bool valid = true;
+    
+    string out;
+    for (int i = 0; i < totalNumber; i++) {
+        out = inputs[i];
+        out.contents = calloc(out.len, sizeof(char));
+        char *initalLocated = out.contents;
+        strcpy(out.contents, inputs[i].contents);
+        trimUnprintable(&out);
+        if (!(strcmp(out.contents, outputs[i].contents) == 0 && out.len == outputs[i].len)) {
+            printf("Failed trimUnprintable test #(%d) %s!=%s or %lu!=%lu\n", i+1, out.contents, outputs[i].contents, out.len, outputs[i].len);
+            valid = false;
+        }
+        free(initalLocated);
+    }
+    
+    return valid;
+}
+
 
 
 bool isprintable(char c) {
