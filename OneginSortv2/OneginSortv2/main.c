@@ -514,15 +514,17 @@ void lineWithoutPunctuation(string* lineIn, string* lineOut) {
             continue;
         *(outPos++) = lineIn->contents[i];
     }
+    lineOut->allocated = true;
     lineOut->len = (unsigned long)(outPos - lineOut->contents);
 }
 
 void trimUnprintable(string* line) {
     char* oldStart = line->contents;
-    char* pos = trimmedLine;
-
-    for (unsigned long i = 0; i < line->len; i++){
-        if (!(isprintable(line->contents[i]))){
+    char* pos = oldStart;
+    unsigned long i = 0;
+    
+    for (; i < line->len; i++){
+        if (!(isprintable(*pos))){
             pos++;
         } else {
             break;
@@ -530,17 +532,15 @@ void trimUnprintable(string* line) {
     }
     
     line->contents = pos;
-    line->len = line->len - (pos - oldStart)
+    line->len = line->len - i;
     
-    unsigned long i = line->len - 1;
-    for (; i >= 0; i--){
+    for (i = line->len; i >= 0; i--){
         if (isprintable(line->contents[i])){
+            line->contents[i+1] = '\0';
+            line->len = i + 1;
             break;
         }
     }
-    line->contents[i+1] = '\0';
-    
-    line->len = i;
 }
 
 
