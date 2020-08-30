@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['testcontainer_27',['testContainer',['../main_8c.html#aaf1b2281e87493ca16748dcde3c28f40',1,'main.c']]],
-  ['trimunprintable_28',['trimUnprintable',['../main_8c.html#aced2d85a69cdc4fb223f95c005a8b783',1,'main.c']]]
+  ['sort_24',['sort',['../struct_sorted_lines_container.html#af66298867c020f84e23b42c83c55bb05',1,'SortedLinesContainer']]],
+  ['sortcontainer_25',['sortContainer',['../main_8c.html#a9df39c8c56d2f12a9ecb84e59062e662',1,'main.c']]],
+  ['sortedlinescontainer_26',['SortedLinesContainer',['../struct_sorted_lines_container.html',1,'']]],
+  ['string_27',['string',['../structstring.html',1,'string'],['../main_8c.html#a63e2e3ee7db5274c6a3929edfc07c6c9',1,'string():&#160;main.c']]]
 ];

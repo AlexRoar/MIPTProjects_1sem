@@ -53,13 +53,19 @@ unsigned long \mbox{\hyperlink{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}{output
 \item 
 void \mbox{\hyperlink{main_8c_a4b5914817631cc8dfc94b6467c27d1d6}{line\+Without\+Punctuation}} (\mbox{\hyperlink{structstring}{string}} $\ast$line\+In, \mbox{\hyperlink{structstring}{string}} $\ast$line\+Out)
 \item 
+bool \mbox{\hyperlink{main_8c_afe89020fd1af5f10bba2e68057b9f71a}{tests\+\_\+line\+Without\+Punctuation}} (void)
+\item 
 bool \mbox{\hyperlink{main_8c_aa8c49188e93b24921f09a5ca81f4caa7}{has\+Visible\+Content}} (\mbox{\hyperlink{structstring}{string}} line)
+\item 
+bool \mbox{\hyperlink{main_8c_aa58284285ec8857f4c352c3fdac08770}{tests\+\_\+has\+Visible\+Content}} (void)
 \item 
 bool \mbox{\hyperlink{main_8c_aaf1b2281e87493ca16748dcde3c28f40}{test\+Container}} (void)
 \item 
 void \mbox{\hyperlink{main_8c_aced2d85a69cdc4fb223f95c005a8b783}{trim\+Unprintable}} (\mbox{\hyperlink{structstring}{string}} $\ast$line)
 \item 
 bool \mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}} (char c)
+\item 
+bool \mbox{\hyperlink{main_8c_af383500efc2bec7f97102ebf4a9f26df}{perform\+All\+Tests}} (void)
 \item 
 \mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
 int {\bfseries main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
@@ -205,7 +211,13 @@ Outputs container line-\/by-\/line to the file
 {\em file\+Name} & \mbox{[}in\mbox{]} name of output file \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}\label{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}} 
+\mbox{\Hypertarget{main_8c_af383500efc2bec7f97102ebf4a9f26df}\label{main_8c_af383500efc2bec7f97102ebf4a9f26df}} 
+\index{main.c@{main.c}!performAllTests@{performAllTests}}
+\index{performAllTests@{performAllTests}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{performAllTests()}{performAllTests()}}
+{\footnotesize\ttfamily bool perform\+All\+Tests (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Performs all tests and returns true if valid \mbox{\Hypertarget{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}\label{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}} 
 \index{main.c@{main.c}!reverse@{reverse}}
 \index{reverse@{reverse}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
@@ -232,6 +244,24 @@ Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}}
 
 Tests for \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} \begin{DoxyReturn}{Returns}
 success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_aa58284285ec8857f4c352c3fdac08770}\label{main_8c_aa58284285ec8857f4c352c3fdac08770}} 
+\index{main.c@{main.c}!tests\_hasVisibleContent@{tests\_hasVisibleContent}}
+\index{tests\_hasVisibleContent@{tests\_hasVisibleContent}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tests\_hasVisibleContent()}{tests\_hasVisibleContent()}}
+{\footnotesize\ttfamily bool tests\+\_\+has\+Visible\+Content (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Tests for \mbox{\hyperlink{main_8c_aa8c49188e93b24921f09a5ca81f4caa7}{has\+Visible\+Content()}}. \begin{DoxyReturn}{Returns}
+if valid 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_afe89020fd1af5f10bba2e68057b9f71a}\label{main_8c_afe89020fd1af5f10bba2e68057b9f71a}} 
+\index{main.c@{main.c}!tests\_lineWithoutPunctuation@{tests\_lineWithoutPunctuation}}
+\index{tests\_lineWithoutPunctuation@{tests\_lineWithoutPunctuation}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tests\_lineWithoutPunctuation()}{tests\_lineWithoutPunctuation()}}
+{\footnotesize\ttfamily bool tests\+\_\+line\+Without\+Punctuation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Tests for \mbox{\hyperlink{main_8c_a4b5914817631cc8dfc94b6467c27d1d6}{line\+Without\+Punctuation()}}. \begin{DoxyReturn}{Returns}
+if valid 
 \end{DoxyReturn}
 \mbox{\Hypertarget{main_8c_aced2d85a69cdc4fb223f95c005a8b783}\label{main_8c_aced2d85a69cdc4fb223f95c005a8b783}} 
 \index{main.c@{main.c}!trimUnprintable@{trimUnprintable}}

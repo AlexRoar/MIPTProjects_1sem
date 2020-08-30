@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reverse_44',['reverse',['../main_8c.html#aac99d85f10c0383daf31644cf8f9dc8a',1,'main.c']]]
+  ['performalltests_47',['performAllTests',['../main_8c.html#af383500efc2bec7f97102ebf4a9f26df',1,'main.c']]]
 ];

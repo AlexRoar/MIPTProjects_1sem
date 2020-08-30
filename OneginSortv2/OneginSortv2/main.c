@@ -203,11 +203,25 @@ void lineWithoutPunctuation(string* lineIn, string* lineOut);
 
 
 /**
+ * Tests for lineWithoutPunctuation().
+ * @return if valid
+ */
+bool tests_lineWithoutPunctuation(void);
+
+
+/**
  * Checks whether string consists only of invisible characters.
  * @param line string to check
  * @return if has some visible content
  */
 bool hasVisibleContent(string line);
+
+
+/**
+ * Tests for hasVisibleContent().
+ * @return if valid
+ */
+bool tests_hasVisibleContent(void);
 
 
 /**
@@ -237,6 +251,12 @@ void trimUnprintable(string* line);
  * @param c char to be checked
  */
 bool isprintable(char c);
+
+
+/**
+ * Performs all tests and returns true if valid
+ */
+bool performAllTests(void);
 
 
 int main(int argc, const char * argv[]) {
@@ -288,6 +308,14 @@ int main(int argc, const char * argv[]) {
     }
     printf("Aleksandr Dremov\n"
            "(c) 2020 all rights reserved\n\n");
+    if (performAllTests()){
+        printf("All tests passed\n");
+    } else {
+        printf("Some tests failed!\n");
+        free(inputFileName);
+        free(outputFileName);
+        return EXIT_FAILURE;
+    }
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
     printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
     
@@ -314,6 +342,11 @@ int main(int argc, const char * argv[]) {
 }
 
 
+bool performAllTests(){
+    return tests_hasVisibleContent() && tests_lineWithoutPunctuation();
+}
+
+
 bool hasVisibleContent(string line) {
     for (unsigned long i = 0; i < line.len; i++){
         if (isprintable(line.contents[i])){
@@ -321,6 +354,41 @@ bool hasVisibleContent(string line) {
         }
     }
     return false;
+}
+
+bool tests_hasVisibleContent(){
+    string inputs[] = {
+        {" ", 1, false},
+        {"", 0, false},
+        {"asd", 3, false},
+        {"a", 1, false},
+        {"\n", 1, false},
+        {"\0", 1, false}
+    };
+    
+    bool outputs[] = {
+        false,
+        false,
+        true,
+        true,
+        false,
+        false
+    };
+    
+    assert(sizeof(outputs)/sizeof(bool) == sizeof(inputs)/sizeof(string));
+    
+    int totalNumber = sizeof(outputs)/sizeof(bool);
+    bool valid = true;
+    
+    for (int i = 0; i<totalNumber; i++) {
+        bool actualOutput = hasVisibleContent(inputs[i]);
+        if (!(actualOutput == outputs[i])) {
+            printf("Failed hasVisibleContent test #(%d) %d!=%d\n", i+1, actualOutput, outputs[i]);
+            valid = false;
+        }
+    }
+    
+    return valid;
 }
 
 
@@ -571,9 +639,47 @@ void lineWithoutPunctuation(string* lineIn, string* lineOut) {
             continue;
         *(outPos++) = lineIn->contents[i];
     }
+    
     lineOut->allocated = true;
     lineOut->len = (unsigned long)(outPos - lineOut->contents);
 }
+
+
+bool tests_lineWithoutPunctuation(){
+    string inputs[] = {
+        {" aasd,", 6, false},
+        {"", 0, false},
+        {"asd  ", 3, false},
+        {"-,a:,", 5, false}
+    };
+    
+    string outputs[] = {
+        {" aasd", 5, false},
+        {"", 0, false},
+        {"asd", 3, false},
+        {"a", 1, false},
+    };
+    
+    assert(sizeof(outputs)/sizeof(string) == sizeof(inputs)/sizeof(string));
+    
+    int totalNumber = sizeof(outputs)/sizeof(string);
+    bool valid = true;
+    
+    for (int i = 0; i < totalNumber; i++) {
+        string out = {"", 0, false};
+        lineWithoutPunctuation(&inputs[i], &out);
+        if (!(strcmp(out.contents, outputs[i].contents) == 0 && out.len == outputs[i].len)) {
+            printf("Failed lineWithoutPunctuation test #(%d) %s!=%s\n", i+1, out.contents, outputs[i].contents);
+            valid = false;
+        }
+        free(out.contents);
+    }
+    
+    
+    
+    return valid;
+}
+
 
 void trimUnprintable(string* line) {
     char* oldStart = line->contents;
