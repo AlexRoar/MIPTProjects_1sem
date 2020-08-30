@@ -269,8 +269,7 @@ int main(int argc, const char * argv[]) {
     container.free(&container);
     free(inputFileName);
     free(outputFileName);
-    int a;
-    scanf("%d", &a);
+
     return EXIT_SUCCESS;
 }
 
@@ -422,7 +421,10 @@ int compar(const void* line1, const void* line2){
     lineWithoutPunctuation(line1String, &noPunct1);
     lineWithoutPunctuation(line2String, &noPunct2);
     
-    return strcmp(noPunct1.contents, noPunct2.contents);
+    int compareResult = strcmp(noPunct1.contents, noPunct2.contents);
+    free(noPunct1.contents);
+    free(noPunct2.contents);
+    return compareResult;
 }
 
 
@@ -516,28 +518,29 @@ void lineWithoutPunctuation(string* lineIn, string* lineOut) {
 }
 
 void trimUnprintable(string* line) {
-    char* trimmedLine = calloc(line->len + 1, sizeof(char));
+    char* oldStart = line->contents;
     char* pos = trimmedLine;
-    bool encounteredPrintable = false;
+
     for (unsigned long i = 0; i < line->len; i++){
-        if (isprintable(line->contents[i]) || encounteredPrintable){
-            *(pos++) = line->contents[i];
-            encounteredPrintable = true;
-        }
-    }
-    
-    for (char* i = pos - 1; i >= trimmedLine; i--){
-        if (!isprintable(*i)){
-            pos--;
+        if (!(isprintable(line->contents[i]))){
+            pos++;
         } else {
             break;
         }
     }
-    unsigned long len = (unsigned long)(pos - trimmedLine);
-    trimmedLine[len] = '\0';
-    line->contents = trimmedLine;
-    line->len = len;
-    line->allocated = true;
+    
+    line->contents = pos;
+    line->len = line->len - (pos - oldStart)
+    
+    unsigned long i = line->len - 1;
+    for (; i >= 0; i--){
+        if (isprintable(line->contents[i])){
+            break;
+        }
+    }
+    line->contents[i+1] = '\0';
+    
+    line->len = i;
 }
 
 
