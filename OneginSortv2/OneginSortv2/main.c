@@ -347,8 +347,8 @@ int main(int argc, const char * argv[]) {
     unsigned long linesWrote = outputContainer(&container, outputFileName);
     free(inputFileName);
     free(outputFileName);
+     container.free(&container);
     if (linesWrote == 0){
-        container.free(&container);
         return EXIT_FAILURE;
     }
     
