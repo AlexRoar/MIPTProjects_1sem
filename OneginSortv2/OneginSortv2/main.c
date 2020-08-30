@@ -305,7 +305,9 @@ void construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned lon
         if (this->fullBuffer[i] == '\n' || this->fullBuffer[i] == '\0') {
             this->fullBuffer[i] = '\0';
             (this->lines + this->linesNumber - 1)->len = curCounter;
+            
             trimUnprintable((this->lines + this->linesNumber - 1));
+            
             if (!hasVisibleContent(*(this->lines + this->linesNumber - 1))) {
                 this->linesNumber -= 1;
             }
@@ -534,18 +536,22 @@ void trimUnprintable(string* line) {
     line->contents = pos;
     line->len = line->len - i;
     
-    for (i = line->len; i >= 0; i--){
+    for (i = line->len; i > 0; i--){
         if (isprintable(line->contents[i])){
-            line->contents[i+1] = '\0';
+            line->contents[i + 1] = '\0';
             line->len = i + 1;
             break;
         }
+    }
+    if (i == 0){
+        line->len = 0;
+        line->contents[1] = '\0';
     }
 }
 
 
 bool isprintable(char c) {
-    return !(c == '\n' || c == '\t' || c == ' ' || c == '\r');
+    return !(c == '\n' || c == '\t' || c == ' ' || c == '\r' || c == '\0');
 }
 
 
