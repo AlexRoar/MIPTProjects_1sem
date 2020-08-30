@@ -1,0 +1,145 @@
+\hypertarget{struct_sorted_lines_container}{}\doxysection{Sorted\+Lines\+Container Struct Reference}
+\label{struct_sorted_lines_container}\index{SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{struct_sorted_lines_container_adbf00bb5882ff717c9216ae412a00fdb}{full\+Buffer}}
+\item 
+\mbox{\hyperlink{structstring}{string}} $\ast$ \mbox{\hyperlink{struct_sorted_lines_container_ac760eb237929eba1a129615c2f9dd627}{lines}}
+\item 
+bool \mbox{\hyperlink{struct_sorted_lines_container_a33d68c9a6bfed4e6387faf71057cf3f8}{from\+End}}
+\item 
+unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a573c21f6d02c15b2fe57d6231b5823cd}{lines\+Number}}
+\item 
+unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a8716452d217c818a4dc3c26311e9b759}{lines\+Max\+Number}}
+\item 
+unsigned long \mbox{\hyperlink{struct_sorted_lines_container_a0996b237e1ca9aa65e23d82a340036ba}{alloc\+Increment}}
+\item 
+int($\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a932c9b2decf0ea331212abb8aa91a7a0}{compar}} )(const void $\ast$line1, const void $\ast$line2)
+\item 
+int($\ast$ \mbox{\hyperlink{struct_sorted_lines_container_ad0bc91b219e419c63451f37aa3817d08}{compar\+Rev}} )(const void $\ast$line1, const void $\ast$line2)
+\item 
+int($\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a7a0c086aff75ddafbad0669b7a116a7e}{construct}} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$\mbox{\hyperlink{struct_sorted_lines_container_adbf00bb5882ff717c9216ae412a00fdb}{full\+Buffer}}, unsigned long length, bool \mbox{\hyperlink{struct_sorted_lines_container_a33d68c9a6bfed4e6387faf71057cf3f8}{from\+End}})
+\item 
+void($\ast$ \mbox{\hyperlink{struct_sorted_lines_container_af66298867c020f84e23b42c83c55bb05}{sort}} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+int($\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a4b1338eb48396a8f6c6657ced61593b1}{allocate}} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_sorted_lines_container_a9e25395b1003ab70af0ebb71dd2f4cef}{free}} )(struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_sorted_lines_container_a4b1338eb48396a8f6c6657ced61593b1}\label{struct_sorted_lines_container_a4b1338eb48396a8f6c6657ced61593b1}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!allocate@{allocate}}
+\index{allocate@{allocate}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{allocate}{allocate}}
+{\footnotesize\ttfamily int($\ast$ Sorted\+Lines\+Container\+::allocate) (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)}
+
+Allocates memory so that lines object can contain one more element Uses alloc\+Increment 
+\begin{DoxyParams}{Parameters}
+{\em this} & object to be constructed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sorted_lines_container_a0996b237e1ca9aa65e23d82a340036ba}\label{struct_sorted_lines_container_a0996b237e1ca9aa65e23d82a340036ba}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!allocIncrement@{allocIncrement}}
+\index{allocIncrement@{allocIncrement}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{allocIncrement}{allocIncrement}}
+{\footnotesize\ttfamily unsigned long Sorted\+Lines\+Container\+::alloc\+Increment}
+
+How much new elements will be allocated when running out of space \mbox{\Hypertarget{struct_sorted_lines_container_a932c9b2decf0ea331212abb8aa91a7a0}\label{struct_sorted_lines_container_a932c9b2decf0ea331212abb8aa91a7a0}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!compar@{compar}}
+\index{compar@{compar}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{compar}{compar}}
+{\footnotesize\ttfamily int($\ast$ Sorted\+Lines\+Container\+::compar) (const void $\ast$line1, const void $\ast$line2)}
+
+Function used in qsort for regular comparison 
+\begin{DoxyParams}{Parameters}
+{\em line1} & first struct string object \\
+\hline
+{\em line2} & second struct string object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sorted_lines_container_ad0bc91b219e419c63451f37aa3817d08}\label{struct_sorted_lines_container_ad0bc91b219e419c63451f37aa3817d08}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!comparRev@{comparRev}}
+\index{comparRev@{comparRev}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{comparRev}{comparRev}}
+{\footnotesize\ttfamily int($\ast$ Sorted\+Lines\+Container\+::compar\+Rev) (const void $\ast$line1, const void $\ast$line2)}
+
+Function used in qsort for comparison from the end of the string 
+\begin{DoxyParams}{Parameters}
+{\em line1} & first struct string object \\
+\hline
+{\em line2} & second struct string object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sorted_lines_container_a7a0c086aff75ddafbad0669b7a116a7e}\label{struct_sorted_lines_container_a7a0c086aff75ddafbad0669b7a116a7e}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!construct@{construct}}
+\index{construct@{construct}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{construct}{construct}}
+{\footnotesize\ttfamily int($\ast$ Sorted\+Lines\+Container\+::construct) (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$\mbox{\hyperlink{struct_sorted_lines_container_adbf00bb5882ff717c9216ae412a00fdb}{full\+Buffer}}, unsigned long length, bool \mbox{\hyperlink{struct_sorted_lines_container_a33d68c9a6bfed4e6387faf71057cf3f8}{from\+End}})}
+
+Constructs default object Invisible charecters are trimmed and blank lines are removed 
+\begin{DoxyParams}{Parameters}
+{\em this} & object to be constructed \\
+\hline
+{\em full\+Buffer} & pointer to the first char of readed file \\
+\hline
+{\em length} & length of the buffer \\
+\hline
+{\em from\+End} & whether to sort from the end \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sorted_lines_container_a9e25395b1003ab70af0ebb71dd2f4cef}\label{struct_sorted_lines_container_a9e25395b1003ab70af0ebb71dd2f4cef}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!free@{free}}
+\index{free@{free}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{free}{free}}
+{\footnotesize\ttfamily void($\ast$ Sorted\+Lines\+Container\+::free) (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)}
+
+Frees space 
+\begin{DoxyParams}{Parameters}
+{\em this} & object to be constructed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sorted_lines_container_a33d68c9a6bfed4e6387faf71057cf3f8}\label{struct_sorted_lines_container_a33d68c9a6bfed4e6387faf71057cf3f8}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!fromEnd@{fromEnd}}
+\index{fromEnd@{fromEnd}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{fromEnd}{fromEnd}}
+{\footnotesize\ttfamily bool Sorted\+Lines\+Container\+::from\+End}
+
+Whether to perform comparison from the end \mbox{\Hypertarget{struct_sorted_lines_container_adbf00bb5882ff717c9216ae412a00fdb}\label{struct_sorted_lines_container_adbf00bb5882ff717c9216ae412a00fdb}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!fullBuffer@{fullBuffer}}
+\index{fullBuffer@{fullBuffer}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{fullBuffer}{fullBuffer}}
+{\footnotesize\ttfamily char$\ast$ Sorted\+Lines\+Container\+::full\+Buffer}
+
+Pointer to the start of string containing substrings separated by \textbackslash{}0 (~\newline
+ replaced by \textbackslash{}0) \mbox{\Hypertarget{struct_sorted_lines_container_ac760eb237929eba1a129615c2f9dd627}\label{struct_sorted_lines_container_ac760eb237929eba1a129615c2f9dd627}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!lines@{lines}}
+\index{lines@{lines}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{lines}{lines}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structstring}{string}}$\ast$ Sorted\+Lines\+Container\+::lines}
+
+Strings containing starts of substrings in full\+Buffer \mbox{\Hypertarget{struct_sorted_lines_container_a8716452d217c818a4dc3c26311e9b759}\label{struct_sorted_lines_container_a8716452d217c818a4dc3c26311e9b759}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!linesMaxNumber@{linesMaxNumber}}
+\index{linesMaxNumber@{linesMaxNumber}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{linesMaxNumber}{linesMaxNumber}}
+{\footnotesize\ttfamily unsigned long Sorted\+Lines\+Container\+::lines\+Max\+Number}
+
+Number of allocated elements of lines \mbox{\Hypertarget{struct_sorted_lines_container_a573c21f6d02c15b2fe57d6231b5823cd}\label{struct_sorted_lines_container_a573c21f6d02c15b2fe57d6231b5823cd}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!linesNumber@{linesNumber}}
+\index{linesNumber@{linesNumber}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{linesNumber}{linesNumber}}
+{\footnotesize\ttfamily unsigned long Sorted\+Lines\+Container\+::lines\+Number}
+
+Number of objects in lines \mbox{\Hypertarget{struct_sorted_lines_container_af66298867c020f84e23b42c83c55bb05}\label{struct_sorted_lines_container_af66298867c020f84e23b42c83c55bb05}} 
+\index{SortedLinesContainer@{SortedLinesContainer}!sort@{sort}}
+\index{sort@{sort}!SortedLinesContainer@{SortedLinesContainer}}
+\doxysubsubsection{\texorpdfstring{sort}{sort}}
+{\footnotesize\ttfamily void($\ast$ Sorted\+Lines\+Container\+::sort) (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)}
+
+Performs sorting of lines array 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Onegin\+Sortv2/\mbox{\hyperlink{main_8c}{main.\+c}}\end{DoxyCompactItemize}

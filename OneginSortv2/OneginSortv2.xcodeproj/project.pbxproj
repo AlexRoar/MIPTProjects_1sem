@@ -26,6 +26,7 @@
 		A0224CEA24FA8D8A00320297 /* OneginSortv2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OneginSortv2; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0224CED24FA8D8A00320297 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		A0224CF424FAC2CB00320297 /* input.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input.txt; sourceTree = "<group>"; };
+		A0FBEEA524FBA9560027B702 /* Doxygen */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxygen; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 		A0224CE124FA8D8A00320297 = {
 			isa = PBXGroup;
 			children = (
+				A0FBEEA524FBA9560027B702 /* Doxygen */,
 				A0224CEC24FA8D8A00320297 /* OneginSortv2 */,
 				A0224CEB24FA8D8A00320297 /* Products */,
 			);

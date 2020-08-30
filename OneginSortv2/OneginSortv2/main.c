@@ -1,10 +1,8 @@
-//
-//  main.c
-//  OneginSortv2
-//
-//  Created by Александр Дремов on 29.08.2020.
-//  Copyright © 2020 alexdremov. All rights reserved.
-//
+/**
+ * @file
+ * @brief Created by Александр Дремов on 28.08.2020.
+ * @copyright Copyright © 2020 alexdremov. All rights reserved.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

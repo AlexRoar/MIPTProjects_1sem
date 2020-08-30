@@ -1,0 +1,246 @@
+\hypertarget{main_8c}{}\doxysection{Onegin\+Sortv2/main.c File Reference}
+\label{main_8c}\index{OneginSortv2/main.c@{OneginSortv2/main.c}}
+
+
+Created by Александр Дремов on 28.\+08.\+2020.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structstring}{string}}
+\item 
+struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structstring}{string}} \mbox{\hyperlink{main_8c_a63e2e3ee7db5274c6a3929edfc07c6c9}{string}}
+\item 
+\mbox{\Hypertarget{main_8c_a9283990307c3b89049895dc41a0a842e}\label{main_8c_a9283990307c3b89049895dc41a0a842e}} 
+typedef struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} {\bfseries Sorted\+Lines\+Container}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a68cc8023292b0ea3f252df3b1574c25e}{compar}} (const void $\ast$, const void $\ast$)
+\item 
+int \mbox{\hyperlink{main_8c_abcf15012a2fb0c1386bacef43c4daf00}{compar\+Rev}} (const void $\ast$, const void $\ast$)
+\item 
+void \mbox{\hyperlink{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}{sort\+Container}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+int \mbox{\hyperlink{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}{allocate\+Container}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+int \mbox{\hyperlink{main_8c_ab3255fe3c548213c586e39e6a3ff378b}{construct}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$full\+Buffer, unsigned long length, bool from\+End)
+\item 
+int \mbox{\hyperlink{main_8c_a8057d50fcc23f45ebdf5435f04eba069}{construct\+From\+File}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$file\+Name, bool from\+End)
+\item 
+void \mbox{\hyperlink{main_8c_a041889d582387b35ded6cfee002e22b4}{default\+Container}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+void \mbox{\hyperlink{main_8c_a8b5489b599da81ac0e2b085beedd614c}{free\+Container}} (struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this)
+\item 
+void \mbox{\hyperlink{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}{reverse}} (char $\ast$line, unsigned long len)
+\item 
+unsigned long \mbox{\hyperlink{main_8c_a9082651d40e229f6b18a03e0c12d2946}{add\+File\+Lines\+To\+Container}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$file\+Name, bool reversed)
+\item 
+unsigned long \mbox{\hyperlink{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}{output\+Container}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$this, char $\ast$file\+Name)
+\item 
+void \mbox{\hyperlink{main_8c_a4b5914817631cc8dfc94b6467c27d1d6}{line\+Without\+Punctuation}} (\mbox{\hyperlink{structstring}{string}} $\ast$line\+In, \mbox{\hyperlink{structstring}{string}} $\ast$line\+Out)
+\item 
+bool \mbox{\hyperlink{main_8c_aa8c49188e93b24921f09a5ca81f4caa7}{has\+Visible\+Content}} (\mbox{\hyperlink{structstring}{string}} line)
+\item 
+bool \mbox{\hyperlink{main_8c_aaf1b2281e87493ca16748dcde3c28f40}{test\+Container}} (void)
+\item 
+void \mbox{\hyperlink{main_8c_aced2d85a69cdc4fb223f95c005a8b783}{trim\+Unprintable}} (\mbox{\hyperlink{structstring}{string}} $\ast$line)
+\item 
+bool \mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}} (char c)
+\item 
+\mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
+int {\bfseries main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Created by Александр Дремов on 28.\+08.\+2020. 
+
+\begin{DoxyCopyright}{Copyright}
+Copyright © 2020 alexdremov. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{main_8c_a63e2e3ee7db5274c6a3929edfc07c6c9}\label{main_8c_a63e2e3ee7db5274c6a3929edfc07c6c9}} 
+\index{main.c@{main.c}!string@{string}}
+\index{string@{string}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{string}{string}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structstring}{string}} \mbox{\hyperlink{structstring}{string}}}
+
+Used to store char$\ast$ and its len so that computations are more effective 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a9082651d40e229f6b18a03e0c12d2946}\label{main_8c_a9082651d40e229f6b18a03e0c12d2946}} 
+\index{main.c@{main.c}!addFileLinesToContainer@{addFileLinesToContainer}}
+\index{addFileLinesToContainer@{addFileLinesToContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{addFileLinesToContainer()}{addFileLinesToContainer()}}
+{\footnotesize\ttfamily unsigned long add\+File\+Lines\+To\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{char $\ast$}]{file\+Name,  }\item[{bool}]{reversed }\end{DoxyParamCaption})}
+
+Adds lines from the file to the container. 
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in+out\mbox{]} container \\
+\hline
+{\em file\+Name} & \mbox{[}in\mbox{]} file name \\
+\hline
+{\em reversed} & \mbox{[}in\mbox{]} reversed sort (from the end) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of readed lines 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}\label{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}} 
+\index{main.c@{main.c}!allocateContainer@{allocateContainer}}
+\index{allocateContainer@{allocateContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{allocateContainer()}{allocateContainer()}}
+{\footnotesize\ttfamily int allocate\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} allocate for information \mbox{\Hypertarget{main_8c_a68cc8023292b0ea3f252df3b1574c25e}\label{main_8c_a68cc8023292b0ea3f252df3b1574c25e}} 
+\index{main.c@{main.c}!compar@{compar}}
+\index{compar@{compar}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{compar()}{compar()}}
+{\footnotesize\ttfamily int compar (\begin{DoxyParamCaption}\item[{const void $\ast$}]{line1,  }\item[{const void $\ast$}]{line2 }\end{DoxyParamCaption})}
+
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} compar for information \mbox{\Hypertarget{main_8c_abcf15012a2fb0c1386bacef43c4daf00}\label{main_8c_abcf15012a2fb0c1386bacef43c4daf00}} 
+\index{main.c@{main.c}!comparRev@{comparRev}}
+\index{comparRev@{comparRev}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{comparRev()}{comparRev()}}
+{\footnotesize\ttfamily int compar\+Rev (\begin{DoxyParamCaption}\item[{const void $\ast$}]{line1,  }\item[{const void $\ast$}]{line2 }\end{DoxyParamCaption})}
+
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} compar\+Rev for information \mbox{\Hypertarget{main_8c_ab3255fe3c548213c586e39e6a3ff378b}\label{main_8c_ab3255fe3c548213c586e39e6a3ff378b}} 
+\index{main.c@{main.c}!construct@{construct}}
+\index{construct@{construct}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily int construct (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{char $\ast$}]{full\+Buffer,  }\item[{unsigned long}]{length,  }\item[{bool}]{from\+End }\end{DoxyParamCaption})}
+
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} construct for information \mbox{\Hypertarget{main_8c_a8057d50fcc23f45ebdf5435f04eba069}\label{main_8c_a8057d50fcc23f45ebdf5435f04eba069}} 
+\index{main.c@{main.c}!constructFromFile@{constructFromFile}}
+\index{constructFromFile@{constructFromFile}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{constructFromFile()}{constructFromFile()}}
+{\footnotesize\ttfamily int construct\+From\+File (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{char $\ast$}]{file\+Name,  }\item[{bool}]{from\+End }\end{DoxyParamCaption})}
+
+Constructs \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} from file \mbox{\Hypertarget{main_8c_a041889d582387b35ded6cfee002e22b4}\label{main_8c_a041889d582387b35ded6cfee002e22b4}} 
+\index{main.c@{main.c}!defaultContainer@{defaultContainer}}
+\index{defaultContainer@{defaultContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{defaultContainer()}{defaultContainer()}}
+{\footnotesize\ttfamily void default\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+Sets default values for \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} \mbox{\Hypertarget{main_8c_a8b5489b599da81ac0e2b085beedd614c}\label{main_8c_a8b5489b599da81ac0e2b085beedd614c}} 
+\index{main.c@{main.c}!freeContainer@{freeContainer}}
+\index{freeContainer@{freeContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{freeContainer()}{freeContainer()}}
+{\footnotesize\ttfamily void free\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} free for information \mbox{\Hypertarget{main_8c_aa8c49188e93b24921f09a5ca81f4caa7}\label{main_8c_aa8c49188e93b24921f09a5ca81f4caa7}} 
+\index{main.c@{main.c}!hasVisibleContent@{hasVisibleContent}}
+\index{hasVisibleContent@{hasVisibleContent}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hasVisibleContent()}{hasVisibleContent()}}
+{\footnotesize\ttfamily bool has\+Visible\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structstring}{string}}}]{line }\end{DoxyParamCaption})}
+
+Checks whether string consists only of invisible characters. 
+\begin{DoxyParams}{Parameters}
+{\em line} & string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if has some visible content 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a1410b6a126f12066a25a5cf2f040fb52}\label{main_8c_a1410b6a126f12066a25a5cf2f040fb52}} 
+\index{main.c@{main.c}!isprintable@{isprintable}}
+\index{isprintable@{isprintable}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{isprintable()}{isprintable()}}
+{\footnotesize\ttfamily bool isprintable (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+Is char is visible 
+\begin{DoxyParams}{Parameters}
+{\em c} & char to be checked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a4b5914817631cc8dfc94b6467c27d1d6}\label{main_8c_a4b5914817631cc8dfc94b6467c27d1d6}} 
+\index{main.c@{main.c}!lineWithoutPunctuation@{lineWithoutPunctuation}}
+\index{lineWithoutPunctuation@{lineWithoutPunctuation}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{lineWithoutPunctuation()}{lineWithoutPunctuation()}}
+{\footnotesize\ttfamily void line\+Without\+Punctuation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structstring}{string}} $\ast$}]{line\+In,  }\item[{\mbox{\hyperlink{structstring}{string}} $\ast$}]{line\+Out }\end{DoxyParamCaption})}
+
+Creates a line copy without punctuation marks. 
+\begin{DoxyParams}{Parameters}
+{\em line\+In} & \mbox{[}in\mbox{]} input line \\
+\hline
+{\em line\+Out} & \mbox{[}out\mbox{]} output line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}\label{main_8c_a74d075cbc8fa03f48ba2210eeb4046d9}} 
+\index{main.c@{main.c}!outputContainer@{outputContainer}}
+\index{outputContainer@{outputContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{outputContainer()}{outputContainer()}}
+{\footnotesize\ttfamily unsigned long output\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+Outputs container to the file. 
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in\mbox{]} container \\
+\hline
+{\em file\+Name} & \mbox{[}in\mbox{]} file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of lines written
+\end{DoxyReturn}
+Outputs container line-\/by-\/line to the file 
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in\mbox{]} container \\
+\hline
+{\em file\+Name} & \mbox{[}in\mbox{]} name of output file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}\label{main_8c_aac99d85f10c0383daf31644cf8f9dc8a}} 
+\index{main.c@{main.c}!reverse@{reverse}}
+\index{reverse@{reverse}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void reverse (\begin{DoxyParamCaption}\item[{char $\ast$}]{line,  }\item[{unsigned long}]{len }\end{DoxyParamCaption})}
+
+Reverses the line 
+\begin{DoxyParams}{Parameters}
+{\em line} & \mbox{[}in + out\mbox{]} pointer to the \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} \\
+\hline
+{\em len} & \mbox{[}in\mbox{]} the length of the line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}\label{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}} 
+\index{main.c@{main.c}!sortContainer@{sortContainer}}
+\index{sortContainer@{sortContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{sortContainer()}{sortContainer()}}
+{\footnotesize\ttfamily void sort\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} sort for information \mbox{\Hypertarget{main_8c_aaf1b2281e87493ca16748dcde3c28f40}\label{main_8c_aaf1b2281e87493ca16748dcde3c28f40}} 
+\index{main.c@{main.c}!testContainer@{testContainer}}
+\index{testContainer@{testContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{testContainer()}{testContainer()}}
+{\footnotesize\ttfamily bool test\+Container (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Tests for \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} \begin{DoxyReturn}{Returns}
+success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_aced2d85a69cdc4fb223f95c005a8b783}\label{main_8c_aced2d85a69cdc4fb223f95c005a8b783}} 
+\index{main.c@{main.c}!trimUnprintable@{trimUnprintable}}
+\index{trimUnprintable@{trimUnprintable}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{trimUnprintable()}{trimUnprintable()}}
+{\footnotesize\ttfamily void trim\+Unprintable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structstring}{string}} $\ast$}]{line }\end{DoxyParamCaption})}
+
+Trims unprintable symbols from both ends of string. 
+\begin{DoxyParams}{Parameters}
+{\em line} & string to be modified \\
+\hline
+\end{DoxyParams}
