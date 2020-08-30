@@ -17,6 +17,7 @@
 typedef struct string{
     char* contents;
     unsigned long len;
+    bool allocated;
 } string;
 
 
@@ -55,7 +56,7 @@ typedef struct SortedLinesContainer {
     /**
      * How much new elements will be allocated when running out of space
      */
-    int allocIncrement;
+    unsigned long allocIncrement;
     
     
     /**
@@ -76,6 +77,7 @@ typedef struct SortedLinesContainer {
     
     /**
      * Constructs default object
+     * Invisible charecters are trimmed and blank lines are removed
      * @param this object to be constructed
      * @param fullBuffer pointer to the first char of readed file
      * @param length length of the buffer
@@ -106,28 +108,53 @@ typedef struct SortedLinesContainer {
 } SortedLinesContainer;
 
 
-int  compar(const void *, const void*);
+/**
+ * Check SortedLinesContainer compar for information
+ */
+int compar(const void *, const void*);
+
+
+/**
+ * Check SortedLinesContainer comparRev for information
+ */
 int  comparRev(const void *, const void*);
+
+
+/**
+ * Check SortedLinesContainer sort for information
+ */
 void sortContainer(struct SortedLinesContainer* this);
+
+
+/**
+ * Check SortedLinesContainer allocate for information
+ */
 void allocateContainer(struct SortedLinesContainer* this);
+
+
+/**
+ * Check SortedLinesContainer construct for information
+ */
 void construct(struct SortedLinesContainer* this,
                char* fullBuffer, unsigned long length, bool fromEnd);
+
+
+/**
+ * Constructs SortedLinesContainer from file
+ */
 void constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd);
 
+
 /**
- * Frees memory allocated for container
- * @param this [in] container
+ * Sets default values for SortedLinesContainer
+ */
+void defaultContainer(struct SortedLinesContainer* this);
+
+
+/**
+ * Check SortedLinesContainer free for information
  */
 void freeContainer(struct SortedLinesContainer* this);
-
-
-/**
- * More than 0 if line1 higher than line2 in lexicographic order
- * @param line1 [in] first line to compare
- * @param line2 [in] second line to compare
- * @param fromEnd [in] whether to compare from the end of the lines
- */
-int strlexcmp(char* line1, char* line2, unsigned long len1, unsigned long len2, bool fromEnd);
 
 
 /**
@@ -158,20 +185,103 @@ unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
 
 
 /**
+ * Creates a line copy without punctuation marks.
+ * @param lineIn [in] input line
+ * @param lineOut [out] output line
+ */
+void lineWithoutPunctuation(string* lineIn, string* lineOut);
+
+
+bool hasVisibleContent(string line);
+
+
+unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
+
+
+/**
  * Tests for SortedLinesContainer
  * @return success
  */
 bool testContainer(void);
 
 
+void trimUnprintable(string* line);
+
+
+bool isprintable(char c);
+
+
 int main(int argc, const char * argv[]) {
+    bool reversed = false;
+    char* inputFileName = malloc(10 * sizeof(char));
+    char* outputFileName = malloc(11 * sizeof(char));
+    
+    strcpy(inputFileName, "input.txt");
+    strcpy(outputFileName, "output.txt");
+    
+    for(int i = 0; i < argc; i++){
+        if (strcmp("-r", *(argv + i)) == 0){
+            reversed = true;
+            continue;
+        }
+        
+        if (strcmp("-output", *(argv + i)) == 0){
+            i++;
+            unsigned long len = strlen(*(argv + i));
+            char* outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
+            if (outputFileNameNew == NULL){
+                printf("Can't realloc memory for output file name\n");
+                free(outputFileName);
+                return EXIT_FAILURE;
+            } else {
+                outputFileName = outputFileNameNew;
+            }
+            strcpy(outputFileName, *(argv + i));
+            i++;
+            continue;
+        }
+        if (strcmp("-input", *(argv + i)) == 0){
+            i++;
+            unsigned long len = strlen(*(argv + i));
+            
+            char* inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
+            if (inputFileNameNew == NULL){
+                printf("Can't realloc memory for input file name\n");
+                free(inputFileName);
+                return EXIT_FAILURE;
+            } else {
+                inputFileName = inputFileNameNew;
+            }
+            
+            strcpy(inputFileName, *(argv + i));
+            i++;
+            continue;
+        }
+    }
+    printf("Aleksandr Dremov\n"
+           "(c) 2020 all rights reserved\n\n");
+    printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
+    printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
     SortedLinesContainer container;
     container.construct = &construct;
-    constructFromFile(&container, "input.txt", false);
-    for (unsigned long i = 0; i < container.linesNumber; i++){
-        printf("%s (%lu)\n", (container.lines + i)->contents, (container.lines + i)->len);
+    constructFromFile(&container, inputFileName, reversed);
+    outputContainer(&container, outputFileName);
+    container.free(&container);
+    free(inputFileName);
+    free(outputFileName);
+    int a;
+    scanf("%d", &a);
+    return EXIT_SUCCESS;
+}
+
+
+bool hasVisibleContent(string line) {
+    for (unsigned long i = 0; i < line.len; i++){
+        if (isprintable(line.contents[i])){
+            return true;
+        }
     }
-    return 0;
+    return false;
 }
 
 
@@ -179,31 +289,27 @@ void construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned lon
     assert(this != NULL);
     assert(fullBuffer != NULL);
     
-    this->allocIncrement = 1024;
     this->fullBuffer = calloc(length + 1, sizeof(char));
-    this->linesNumber = 0;
     this->fromEnd = fromEnd;
-//    this->linesMaxNumber = 0;
-    this->allocate = &allocateContainer;
-    this->compar = &compar;
-    this->comparRev = &comparRev;
-    this->sort = &sortContainer;
-    this->free = &freeContainer;
     
-    int curCounter = 0;
+    unsigned long curCounter = 0;
     for (unsigned long i = 0; i < length; i++){
-        *(this->fullBuffer + i) = *(fullBuffer + i);
+        this->fullBuffer[i] = fullBuffer[i];
         if (curCounter == 0){
             this->allocate(this);
-            string newLocated = {(this->fullBuffer + i), 0};
-            *(this->lines + this->linesNumber) = newLocated;
+            string newLocated = {(this->fullBuffer + i), 0, false};
+            this->lines[this->linesNumber] = newLocated;
             this->linesNumber += 1;
             curCounter++;
             continue;
         }
-        if (*(this->fullBuffer + i) == '\n' || *(this->fullBuffer + i) == '\0') {
-            *(this->fullBuffer + i) = '\0';
+        if (this->fullBuffer[i] == '\n' || this->fullBuffer[i] == '\0') {
+            this->fullBuffer[i] = '\0';
             (this->lines + this->linesNumber - 1)->len = curCounter;
+            trimUnprintable((this->lines + this->linesNumber - 1));
+            if (!hasVisibleContent(*(this->lines + this->linesNumber - 1))) {
+                this->linesNumber -= 1;
+            }
             curCounter = 0;
             continue;
         }
@@ -212,14 +318,53 @@ void construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned lon
     if (curCounter != 0){
         (this->lines + this->linesNumber - 1)->len = curCounter;
     }
-    *(this->fullBuffer + length) = '\0';
+    this->fullBuffer[length] = '\0';
+}
+
+
+void constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd){
+    char * buffer = 0;
+    unsigned long length;
+    FILE * fp = fopen (fileName, "r");
+    
+    if (fp)
+    {
+        fseek (fp, 0, SEEK_END);
+        length = (unsigned long) ftell(fp);
+        fseek (fp, 0, SEEK_SET);
+        buffer = malloc(length);
+        if (buffer)
+        {
+            fread (buffer, 1, length, fp);
+        }else{
+            printf("Can't allocate memory "
+                   "for buffer in constructFromFile()\n");
+            free(buffer);
+            this->free(this);
+            exit(EXIT_FAILURE);
+        }
+        fclose (fp);
+        unsigned long lenElements = length / sizeof(char);
+        defaultContainer(this);
+        this->lines = calloc(lenElements + 1, sizeof(string));
+        this->linesMaxNumber = lenElements + 1;
+        this->construct(this, buffer, lenElements, fromEnd);
+        this->sort(this);
+        free(buffer);
+    } else {
+        printf("Can't open %s for read\n", fileName);
+        exit(EXIT_FAILURE);
+    }
 }
 
 
 void freeContainer(struct SortedLinesContainer* this){
-    if (this->lines){
-        free(this->lines);
+    for (unsigned long i = 0; i < this->linesNumber; i++){
+        if (this->lines[i].allocated)
+            free(this->lines[i].contents);
     }
+    if (this->lines)
+        free(this->lines);
     
     if (this->fullBuffer)
         free(this->fullBuffer);
@@ -238,8 +383,8 @@ void sortContainer(struct SortedLinesContainer* this) {
 void allocateContainer(struct SortedLinesContainer* this) {
     assert(this != NULL);
     
-    if (this->lines == NULL || this->linesMaxNumber == 0){
-        this->lines = calloc(this->allocIncrement, sizeof(string*));
+    if (!this->lines || this->linesMaxNumber == 0){
+        this->lines = calloc(this->allocIncrement, sizeof(string));
         
         if (this->lines == NULL){
             printf("Failed allocating memory in allocateContainer()\n");
@@ -250,11 +395,13 @@ void allocateContainer(struct SortedLinesContainer* this) {
     } else {
         if (this->linesNumber + 1 >= this->linesMaxNumber){
             this->linesMaxNumber += this->allocIncrement;
-            this->lines = realloc(this->lines, this->linesMaxNumber * sizeof(string*));
-            if (this->lines == NULL){
+            string* newAllocation = realloc(this->lines, this->linesMaxNumber * sizeof(string));
+            if (newAllocation == NULL){
                 printf("Failed reallocating memory in allocateContainer()\n");
                 this->free(this);
                 exit(EXIT_FAILURE);
+            } else {
+                this->lines = newAllocation;
             }
             
         }
@@ -270,7 +417,12 @@ int compar(const void* line1, const void* line2){
     string* line1String = (struct string *) line1;
     string* line2String = (struct string *) line2;
     
-    return strcmp(line1String->contents, line2String->contents);
+    string noPunct1, noPunct2;
+    
+    lineWithoutPunctuation(line1String, &noPunct1);
+    lineWithoutPunctuation(line2String, &noPunct2);
+    
+    return strcmp(noPunct1.contents, noPunct2.contents);
 }
 
 
@@ -282,23 +434,32 @@ int comparRev(const void* line1, const void* line2){
     string* line1String = (struct string *) line1;
     string* line2String = (struct string *) line2;
     
-    char* tmpLine1 = calloc(line1String->len + 1, sizeof(char));
-    char* tmpLine2 = calloc(line2String->len + 1, sizeof(char));
+    string noPunct1 = *line1String;
+    string noPunct2 = *line2String;
+    
+    lineWithoutPunctuation(line1String, &noPunct1);
+    lineWithoutPunctuation(line2String, &noPunct2);
+    
+    char* tmpLine1 = calloc(noPunct1.len + 1, sizeof(char));
+    char* tmpLine2 = calloc(noPunct2.len + 1, sizeof(char));
     
     if (tmpLine1 == NULL || tmpLine2 == NULL){
-        printf("Failed allocating memory in strlexcmp()\n");
+        printf("Failed allocating memory in comparRev()\n");
         exit(EXIT_FAILURE);
     }
     
-    strcpy(tmpLine1, line1String->contents);
-    strcpy(tmpLine2, line2String->contents);
-    reverse(tmpLine1, line1String->len);
-    reverse(tmpLine2, line2String->len);
+    strcpy(tmpLine1, noPunct1.contents);
+    strcpy(tmpLine2, noPunct2.contents);
+    reverse(tmpLine1, noPunct1.len);
+    reverse(tmpLine2, noPunct2.len);
+    
     
     int compareResult = strcmp(tmpLine1, tmpLine2);
     
     free(tmpLine1);
     free(tmpLine2);
+    free(noPunct1.contents);
+    free(noPunct2.contents);
     
     return compareResult;
 }
@@ -323,32 +484,84 @@ void reverse(char* line, unsigned long len) {
     }
 }
 
-void constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd){
-    char * buffer = 0;
-    long length;
-    FILE * fp = fopen (fileName, "r");
+
+void defaultContainer(struct SortedLinesContainer* this) {
+    this->allocIncrement = 1024;
+    this->linesNumber = 0;
+    this->fromEnd = false;
+    this->linesMaxNumber = 0;
+    this->allocate = &allocateContainer;
+    this->compar = &compar;
+    this->comparRev = &comparRev;
+    this->sort = &sortContainer;
+    this->free = &freeContainer;
+}
+
+
+void lineWithoutPunctuation(string* lineIn, string* lineOut) {
+    assert(lineIn != NULL);
+    assert(lineOut != NULL);
+    assert(lineOut != lineIn);
     
-    if (fp)
-    {
-        fseek (fp, 0, SEEK_END);
-        length = ftell (fp);
-        fseek (fp, 0, SEEK_SET);
-        buffer = malloc (length);
-        if (buffer)
-        {
-            fread (buffer, 1, length, fp);
-        }else{
-            printf("Can't allocate memory "
-                   "for buffer in constructFromFile()\n");
-            exit(EXIT_FAILURE);
-        }
-        fclose (fp);
-        unsigned long lenElements = length / sizeof(char);
-        this->lines = calloc(lenElements + 1, sizeof(string*));
-        this->construct(this, buffer, lenElements, fromEnd);
-        this->sort(this);
-    } else {
-        printf("Can't open %s for read\n", fileName);
-        exit(EXIT_FAILURE);
+    lineOut->contents = calloc(lineIn->len + 1, sizeof(char));
+    lineOut->allocated = true;
+    
+    char* outPos = lineOut->contents;
+    for (unsigned long i = 0; i < lineIn->len; i++){
+        if (ispunct(lineIn->contents[i]) || lineIn->contents[i] == '\n')
+            continue;
+        *(outPos++) = lineIn->contents[i];
     }
+    lineOut->len = (unsigned long)(outPos - lineOut->contents);
+}
+
+void trimUnprintable(string* line) {
+    char* trimmedLine = calloc(line->len + 1, sizeof(char));
+    char* pos = trimmedLine;
+    bool encounteredPrintable = false;
+    for (unsigned long i = 0; i < line->len; i++){
+        if (isprintable(line->contents[i]) || encounteredPrintable){
+            *(pos++) = line->contents[i];
+            encounteredPrintable = true;
+        }
+    }
+    
+    for (char* i = pos - 1; i >= trimmedLine; i--){
+        if (!isprintable(*i)){
+            pos--;
+        } else {
+            break;
+        }
+    }
+    unsigned long len = (unsigned long)(pos - trimmedLine);
+    trimmedLine[len] = '\0';
+    line->contents = trimmedLine;
+    line->len = len;
+    line->allocated = true;
+}
+
+
+bool isprintable(char c) {
+    return !(c == '\n' || c == '\t' || c == ' ' || c == '\r');
+}
+
+
+unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
+    assert(this != NULL);
+    
+    FILE* fp;
+    
+    fp = fopen(fileName, "w");
+    if (fp == NULL){
+        printf("Could not open %s file\n", fileName);
+        return 0;
+    }
+    
+    for(unsigned long i = 0; i < this->linesNumber; i++){
+        fputs((this->lines + i)->contents, fp);
+        fputs("\n", fp);
+    }
+    
+    fclose(fp);
+    return this->linesNumber;
 }
