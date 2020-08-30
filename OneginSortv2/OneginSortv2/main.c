@@ -14,9 +14,21 @@
 #include <assert.h>
 
 
+/**
+ * Used to store char* and its len so that computations are more effective
+ */
 typedef struct string{
+    
+    
     char* contents;
+    
+    
     unsigned long len;
+    
+    
+    /**
+     * Whether contents were alocated by malloc (can be freed)
+     */
     bool allocated;
 } string;
 
@@ -83,7 +95,7 @@ typedef struct SortedLinesContainer {
      * @param length length of the buffer
      * @param fromEnd whether to sort from the end
      */
-    void (*construct)(struct SortedLinesContainer* this, char* fullBuffer, unsigned long length, bool fromEnd);
+    int (*construct)(struct SortedLinesContainer* this, char* fullBuffer, unsigned long length, bool fromEnd);
     
     
     /**
@@ -97,7 +109,7 @@ typedef struct SortedLinesContainer {
      * Uses allocIncrement
      * @param this object to be constructed
      */
-    void (*allocate)(struct SortedLinesContainer* this);
+    int (*allocate)(struct SortedLinesContainer* this);
     
     
     /**
@@ -117,7 +129,7 @@ int compar(const void *, const void*);
 /**
  * Check SortedLinesContainer comparRev for information
  */
-int  comparRev(const void *, const void*);
+int comparRev(const void *, const void*);
 
 
 /**
@@ -129,20 +141,20 @@ void sortContainer(struct SortedLinesContainer* this);
 /**
  * Check SortedLinesContainer allocate for information
  */
-void allocateContainer(struct SortedLinesContainer* this);
+int allocateContainer(struct SortedLinesContainer* this);
 
 
 /**
  * Check SortedLinesContainer construct for information
  */
-void construct(struct SortedLinesContainer* this,
-               char* fullBuffer, unsigned long length, bool fromEnd);
+int construct(struct SortedLinesContainer* this,
+              char* fullBuffer, unsigned long length, bool fromEnd);
 
 
 /**
  * Constructs SortedLinesContainer from file
  */
-void constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd);
+int constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd);
 
 
 /**
@@ -192,9 +204,19 @@ unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
 void lineWithoutPunctuation(string* lineIn, string* lineOut);
 
 
+/**
+ * Checks whether string consists only of invisible characters.
+ * @param line string to check
+ * @return if has some visible content
+ */
 bool hasVisibleContent(string line);
 
 
+/**
+ * Outputs container line-by-line to the file
+ * @param this [in] container
+ * @param fileName [in] name of output file
+ */
 unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
 
 
@@ -205,9 +227,17 @@ unsigned long outputContainer(SortedLinesContainer* this, char* fileName);
 bool testContainer(void);
 
 
+/**
+ * Trims unprintable symbols from both ends of string.
+ * @param line string to be modified
+ */
 void trimUnprintable(string* line);
 
 
+/**
+ * Is char is visible
+ * @param c char to be checked
+ */
 bool isprintable(char c);
 
 
@@ -262,14 +292,24 @@ int main(int argc, const char * argv[]) {
            "(c) 2020 all rights reserved\n\n");
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
     printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
+    
     SortedLinesContainer container;
     container.construct = &construct;
-    constructFromFile(&container, inputFileName, reversed);
-    outputContainer(&container, outputFileName);
-    container.free(&container);
-    free(inputFileName);
-    free(outputFileName);
-
+    
+    int constructResult = constructFromFile(&container, inputFileName, reversed);
+    if (constructResult == EXIT_FAILURE) {
+        printf("Failed constructFromFile()\n");
+        free(inputFileName);
+        free(outputFileName);
+        return constructResult;
+    }
+    
+    unsigned long linesWrote = outputContainer(&container, outputFileName);
+    if (linesWrote == 0){
+        container.free(&container);
+        return EXIT_FAILURE;
+    }
+    
     return EXIT_SUCCESS;
 }
 
@@ -284,11 +324,17 @@ bool hasVisibleContent(string line) {
 }
 
 
-void construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned long length, bool fromEnd) {
+int construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned long length, bool fromEnd) {
     assert(this != NULL);
     assert(fullBuffer != NULL);
     
     this->fullBuffer = calloc(length + 1, sizeof(char));
+    if (!this->fullBuffer){
+        printf("Can't allocate space for fullBuffer in construct()\n");
+        this->free(this);
+        return EXIT_FAILURE;
+    }
+    
     this->fromEnd = fromEnd;
     
     unsigned long curCounter = 0;
@@ -320,10 +366,11 @@ void construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned lon
         (this->lines + this->linesNumber - 1)->len = curCounter;
     }
     this->fullBuffer[length] = '\0';
+    return EXIT_SUCCESS;
 }
 
 
-void constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd){
+int constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd){
     char * buffer = 0;
     unsigned long length;
     FILE * fp = fopen (fileName, "r");
@@ -342,20 +389,27 @@ void constructFromFile(struct SortedLinesContainer* this, char* fileName, bool f
                    "for buffer in constructFromFile()\n");
             free(buffer);
             this->free(this);
-            exit(EXIT_FAILURE);
+            return EXIT_FAILURE;
         }
         fclose (fp);
         unsigned long lenElements = length / sizeof(char);
         defaultContainer(this);
         this->lines = calloc(lenElements + 1, sizeof(string));
         this->linesMaxNumber = lenElements + 1;
-        this->construct(this, buffer, lenElements, fromEnd);
+        
+        int constructResult = this->construct(this, buffer, lenElements, fromEnd);
+        if (constructResult == EXIT_FAILURE) {
+            printf("Failed constructing object in constructFromFile()\n");
+            free(buffer);
+            return EXIT_FAILURE;
+        }
         this->sort(this);
         free(buffer);
     } else {
         printf("Can't open %s for read\n", fileName);
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
+    return EXIT_SUCCESS;
 }
 
 
@@ -381,7 +435,7 @@ void sortContainer(struct SortedLinesContainer* this) {
 }
 
 
-void allocateContainer(struct SortedLinesContainer* this) {
+int allocateContainer(struct SortedLinesContainer* this) {
     assert(this != NULL);
     
     if (!this->lines || this->linesMaxNumber == 0){
@@ -390,7 +444,7 @@ void allocateContainer(struct SortedLinesContainer* this) {
         if (this->lines == NULL){
             printf("Failed allocating memory in allocateContainer()\n");
             this->free(this);
-            exit(EXIT_FAILURE);
+            return EXIT_FAILURE;
         }
         this->linesMaxNumber = this->allocIncrement;
     } else {
@@ -400,13 +454,14 @@ void allocateContainer(struct SortedLinesContainer* this) {
             if (newAllocation == NULL){
                 printf("Failed reallocating memory in allocateContainer()\n");
                 this->free(this);
-                exit(EXIT_FAILURE);
+                return EXIT_FAILURE;
             } else {
                 this->lines = newAllocation;
             }
             
         }
     }
+    return EXIT_SUCCESS;
 }
 
 
@@ -449,7 +504,7 @@ int comparRev(const void* line1, const void* line2){
     
     if (tmpLine1 == NULL || tmpLine2 == NULL){
         printf("Failed allocating memory in comparRev()\n");
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
     
     strcpy(tmpLine1, noPunct1.contents);
