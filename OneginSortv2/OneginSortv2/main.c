@@ -275,19 +275,19 @@ int main(int argc, const char * argv[]) {
     strcpy(outputFileName, "output.txt");
     
     for(int i = 0; i < argc; i++){
-        if (strcmp("-r", *(argv + i)) == 0){
+        if (strcmp("-r", argv[i]) == 0){
             reversed = true;
             continue;
         }
         
-        if (strcmp("-test", *(argv + i)) == 0){
+        if (strcmp("-test", argv[i]) == 0){
             runTests = true;
             continue;
         }
         
-        if (strcmp("-output", *(argv + i)) == 0){
+        if (strcmp("-output", argv[i]) == 0){
             i++;
-            unsigned long len = strlen(*(argv + i));
+            unsigned long len = strlen(argv[i]);
             char* outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
             if (outputFileNameNew == NULL){
                 printf("Can't realloc memory for output file name\n");
@@ -296,13 +296,13 @@ int main(int argc, const char * argv[]) {
             } else {
                 outputFileName = outputFileNameNew;
             }
-            strcpy(outputFileName, *(argv + i));
+            strcpy(outputFileName, argv[i]);
             i++;
             continue;
         }
-        if (strcmp("-input", *(argv + i)) == 0){
+        if (strcmp("-input", argv[i]) == 0){
             i++;
-            unsigned long len = strlen(*(argv + i));
+            unsigned long len = strlen(argv[i]);
             
             char* inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
             if (inputFileNameNew == NULL){
@@ -313,7 +313,7 @@ int main(int argc, const char * argv[]) {
                 inputFileName = inputFileNameNew;
             }
             
-            strcpy(inputFileName, *(argv + i));
+            strcpy(inputFileName, argv[i]);
             i++;
             continue;
         }
