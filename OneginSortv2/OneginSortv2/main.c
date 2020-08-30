@@ -267,6 +267,7 @@ bool performAllTests(void);
 
 int main(int argc, const char * argv[]) {
     bool reversed = false;
+    bool runTests = false;
     char* inputFileName = malloc(10 * sizeof(char));
     char* outputFileName = malloc(11 * sizeof(char));
     
@@ -276,6 +277,11 @@ int main(int argc, const char * argv[]) {
     for(int i = 0; i < argc; i++){
         if (strcmp("-r", *(argv + i)) == 0){
             reversed = true;
+            continue;
+        }
+        
+        if (strcmp("-test", *(argv + i)) == 0){
+            runTests = true;
             continue;
         }
         
@@ -314,13 +320,15 @@ int main(int argc, const char * argv[]) {
     }
     printf("Aleksandr Dremov\n"
            "(c) 2020 all rights reserved\n\n");
-    if (performAllTests()){
-        printf("All tests passed\n");
-    } else {
-        printf("Some tests failed!\n");
-        free(inputFileName);
-        free(outputFileName);
-        return EXIT_FAILURE;
+    if (runTests){
+        if (performAllTests()){
+            printf("All tests passed\n");
+        } else {
+            printf("Some tests failed!\n");
+            free(inputFileName);
+            free(outputFileName);
+            return EXIT_FAILURE;
+        }
     }
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
     printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
