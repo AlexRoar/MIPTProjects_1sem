@@ -454,7 +454,7 @@ int construct(struct SortedLinesContainer* this, char* fullBuffer, unsigned long
 
 int constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fromEnd){
     char * buffer = 0;
-    unsigned long length;
+    unsigned long length = 0;
     FILE * fp = fopen (fileName, "r");
     
     if (fp)
@@ -626,7 +626,7 @@ void reverse(char* line, unsigned long len) {
     
     char* begin = line;
     char* end = line + len - 1;
-    char c;
+    char c = 0;
     for (unsigned long i = 0; i < len / 2; i++){
         c = *end;
         *end = *begin;
@@ -792,9 +792,8 @@ bool isprintable(char c) {
 unsigned long outputContainer(SortedLinesContainer* this, char* fileName) {
     assert(this != NULL);
     
-    FILE* fp;
+    FILE* fp = fopen(fileName, "w");
     
-    fp = fopen(fileName, "w");
     if (fp == NULL){
         printf("Could not open %s file\n", fileName);
         return 0;
