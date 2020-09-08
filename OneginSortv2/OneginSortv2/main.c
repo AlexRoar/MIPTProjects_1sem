@@ -15,7 +15,7 @@
 /**
  * Used to store char* and its len so that computations are more effective
  */
-typedef struct string{
+typedef struct string {
     
     
     char* contents;
@@ -561,6 +561,7 @@ int compar(const void* line1, const void* line2){
     lineWithoutPunctuation(line2String, &noPunct2);
     
     int compareResult = strcmp(noPunct1.contents, noPunct2.contents);
+    
     free(noPunct1.contents);
     free(noPunct2.contents);
     return compareResult;
