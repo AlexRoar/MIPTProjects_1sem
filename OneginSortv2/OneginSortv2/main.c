@@ -15,7 +15,7 @@
 /**
  * Used to store char* and its len so that computations are more effective
  */
-typedef struct string{
+typedef struct string {
     
     
     char* contents;
@@ -33,7 +33,7 @@ typedef struct string{
 
 typedef struct SortedLinesContainer {
     /**
-     * Pointer to the start of string containing substrings separated by \0
+     * Pointer to the start of the string containing substrings separated by \0
      * (\n replaced by \0)
      */
     char* fullBuffer;
@@ -58,7 +58,7 @@ typedef struct SortedLinesContainer {
     
     
     /**
-     * Number of allocated elements of lines
+     * Number of max elements in lines
      */
     unsigned long linesMaxNumber;
     
@@ -268,8 +268,8 @@ bool performAllTests(void);
 int main(int argc, const char * argv[]) {
     bool reversed = false;
     bool runTests = false;
-    char* inputFileName = malloc(10 * sizeof(char));
-    char* outputFileName = malloc(11 * sizeof(char));
+    char* inputFileName = calloc(10, sizeof(char));
+    char* outputFileName = calloc(11, sizeof(char));
     
     strcpy(inputFileName, "input.txt");
     strcpy(outputFileName, "output.txt");
@@ -462,7 +462,7 @@ int constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fr
         fseek (fp, 0, SEEK_END);
         length = (unsigned long) ftell(fp);
         fseek (fp, 0, SEEK_SET);
-        buffer = malloc(length);
+        buffer = calloc(length, sizeof(char));
         if (buffer)
         {
             fread (buffer, 1, length, fp);
@@ -492,6 +492,11 @@ int constructFromFile(struct SortedLinesContainer* this, char* fileName, bool fr
         return EXIT_FAILURE;
     }
     return EXIT_SUCCESS;
+}
+
+
+bool testContainer(){
+    return true;
 }
 
 
@@ -561,8 +566,10 @@ int compar(const void* line1, const void* line2){
     lineWithoutPunctuation(line2String, &noPunct2);
     
     int compareResult = strcmp(noPunct1.contents, noPunct2.contents);
-    free(noPunct1.contents);
-    free(noPunct2.contents);
+    if (noPunct1.allocated)
+        free(noPunct1.contents);
+    if (noPunct2.allocated)
+        free(noPunct2.contents);
     return compareResult;
 }
 
@@ -599,8 +606,11 @@ int comparRev(const void* line1, const void* line2){
     
     free(tmpLine1);
     free(tmpLine2);
-    free(noPunct1.contents);
-    free(noPunct2.contents);
+    
+    if (noPunct1.allocated)
+        free(noPunct1.contents);
+    if (noPunct2.allocated)
+        free(noPunct2.contents);
     
     return compareResult;
 }
@@ -654,7 +664,6 @@ void lineWithoutPunctuation(string* lineIn, string* lineOut) {
         *(outPos++) = lineIn->contents[i];
     }
     
-    lineOut->allocated = true;
     lineOut->len = (unsigned long)(outPos - lineOut->contents);
 }
 
@@ -756,12 +765,14 @@ bool tests_trimUnprintable(){
         out = inputs[i];
         out.contents = calloc(out.len, sizeof(char));
         char *initalLocated = out.contents;
+        
         strcpy(out.contents, inputs[i].contents);
         trimUnprintable(&out);
         if (!(strcmp(out.contents, outputs[i].contents) == 0 && out.len == outputs[i].len)) {
             printf("Failed trimUnprintable test #(%d) %s!=%s or %lu!=%lu\n", i+1, out.contents, outputs[i].contents, out.len, outputs[i].len);
             valid = false;
         }
+        
         free(initalLocated);
     }
     
