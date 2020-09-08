@@ -731,7 +731,8 @@ void trimUnprintable(string* line) {
         line->len = 1;
         if (line->contents[0] == '\0')
             line->len = 0;
-        line->contents[1] = '\0';
+        if (line->len >= 1) // not counting \0
+            line->contents[1] = '\0';
     }
 }
 
@@ -765,7 +766,7 @@ bool tests_trimUnprintable(){
     string out;
     for (int i = 0; i < totalNumber; i++) {
         out = inputs[i];
-        out.contents = calloc(out.len, sizeof(char));
+        out.contents = calloc(out.len + 1, sizeof(char));
         char *initalLocated = out.contents;
         
         strcpy(out.contents, inputs[i].contents);
