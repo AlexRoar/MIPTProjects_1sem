@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Created by Александр Дремов on 28.08.2020.  
+<p>Created by Александр Дремов on 28.08.2020. Available command line params:  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -104,48 +104,60 @@ Functions</h2></td></tr>
 <tr class="separator:a68cc8023292b0ea3f252df3b1574c25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf15012a2fb0c1386bacef43c4daf00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#abcf15012a2fb0c1386bacef43c4daf00">comparRev</a> (const void *, const void *)</td></tr>
 <tr class="separator:abcf15012a2fb0c1386bacef43c4daf00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c1234cb27a98ea870582cd8f8e16695"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3c1234cb27a98ea870582cd8f8e16695">multiCompare</a> (const void *line1, const void *line2, const int fromEnd)</td></tr>
+<tr class="separator:a3c1234cb27a98ea870582cd8f8e16695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae24bf70d6e394ac8181c4bdb28c72321"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae24bf70d6e394ac8181c4bdb28c72321">doubleWhitespacesSkip</a> (const <a class="el" href="structstring.html">string</a> *line, const char *lineCurrent, short *lineSleep, const int modifier)</td></tr>
+<tr class="separator:ae24bf70d6e394ac8181c4bdb28c72321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf3e092777453bd8240103379c6046b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#abf3e092777453bd8240103379c6046b1">tests_multiCompare</a> (void)</td></tr>
+<tr class="separator:abf3e092777453bd8240103379c6046b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9df39c8c56d2f12a9ecb84e59062e662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9df39c8c56d2f12a9ecb84e59062e662">sortContainer</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this)</td></tr>
 <tr class="separator:a9df39c8c56d2f12a9ecb84e59062e662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fa27962cf0edfd6d28256ce2eed87cc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a4fa27962cf0edfd6d28256ce2eed87cc">allocateContainer</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this)</td></tr>
 <tr class="separator:a4fa27962cf0edfd6d28256ce2eed87cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3255fe3c548213c586e39e6a3ff378b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab3255fe3c548213c586e39e6a3ff378b">construct</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, char *fullBuffer, unsigned long length, bool fromEnd)</td></tr>
-<tr class="separator:ab3255fe3c548213c586e39e6a3ff378b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8057d50fcc23f45ebdf5435f04eba069"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8057d50fcc23f45ebdf5435f04eba069">constructFromFile</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, char *fileName, bool fromEnd)</td></tr>
-<tr class="separator:a8057d50fcc23f45ebdf5435f04eba069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ad318bf54450f731877b345b26df12b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3ad318bf54450f731877b345b26df12b">construct</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, const char *fullBuffer, const size_t length, const bool fromEnd)</td></tr>
+<tr class="separator:a3ad318bf54450f731877b345b26df12b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73faabe5f7cc9095e9a455f83ad1a9f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a73faabe5f7cc9095e9a455f83ad1a9f3">constructFromFile</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, const char *fileName, const bool fromEnd)</td></tr>
+<tr class="separator:a73faabe5f7cc9095e9a455f83ad1a9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a041889d582387b35ded6cfee002e22b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a041889d582387b35ded6cfee002e22b4">defaultContainer</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this)</td></tr>
 <tr class="separator:a041889d582387b35ded6cfee002e22b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b5489b599da81ac0e2b085beedd614c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8b5489b599da81ac0e2b085beedd614c">freeContainer</a> (struct <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this)</td></tr>
 <tr class="separator:a8b5489b599da81ac0e2b085beedd614c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac99d85f10c0383daf31644cf8f9dc8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aac99d85f10c0383daf31644cf8f9dc8a">reverse</a> (char *line, unsigned long len)</td></tr>
-<tr class="separator:aac99d85f10c0383daf31644cf8f9dc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9082651d40e229f6b18a03e0c12d2946"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9082651d40e229f6b18a03e0c12d2946">addFileLinesToContainer</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, char *fileName, bool reversed)</td></tr>
-<tr class="separator:a9082651d40e229f6b18a03e0c12d2946"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74d075cbc8fa03f48ba2210eeb4046d9"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a74d075cbc8fa03f48ba2210eeb4046d9">outputContainer</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, char *fileName)</td></tr>
-<tr class="separator:a74d075cbc8fa03f48ba2210eeb4046d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5914817631cc8dfc94b6467c27d1d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a4b5914817631cc8dfc94b6467c27d1d6">lineWithoutPunctuation</a> (<a class="el" href="structstring.html">string</a> *lineIn, <a class="el" href="structstring.html">string</a> *lineOut)</td></tr>
-<tr class="separator:a4b5914817631cc8dfc94b6467c27d1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe89020fd1af5f10bba2e68057b9f71a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#afe89020fd1af5f10bba2e68057b9f71a">tests_lineWithoutPunctuation</a> (void)</td></tr>
-<tr class="separator:afe89020fd1af5f10bba2e68057b9f71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8c49188e93b24921f09a5ca81f4caa7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa8c49188e93b24921f09a5ca81f4caa7">hasVisibleContent</a> (<a class="el" href="structstring.html">string</a> line)</td></tr>
-<tr class="separator:aa8c49188e93b24921f09a5ca81f4caa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa58284285ec8857f4c352c3fdac08770"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa58284285ec8857f4c352c3fdac08770">tests_hasVisibleContent</a> (void)</td></tr>
-<tr class="separator:aa58284285ec8857f4c352c3fdac08770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8847d54454fdf77f0b6f7620bb9266b6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8847d54454fdf77f0b6f7620bb9266b6">outputContainer</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, FILE *fp)</td></tr>
+<tr class="separator:a8847d54454fdf77f0b6f7620bb9266b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe4af40fbd59db06828b771441e96b4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aabe4af40fbd59db06828b771441e96b4">outputContainerUnsorted</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *this, FILE *fp)</td></tr>
+<tr class="separator:aabe4af40fbd59db06828b771441e96b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf1b2281e87493ca16748dcde3c28f40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aaf1b2281e87493ca16748dcde3c28f40">testContainer</a> (void)</td></tr>
 <tr class="separator:aaf1b2281e87493ca16748dcde3c28f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aced2d85a69cdc4fb223f95c005a8b783"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aced2d85a69cdc4fb223f95c005a8b783">trimUnprintable</a> (<a class="el" href="structstring.html">string</a> *line)</td></tr>
-<tr class="separator:aced2d85a69cdc4fb223f95c005a8b783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40225cfc913a245fa4699de0f20c195c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a40225cfc913a245fa4699de0f20c195c">tests_trimUnprintable</a> (void)</td></tr>
-<tr class="separator:a40225cfc913a245fa4699de0f20c195c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1410b6a126f12066a25a5cf2f040fb52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1410b6a126f12066a25a5cf2f040fb52">isprintable</a> (char c)</td></tr>
 <tr class="separator:a1410b6a126f12066a25a5cf2f040fb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ff68694f20e04d7f0dca4a44601dba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a29ff68694f20e04d7f0dca4a44601dba">ispunctuation</a> (char c)</td></tr>
+<tr class="separator:a29ff68694f20e04d7f0dca4a44601dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af383500efc2bec7f97102ebf4a9f26df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af383500efc2bec7f97102ebf4a9f26df">performAllTests</a> (void)</td></tr>
 <tr class="separator:af383500efc2bec7f97102ebf4a9f26df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f981dafbd26fc68dc68db86c315829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a63f981dafbd26fc68dc68db86c315829">lineAnalyze</a> (const char *lineCurrent, short *insideLine, short *lineSleep)</td></tr>
+<tr class="separator:a63f981dafbd26fc68dc68db86c315829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08690664f2416899705419e21d3e3bf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a08690664f2416899705419e21d3e3bf3">adjustLenTrimmingWhitespaces</a> (<a class="el" href="structstring.html">string</a> *line)</td></tr>
+<tr class="separator:a08690664f2416899705419e21d3e3bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace93612d9488e8310c391a3dc35c365b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ace93612d9488e8310c391a3dc35c365b">hasVisibleContent</a> (const <a class="el" href="structstring.html">string</a> line)</td></tr>
+<tr class="separator:ace93612d9488e8310c391a3dc35c365b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa58284285ec8857f4c352c3fdac08770"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa58284285ec8857f4c352c3fdac08770">tests_hasVisibleContent</a> (void)</td></tr>
+<tr class="separator:aa58284285ec8857f4c352c3fdac08770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top"><a id="ac0f2228420376f4db7e1274f2b41667c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, const char *argv[])</td></tr>
 <tr class="separator:ac0f2228420376f4db7e1274f2b41667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Created by Александр Дремов on 28.08.2020. </p>
+<div class="textblock"><p>Created by Александр Дремов on 28.08.2020. Available command line params: </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">-r</td><td>sort from the end </td></tr>
+    <tr><td class="paramname">-input</td><td>&lt;filepath&gt; input file </td></tr>
+    <tr><td class="paramname">-output</td><td>&lt;filepath&gt; output file </td></tr>
+    <tr><td class="paramname">-test</td><td>run tests before executing </td></tr>
+    <tr><td class="paramname">-dedtask</td><td>output in Dedinsky's task format </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright © 2020 alexdremov. All rights reserved. </dd></dl>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a63e2e3ee7db5274c6a3929edfc07c6c9"></a>
@@ -164,46 +176,27 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a9082651d40e229f6b18a03e0c12d2946"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9082651d40e229f6b18a03e0c12d2946">&#9670;&nbsp;</a></span>addFileLinesToContainer()</h2>
+<a id="a08690664f2416899705419e21d3e3bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08690664f2416899705419e21d3e3bf3">&#9670;&nbsp;</a></span>adjustLenTrimmingWhitespaces()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long addFileLinesToContainer </td>
+          <td class="memname">void adjustLenTrimmingWhitespaces </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *&#160;</td>
-          <td class="paramname"><em>this</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="structstring.html">string</a> *&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>reversed</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds lines from the file to the container. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Decreases line length so that to ignore trailing whitespaces </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">this</td><td>[in+out] container </td></tr>
-    <tr><td class="paramname">fileName</td><td>[in] file name </td></tr>
-    <tr><td class="paramname">reversed</td><td>[in] reversed sort (from the end) </td></tr>
+    <tr><td class="paramname">line</td><td>[in + out] full analyzed string </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of readed lines </dd></dl>
 
 </div>
 </div>
@@ -284,8 +277,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
-<a id="ab3255fe3c548213c586e39e6a3ff378b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3255fe3c548213c586e39e6a3ff378b">&#9670;&nbsp;</a></span>construct()</h2>
+<a id="a3ad318bf54450f731877b345b26df12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ad318bf54450f731877b345b26df12b">&#9670;&nbsp;</a></span>construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -299,19 +292,19 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>fullBuffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramtype">const size_t&#160;</td>
           <td class="paramname"><em>length</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>fromEnd</em>&#160;</td>
         </tr>
         <tr>
@@ -325,8 +318,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
-<a id="a8057d50fcc23f45ebdf5435f04eba069"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8057d50fcc23f45ebdf5435f04eba069">&#9670;&nbsp;</a></span>constructFromFile()</h2>
+<a id="a73faabe5f7cc9095e9a455f83ad1a9f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73faabe5f7cc9095e9a455f83ad1a9f3">&#9670;&nbsp;</a></span>constructFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,13 +333,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>fileName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>fromEnd</em>&#160;</td>
         </tr>
         <tr>
@@ -379,6 +372,55 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
+<a id="ae24bf70d6e394ac8181c4bdb28c72321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24bf70d6e394ac8181c4bdb28c72321">&#9670;&nbsp;</a></span>doubleWhitespacesSkip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void doubleWhitespacesSkip </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structstring.html">string</a> *&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>lineCurrent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>lineSleep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>modifier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set lineSleep to 1 if current position is somewhere between reacurring whitespaces </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>[in] line to be checked </td></tr>
+    <tr><td class="paramname">lineCurrent</td><td>[in] current position </td></tr>
+    <tr><td class="paramname">lineSleep</td><td>[out] skip this symbol? </td></tr>
+    <tr><td class="paramname">modifier</td><td>[in] 1 or -1 - direction of scaning (forwards or backwards) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a8b5489b599da81ac0e2b085beedd614c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b5489b599da81ac0e2b085beedd614c">&#9670;&nbsp;</a></span>freeContainer()</h2>
 
@@ -398,8 +440,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
-<a id="aa8c49188e93b24921f09a5ca81f4caa7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8c49188e93b24921f09a5ca81f4caa7">&#9670;&nbsp;</a></span>hasVisibleContent()</h2>
+<a id="ace93612d9488e8310c391a3dc35c365b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace93612d9488e8310c391a3dc35c365b">&#9670;&nbsp;</a></span>hasVisibleContent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,7 +449,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         <tr>
           <td class="memname">bool hasVisibleContent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structstring.html">string</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structstring.html">string</a>&#160;</td>
           <td class="paramname"><em>line</em></td><td>)</td>
           <td></td>
         </tr>
@@ -415,7 +457,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 </div><div class="memdoc">
 <p>Checks whether string consists only of invisible characters. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">line</td><td>string to check </td></tr>
+    <tr><td class="paramname">line</td><td>[in] string to check </td></tr>
   </table>
   </dd>
 </dl>
@@ -440,30 +482,60 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 </div><div class="memdoc">
 <p>Is char is visible </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">c</td><td>char to be checked </td></tr>
+    <tr><td class="paramname">c</td><td>[in] char to be checked </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a4b5914817631cc8dfc94b6467c27d1d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b5914817631cc8dfc94b6467c27d1d6">&#9670;&nbsp;</a></span>lineWithoutPunctuation()</h2>
+<a id="a29ff68694f20e04d7f0dca4a44601dba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29ff68694f20e04d7f0dca4a44601dba">&#9670;&nbsp;</a></span>ispunctuation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lineWithoutPunctuation </td>
+          <td class="memname">bool ispunctuation </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structstring.html">string</a> *&#160;</td>
-          <td class="paramname"><em>lineIn</em>, </td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Is char is punctuation </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>[in] char to be checked </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63f981dafbd26fc68dc68db86c315829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f981dafbd26fc68dc68db86c315829">&#9670;&nbsp;</a></span>lineAnalyze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lineAnalyze </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>lineCurrent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structstring.html">string</a> *&#160;</td>
-          <td class="paramname"><em>lineOut</em>&#160;</td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>insideLine</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short *&#160;</td>
+          <td class="paramname"><em>lineSleep</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -472,24 +544,67 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a line copy without punctuation marks. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Line analyzer. Fires sleep if current symbol is not ready to be compared with something (skip this symbol) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lineIn</td><td>[in] input line </td></tr>
-    <tr><td class="paramname">lineOut</td><td>[out] output line </td></tr>
+    <tr><td class="paramname">lineCurrent</td><td>[in] line current position </td></tr>
+    <tr><td class="paramname">insideLine</td><td>[in + out] whether inside line (leading whitespaces skipped) </td></tr>
+    <tr><td class="paramname">lineSleep</td><td>[in + out] whether to skip current symbol </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a74d075cbc8fa03f48ba2210eeb4046d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74d075cbc8fa03f48ba2210eeb4046d9">&#9670;&nbsp;</a></span>outputContainer()</h2>
+<a id="a3c1234cb27a98ea870582cd8f8e16695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1234cb27a98ea870582cd8f8e16695">&#9670;&nbsp;</a></span>multiCompare()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned long outputContainer </td>
+          <td class="memname">int multiCompare </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>line1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>line2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>fromEnd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line1</td><td>[in] first line </td></tr>
+    <tr><td class="paramname">line2</td><td>[in] second line </td></tr>
+    <tr><td class="paramname">fromEnd</td><td>[in] whether to compare from the end </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8847d54454fdf77f0b6f7620bb9266b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8847d54454fdf77f0b6f7620bb9266b6">&#9670;&nbsp;</a></span>outputContainer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t outputContainer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *&#160;</td>
           <td class="paramname"><em>this</em>, </td>
@@ -497,8 +612,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fileName</em>&#160;</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -507,21 +622,50 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Outputs container to the file. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">this</td><td>[in] container </td></tr>
-    <tr><td class="paramname">fileName</td><td>[in] file name </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>number of lines written</dd></dl>
 <p>Outputs container line-by-line to the file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">this</td><td>[in] container </td></tr>
-    <tr><td class="paramname">fileName</td><td>[in] name of output file </td></tr>
+    <tr><td class="paramname">fp</td><td>[in] file pointer </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>number of lines written </dd></dl>
+
+</div>
+</div>
+<a id="aabe4af40fbd59db06828b771441e96b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabe4af40fbd59db06828b771441e96b4">&#9670;&nbsp;</a></span>outputContainerUnsorted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t outputContainerUnsorted </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *&#160;</td>
+          <td class="paramname"><em>this</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs container line-by-line to the file without sorting </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this</td><td>[in] container </td></tr>
+    <tr><td class="paramname">fp</td><td>[in] file pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 - success, 1 - error </dd></dl>
 
 </div>
 </div>
@@ -540,42 +684,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Performs all tests and returns true if valid </p>
-
-</div>
-</div>
-<a id="aac99d85f10c0383daf31644cf8f9dc8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac99d85f10c0383daf31644cf8f9dc8a">&#9670;&nbsp;</a></span>reverse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void reverse </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>line</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Reverses the line </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">line</td><td>[in + out] pointer to the <a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> </td></tr>
-    <tr><td class="paramname">len</td><td>[in] the length of the line </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Performs all tests and returns true if valid </p><dl class="section return"><dt>Returns</dt><dd>success </dd></dl>
 
 </div>
 </div>
@@ -632,18 +741,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tests for <a class="el" href="main_8c.html#aa8c49188e93b24921f09a5ca81f4caa7">hasVisibleContent()</a>. </p><dl class="section return"><dt>Returns</dt><dd>if valid </dd></dl>
+<p>Tests for <a class="el" href="main_8c.html#ace93612d9488e8310c391a3dc35c365b">hasVisibleContent()</a>. </p><dl class="section return"><dt>Returns</dt><dd>if valid </dd></dl>
 
 </div>
 </div>
-<a id="afe89020fd1af5f10bba2e68057b9f71a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe89020fd1af5f10bba2e68057b9f71a">&#9670;&nbsp;</a></span>tests_lineWithoutPunctuation()</h2>
+<a id="abf3e092777453bd8240103379c6046b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf3e092777453bd8240103379c6046b1">&#9670;&nbsp;</a></span>tests_multiCompare()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tests_lineWithoutPunctuation </td>
+          <td class="memname">int tests_multiCompare </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -651,50 +760,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tests for <a class="el" href="main_8c.html#a4b5914817631cc8dfc94b6467c27d1d6">lineWithoutPunctuation()</a>. </p><dl class="section return"><dt>Returns</dt><dd>if valid </dd></dl>
-
-</div>
-</div>
-<a id="a40225cfc913a245fa4699de0f20c195c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40225cfc913a245fa4699de0f20c195c">&#9670;&nbsp;</a></span>tests_trimUnprintable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool tests_trimUnprintable </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Tests for <a class="el" href="main_8c.html#aced2d85a69cdc4fb223f95c005a8b783">trimUnprintable()</a> </p>
-
-</div>
-</div>
-<a id="aced2d85a69cdc4fb223f95c005a8b783"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aced2d85a69cdc4fb223f95c005a8b783">&#9670;&nbsp;</a></span>trimUnprintable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void trimUnprintable </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structstring.html">string</a> *&#160;</td>
-          <td class="paramname"><em>line</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Trims unprintable symbols from both ends of string. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">line</td><td>string to be modified </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Tests for <a class="el" href="main_8c.html#ae24bf70d6e394ac8181c4bdb28c72321">doubleWhitespacesSkip()</a> </p>
 
 </div>
 </div>

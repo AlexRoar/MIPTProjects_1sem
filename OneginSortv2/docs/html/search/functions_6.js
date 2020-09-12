@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linewithoutpunctuation_46',['lineWithoutPunctuation',['../main_8c.html#a4b5914817631cc8dfc94b6467c27d1d6',1,'main.c']]]
+  ['lineanalyze_50',['lineAnalyze',['../main_8c.html#a63f981dafbd26fc68dc68db86c315829',1,'main.c']]]
 ];

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['testcontainer_51',['testContainer',['../main_8c.html#aaf1b2281e87493ca16748dcde3c28f40',1,'main.c']]],
-  ['tests_5fhasvisiblecontent_52',['tests_hasVisibleContent',['../main_8c.html#aa58284285ec8857f4c352c3fdac08770',1,'main.c']]],
-  ['tests_5flinewithoutpunctuation_53',['tests_lineWithoutPunctuation',['../main_8c.html#afe89020fd1af5f10bba2e68057b9f71a',1,'main.c']]],
-  ['tests_5ftrimunprintable_54',['tests_trimUnprintable',['../main_8c.html#a40225cfc913a245fa4699de0f20c195c',1,'main.c']]],
-  ['trimunprintable_55',['trimUnprintable',['../main_8c.html#aced2d85a69cdc4fb223f95c005a8b783',1,'main.c']]]
+  ['testcontainer_56',['testContainer',['../main_8c.html#aaf1b2281e87493ca16748dcde3c28f40',1,'main.c']]],
+  ['tests_5fhasvisiblecontent_57',['tests_hasVisibleContent',['../main_8c.html#aa58284285ec8857f4c352c3fdac08770',1,'main.c']]],
+  ['tests_5fmulticompare_58',['tests_multiCompare',['../main_8c.html#abf3e092777453bd8240103379c6046b1',1,'main.c']]]
 ];

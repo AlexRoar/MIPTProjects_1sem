@@ -1,6 +1,12 @@
 /**
  * @file
  * @brief Created by Александр Дремов on 28.08.2020.
+ * Available command line params:
+ * @param -r sort from the end
+ * @param -input <filepath> input file
+ * @param -output <filepath> output file
+ * @param -test run tests before executing
+ * @param -dedtask output in Dedinsky's task format
  * @copyright Copyright © 2020 alexdremov. All rights reserved.
  */
 
@@ -18,7 +24,7 @@
 typedef struct string {
     char *contents;
 
-    unsigned long len;
+    size_t len;
 
     /**
      * Whether contents were alocated by malloc (can be freed) or just a reference
@@ -56,58 +62,59 @@ typedef struct SortedLinesContainer {
     /**
      * Number of objects in lines
      */
-    unsigned long linesNumber;
+    size_t linesNumber;
 
     /**
      * Number of max elements in lines
      */
-    unsigned long linesMaxNumber;
+    size_t linesMaxNumber;
 
     /**
      * How much new elements will be allocated when running out of space
      */
-    unsigned long allocIncrement;
+    size_t allocIncrement;
 
     /**
      * Function used in qsort for regular comparison
-     * @param line1 first  struct string object
-     * @param line2 second struct string object
+     * @param line1 [in] first  struct string object
+     * @param line2 [in] second struct string object
      */
     int (*compar)(const void *line1, const void *line2);
 
     /**
      * Function used in qsort for comparison from the end of the string
-     * @param line1 first  struct string object
-     * @param line2 second struct string object
+     * @param line1 [in] first  struct string object
+     * @param line2 [in] second struct string object
      */
     int (*comparRev)(const void *line1, const void *line2);
 
     /**
      * Constructs default object
      * Invisible charecters are trimmed and blank lines are removed
-     * @param this object to be constructed
-     * @param fullBuffer pointer to the first char of readed file
-     * @param length length of the buffer
-     * @param fromEnd whether to sort from the end
+     * @param this [in + out] object to be constructed
+     * @param fullBuffer [in] pointer to the first char of readed file
+     * @param length [in] length of the buffer
+     * @param fromEnd [in] whether to sort from the end
      */
-    int (*construct)(struct SortedLinesContainer *this, const char *fullBuffer, const unsigned long length,
+    int (*construct)(struct SortedLinesContainer *this, const char *fullBuffer, const size_t length,
                      const bool fromEnd);
 
     /**
      * Performs sorting of lines array
+     * @param this [in + out] object to be constructed
      */
     void (*sort)(struct SortedLinesContainer *this);
 
     /**
      * Allocates memory so that lines object can contain one more element
      * Uses allocIncrement
-     * @param this object to be constructed
+     * @param this  [in + out] object to be constructed
      */
     int (*allocate)(struct SortedLinesContainer *this);
 
     /**
      * Frees space
-     * @param this object to be constructed
+     * @param this  [in + out] object to be constructed
      */
     void (*free)(struct SortedLinesContainer *this);
 } SortedLinesContainer;
@@ -127,18 +134,19 @@ int comparRev(const void *, const void *);
 
 /**
  * Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces.
- * @param line1 first line
- * @param line2 second line
- * @param fromEnd Whether to compare from the end
+ * @param line1 [in] first line
+ * @param line2 [in] second line
+ * @param fromEnd [in] whether to compare from the end
  */
 int multiCompare(const void *line1, const void *line2, const int fromEnd);
 
 
 /**
  * Set lineSleep to 1 if current position is somewhere between reacurring whitespaces
- * @param line line to be checked
- * @param lineCurrent current position
- * @param modifier 1 or -1 - direction of scaning (forwards or backwards)
+ * @param line [in] line to be checked
+ * @param lineCurrent [in] current position
+ * @param lineSleep [out] skip this symbol?
+ * @param modifier [in] 1 or -1 - direction of scaning (forwards or backwards)
  */
 void doubleWhitespacesSkip(const string *line, const char *lineCurrent, short *lineSleep, const int modifier);
 
@@ -165,7 +173,7 @@ int allocateContainer(struct SortedLinesContainer *this);
  * Check SortedLinesContainer construct for information
  */
 int construct(struct SortedLinesContainer *this,
-              const char *fullBuffer, const unsigned long length, const bool fromEnd);
+              const char *fullBuffer, const size_t length, const bool fromEnd);
 
 
 /**
@@ -190,16 +198,18 @@ void freeContainer(struct SortedLinesContainer *this);
  * Outputs container line-by-line to the file
  * @param this [in] container
  * @param fp [in] file pointer
+ * @return number of lines written
  */
-unsigned long outputContainer(SortedLinesContainer *this, FILE *fp);
+size_t outputContainer(SortedLinesContainer *this, FILE *fp);
 
 
 /**
  * Outputs container line-by-line to the file without sorting
  * @param this [in] container
  * @param fp [in] file pointer
+ * @return 0 - success, 1 - error
  */
-unsigned long outputContainerUnsorted(SortedLinesContainer *this, FILE *fp);
+size_t outputContainerUnsorted(SortedLinesContainer *this, FILE *fp);
 
 
 /**
@@ -211,46 +221,47 @@ bool testContainer(void);
 
 /**
  * Is char is visible
- * @param c char to be checked
+ * @param c [in] char to be checked
  */
 bool isprintable(char c);
 
 
 /**
  * Is char is punctuation
- * @param c char to be checked
+ * @param c [in] char to be checked
  */
 bool ispunctuation(char c);
 
 
 /**
  * Performs all tests and returns true if valid
+ * @return success
  */
 bool performAllTests(void);
 
 
 /**
  * Line analyzer. Fires sleep if current symbol is not ready to be compared with something (skip this symbol)
- * @param lineCurrent line current position
- * @param insideLine whether inside line (leading whitespaces skipped)
- * @param lineSleep whether to skip current symbol
+ * @param lineCurrent [in] line current position
+ * @param insideLine [in + out] whether inside line (leading whitespaces skipped)
+ * @param lineSleep [in + out] whether to skip current symbol
  */
-void lineAnalyze(char *lineCurrent, short *insideLine, short *lineSleep);
+void lineAnalyze(const char *lineCurrent, short *insideLine, short *lineSleep);
 
 
 /**
  * Decreases line length so that to ignore trailing whitespaces
- * @param line full analyzed string
+ * @param line [in + out] full analyzed string
  */
 void adjustLenTrimmingWhitespaces(string *line);
 
 
 /**
  * Checks whether string consists only of invisible characters.
- * @param line string to check
+ * @param line [in] string to check
  * @return if has some visible content
  */
-bool hasVisibleContent(string line);
+bool hasVisibleContent(const string line);
 
 
 /**
@@ -288,7 +299,7 @@ int main(int argc, const char *argv[]) {
 
         if (strcmp("-output", argv[i]) == 0) {
             i++;
-            unsigned long len = strlen(argv[i]);
+            size_t len = strlen(argv[i]);
             char *outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
             if (outputFileNameNew == NULL) {
                 printf("Can't realloc memory for output file name\n");
@@ -303,7 +314,7 @@ int main(int argc, const char *argv[]) {
         }
         if (strcmp("-input", argv[i]) == 0) {
             i++;
-            unsigned long len = strlen(argv[i]);
+            size_t len = strlen(argv[i]);
 
             char *inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
             if (inputFileNameNew == NULL) {
@@ -351,7 +362,7 @@ int main(int argc, const char *argv[]) {
     if (fp == NULL){
         printf("Cant open %s for output\n", outputFileName);
     }
-    unsigned long linesWrote = 0;
+    size_t linesWrote = 0;
     if (dedTask){
         printf("\nMEW! You asked for Dedinsky's task output format.\
                \nFasten your seatbelts, please.\n");
@@ -389,17 +400,19 @@ int main(int argc, const char *argv[]) {
 
 
 bool performAllTests() {
-    return tests_multiCompare() && tests_hasVisibleContent();
+    return tests_multiCompare() && tests_hasVisibleContent() && testContainer();
 }
 
-bool hasVisibleContent(string line) {
-    for (unsigned long i = 0; i < line.len; i++){
+
+bool hasVisibleContent(const string line) {
+    for (size_t i = 0; i < line.len; i++){
         if (isprintable(line.contents[i])){
             return true;
         }
     }
     return false;
 }
+
 
 bool tests_hasVisibleContent(){
     string inputs[] = {
@@ -438,7 +451,7 @@ bool tests_hasVisibleContent(){
 
 
 int construct(struct SortedLinesContainer *this, const char *fullBuffer,
-              const unsigned long length, const bool fromEnd) {
+              const size_t length, const bool fromEnd) {
     assert(this != NULL);
     assert(fullBuffer != NULL);
 
@@ -452,8 +465,8 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
 
     this->fromEnd = fromEnd;
 
-    unsigned long curCounter = 0;
-    for (unsigned long i = 0; i < length; i++) {
+    size_t curCounter = 0;
+    for (size_t i = 0; i < length; i++) {
         this->fullBuffer[i] = fullBuffer[i];
         this->fullBufferInitial[i] = fullBuffer[i];
         if (curCounter == 0) {
@@ -482,12 +495,12 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
 
 int constructFromFile(struct SortedLinesContainer *this, const char *fileName, const bool fromEnd) {
     char *buffer = 0;
-    unsigned long length = 0;
+    size_t length = 0;
     FILE *fp = fopen(fileName, "rb");
 
     if (fp) {
         fseek(fp, 0, SEEK_END);
-        length = (unsigned long) ftell(fp);
+        length = (size_t) ftell(fp);
         fseek(fp, 0, SEEK_SET);
         buffer = calloc(length, sizeof(char));
         if (buffer) {
@@ -500,7 +513,7 @@ int constructFromFile(struct SortedLinesContainer *this, const char *fileName, c
             return EXIT_FAILURE;
         }
         fclose(fp);
-        unsigned long lenElements = length / sizeof(char);
+        size_t lenElements = length / sizeof(char);
         defaultContainer(this);
         
         this->lines = calloc(lenElements + 1, sizeof(string));
@@ -529,7 +542,7 @@ bool testContainer() {
 
 
 void freeContainer(struct SortedLinesContainer *this) {
-    for (unsigned long i = 0; i < this->linesNumber; i++) {
+    for (size_t i = 0; i < this->linesNumber; i++) {
         if (this->lines[i].allocated)
             free(this->lines[i].contents);
     }
@@ -757,7 +770,7 @@ void adjustLenTrimmingWhitespaces(string *line) {
 }
 
 
-void lineAnalyze(char *lineCurrent, short *insideLine, short *lineSleep) {
+void lineAnalyze(const char *lineCurrent, short *insideLine, short *lineSleep) {
     if (!isprintable(*lineCurrent) && !*insideLine) {
         *lineSleep = 1;
         return;
@@ -797,14 +810,14 @@ bool ispunctuation(char c) {
 }
 
 
-unsigned long outputContainer(SortedLinesContainer *this, FILE *fp) {
+size_t outputContainer(SortedLinesContainer *this, FILE *fp) {
     assert(this != NULL);
     if (fp == NULL) {
         printf("Could not open file for output\n");
         return 0;
     }
 
-    for (unsigned long i = 0; i < this->linesNumber; i++) {
+    for (size_t i = 0; i < this->linesNumber; i++) {
         if (!hasVisibleContent(*(this->lines + i)))
             continue;
         fputs((this->lines + i)->contents, fp);
@@ -814,7 +827,7 @@ unsigned long outputContainer(SortedLinesContainer *this, FILE *fp) {
     return this->linesNumber;
 }
 
-unsigned long outputContainerUnsorted(SortedLinesContainer *this, FILE *fp) {
+size_t outputContainerUnsorted(SortedLinesContainer *this, FILE *fp) {
     assert(this != NULL);
     if (fp == NULL) {
         printf("Could not open file for output\n");
