@@ -231,12 +231,11 @@ bool performAllTests(void);
 
 /**
  * Line analyzer. Fires sleep if current symbol is not ready to be compared with something (skip this symbol)
- * @param line full analyzed string
  * @param lineCurrent line current position
  * @param insideLine whether inside line (leading whitespaces skipped)
  * @param lineSleep whether to skip current symbol
  */
-void lineAnalyze(const string *line, char *lineCurrent, short *insideLine, short *lineSleep);
+void lineAnalyze(char *lineCurrent, short *insideLine, short *lineSleep);
 
 
 /**
@@ -318,7 +317,8 @@ int main(int argc, const char *argv[]) {
         }
     }
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
-    printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
+    if (!dedTask)
+        printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
 
     SortedLinesContainer container;
     container.construct = &construct;
@@ -354,6 +354,7 @@ int main(int argc, const char *argv[]) {
         fprintf(fp, "\n\n=== Sorted container ===\n");
         linesWrote += outputContainer(&container, fp);
         container.fromEnd = true;
+        container.sort(&container);
         fprintf(fp, "\n\n=== Sorted from the end container ===\n");
         linesWrote += outputContainer(&container, fp);
     }else{
@@ -576,7 +577,7 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             line1Ended = 1;
             line1Sleep = 1;
         } else {
-            lineAnalyze(&tmpString1, line1Current, &insideLine1, &line1Sleep);
+            lineAnalyze(line1Current, &insideLine1, &line1Sleep);
             doubleWhitespacesSkip(&tmpString1, line1Current, &line1Sleep, modifier);
         }
 
@@ -584,7 +585,7 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             line2Ended = 1;
             line2Sleep = 1;
         } else {
-            lineAnalyze(&tmpString2, line2Current, &insideLine2, &line2Sleep);
+            lineAnalyze(line2Current, &insideLine2, &line2Sleep);
             doubleWhitespacesSkip(&tmpString2, line2Current, &line2Sleep, modifier);
         }
 
@@ -697,7 +698,7 @@ void adjustLenTrimmingWhitespaces(string *line) {
 }
 
 
-void lineAnalyze(const string *line, char *lineCurrent, short *insideLine, short *lineSleep) {
+void lineAnalyze(char *lineCurrent, short *insideLine, short *lineSleep) {
     if (!isprintable(*lineCurrent) && !*insideLine) {
         *lineSleep = 1;
         return;
