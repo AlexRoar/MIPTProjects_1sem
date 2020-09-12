@@ -270,6 +270,12 @@ bool hasVisibleContent(const string line);
 bool tests_hasVisibleContent(void);
 
 
+int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
+               bool *dedTask, char* inputFileName, char *outputFileName);
+
+
+size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask);
+
 int main(int argc, const char *argv[]) {
     bool reversed = false;
     bool runTests = false;
@@ -280,55 +286,13 @@ int main(int argc, const char *argv[]) {
     strcpy(inputFileName, "input.txt");
     strcpy(outputFileName, "output.txt");
 
-    for (int i = 0; i < argc; i++) {
-        if (strcmp("-r", argv[i]) == 0) {
-            reversed = true;
-            continue;
-        }
-        
-        if (strcmp("-dedtask", argv[i]) == 0) {
-            dedTask = true;
-            continue;
-        }
-
-        if (strcmp("-test", argv[i]) == 0) {
-            runTests = true;
-            continue;
-        }
-
-        if (strcmp("-output", argv[i]) == 0) {
-            i++;
-            size_t len = strlen(argv[i]);
-            char *outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
-            if (outputFileNameNew == NULL) {
-                printf("Can't realloc memory for output file name\n");
-                free(outputFileName);
-                return EXIT_FAILURE;
-            } else {
-                outputFileName = outputFileNameNew;
-            }
-            strcpy(outputFileName, argv[i]);
-            i++;
-            continue;
-        }
-        if (strcmp("-input", argv[i]) == 0) {
-            i++;
-            size_t len = strlen(argv[i]);
-
-            char *inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
-            if (inputFileNameNew == NULL) {
-                printf("Can't realloc memory for input file name\n");
-                free(inputFileName);
-                return EXIT_FAILURE;
-            } else {
-                inputFileName = inputFileNameNew;
-            }
-
-            strcpy(inputFileName, argv[i]);
-            i++;
-            continue;
-        }
+    if (parseArgs(argc, argv, &reversed, &runTests,
+                  &dedTask, inputFileName, outputFileName) == EXIT_FAILURE){
+        free(inputFileName);
+        free(outputFileName);
+        return EXIT_FAILURE;
     }
+    
     printf("Aleksandr Dremov\n"
            "(c) 2020 all rights reserved\n\n");
     if (runTests) {
@@ -341,6 +305,7 @@ int main(int argc, const char *argv[]) {
             return EXIT_FAILURE;
         }
     }
+    
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
     if (!dedTask)
         printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
@@ -361,30 +326,7 @@ int main(int argc, const char *argv[]) {
     if (fp == NULL){
         printf("Cant open %s for output\n", outputFileName);
     }
-    size_t linesWrote = 0;
-    if (dedTask){
-        printf("\nMEW! You asked for Dedinsky's task output format.\
-               \nFasten your seatbelts, please.\n");
-        printf("\
-               _                ___       _.--.\n\
-               \\`.|\\..----...-'`   `-._.-'_.-'`\n\
-               /  ' `         ,       __.--'\n\
-               )/' _/     \\   `-_,   /\n\
-               `-'\" `\"\\_  ,_.-;_.-\\_  \\\n\
-                   _.-'_./   {_.'   ; /\n\
-                  {_.---'          {_/\n\n");
-        fprintf(fp, "=== Unsorted container ===\n");
-        outputContainerUnsorted(&container, fp);
-        container.fromEnd = false;
-        fprintf(fp, "\n\n=== Sorted container ===\n");
-        linesWrote += outputContainer(&container, fp);
-        container.fromEnd = true;
-        container.sort(&container);
-        fprintf(fp, "\n\n=== Sorted from the end container ===\n");
-        linesWrote += outputContainer(&container, fp);
-    }else{
-        linesWrote = outputContainer(&container, fp);
-    }
+    size_t linesWrote = taskOutput(&container, fp, dedTask);
     
     fclose(fp);
     free(inputFileName);
@@ -394,6 +336,88 @@ int main(int argc, const char *argv[]) {
         return EXIT_FAILURE;
     }
 
+    return EXIT_SUCCESS;
+}
+
+
+size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask){
+    size_t linesWrote = 0;
+    if (dedTask){
+        printf("\nMEOW! You activated Dedinsky mode.\
+               \nFasten your seatbelts, please.\n");
+        printf("\
+        _                ___       _.--.\n\
+        \\`.|\\..----...-'`   `-._.-'_.-'`\n\
+        /  ' `         ,       __.--'\n\
+        )/' _/     \\   `-_,   /\n\
+        `-'\"._`_\\_  ,_.-;_.-\\_  \\\n\
+             _.-'_./   {_.'   ; /\n\
+           {_.---'          {_/\n\n");
+        fprintf(fp, "=== Unsorted container ===\n");
+        outputContainerUnsorted(container, fp);
+        container->fromEnd = false;
+        fprintf(fp, "\n\n=== Sorted container ===\n");
+        linesWrote += outputContainer(container, fp);
+        container->fromEnd = true;
+        container->sort(container);
+        fprintf(fp, "\n\n=== Sorted from the end container ===\n");
+        linesWrote += outputContainer(container, fp);
+    }else{
+        linesWrote = outputContainer(container, fp);
+    }
+    return linesWrote;
+}
+
+
+int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
+               bool *dedTask, char* inputFileName, char *outputFileName) {
+    for (int i = 0; i < argc; i++) {
+        if (strcmp("-r", argv[i]) == 0) {
+            *reversed = true;
+            continue;
+        }
+        
+        if (strcmp("-dedtask", argv[i]) == 0) {
+            *dedTask = true;
+            continue;
+        }
+
+        if (strcmp("-test", argv[i]) == 0) {
+            *runTests = true;
+            continue;
+        }
+
+        if (strcmp("-output", argv[i]) == 0) {
+            i++;
+            size_t len = strlen(argv[i]);
+            char *outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
+            if (outputFileNameNew == NULL) {
+                printf("Can't realloc memory for output file name\n");
+                return EXIT_FAILURE;
+            } else {
+                outputFileName = outputFileNameNew;
+            }
+            strcpy(outputFileName, argv[i]);
+            i++;
+            continue;
+        }
+        if (strcmp("-input", argv[i]) == 0) {
+            i++;
+            size_t len = strlen(argv[i]);
+
+            char *inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
+            if (inputFileNameNew == NULL) {
+                printf("Can't realloc memory for input file name\n");
+                return EXIT_FAILURE;
+            } else {
+                inputFileName = inputFileNameNew;
+            }
+
+            strcpy(inputFileName, argv[i]);
+            i++;
+            continue;
+        }
+    }
     return EXIT_SUCCESS;
 }
 
