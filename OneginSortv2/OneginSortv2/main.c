@@ -33,11 +33,20 @@ typedef struct SortedLinesContainer {
      * (\n replaced by \0)
      */
     char *fullBuffer;
+    
+    
+    /**
+     * Pointer to the start of the string containing substrings separated by \0
+     * (\n replaced by \0)
+     */
+    char *fullBufferInitial;
+    
 
     /**
      * Strings containing starts of substrings in fullBuffer
      */
     string *lines;
+    
 
     /**
      * Whether to perform comparison from the end
@@ -180,9 +189,17 @@ void freeContainer(struct SortedLinesContainer *this);
 /**
  * Outputs container line-by-line to the file
  * @param this [in] container
- * @param fileName [in] name of output file
+ * @param fp [in] file pointer
  */
-unsigned long outputContainer(SortedLinesContainer *this, char *fileName);
+unsigned long outputContainer(SortedLinesContainer *this, FILE *fp);
+
+
+/**
+ * Outputs container line-by-line to the file without sorting
+ * @param this [in] container
+ * @param fp [in] file pointer
+ */
+unsigned long outputContainerUnsorted(SortedLinesContainer *this, FILE *fp);
 
 
 /**
@@ -232,6 +249,7 @@ void adjustLenTrimmingWhitespaces(string *line);
 int main(int argc, const char *argv[]) {
     bool reversed = false;
     bool runTests = false;
+    bool dedTask = false;
     char *inputFileName = calloc(10, sizeof(char));
     char *outputFileName = calloc(11, sizeof(char));
 
@@ -241,6 +259,11 @@ int main(int argc, const char *argv[]) {
     for (int i = 0; i < argc; i++) {
         if (strcmp("-r", argv[i]) == 0) {
             reversed = true;
+            continue;
+        }
+        
+        if (strcmp("-dedtask", argv[i]) == 0) {
+            dedTask = true;
             continue;
         }
 
@@ -303,12 +326,41 @@ int main(int argc, const char *argv[]) {
     int constructResult = constructFromFile(&container, inputFileName, reversed);
     if (constructResult == EXIT_FAILURE) {
         printf("Failed constructFromFile()\n");
+        container.free(&container);
         free(inputFileName);
         free(outputFileName);
         return constructResult;
     }
-
-    unsigned long linesWrote = outputContainer(&container, outputFileName);
+    
+    FILE *fp = fopen(outputFileName, "w");
+    if (fp == NULL){
+        printf("Cant open %s for output\n", outputFileName);
+    }
+    unsigned long linesWrote = 0;
+    if (dedTask){
+        printf("\nMEW! You asked for Dedinsky's task output format.\
+               \nFasten your seatbelts, please.\n");
+        printf("\
+               _                ___       _.--.\n\
+               \\`.|\\..----...-'`   `-._.-'_.-'`\n\
+               /  ' `         ,       __.--'\n\
+               )/' _/     \\   `-_,   /\n\
+               `-'\" `\"\\_  ,_.-;_.-\\_  \\\n\
+                   _.-'_./   {_.'   ; /\n\
+                  {_.---'          {_/\n\n");
+        fprintf(fp, "=== Unsorted container ===\n");
+        outputContainerUnsorted(&container, fp);
+        container.fromEnd = false;
+        fprintf(fp, "\n\n=== Sorted container ===\n");
+        linesWrote += outputContainer(&container, fp);
+        container.fromEnd = true;
+        fprintf(fp, "\n\n=== Sorted from the end container ===\n");
+        linesWrote += outputContainer(&container, fp);
+    }else{
+        linesWrote = outputContainer(&container, fp);
+    }
+    
+    fclose(fp);
     free(inputFileName);
     free(outputFileName);
     container.free(&container);
@@ -331,6 +383,7 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
     assert(fullBuffer != NULL);
 
     this->fullBuffer = calloc(length + 1, sizeof(char));
+    this->fullBufferInitial = calloc(length + 1, sizeof(char));
     if (!this->fullBuffer) {
         printf("Can't allocate space for fullBuffer in construct()\n");
         this->free(this);
@@ -342,6 +395,7 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
     unsigned long curCounter = 0;
     for (unsigned long i = 0; i < length; i++) {
         this->fullBuffer[i] = fullBuffer[i];
+        this->fullBufferInitial[i] = fullBuffer[i];
         if (curCounter == 0) {
             this->allocate(this);
             string newLocated = {(this->fullBuffer + i), 0, false};
@@ -369,7 +423,7 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
 int constructFromFile(struct SortedLinesContainer *this, const char *fileName, const bool fromEnd) {
     char *buffer = 0;
     unsigned long length = 0;
-    FILE *fp = fopen(fileName, "r");
+    FILE *fp = fopen(fileName, "rb");
 
     if (fp) {
         fseek(fp, 0, SEEK_END);
@@ -388,7 +442,9 @@ int constructFromFile(struct SortedLinesContainer *this, const char *fileName, c
         fclose(fp);
         unsigned long lenElements = length / sizeof(char);
         defaultContainer(this);
+        
         this->lines = calloc(lenElements + 1, sizeof(string));
+        
         this->linesMaxNumber = lenElements + 1;
 
         int constructResult = this->construct(this, buffer, lenElements, fromEnd);
@@ -422,6 +478,9 @@ void freeContainer(struct SortedLinesContainer *this) {
 
     if (this->fullBuffer)
         free(this->fullBuffer);
+    
+    if (this->fullBufferInitial)
+        free(this->fullBufferInitial);
 }
 
 
@@ -450,6 +509,7 @@ int allocateContainer(struct SortedLinesContainer *this) {
         if (this->linesNumber + 1 >= this->linesMaxNumber) {
             this->linesMaxNumber += this->allocIncrement;
             string *newAllocation = realloc(this->lines, this->linesMaxNumber * sizeof(string));
+            
             if (newAllocation == NULL) {
                 printf("Failed reallocating memory in allocateContainer()\n");
                 this->free(this);
@@ -491,7 +551,6 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
 
     adjustLenTrimmingWhitespaces(&tmpString1);
     adjustLenTrimmingWhitespaces(&tmpString2);
-
 
     char *line1Current = line1String->contents;
     char *line2Current = line2String->contents;
@@ -678,13 +737,10 @@ bool ispunctuation(char c) {
 }
 
 
-unsigned long outputContainer(SortedLinesContainer *this, char *fileName) {
+unsigned long outputContainer(SortedLinesContainer *this, FILE *fp) {
     assert(this != NULL);
-
-    FILE *fp = fopen(fileName, "w");
-
     if (fp == NULL) {
-        printf("Could not open %s file\n", fileName);
+        printf("Could not open file for output\n");
         return 0;
     }
 
@@ -693,6 +749,17 @@ unsigned long outputContainer(SortedLinesContainer *this, char *fileName) {
         fputs("\n", fp);
     }
 
-    fclose(fp);
     return this->linesNumber;
 }
+
+unsigned long outputContainerUnsorted(SortedLinesContainer *this, FILE *fp) {
+    assert(this != NULL);
+    if (fp == NULL) {
+        printf("Could not open file for output\n");
+        return 1;
+    }
+    fprintf(fp, "%s", this->fullBufferInitial);
+    
+    return 0;
+}
+
