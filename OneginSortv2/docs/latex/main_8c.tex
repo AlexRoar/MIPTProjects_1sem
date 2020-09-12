@@ -71,6 +71,10 @@ bool \mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{has\+Visible\+C
 \item 
 bool \mbox{\hyperlink{main_8c_aa58284285ec8857f4c352c3fdac08770}{tests\+\_\+has\+Visible\+Content}} (void)
 \item 
+int \mbox{\hyperlink{main_8c_a86d7f1c0a700e681f2839859a48a1763}{parse\+Args}} (const int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$reversed, bool $\ast$run\+Tests, bool $\ast$ded\+Task, char $\ast$input\+File\+Name, char $\ast$output\+File\+Name)
+\item 
+size\+\_\+t \mbox{\hyperlink{main_8c_a1de50651ed31e56c35f17eb29b8e0c88}{task\+Output}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$container, F\+I\+LE $\ast$fp, bool ded\+Task)
+\item 
 \mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
 int {\bfseries main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
@@ -89,7 +93,7 @@ Created by Александр Дремов on 28.\+08.\+2020. Available command 
 \hline
 {\em -\/test} & run tests before executing \\
 \hline
-{\em -\/dedtask} & output in Dedinsky\textquotesingle{}s task format \\
+{\em -\/dedtask} & output in Dedinsky\textquotesingle{}s task format (Dedinsky mode) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyCopyright}{Copyright}
@@ -275,6 +279,29 @@ Outputs container line-\/by-\/line to the file without sorting
 \begin{DoxyReturn}{Returns}
 0 -\/ success, 1 -\/ error 
 \end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a86d7f1c0a700e681f2839859a48a1763}\label{main_8c_a86d7f1c0a700e681f2839859a48a1763}} 
+\index{main.c@{main.c}!parseArgs@{parseArgs}}
+\index{parseArgs@{parseArgs}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{parseArgs()}{parseArgs()}}
+{\footnotesize\ttfamily int parse\+Args (\begin{DoxyParamCaption}\item[{const int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{reversed,  }\item[{bool $\ast$}]{run\+Tests,  }\item[{bool $\ast$}]{ded\+Task,  }\item[{char $\ast$}]{input\+File\+Name,  }\item[{char $\ast$}]{output\+File\+Name }\end{DoxyParamCaption})}
+
+Parses arguments from command line 
+\begin{DoxyParams}{Parameters}
+{\em argc} & \mbox{[}in\mbox{]} arguments count \\
+\hline
+{\em argv} & \mbox{[}in\mbox{]} arguments strings \\
+\hline
+{\em reversed} & \mbox{[}out\mbox{]} sort from end or not \\
+\hline
+{\em run\+Tests} & \mbox{[}out\mbox{]} run unit tests or not \\
+\hline
+{\em ded\+Task} & \mbox{[}out\mbox{]} Dedinsky mode flag \\
+\hline
+{\em input\+File\+Name} & \mbox{[}out\mbox{]} input file name \\
+\hline
+{\em output\+File\+Name} & \mbox{[}out\mbox{]} outputfile name \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{main_8c_af383500efc2bec7f97102ebf4a9f26df}\label{main_8c_af383500efc2bec7f97102ebf4a9f26df}} 
 \index{main.c@{main.c}!performAllTests@{performAllTests}}
 \index{performAllTests@{performAllTests}!main.c@{main.c}}
@@ -290,7 +317,20 @@ success
 \doxysubsubsection{\texorpdfstring{sortContainer()}{sortContainer()}}
 {\footnotesize\ttfamily void sort\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
 
-Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} sort for information \mbox{\Hypertarget{main_8c_aaf1b2281e87493ca16748dcde3c28f40}\label{main_8c_aaf1b2281e87493ca16748dcde3c28f40}} 
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} sort for information \mbox{\Hypertarget{main_8c_a1de50651ed31e56c35f17eb29b8e0c88}\label{main_8c_a1de50651ed31e56c35f17eb29b8e0c88}} 
+\index{main.c@{main.c}!taskOutput@{taskOutput}}
+\index{taskOutput@{taskOutput}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{taskOutput()}{taskOutput()}}
+{\footnotesize\ttfamily size\+\_\+t task\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{container,  }\item[{F\+I\+LE $\ast$}]{fp,  }\item[{bool}]{ded\+Task }\end{DoxyParamCaption})}
+
+Outputs resulted container to the file, checking for Dedinsky mode. 
+\begin{DoxyParams}{Parameters}
+{\em container} & \mbox{[}in\mbox{]}, in Dedinsky mode\+: \mbox{[}in+out\mbox{]} container to be used \\
+\hline
+{\em ded\+Task} & whether Dedinsky mode was specified \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_aaf1b2281e87493ca16748dcde3c28f40}\label{main_8c_aaf1b2281e87493ca16748dcde3c28f40}} 
 \index{main.c@{main.c}!testContainer@{testContainer}}
 \index{testContainer@{testContainer}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{testContainer()}{testContainer()}}

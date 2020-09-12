@@ -6,7 +6,7 @@
  * @param -input <filepath> input file
  * @param -output <filepath> output file
  * @param -test run tests before executing
- * @param -dedtask output in Dedinsky's task format
+ * @param -dedtask output in Dedinsky's task format (Dedinsky mode)
  * @copyright Copyright © 2020 alexdremov. All rights reserved.
  */
 
@@ -23,9 +23,9 @@
  */
 typedef struct string {
     char *contents;
-
+    
     size_t len;
-
+    
     /**
      * Whether contents were alocated by malloc (can be freed) or just a reference
      */
@@ -46,47 +46,47 @@ typedef struct SortedLinesContainer {
      */
     char *fullBufferInitial;
     
-
+    
     /**
      * Strings containing starts of substrings in fullBuffer
      */
     string *lines;
     
-
+    
     /**
      * Whether to perform comparison from the end
      */
     bool fromEnd;
-
+    
     /**
      * Number of objects in lines
      */
     size_t linesNumber;
-
+    
     /**
      * Number of max elements in lines
      */
     size_t linesMaxNumber;
-
+    
     /**
      * How much new elements will be allocated when running out of space
      */
     size_t allocIncrement;
-
+    
     /**
      * Function used in qsort for regular comparison
      * @param line1 [in] first  struct string object
      * @param line2 [in] second struct string object
      */
     int (*compar)(const void *line1, const void *line2);
-
+    
     /**
      * Function used in qsort for comparison from the end of the string
      * @param line1 [in] first  struct string object
      * @param line2 [in] second struct string object
      */
     int (*comparRev)(const void *line1, const void *line2);
-
+    
     /**
      * Constructs default object
      * Invisible charecters are trimmed and blank lines are removed
@@ -97,20 +97,20 @@ typedef struct SortedLinesContainer {
      */
     int (*construct)(struct SortedLinesContainer *this, const char *fullBuffer, const size_t length,
                      const bool fromEnd);
-
+    
     /**
      * Performs sorting of lines array
      * @param this [in + out] object to be constructed
      */
     void (*sort)(struct SortedLinesContainer *this);
-
+    
     /**
      * Allocates memory so that lines object can contain one more element
      * Uses allocIncrement
      * @param this  [in + out] object to be constructed
      */
     int (*allocate)(struct SortedLinesContainer *this);
-
+    
     /**
      * Frees space
      * @param this  [in + out] object to be constructed
@@ -270,26 +270,41 @@ bool hasVisibleContent(const string line);
 bool tests_hasVisibleContent(void);
 
 
-int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
-               bool *dedTask, char* inputFileName, char *outputFileName);
+/**
+ * Parses arguments from command line
+ * @param argc [in] arguments count
+ * @param argv [in] arguments strings
+ * @param reversed [out] sort from end or not
+ * @param runTests [out] run unit tests or not
+ * @param dedTask [out] Dedinsky mode flag
+ * @param inputFileName [out] input file name
+ * @param outputFileName [out] outputfile name
+ */
+int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests,
+              bool *dedTask, char* inputFileName, char *outputFileName);
 
 
+/**
+ * Outputs resulted container to the file, checking for Dedinsky mode.
+ * @param container [in], in Dedinsky mode: [in+out]  container to be used
+ * @param dedTask whether Dedinsky mode was specified
+ */
 size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask);
+
 
 int main(int argc, const char *argv[]) {
     bool reversed = false;
     bool runTests = false;
     bool dedTask = false;
+    
     char *inputFileName = calloc(10, sizeof(char));
     char *outputFileName = calloc(11, sizeof(char));
-
     strcpy(inputFileName, "input.txt");
     strcpy(outputFileName, "output.txt");
-
+    
     if (parseArgs(argc, argv, &reversed, &runTests,
                   &dedTask, inputFileName, outputFileName) == EXIT_FAILURE){
-        free(inputFileName);
-        free(outputFileName);
+        free(inputFileName); free(outputFileName);
         return EXIT_FAILURE;
     }
     
@@ -309,10 +324,10 @@ int main(int argc, const char *argv[]) {
     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
     if (!dedTask)
         printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
-
+    
     SortedLinesContainer container;
     container.construct = &construct;
-
+    
     int constructResult = constructFromFile(&container, inputFileName, reversed);
     if (constructResult == EXIT_FAILURE) {
         printf("Failed constructFromFile()\n");
@@ -323,20 +338,16 @@ int main(int argc, const char *argv[]) {
     }
     
     FILE *fp = fopen(outputFileName, "w");
-    if (fp == NULL){
+    if (fp == NULL)
         printf("Cant open %s for output\n", outputFileName);
-    }
     size_t linesWrote = taskOutput(&container, fp, dedTask);
     
     fclose(fp);
     free(inputFileName);
     free(outputFileName);
     container.free(&container);
-    if (linesWrote == 0) {
-        return EXIT_FAILURE;
-    }
-
-    return EXIT_SUCCESS;
+    
+    return (linesWrote == 0)? EXIT_FAILURE : EXIT_SUCCESS;
 }
 
 
@@ -346,13 +357,13 @@ size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask){
         printf("\nMEOW! You activated Dedinsky mode.\
                \nFasten your seatbelts, please.\n");
         printf("\
-        _                ___       _.--.\n\
-        \\`.|\\..----...-'`   `-._.-'_.-'`\n\
-        /  ' `         ,       __.--'\n\
-        )/' _/     \\   `-_,   /\n\
-        `-'\"._`_\\_  ,_.-;_.-\\_  \\\n\
-             _.-'_./   {_.'   ; /\n\
-           {_.---'          {_/\n\n");
+               _                ___       _.--.\n\
+               \\`.|\\..----...-'`   `-._.-'_.-'`\n\
+               /  ' `         ,       __.--'\n\
+               )/' _/     \\   `-_,   /\n\
+               `-'\"._`_\\_  ,_.-;_.-\\_  \\\n\
+               _.-'_./   {_.'   ; /\n\
+               {_.---'          {_/\n\n");
         fprintf(fp, "=== Unsorted container ===\n");
         outputContainerUnsorted(container, fp);
         container->fromEnd = false;
@@ -369,8 +380,8 @@ size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask){
 }
 
 
-int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
-               bool *dedTask, char* inputFileName, char *outputFileName) {
+int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests,
+              bool *dedTask, char* inputFileName, char *outputFileName) {
     for (int i = 0; i < argc; i++) {
         if (strcmp("-r", argv[i]) == 0) {
             *reversed = true;
@@ -381,12 +392,12 @@ int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
             *dedTask = true;
             continue;
         }
-
+        
         if (strcmp("-test", argv[i]) == 0) {
             *runTests = true;
             continue;
         }
-
+        
         if (strcmp("-output", argv[i]) == 0) {
             i++;
             size_t len = strlen(argv[i]);
@@ -404,7 +415,7 @@ int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
         if (strcmp("-input", argv[i]) == 0) {
             i++;
             size_t len = strlen(argv[i]);
-
+            
             char *inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
             if (inputFileNameNew == NULL) {
                 printf("Can't realloc memory for input file name\n");
@@ -412,7 +423,7 @@ int parseArgs(int argc, const char *argv[], bool *reversed, bool *runTests,
             } else {
                 inputFileName = inputFileNameNew;
             }
-
+            
             strcpy(inputFileName, argv[i]);
             i++;
             continue;
@@ -477,7 +488,7 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
               const size_t length, const bool fromEnd) {
     assert(this != NULL);
     assert(fullBuffer != NULL);
-
+    
     this->fullBuffer = calloc(length + 1, sizeof(char));
     this->fullBufferInitial = calloc(length + 1, sizeof(char));
     if (!this->fullBuffer) {
@@ -485,9 +496,9 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
         this->free(this);
         return EXIT_FAILURE;
     }
-
+    
     this->fromEnd = fromEnd;
-
+    
     size_t curCounter = 0;
     for (size_t i = 0; i < length; i++) {
         this->fullBuffer[i] = fullBuffer[i];
@@ -520,7 +531,7 @@ int constructFromFile(struct SortedLinesContainer *this, const char *fileName, c
     char *buffer = 0;
     size_t length = 0;
     FILE *fp = fopen(fileName, "rb");
-
+    
     if (fp) {
         fseek(fp, 0, SEEK_END);
         length = (size_t) ftell(fp);
@@ -542,7 +553,7 @@ int constructFromFile(struct SortedLinesContainer *this, const char *fileName, c
         this->lines = calloc(lenElements + 1, sizeof(string));
         
         this->linesMaxNumber = lenElements + 1;
-
+        
         int constructResult = this->construct(this, buffer, lenElements, fromEnd);
         if (constructResult == EXIT_FAILURE) {
             printf("Failed constructing object in constructFromFile()\n");
@@ -571,7 +582,7 @@ void freeContainer(struct SortedLinesContainer *this) {
     }
     if (this->lines)
         free(this->lines);
-
+    
     if (this->fullBuffer)
         free(this->fullBuffer);
     
@@ -591,10 +602,10 @@ void sortContainer(struct SortedLinesContainer *this) {
 
 int allocateContainer(struct SortedLinesContainer *this) {
     assert(this != NULL);
-
+    
     if (!this->lines || this->linesMaxNumber == 0) {
         this->lines = calloc(this->allocIncrement, sizeof(string));
-
+        
         if (this->lines == NULL) {
             printf("Failed allocating memory in allocateContainer()\n");
             this->free(this);
@@ -613,7 +624,7 @@ int allocateContainer(struct SortedLinesContainer *this) {
             } else {
                 this->lines = newAllocation;
             }
-
+            
         }
     }
     return EXIT_SUCCESS;
@@ -624,7 +635,7 @@ int compar(const void *line1, const void *line2) {
     assert(line1 != NULL);
     assert(line2 != NULL);
     assert(line1 != line2);
-
+    
     return multiCompare(line1, line2, 0);
 }
 
@@ -633,40 +644,40 @@ int comparRev(const void *line1, const void *line2) {
     assert(line1 != NULL);
     assert(line2 != NULL);
     assert(line1 != line2);
-
+    
     return multiCompare(line1, line2, 1);
 }
 
 int multiCompare(const void *line1, const void *line2, const int fromEnd) {
     string *line1String = (struct string *) line1;
     string *line2String = (struct string *) line2;
-
+    
     // Strings are not copied. Just a reference with different length
     string tmpString1 = {line1String->contents, line1String->len, line1String->allocated};
     string tmpString2 = {line2String->contents, line2String->len, line2String->allocated};
-
+    
     adjustLenTrimmingWhitespaces(&tmpString1);
     adjustLenTrimmingWhitespaces(&tmpString2);
-
+    
     char *line1Current = line1String->contents;
     char *line2Current = line2String->contents;
-
+    
     short insideLine1 = 0, insideLine2 = 0;
     short line1Ended = 0, line2Ended = 0;
     short line1Sleep = 1, line2Sleep = 1;
-
+    
     short int modifier = 1;
     if (fromEnd) {
         modifier = -1;
         line1Current += tmpString1.len;
         if (tmpString1.len != 0)
             line1Current -= 1;
-
+        
         line2Current += tmpString2.len;
         if (tmpString2.len != 0)
             line2Current -= 1;
     }
-
+    
     while (1) {
         if (*line1Current == '\0' || line1Ended || line1Current >= tmpString1.contents + tmpString1.len) {
             line1Ended = 1;
@@ -675,7 +686,7 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             lineAnalyze(line1Current, &insideLine1, &line1Sleep);
             doubleWhitespacesSkip(&tmpString1, line1Current, &line1Sleep, modifier);
         }
-
+        
         if (*line2Current == '\0' || line2Ended || line2Current >= tmpString2.contents + tmpString2.len) {
             line2Ended = 1;
             line2Sleep = 1;
@@ -683,10 +694,10 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             lineAnalyze(line2Current, &insideLine2, &line2Sleep);
             doubleWhitespacesSkip(&tmpString2, line2Current, &line2Sleep, modifier);
         }
-
+        
         if (line1Ended == 1 || line2Ended == 1)
             break;
-
+        
         if (line1Sleep == 1 && line2Sleep == 0) {
             line1Current += modifier;
         } else if (line1Sleep == 0 && line2Sleep == 1) {
@@ -700,7 +711,7 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
                 line2Current += modifier;
                 continue;
             }
-
+            
             return *line1Current - *line2Current;
         }
         if (modifier == -1 && line1Current == line1String->contents) {
@@ -722,33 +733,33 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
 
 int tests_multiCompare(void) {
     string inputs1[] = {
-            {" ",      0, false},
-            {"   a",   0, false},
-            {"   a  ", 0, false},
-            {"b",      0, false},
-            {"\"b",    0, false},
+        {" ",      0, false},
+        {"   a",   0, false},
+        {"   a  ", 0, false},
+        {"b",      0, false},
+        {"\"b",    0, false},
     };
     string inputs2[] = {
-            {" ", 0, false},
-            {"a", 0, false},
-            {"a", 0, false},
-            {"a", 0, false},
-            {"b", 0, false}
+        {" ", 0, false},
+        {"a", 0, false},
+        {"a", 0, false},
+        {"a", 0, false},
+        {"b", 0, false}
     };
-
+    
     int outputs[] = {
-            0,
-            0,
-            0,
-            1,
-            0
+        0,
+        0,
+        0,
+        1,
+        0
     };
-
+    
     assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string));
-
+    
     int totalNumber = sizeof(outputs) / sizeof(int);
     bool valid = true;
-
+    
     for (int i = 0; i < totalNumber; i++) {
         inputs1[i].len = strlen(inputs1[i].contents);
         inputs2[i].len = strlen(inputs2[i].contents);
@@ -759,7 +770,7 @@ int tests_multiCompare(void) {
             valid = false;
         }
     }
-
+    
     return valid;
 }
 
@@ -839,14 +850,14 @@ size_t outputContainer(SortedLinesContainer *this, FILE *fp) {
         printf("Could not open file for output\n");
         return 0;
     }
-
+    
     for (size_t i = 0; i < this->linesNumber; i++) {
         if (!hasVisibleContent(*(this->lines + i)))
             continue;
         fputs((this->lines + i)->contents, fp);
         fputs("\n", fp);
     }
-
+    
     return this->linesNumber;
 }
 
