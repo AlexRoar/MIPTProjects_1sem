@@ -29,47 +29,47 @@ enum Test_Indices
 typedef enum Test_Indices Test_Indices;
  
 /**
-*  Square roots calculation
-*
-*  @param a [in] first coefficient
-*  @param b [in] second coefficient
-*  @param c [in] third coefficient
-*  @param x1 [out] first root (passed by reference)
-*  @param x2 [out] second root (passed by reference)
-*  @return number of roots. INF_SQUARE_SOLUTIONS if infinite number of solutions
+ *  Square roots calculation
+ *
+ *  @param a [in] first coefficient
+ *  @param b [in] second coefficient
+ *  @param c [in] third coefficient
+ *  @param x1 [out] first root (passed by reference)
+ *  @param x2 [out] second root (passed by reference)
+ *  @return number of roots. INF_SQUARE_SOLUTIONS if infinite number of solutions
 */
 int  squareRoots(double a, double b, double c, double* x1, double* x2);
 
 
 /**
-* Casts -0 to 0 with PRECISION_DELTA precision
-* @param value  [in + out]   Value to cast (passed by reference)
+ * Casts -0 to 0 with PRECISION_DELTA precision
+ * @param value  [in + out]   Value to cast (passed by reference)
 */
 void normalizeNegativeZero(double* value);
 
 
 /**
-* Generates output for task solution
-* @param solNumber [in] number of solutions
-* @param x1  [in] first x
-* @param x2  [in] second x
-* @return exit code
-*/
+ * Generates output for task solution
+ * @param solNumber [in] number of solutions
+ * @param x1  [in] first x
+ * @param x2  [in] second x
+ * @return exit code
+ */
 int  printProcessingOutput(int solNumber, double x1, double x2);
 
 
 /**
-* @param value [in] value to be checked
-* @return if the value is almost zero with precision PRECISION_DELTA
-*/
+ * @param value [in] value to be checked
+ * @return if the value is almost zero with precision PRECISION_DELTA
+ */
 bool isAlmostZero(double value);
 
 
 /**
-* Performs checks for squareRoots function
-* @param numberFailed - number of total tests failed
-* @param firstFailed - first test failed
-*/
+ * Performs checks for squareRoots function
+ * @param numberFailed - number of total tests failed
+ * @param firstFailed - first test failed
+ */
 bool unitTestsSquareSolve(int* numberFailed, int* firstFailed);
 
 
@@ -77,7 +77,7 @@ bool unitTestsSquareSolve(int* numberFailed, int* firstFailed);
  * Performs all unit tests for this scope
  * @param numberFailed - number of total tests failed
  * @param firstFailed - first test failed
-*/
+ */
 bool performAllUnits(int* numberFailed, int* firstFailed);
 
 
