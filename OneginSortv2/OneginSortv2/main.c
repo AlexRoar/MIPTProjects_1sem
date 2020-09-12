@@ -245,6 +245,21 @@ void lineAnalyze(char *lineCurrent, short *insideLine, short *lineSleep);
 void adjustLenTrimmingWhitespaces(string *line);
 
 
+/**
+ * Checks whether string consists only of invisible characters.
+ * @param line string to check
+ * @return if has some visible content
+ */
+bool hasVisibleContent(string line);
+
+
+/**
+ * Tests for hasVisibleContent().
+ * @return if valid
+ */
+bool tests_hasVisibleContent(void);
+
+
 int main(int argc, const char *argv[]) {
     bool reversed = false;
     bool runTests = false;
@@ -374,7 +389,51 @@ int main(int argc, const char *argv[]) {
 
 
 bool performAllTests() {
-    return tests_multiCompare();
+    return tests_multiCompare() && tests_hasVisibleContent();
+}
+
+bool hasVisibleContent(string line) {
+    for (unsigned long i = 0; i < line.len; i++){
+        if (isprintable(line.contents[i])){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool tests_hasVisibleContent(){
+    string inputs[] = {
+        {" ", 1, false},
+        {"", 0, false},
+        {"asd", 3, false},
+        {"a", 1, false},
+        {"\n", 1, false},
+        {"\0", 1, false}
+    };
+    
+    bool outputs[] = {
+        false,
+        false,
+        true,
+        true,
+        false,
+        false
+    };
+    
+    assert(sizeof(outputs)/sizeof(bool) == sizeof(inputs)/sizeof(string));
+    
+    int totalNumber = sizeof(outputs)/sizeof(bool);
+    bool valid = true;
+    
+    for (int i = 0; i<totalNumber; i++) {
+        bool actualOutput = hasVisibleContent(inputs[i]);
+        if (!(actualOutput == outputs[i])) {
+            printf("Failed hasVisibleContent test #(%d) %d!=%d\n", i+1, actualOutput, outputs[i]);
+            valid = false;
+        }
+    }
+    
+    return valid;
 }
 
 
@@ -746,6 +805,8 @@ unsigned long outputContainer(SortedLinesContainer *this, FILE *fp) {
     }
 
     for (unsigned long i = 0; i < this->linesNumber; i++) {
+        if (!hasVisibleContent(*(this->lines + i)))
+            continue;
         fputs((this->lines + i)->contents, fp);
         fputs("\n", fp);
     }
