@@ -42,8 +42,7 @@ typedef struct SortedLinesContainer {
     
     
     /**
-     * Pointer to the start of the string containing substrings separated by \0
-     * (\n replaced by \0)
+     * Pointer to the start of the string containing substrings separated by \n (initial buffer)
      */
     char *fullBufferInitial;
     
