@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.20" xml:lang="en-US">
+  <compound refid="struct_sorted_lines_container" kind="struct"><name>SortedLinesContainer</name>
+    <member refid="struct_sorted_lines_container_1adbf00bb5882ff717c9216ae412a00fdb" kind="variable"><name>fullBuffer</name></member>
+    <member refid="struct_sorted_lines_container_1ad91a10ea7146b6d134f185b630e35114" kind="variable"><name>fullBufferInitial</name></member>
+    <member refid="struct_sorted_lines_container_1ac760eb237929eba1a129615c2f9dd627" kind="variable"><name>lines</name></member>
+    <member refid="struct_sorted_lines_container_1a33d68c9a6bfed4e6387faf71057cf3f8" kind="variable"><name>fromEnd</name></member>
+    <member refid="struct_sorted_lines_container_1a33fcda1c0db12711818a248a7cebc22c" kind="variable"><name>linesNumber</name></member>
+    <member refid="struct_sorted_lines_container_1a8e9da6e9ffd2926f2e3dabfbb2bb874d" kind="variable"><name>linesMaxNumber</name></member>
+    <member refid="struct_sorted_lines_container_1a0ee4f444bf1f0ac36bda8e906e018357" kind="variable"><name>allocIncrement</name></member>
+    <member refid="struct_sorted_lines_container_1a932c9b2decf0ea331212abb8aa91a7a0" kind="variable"><name>compar</name></member>
+    <member refid="struct_sorted_lines_container_1ad0bc91b219e419c63451f37aa3817d08" kind="variable"><name>comparRev</name></member>
+    <member refid="struct_sorted_lines_container_1a199db621554f5e542d2b30a6541c2af0" kind="variable"><name>construct</name></member>
+    <member refid="struct_sorted_lines_container_1af66298867c020f84e23b42c83c55bb05" kind="variable"><name>sort</name></member>
+    <member refid="struct_sorted_lines_container_1a4b1338eb48396a8f6c6657ced61593b1" kind="variable"><name>allocate</name></member>
+    <member refid="struct_sorted_lines_container_1a9e25395b1003ab70af0ebb71dd2f4cef" kind="variable"><name>free</name></member>
+  </compound>
+  <compound refid="structstring" kind="struct"><name>string</name>
+    <member refid="structstring_1af307778cac3a77c4e4af663bdbc90736" kind="variable"><name>contents</name></member>
+    <member refid="structstring_1aa6bcf0353fd5cf2f374a9b1dd0e4a73a" kind="variable"><name>len</name></member>
+    <member refid="structstring_1abe354a07869a3bb0ffc7e1e32bfe1730" kind="variable"><name>allocated</name></member>
+  </compound>
+  <compound refid="main_8c" kind="file"><name>main.c</name>
+    <member refid="main_8c_1a63e2e3ee7db5274c6a3929edfc07c6c9" kind="typedef"><name>string</name></member>
+    <member refid="main_8c_1a9283990307c3b89049895dc41a0a842e" kind="typedef"><name>SortedLinesContainer</name></member>
+    <member refid="main_8c_1a68cc8023292b0ea3f252df3b1574c25e" kind="function"><name>compar</name></member>
+    <member refid="main_8c_1abcf15012a2fb0c1386bacef43c4daf00" kind="function"><name>comparRev</name></member>
+    <member refid="main_8c_1a3c1234cb27a98ea870582cd8f8e16695" kind="function"><name>multiCompare</name></member>
+    <member refid="main_8c_1ae24bf70d6e394ac8181c4bdb28c72321" kind="function"><name>doubleWhitespacesSkip</name></member>
+    <member refid="main_8c_1abf3e092777453bd8240103379c6046b1" kind="function"><name>tests_multiCompare</name></member>
+    <member refid="main_8c_1a9df39c8c56d2f12a9ecb84e59062e662" kind="function"><name>sortContainer</name></member>
+    <member refid="main_8c_1a4fa27962cf0edfd6d28256ce2eed87cc" kind="function"><name>allocateContainer</name></member>
+    <member refid="main_8c_1a3ad318bf54450f731877b345b26df12b" kind="function"><name>construct</name></member>
+    <member refid="main_8c_1a73faabe5f7cc9095e9a455f83ad1a9f3" kind="function"><name>constructFromFile</name></member>
+    <member refid="main_8c_1a041889d582387b35ded6cfee002e22b4" kind="function"><name>defaultContainer</name></member>
+    <member refid="main_8c_1a8b5489b599da81ac0e2b085beedd614c" kind="function"><name>freeContainer</name></member>
+    <member refid="main_8c_1a8847d54454fdf77f0b6f7620bb9266b6" kind="function"><name>outputContainer</name></member>
+    <member refid="main_8c_1aabe4af40fbd59db06828b771441e96b4" kind="function"><name>outputContainerUnsorted</name></member>
+    <member refid="main_8c_1aaf1b2281e87493ca16748dcde3c28f40" kind="function"><name>testContainer</name></member>
+    <member refid="main_8c_1a1410b6a126f12066a25a5cf2f040fb52" kind="function"><name>isprintable</name></member>
+    <member refid="main_8c_1a29ff68694f20e04d7f0dca4a44601dba" kind="function"><name>ispunctuation</name></member>
+    <member refid="main_8c_1af383500efc2bec7f97102ebf4a9f26df" kind="function"><name>performAllTests</name></member>
+    <member refid="main_8c_1a63f981dafbd26fc68dc68db86c315829" kind="function"><name>lineAnalyze</name></member>
+    <member refid="main_8c_1a08690664f2416899705419e21d3e3bf3" kind="function"><name>adjustLenTrimmingWhitespaces</name></member>
+    <member refid="main_8c_1ace93612d9488e8310c391a3dc35c365b" kind="function"><name>hasVisibleContent</name></member>
+    <member refid="main_8c_1aa58284285ec8857f4c352c3fdac08770" kind="function"><name>tests_hasVisibleContent</name></member>
+    <member refid="main_8c_1a86d7f1c0a700e681f2839859a48a1763" kind="function"><name>parseArgs</name></member>
+    <member refid="main_8c_1a1de50651ed31e56c35f17eb29b8e0c88" kind="function"><name>taskOutput</name></member>
+    <member refid="main_8c_1ac0f2228420376f4db7e1274f2b41667c" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_1820083117b9ccb8a56cbd9deb8e8ea0" kind="dir"><name>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2</name>
+  </compound>
+</doxygenindex>

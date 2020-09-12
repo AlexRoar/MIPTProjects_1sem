@@ -1,0 +1,7 @@
+.. _api_foo:
+
+Foo
+===
+
+.. doxygenfile:: main.c
+   :project: OneginSortv2

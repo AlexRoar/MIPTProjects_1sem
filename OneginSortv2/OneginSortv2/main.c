@@ -287,6 +287,7 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
 /**
  * Outputs resulted container to the file, checking for Dedinsky mode.
  * @param container [in], in Dedinsky mode: [in+out]  container to be used
+ * @param fp [in] file pointer
  * @param dedTask whether Dedinsky mode was specified
  */
 size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask);

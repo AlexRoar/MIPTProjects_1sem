@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program documentation &mdash; OneginSortv2  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> OneginSortv2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Program documentation</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OneginSortv2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/c_doxygen_sphinx.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-documentation">
+<span id="api-main"></span><h1>Program documentation<a class="headerlink" href="#program-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Created by Александр Дремов on 28.08.2020. Available command line params: </p>
+<p><dl class="simple">
+<dt><strong>Copyright</strong></dt><dd><p>Copyright © 2020 alexdremov. All rights reserved. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>: sort from the end </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-input</span></code>: &lt;filepath&gt; input file </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-output</span></code>: &lt;filepath&gt; output file </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-test</span></code>: run tests before executing </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-dedtask</span></code>: output in Dedinsky’s task format (Dedinsky mode) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="c type">
+<dt id="c.string">
+<span class="target" id="main_8c_1a63e2e3ee7db5274c6a3929edfc07c6c9"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#c.string" title="string">string</a> <code class="sig-name descname">string</code><a class="headerlink" href="#c.string" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Used to store char* and its len so that computations are more effective </p>
+</dd></dl>
+
+<dl class="c type">
+<dt id="c.SortedLinesContainer">
+<span class="target" id="main_8c_1a9283990307c3b89049895dc41a0a842e"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> <code class="sig-name descname">SortedLinesContainer</code><a class="headerlink" href="#c.SortedLinesContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="c function">
+<dt id="c.compar">
+<span class="target" id="main_8c_1a68cc8023292b0ea3f252df3b1574c25e"></span>int <code class="sig-name descname">compar</code><span class="sig-paren">(</span><em class="property">const</em> void*, <em class="property">const</em> void*<span class="sig-paren">)</span><a class="headerlink" href="#c.compar" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> compar for information </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.comparRev">
+<span class="target" id="main_8c_1abcf15012a2fb0c1386bacef43c4daf00"></span>int <code class="sig-name descname">comparRev</code><span class="sig-paren">(</span><em class="property">const</em> void*, <em class="property">const</em> void*<span class="sig-paren">)</span><a class="headerlink" href="#c.comparRev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> comparRev for information </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.multiCompare">
+<span class="target" id="main_8c_1a3c1234cb27a98ea870582cd8f8e16695"></span>int <code class="sig-name descname">multiCompare</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>line1</em>, <em class="property">const</em> void *<em>line2</em>, <em class="property">const</em> int <em>fromEnd</em><span class="sig-paren">)</span><a class="headerlink" href="#c.multiCompare" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line1</span></code>: [in] first line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line2</span></code>: [in] second line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fromEnd</span></code>: [in] whether to compare from the end </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.doubleWhitespacesSkip">
+<span class="target" id="main_8c_1ae24bf70d6e394ac8181c4bdb28c72321"></span>void <code class="sig-name descname">doubleWhitespacesSkip</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#c.string" title="string">string</a> *<em>line</em>, <em class="property">const</em> char *<em>lineCurrent</em>, short *<em>lineSleep</em>, <em class="property">const</em> int <em>modifier</em><span class="sig-paren">)</span><a class="headerlink" href="#c.doubleWhitespacesSkip" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set lineSleep to 1 if current position is somewhere between reacurring whitespaces <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: [in] line to be checked </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lineCurrent</span></code>: [in] current position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lineSleep</span></code>: [out] skip this symbol? </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modifier</span></code>: [in] 1 or -1 - direction of scaning (forwards or backwards) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.tests_multiCompare">
+<span class="target" id="main_8c_1abf3e092777453bd8240103379c6046b1"></span>int <code class="sig-name descname">tests_multiCompare</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.tests_multiCompare" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests for <a class="reference internal" href="#main_8c_1ae24bf70d6e394ac8181c4bdb28c72321"><span class="std std-ref">doubleWhitespacesSkip()</span></a> </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.sortContainer">
+<span class="target" id="main_8c_1a9df39c8c56d2f12a9ecb84e59062e662"></span>void <code class="sig-name descname">sortContainer</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em><span class="sig-paren">)</span><a class="headerlink" href="#c.sortContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> sort for information </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.allocateContainer">
+<span class="target" id="main_8c_1a4fa27962cf0edfd6d28256ce2eed87cc"></span>int <code class="sig-name descname">allocateContainer</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em><span class="sig-paren">)</span><a class="headerlink" href="#c.allocateContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> allocate for information </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.construct">
+<span class="target" id="main_8c_1a3ad318bf54450f731877b345b26df12b"></span>int <code class="sig-name descname">construct</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em>, <em class="property">const</em> char *<em>fullBuffer</em>, <em class="property">const</em> size_t <em>length</em>, <em class="property">const</em> bool <em>fromEnd</em><span class="sig-paren">)</span><a class="headerlink" href="#c.construct" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> construct for information </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.constructFromFile">
+<span class="target" id="main_8c_1a73faabe5f7cc9095e9a455f83ad1a9f3"></span>int <code class="sig-name descname">constructFromFile</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em>, <em class="property">const</em> char *<em>fileName</em>, <em class="property">const</em> bool <em>fromEnd</em><span class="sig-paren">)</span><a class="headerlink" href="#c.constructFromFile" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> from file </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.defaultContainer">
+<span class="target" id="main_8c_1a041889d582387b35ded6cfee002e22b4"></span>void <code class="sig-name descname">defaultContainer</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em><span class="sig-paren">)</span><a class="headerlink" href="#c.defaultContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets default values for <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.freeContainer">
+<span class="target" id="main_8c_1a8b5489b599da81ac0e2b085beedd614c"></span>void <code class="sig-name descname">freeContainer</code><span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em><span class="sig-paren">)</span><a class="headerlink" href="#c.freeContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> free for information </p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.outputContainer">
+<span class="target" id="main_8c_1a8847d54454fdf77f0b6f7620bb9266b6"></span>size_t <code class="sig-name descname">outputContainer</code><span class="sig-paren">(</span><a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em>, FILE *<em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.outputContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Outputs container line-by-line to the file <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of lines written </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: [in] container </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fp</span></code>: [in] file pointer </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.outputContainerUnsorted">
+<span class="target" id="main_8c_1aabe4af40fbd59db06828b771441e96b4"></span>size_t <code class="sig-name descname">outputContainerUnsorted</code><span class="sig-paren">(</span><a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>this</em>, FILE *<em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#c.outputContainerUnsorted" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Outputs container line-by-line to the file without sorting <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 - success, 1 - error </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: [in] container </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fp</span></code>: [in] file pointer </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.testContainer">
+<span class="target" id="main_8c_1aaf1b2281e87493ca16748dcde3c28f40"></span>bool <code class="sig-name descname">testContainer</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.testContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests for <a class="reference internal" href="#struct_sorted_lines_container"><span class="std std-ref">SortedLinesContainer</span></a> <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>success </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.isprintable">
+<span class="target" id="main_8c_1a1410b6a126f12066a25a5cf2f040fb52"></span>bool <code class="sig-name descname">isprintable</code><span class="sig-paren">(</span>char <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#c.isprintable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is char is visible <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code>: [in] char to be checked </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.ispunctuation">
+<span class="target" id="main_8c_1a29ff68694f20e04d7f0dca4a44601dba"></span>bool <code class="sig-name descname">ispunctuation</code><span class="sig-paren">(</span>char <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#c.ispunctuation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is char is punctuation <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code>: [in] char to be checked </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.performAllTests">
+<span class="target" id="main_8c_1af383500efc2bec7f97102ebf4a9f26df"></span>bool <code class="sig-name descname">performAllTests</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.performAllTests" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs all tests and returns true if valid <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>success </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.lineAnalyze">
+<span class="target" id="main_8c_1a63f981dafbd26fc68dc68db86c315829"></span>void <code class="sig-name descname">lineAnalyze</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>lineCurrent</em>, short *<em>insideLine</em>, short *<em>lineSleep</em><span class="sig-paren">)</span><a class="headerlink" href="#c.lineAnalyze" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Line analyzer. Fires sleep if current symbol is not ready to be compared with something (skip this symbol) <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lineCurrent</span></code>: [in] line current position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insideLine</span></code>: [in + out] whether inside line (leading whitespaces skipped) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lineSleep</span></code>: [in + out] whether to skip current symbol </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.adjustLenTrimmingWhitespaces">
+<span class="target" id="main_8c_1a08690664f2416899705419e21d3e3bf3"></span>void <code class="sig-name descname">adjustLenTrimmingWhitespaces</code><span class="sig-paren">(</span><a class="reference internal" href="#c.string" title="string">string</a> *<em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#c.adjustLenTrimmingWhitespaces" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decreases line length so that to ignore trailing whitespaces <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: [in + out] full analyzed string </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.hasVisibleContent">
+<span class="target" id="main_8c_1ace93612d9488e8310c391a3dc35c365b"></span>bool <code class="sig-name descname">hasVisibleContent</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#c.string" title="string">string</a> <em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#c.hasVisibleContent" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Checks whether string consists only of invisible characters. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>if has some visible content </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: [in] string to check </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.tests_hasVisibleContent">
+<span class="target" id="main_8c_1aa58284285ec8857f4c352c3fdac08770"></span>bool <code class="sig-name descname">tests_hasVisibleContent</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.tests_hasVisibleContent" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests for <a class="reference internal" href="#main_8c_1ace93612d9488e8310c391a3dc35c365b"><span class="std std-ref">hasVisibleContent()</span></a>. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>if valid </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.parseArgs">
+<span class="target" id="main_8c_1a86d7f1c0a700e681f2839859a48a1763"></span>int <code class="sig-name descname">parseArgs</code><span class="sig-paren">(</span><em class="property">const</em> int <em>argc</em>, <em class="property">const</em> char *<em>argv</em>[], bool *<em>reversed</em>, bool *<em>runTests</em>, bool *<em>dedTask</em>, char *<em>inputFileName</em>, char *<em>outputFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#c.parseArgs" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parses arguments from command line <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">argc</span></code>: [in] arguments count </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">argv</span></code>: [in] arguments strings </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reversed</span></code>: [out] sort from end or not </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">runTests</span></code>: [out] run unit tests or not </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dedTask</span></code>: [out] Dedinsky mode flag </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inputFileName</span></code>: [out] input file name </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outputFileName</span></code>: [out] outputfile name </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.taskOutput">
+<span class="target" id="main_8c_1a1de50651ed31e56c35f17eb29b8e0c88"></span>size_t <code class="sig-name descname">taskOutput</code><span class="sig-paren">(</span><a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>container</em>, FILE *<em>fp</em>, bool <em>dedTask</em><span class="sig-paren">)</span><a class="headerlink" href="#c.taskOutput" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Outputs resulted container to the file, checking for Dedinsky mode. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">container</span></code>: [in], in Dedinsky mode: [in+out] container to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fp</span></code>: [in] file pointer </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dedTask</span></code>: whether Dedinsky mode was specified </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.main">
+<span class="target" id="main_8c_1ac0f2228420376f4db7e1274f2b41667c"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, <em class="property">const</em> char *<em>argv</em>[]<span class="sig-paren">)</span><a class="headerlink" href="#c.main" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="c struct">
+<dt>
+<span class="target" id="structstring"></span><em class="property">struct </em><code class="sig-name descname">string</code><br /></dt>
+<dd><p>Used to store char* and its len so that computations are more effective </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="c var">
+<dt id="c.string.contents">
+<span class="target" id="structstring_1af307778cac3a77c4e4af663bdbc90736"></span>char *<code class="sig-name descname">contents</code><a class="headerlink" href="#c.string.contents" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c var">
+<dt id="c.string.len">
+<span class="target" id="structstring_1aa6bcf0353fd5cf2f374a9b1dd0e4a73a"></span>size_t <code class="sig-name descname">len</code><a class="headerlink" href="#c.string.len" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c var">
+<dt id="c.string.allocated">
+<span class="target" id="structstring_1abe354a07869a3bb0ffc7e1e32bfe1730"></span>bool <code class="sig-name descname">allocated</code><a class="headerlink" href="#c.string.allocated" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether contents were alocated by malloc (can be freed) or just a reference </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt>
+<span class="target" id="struct_sorted_lines_container"></span><em class="property">struct </em><code class="sig-name descname">SortedLinesContainer</code><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="c var">
+<dt id="c.SortedLinesContainer.fullBuffer">
+<span class="target" id="struct_sorted_lines_container_1adbf00bb5882ff717c9216ae412a00fdb"></span>char *<code class="sig-name descname">fullBuffer</code><a class="headerlink" href="#c.SortedLinesContainer.fullBuffer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the start of the string containing substrings separated by \0 (<p> replaced by \0) </p>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.fullBufferInitial">
+<span class="target" id="struct_sorted_lines_container_1ad91a10ea7146b6d134f185b630e35114"></span>char *<code class="sig-name descname">fullBufferInitial</code><a class="headerlink" href="#c.SortedLinesContainer.fullBufferInitial" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to the start of the string containing substrings separated by <p> (initial buffer) </p>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.lines">
+<span class="target" id="struct_sorted_lines_container_1ac760eb237929eba1a129615c2f9dd627"></span><a class="reference internal" href="#c.string" title="string">string</a> *<code class="sig-name descname">lines</code><a class="headerlink" href="#c.SortedLinesContainer.lines" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Strings containing starts of substrings in fullBuffer </p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.fromEnd">
+<span class="target" id="struct_sorted_lines_container_1a33d68c9a6bfed4e6387faf71057cf3f8"></span>bool <code class="sig-name descname">fromEnd</code><a class="headerlink" href="#c.SortedLinesContainer.fromEnd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether to perform comparison from the end </p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.linesNumber">
+<span class="target" id="struct_sorted_lines_container_1a33fcda1c0db12711818a248a7cebc22c"></span>size_t <code class="sig-name descname">linesNumber</code><a class="headerlink" href="#c.SortedLinesContainer.linesNumber" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of objects in lines </p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.linesMaxNumber">
+<span class="target" id="struct_sorted_lines_container_1a8e9da6e9ffd2926f2e3dabfbb2bb874d"></span>size_t <code class="sig-name descname">linesMaxNumber</code><a class="headerlink" href="#c.SortedLinesContainer.linesMaxNumber" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of max elements in lines </p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.allocIncrement">
+<span class="target" id="struct_sorted_lines_container_1a0ee4f444bf1f0ac36bda8e906e018357"></span>size_t <code class="sig-name descname">allocIncrement</code><a class="headerlink" href="#c.SortedLinesContainer.allocIncrement" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>How much new elements will be allocated when running out of space </p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.compar">
+<span class="target" id="struct_sorted_lines_container_1a932c9b2decf0ea331212abb8aa91a7a0"></span>int (*<code class="sig-name descname">compar</code>)<span class="sig-paren">(</span><em class="property">const</em> void *line1, <em class="property">const</em> void *line2<span class="sig-paren">)</span><a class="headerlink" href="#c.SortedLinesContainer.compar" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function used in qsort for regular comparison <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line1</span></code>: [in] first struct string object </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line2</span></code>: [in] second struct string object </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.comparRev">
+<span class="target" id="struct_sorted_lines_container_1ad0bc91b219e419c63451f37aa3817d08"></span>int (*<code class="sig-name descname">comparRev</code>)<span class="sig-paren">(</span><em class="property">const</em> void *line1, <em class="property">const</em> void *line2<span class="sig-paren">)</span><a class="headerlink" href="#c.SortedLinesContainer.comparRev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function used in qsort for comparison from the end of the string <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">line1</span></code>: [in] first struct string object </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line2</span></code>: [in] second struct string object </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.construct">
+<span class="target" id="struct_sorted_lines_container_1a199db621554f5e542d2b30a6541c2af0"></span>int (*<code class="sig-name descname">construct</code>)<span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *this, <em class="property">const</em> char *fullBuffer, <em class="property">const</em> size_t length, <em class="property">const</em> bool fromEnd<span class="sig-paren">)</span><a class="headerlink" href="#c.SortedLinesContainer.construct" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructs default object Invisible charecters are trimmed and blank lines are removed <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: [in + out] object to be constructed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fullBuffer</span></code>: [in] pointer to the first char of readed file </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] length of the buffer </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fromEnd</span></code>: [in] whether to sort from the end </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.sort">
+<span class="target" id="struct_sorted_lines_container_1af66298867c020f84e23b42c83c55bb05"></span>void (*<code class="sig-name descname">sort</code>)<span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *this<span class="sig-paren">)</span><a class="headerlink" href="#c.SortedLinesContainer.sort" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs sorting of lines array <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: [in + out] object to be constructed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.allocate">
+<span class="target" id="struct_sorted_lines_container_1a4b1338eb48396a8f6c6657ced61593b1"></span>int (*<code class="sig-name descname">allocate</code>)<span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *this<span class="sig-paren">)</span><a class="headerlink" href="#c.SortedLinesContainer.allocate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocates memory so that lines object can contain one more element Uses allocIncrement <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: [in + out] object to be constructed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt id="c.SortedLinesContainer.free">
+<span class="target" id="struct_sorted_lines_container_1a9e25395b1003ab70af0ebb71dd2f4cef"></span>void (*<code class="sig-name descname">free</code>)<span class="sig-paren">(</span><em class="property">struct</em> <a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *this<span class="sig-paren">)</span><a class="headerlink" href="#c.SortedLinesContainer.free" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Frees space <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">this</span></code>: [in + out] object to be constructed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Aleksandr Dremov
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
