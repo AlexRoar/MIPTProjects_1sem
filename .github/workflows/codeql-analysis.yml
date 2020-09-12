@@ -55,9 +55,9 @@ jobs:
     #    uses a compiled language
 
     - run: |
-       gcc -Wall -Wextra -Wpedantic -g -ftrapv -finstrument-functions -Wfloat-equal -Wundef -Wshadow -Wpointer-arith OneginSortv2/OneginSortv2/main.c
-       gcc -Wall -Wextra -Wpedantic -g -ftrapv -finstrument-functions -Wfloat-equal -Wundef -Wshadow -Wpointer-arith OneginSort/OneginSort/main.c
-       gcc -Wall -Wextra -Wpedantic -g -ftrapv -finstrument-functions -Wfloat-equal -Wundef -Wshadow -Wpointer-arith SquareRoots/SquareRoots/main.c
+       gcc -Wall -Wextra -Wpedantic -g -ftrapv -finstrument-functions -Wfloat-equal -Wundef -Wshadow -Wpointer-arith OneginSortv2/OneginSortv2/main.c -lm
+       gcc -Wall -Wextra -Wpedantic -g -ftrapv -finstrument-functions -Wfloat-equal -Wundef -Wshadow -Wpointer-arith OneginSort/OneginSort/main.c -lm
+       gcc -Wall -Wextra -Wpedantic -g -ftrapv -finstrument-functions -Wfloat-equal -Wundef -Wshadow -Wpointer-arith SquareRoots/SquareRoots/main.c -lm
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
