@@ -8,7 +8,7 @@
   - [Square Solver docs](https://alexroar.github.io/MIPTProjects_1sem/SquareRoots/docs/html/main_8c.html)
 - [Сортировщик Онегин](OneginSort/OneginSort/main.c) [insertion sort]
   - [Сортировщик Онегин docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSort/docs/html/main_8c.html)
-- [Сортировщик Онегин](OneginSortv2/OneginSortv2/main.c) [quick sort + single line storage]
-  - [Сортировщик Онегин docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs/html/main_8c.html)
+- [Сортировщик Онегин v2](OneginSortv2/OneginSortv2/main.c) [quick sort + single line storage]
+  - [Сортировщик Онегин v2 docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs/html/main_8c.html)
   
 **Проекты проги МФТИ 1 семестр**
