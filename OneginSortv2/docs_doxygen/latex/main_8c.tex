@@ -73,7 +73,7 @@ bool \mbox{\hyperlink{main_8c_aa58284285ec8857f4c352c3fdac08770}{tests\+\_\+has\
 \item 
 int \mbox{\hyperlink{main_8c_a86d7f1c0a700e681f2839859a48a1763}{parse\+Args}} (const int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$reversed, bool $\ast$run\+Tests, bool $\ast$ded\+Task, char $\ast$input\+File\+Name, char $\ast$output\+File\+Name)
 \item 
-size\+\_\+t \mbox{\hyperlink{main_8c_a1de50651ed31e56c35f17eb29b8e0c88}{task\+Output}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$container, F\+I\+LE $\ast$fp, bool ded\+Task)
+size\+\_\+t \mbox{\hyperlink{main_8c_a109b595a5593ef077b58be17d9bf2658}{task\+Output}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$container, F\+I\+LE $\ast$fp, const bool ded\+Task)
 \item 
 \mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
 int {\bfseries main} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
@@ -317,11 +317,11 @@ success
 \doxysubsubsection{\texorpdfstring{sortContainer()}{sortContainer()}}
 {\footnotesize\ttfamily void sort\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
 
-Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} sort for information \mbox{\Hypertarget{main_8c_a1de50651ed31e56c35f17eb29b8e0c88}\label{main_8c_a1de50651ed31e56c35f17eb29b8e0c88}} 
+Check \mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} sort for information \mbox{\Hypertarget{main_8c_a109b595a5593ef077b58be17d9bf2658}\label{main_8c_a109b595a5593ef077b58be17d9bf2658}} 
 \index{main.c@{main.c}!taskOutput@{taskOutput}}
 \index{taskOutput@{taskOutput}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{taskOutput()}{taskOutput()}}
-{\footnotesize\ttfamily size\+\_\+t task\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{container,  }\item[{F\+I\+LE $\ast$}]{fp,  }\item[{bool}]{ded\+Task }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily size\+\_\+t task\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$}]{container,  }\item[{F\+I\+LE $\ast$}]{fp,  }\item[{const bool}]{ded\+Task }\end{DoxyParamCaption})}
 
 Outputs resulted container to the file, checking for Dedinsky mode. 
 \begin{DoxyParams}{Parameters}
@@ -329,7 +329,7 @@ Outputs resulted container to the file, checking for Dedinsky mode.
 \hline
 {\em fp} & \mbox{[}in\mbox{]} file pointer \\
 \hline
-{\em ded\+Task} & whether Dedinsky mode was specified \\
+{\em ded\+Task} & \mbox{[}in\mbox{]} whether Dedinsky mode was specified \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{main_8c_aaf1b2281e87493ca16748dcde3c28f40}\label{main_8c_aaf1b2281e87493ca16748dcde3c28f40}} 

@@ -144,8 +144,8 @@ Functions</h2></td></tr>
 <tr class="separator:aa58284285ec8857f4c352c3fdac08770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86d7f1c0a700e681f2839859a48a1763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a86d7f1c0a700e681f2839859a48a1763">parseArgs</a> (const int argc, const char *argv[], bool *reversed, bool *runTests, bool *dedTask, char *inputFileName, char *outputFileName)</td></tr>
 <tr class="separator:a86d7f1c0a700e681f2839859a48a1763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1de50651ed31e56c35f17eb29b8e0c88"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1de50651ed31e56c35f17eb29b8e0c88">taskOutput</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *container, FILE *fp, bool dedTask)</td></tr>
-<tr class="separator:a1de50651ed31e56c35f17eb29b8e0c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a109b595a5593ef077b58be17d9bf2658"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a109b595a5593ef077b58be17d9bf2658">taskOutput</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *container, FILE *fp, const bool dedTask)</td></tr>
+<tr class="separator:a109b595a5593ef077b58be17d9bf2658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top"><a id="ac0f2228420376f4db7e1274f2b41667c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, const char *argv[])</td></tr>
 <tr class="separator:ac0f2228420376f4db7e1274f2b41667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -781,8 +781,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
-<a id="a1de50651ed31e56c35f17eb29b8e0c88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1de50651ed31e56c35f17eb29b8e0c88">&#9670;&nbsp;</a></span>taskOutput()</h2>
+<a id="a109b595a5593ef077b58be17d9bf2658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a109b595a5593ef077b58be17d9bf2658">&#9670;&nbsp;</a></span>taskOutput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -802,7 +802,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>dedTask</em>&#160;</td>
         </tr>
         <tr>
@@ -816,7 +816,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
   <table class="params">
     <tr><td class="paramname">container</td><td>[in], in Dedinsky mode: [in+out] container to be used </td></tr>
     <tr><td class="paramname">fp</td><td>[in] file pointer </td></tr>
-    <tr><td class="paramname">dedTask</td><td>whether Dedinsky mode was specified </td></tr>
+    <tr><td class="paramname">dedTask</td><td>[in] whether Dedinsky mode was specified </td></tr>
   </table>
   </dd>
 </dl>

@@ -288,9 +288,9 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
  * Outputs resulted container to the file, checking for Dedinsky mode.
  * @param container [in], in Dedinsky mode: [in+out]  container to be used
  * @param fp [in] file pointer
- * @param dedTask whether Dedinsky mode was specified
+ * @param dedTask [in] whether Dedinsky mode was specified
  */
-size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask);
+size_t taskOutput(SortedLinesContainer* container, FILE* fp, const bool dedTask);
 
 
 int main(int argc, const char *argv[]) {
@@ -352,19 +352,19 @@ int main(int argc, const char *argv[]) {
 }
 
 
-size_t taskOutput(SortedLinesContainer* container, FILE* fp, bool dedTask){
+size_t taskOutput(SortedLinesContainer* container, FILE* fp, const bool dedTask){
     size_t linesWrote = 0;
     if (dedTask){
         printf("\nMEOW! You activated Dedinsky mode.\
                \nFasten your seatbelts, please.\n");
         printf("\
-               _                ___       _.--.\n\
-               \\`.|\\..----...-'`   `-._.-'_.-'`\n\
-               /  ' `         ,       __.--'\n\
-               )/' _/     \\   `-_,   /\n\
-               `-'\"._`_\\_  ,_.-;_.-\\_  \\\n\
-               _.-'_./   {_.'   ; /\n\
-               {_.---'          {_/\n\n");
+         _                ___       _.--.\n\
+         \\`.|\\..----...-'`   `-._.-'_.-'`\n\
+         /  ' `         ,       __.--'\n\
+         )/' _/     \\   `-_,   /\n\
+         `-'\" `\"\\_  ,_.-;_.-\\_  \\\n\
+             _.-'_./   {_.'   ; /\n\
+            {_.---'          {_/\n\n");
         fprintf(fp, "=== Unsorted container ===\n");
         outputContainerUnsorted(container, fp);
         container->fromEnd = false;
@@ -490,6 +490,8 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
     assert(this != NULL);
     assert(fullBuffer != NULL);
     
+    defaultContainer(this);
+    
     this->fullBuffer = calloc(length + 1, sizeof(char));
     this->fullBufferInitial = calloc(length + 1, sizeof(char));
     if (!this->fullBuffer) {
@@ -572,7 +574,67 @@ int constructFromFile(struct SortedLinesContainer *this, const char *fileName, c
 
 
 bool testContainer() {
-    return true;
+    
+    string input[] = {
+        {"", 0, false},
+        {"b\na\n", 0, false},
+        {"b\naa\n", 0, false},
+        {"", 0, false},
+        {"a", 0, false},
+        {"aba\naaa", 0, false},
+        {"aca\na-ba", 0, false},
+        {"aba\naba\n   !aaa", 0, false}
+    };
+    
+    string output[] = {
+        {"", 0, false},
+        {"a\nb\n", 0, false},
+        {"aa\nb\n", 0, false},
+        {"", 0, false},
+        {"a\n", 0, false},
+        {"aaa\naba\n", 0, false},
+        {"a-ba\naca\n", 0, false},
+        {"   !aaa\naba\naba\n", 0, false}
+    };
+    
+    assert(sizeof(output) / sizeof(string) == sizeof(input) / sizeof(string));
+    
+    bool valid = true;
+    
+    for (size_t i = 0; i < sizeof(output) / sizeof(string); i++){
+        input[i].len = strlen(input[i].contents);
+        output[i].len = strlen(output[i].contents);
+        
+        size_t curPos = 0;
+        char *tmpStringOutput = calloc(output[i].len * 2 + 1, sizeof(char));
+        
+        SortedLinesContainer container;
+        container.construct = &construct;
+        container.construct(&container, input[i].contents, input[i].len, true);
+        container.sort(&container);
+        for (size_t j = 0; j < container.linesNumber; j++){
+            strcpy(tmpStringOutput + curPos, container.lines[j].contents);
+            tmpStringOutput[curPos + container.lines[j].len] = '\n';
+            curPos += container.lines[j].len + 1;
+        }
+        tmpStringOutput[curPos] = '\0';
+        if (strcmp(tmpStringOutput, output[i].contents) != 0){
+            printf("Integration test #(%ld) failure\n"
+                   "Expected:\n|||\n", i + 1);
+            printf("%s\n", output[i].contents);
+            printf("|||\n");
+            printf("Received:\n"
+                   "|||\n");
+            printf("%s\n", tmpStringOutput);
+            printf("|||\n");
+            valid = false;
+        }
+        
+        container.free(&container);
+        
+        free(tmpStringOutput);
+    }
+    return valid;
 }
 
 
@@ -680,7 +742,10 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
     }
     
     while (1) {
-        if (*line1Current == '\0' || line1Ended || line1Current >= tmpString1.contents + tmpString1.len) {
+        if (line1Current < tmpString1.contents){
+            line1Ended = 1;
+            line1Sleep = 1;
+        } else if (*line1Current == '\0' || line1Ended || line1Current >= tmpString1.contents + tmpString1.len) {
             line1Ended = 1;
             line1Sleep = 1;
         } else {
@@ -688,7 +753,10 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             doubleWhitespacesSkip(&tmpString1, line1Current, &line1Sleep, modifier);
         }
         
-        if (*line2Current == '\0' || line2Ended || line2Current >= tmpString2.contents + tmpString2.len) {
+        if (line2Current < tmpString2.contents){
+            line2Ended = 1;
+            line2Sleep = 1;
+        } else if (*line2Current == '\0' || line2Ended || line2Current >= tmpString2.contents + tmpString2.len) {
             line2Ended = 1;
             line2Sleep = 1;
         } else {
@@ -734,29 +802,38 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
 
 int tests_multiCompare(void) {
     string inputs1[] = {
+        {"",       0, false},
         {" ",      0, false},
         {"   a",   0, false},
         {"   a  ", 0, false},
         {"b",      0, false},
         {"\"b",    0, false},
+        {"a-ba",    0, false},
+        {"a      b    a",    0, false},
     };
     string inputs2[] = {
+        {"",  0, false},
         {" ", 0, false},
         {"a", 0, false},
         {"a", 0, false},
         {"a", 0, false},
-        {"b", 0, false}
+        {"b", 0, false},
+        {"aba", 0, false},
+        {"a b a", 0, false}
     };
     
     int outputs[] = {
         0,
         0,
         0,
+        0,
         1,
+        0,
+        0,
         0
     };
     
-    assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string));
+    assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string) && sizeof(inputs1) / sizeof(string) == sizeof(inputs2) / sizeof(string) );
     
     int totalNumber = sizeof(outputs) / sizeof(int);
     bool valid = true;
@@ -832,6 +909,9 @@ void defaultContainer(struct SortedLinesContainer *this) {
     this->comparRev = &comparRev;
     this->sort = &sortContainer;
     this->free = &freeContainer;
+    this->fullBuffer = NULL;
+    this->fullBufferInitial = NULL;
+    this->lines = NULL;
 }
 
 

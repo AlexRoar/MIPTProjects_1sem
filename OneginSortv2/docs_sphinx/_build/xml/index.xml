@@ -45,7 +45,7 @@
     <member refid="main_8c_1ace93612d9488e8310c391a3dc35c365b" kind="function"><name>hasVisibleContent</name></member>
     <member refid="main_8c_1aa58284285ec8857f4c352c3fdac08770" kind="function"><name>tests_hasVisibleContent</name></member>
     <member refid="main_8c_1a86d7f1c0a700e681f2839859a48a1763" kind="function"><name>parseArgs</name></member>
-    <member refid="main_8c_1a1de50651ed31e56c35f17eb29b8e0c88" kind="function"><name>taskOutput</name></member>
+    <member refid="main_8c_1a109b595a5593ef077b58be17d9bf2658" kind="function"><name>taskOutput</name></member>
     <member refid="main_8c_1ac0f2228420376f4db7e1274f2b41667c" kind="function"><name>main</name></member>
   </compound>
   <compound refid="dir_1820083117b9ccb8a56cbd9deb8e8ea0" kind="dir"><name>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2</name>

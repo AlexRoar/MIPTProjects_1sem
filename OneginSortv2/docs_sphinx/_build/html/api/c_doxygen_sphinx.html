@@ -408,12 +408,12 @@
 
 <dl class="c function">
 <dt id="c.taskOutput">
-<span class="target" id="main_8c_1a1de50651ed31e56c35f17eb29b8e0c88"></span>size_t <code class="sig-name descname">taskOutput</code><span class="sig-paren">(</span><a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>container</em>, FILE *<em>fp</em>, bool <em>dedTask</em><span class="sig-paren">)</span><a class="headerlink" href="#c.taskOutput" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="main_8c_1a109b595a5593ef077b58be17d9bf2658"></span>size_t <code class="sig-name descname">taskOutput</code><span class="sig-paren">(</span><a class="reference internal" href="#c.SortedLinesContainer" title="SortedLinesContainer">SortedLinesContainer</a> *<em>container</em>, FILE *<em>fp</em>, <em class="property">const</em> bool <em>dedTask</em><span class="sig-paren">)</span><a class="headerlink" href="#c.taskOutput" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Outputs resulted container to the file, checking for Dedinsky mode. <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">container</span></code>: [in], in Dedinsky mode: [in+out] container to be used </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fp</span></code>: [in] file pointer </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dedTask</span></code>: whether Dedinsky mode was specified </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dedTask</span></code>: [in] whether Dedinsky mode was specified </p></li>
 </ul>
 </dd>
 </dl>
