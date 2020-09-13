@@ -300,12 +300,22 @@ int main(int argc, const char *argv[]) {
     
     char *inputFileName = calloc(10, sizeof(char));
     char *outputFileName = calloc(11, sizeof(char));
+    
+    if (inputFileName == NULL || outputFileName == NULL){
+        printf("Failed allocating memory\n");
+        if (inputFileName != NULL)
+            free(inputFileName);
+        if (outputFileName != NULL)
+            free(outputFileName);
+        return EXIT_FAILURE;
+    }
     strcpy(inputFileName, "input.txt");
     strcpy(outputFileName, "output.txt");
     
     if (parseArgs(argc, argv, &reversed, &runTests,
                   &dedTask, inputFileName, outputFileName) == EXIT_FAILURE){
-        free(inputFileName); free(outputFileName);
+        free(inputFileName);
+        free(outputFileName);
         return EXIT_FAILURE;
     }
     
@@ -619,7 +629,7 @@ bool testContainer() {
         }
         tmpStringOutput[curPos] = '\0';
         if (strcmp(tmpStringOutput, output[i].contents) != 0){
-            printf("Integration test #(%ld) failure\n"
+            printf("Integration test #(%lu) failure\n"
                    "Expected:\n|||\n", i + 1);
             printf("%s\n", output[i].contents);
             printf("|||\n");
