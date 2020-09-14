@@ -27,7 +27,7 @@ typedef struct string {
     size_t len;
     
     /**
-     * Whether contents were alocated by malloc (can be freed) or just a reference
+     * Whether contents were alocated by calloc (can be freed) or just a reference
      */
     bool allocated;
 } string;
@@ -314,8 +314,6 @@ int main(int argc, const char *argv[]) {
     
     if (parseArgs(argc, argv, &reversed, &runTests,
                   &dedTask, inputFileName, outputFileName) == EXIT_FAILURE){
-        free(inputFileName);
-        free(outputFileName);
         return EXIT_FAILURE;
     }
     
@@ -342,22 +340,27 @@ int main(int argc, const char *argv[]) {
     int constructResult = constructFromFile(&container, inputFileName, reversed);
     if (constructResult == EXIT_FAILURE) {
         printf("Failed constructFromFile()\n");
-        container.free(&container);
         free(inputFileName);
         free(outputFileName);
-        return constructResult;
+        container.free(&container);
+        return EXIT_FAILURE;
     }
     
     FILE *fp = fopen(outputFileName, "w");
-    if (fp == NULL)
+    if (fp == NULL){
         printf("Cant open %s for output\n", outputFileName);
+        free(inputFileName);
+        free(outputFileName);
+        container.free(&container);
+        return EXIT_FAILURE;
+    }
     size_t linesWrote = taskOutput(&container, fp, dedTask);
     
     fclose(fp);
     free(inputFileName);
     free(outputFileName);
     container.free(&container);
-    
+
     return (linesWrote == 0)? EXIT_FAILURE : EXIT_SUCCESS;
 }
 
@@ -415,6 +418,8 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
             char *outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
             if (outputFileNameNew == NULL) {
                 printf("Can't realloc memory for output file name\n");
+                free(inputFileName);
+                free(outputFileName);
                 return EXIT_FAILURE;
             } else {
                 outputFileName = outputFileNameNew;
@@ -430,6 +435,8 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
             char *inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
             if (inputFileNameNew == NULL) {
                 printf("Can't realloc memory for input file name\n");
+                free(inputFileName);
+                free(outputFileName);
                 return EXIT_FAILURE;
             } else {
                 inputFileName = inputFileNameNew;
@@ -500,8 +507,6 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
     assert(this != NULL);
     assert(fullBuffer != NULL);
     
-    defaultContainer(this);
-    
     this->fullBuffer = calloc(length + 1, sizeof(char));
     this->fullBufferInitial = calloc(length + 1, sizeof(char));
     if (!this->fullBuffer) {
@@ -561,11 +566,16 @@ int constructFromFile(struct SortedLinesContainer *this, const char *fileName, c
         }
         fclose(fp);
         size_t lenElements = length / sizeof(char);
+        size_t newLinesNum = 0;
+        for (size_t i = 0; i < lenElements; i++){
+            if (buffer[i] == '\n'){
+                newLinesNum++;
+            }
+        }
         defaultContainer(this);
         
-        this->lines = calloc(lenElements + 1, sizeof(string));
-        
-        this->linesMaxNumber = lenElements + 1;
+        this->lines = calloc(newLinesNum + 1, sizeof(string));
+        this->linesMaxNumber = newLinesNum + 1;
         
         int constructResult = this->construct(this, buffer, lenElements, fromEnd);
         if (constructResult == EXIT_FAILURE) {
@@ -619,6 +629,7 @@ bool testContainer() {
         char *tmpStringOutput = calloc(output[i].len * 2 + 1, sizeof(char));
         
         SortedLinesContainer container;
+        defaultContainer(&container);
         container.construct = &construct;
         container.construct(&container, input[i].contents, input[i].len, true);
         container.sort(&container);
