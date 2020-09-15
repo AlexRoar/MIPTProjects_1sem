@@ -16,6 +16,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
+#include <locale.h>
 
 
 /**
@@ -281,7 +282,7 @@ bool tests_hasVisibleContent(void);
  * @param outputFileName [out] outputfile name
  */
 int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests,
-              bool *dedTask, char* inputFileName, char *outputFileName);
+              bool *dedTask, char** inputFileName, char** outputFileName);
 
 
 /**
@@ -294,6 +295,9 @@ size_t taskOutput(SortedLinesContainer* container, FILE* fp, const bool dedTask)
 
 
 int main(int argc, const char *argv[]) {
+    setlocale(LC_ALL, "Russian");
+    setlocale(LC_NUMERIC, "English");
+    
     bool reversed = false;
     bool runTests = false;
     bool dedTask = false;
@@ -313,7 +317,7 @@ int main(int argc, const char *argv[]) {
     strcpy(outputFileName, "output.txt");
     
     if (parseArgs(argc, argv, &reversed, &runTests,
-                  &dedTask, inputFileName, outputFileName) == EXIT_FAILURE){
+                  &dedTask, &inputFileName, &outputFileName) == EXIT_FAILURE){
         return EXIT_FAILURE;
     }
     
@@ -395,7 +399,7 @@ size_t taskOutput(SortedLinesContainer* container, FILE* fp, const bool dedTask)
 
 
 int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests,
-              bool *dedTask, char* inputFileName, char *outputFileName) {
+              bool *dedTask, char** inputFileName, char** outputFileName) {
     for (int i = 0; i < argc; i++) {
         if (strcmp("-r", argv[i]) == 0) {
             *reversed = true;
@@ -414,36 +418,42 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
         
         if (strcmp("-output", argv[i]) == 0) {
             i++;
+            if (i >= argc){
+                printf("Not found output file name.\n"
+                       "Please, provide filename after -output flag\n");
+                return EXIT_FAILURE;
+            }
             size_t len = strlen(argv[i]);
-            char *outputFileNameNew = realloc(outputFileName, sizeof(char) * (len + 1));
+            char *outputFileNameNew = realloc(*outputFileName, sizeof(char) * (len + 1));
             if (outputFileNameNew == NULL) {
                 printf("Can't realloc memory for output file name\n");
-                free(inputFileName);
-                free(outputFileName);
                 return EXIT_FAILURE;
             } else {
-                outputFileName = outputFileNameNew;
+                *outputFileName = outputFileNameNew;
             }
-            strcpy(outputFileName, argv[i]);
-            i++;
+            strcpy(*outputFileName, argv[i]);
+
             continue;
         }
         if (strcmp("-input", argv[i]) == 0) {
             i++;
+            if (i >= argc){
+                printf("Not found input file name.\n"
+                       "Please, provide filename after -input flag\n");
+                return EXIT_FAILURE;
+            }
             size_t len = strlen(argv[i]);
             
-            char *inputFileNameNew = realloc(inputFileName, sizeof(char) * (len + 1));
+            char *inputFileNameNew = realloc(*inputFileName, sizeof(char) * (len + 1));
             if (inputFileNameNew == NULL) {
                 printf("Can't realloc memory for input file name\n");
-                free(inputFileName);
-                free(outputFileName);
                 return EXIT_FAILURE;
             } else {
-                inputFileName = inputFileNameNew;
+                *inputFileName = inputFileNameNew;
             }
             
-            strcpy(inputFileName, argv[i]);
-            i++;
+            strcpy(*inputFileName, argv[i]);
+
             continue;
         }
     }
@@ -750,6 +760,8 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
     short line1Ended = 0, line2Ended = 0;
     short line1Sleep = 1, line2Sleep = 1;
     
+    short line1Cyr = 1, line2Cyr = 1;
+    
     short int modifier = 1;
     if (fromEnd) {
         modifier = -1;
@@ -785,6 +797,43 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             doubleWhitespacesSkip(&tmpString2, line2Current, &line2Sleep, modifier);
         }
         
+        line1Cyr = 0;
+        line2Cyr = 0;
+        if (modifier == -1){
+            if (line1Current > tmpString1.contents && line1Sleep == 0){
+                if (*(line1Current - 1) == -47 || *(line1Current - 1) == -48){
+                    line1Cyr = 1;
+                }
+            }
+            
+            if (line2Current > tmpString2.contents && line2Sleep == 0){
+                if (*(line2Current - 1) == -47 || *(line2Current - 1) == -48){
+                    line2Cyr = 1;
+                }
+            }
+            
+            if (line1Cyr == 1 && line2Cyr == 1){
+                // Two bytes of first cyr letter
+                int a1 = *(line1Current - 1);
+                int a2 = *line1Current;
+                
+                // Two bytes of second cyr letter
+                int b1 = *(line2Current - 1);
+                int b2 = *(line2Current);
+                int retVal = a2 + 1000 * a1  - (b2 + 1000 * b1);
+                if (retVal == 0){
+                    line1Current += modifier * 2;
+                    line2Current += modifier * 2;
+                    continue;
+                }
+                return retVal;
+            } else if (line1Cyr == 1 && line2Cyr == 0){
+                return -1;
+            } else if (line1Cyr == 0 && line2Cyr == 1){
+                return 1;
+            }
+        }
+        
         if (line1Ended == 1 || line2Ended == 1)
             break;
         
@@ -801,7 +850,6 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
                 line2Current += modifier;
                 continue;
             }
-            
             return *line1Current - *line2Current;
         }
         if (modifier == -1 && line1Current == line1String->contents) {
@@ -831,6 +879,10 @@ int tests_multiCompare(void) {
         {"\"b",    0, false},
         {"a-ba",    0, false},
         {"a      b    a",    0, false},
+        {"a",    0, false},
+        {"а",    0, false},
+        {"а-",    0, false},
+        {"а-а-",    0, false},
     };
     string inputs2[] = {
         {"",  0, false},
@@ -840,7 +892,26 @@ int tests_multiCompare(void) {
         {"a", 0, false},
         {"b", 0, false},
         {"aba", 0, false},
-        {"a b a", 0, false}
+        {"a b a", 0, false},
+        {"z",    0, false},
+        {"я",    0, false},
+        {"а",    0, false},
+        {"а-а-",    0, false},
+    };
+    
+    bool fromEnd[] = {
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
     };
     
     int outputs[] = {
@@ -851,10 +922,16 @@ int tests_multiCompare(void) {
         1,
         0,
         0,
+        0,
+        -1,
+        -1,
+        0,
         0
     };
     
-    assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string) && sizeof(inputs1) / sizeof(string) == sizeof(inputs2) / sizeof(string) );
+    assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string) &&
+           sizeof(inputs1) / sizeof(string) == sizeof(inputs2) / sizeof(string) &&
+           sizeof(fromEnd) / sizeof(bool) == sizeof(inputs2) / sizeof(string));
     
     int totalNumber = sizeof(outputs) / sizeof(int);
     bool valid = true;
@@ -862,7 +939,7 @@ int tests_multiCompare(void) {
     for (int i = 0; i < totalNumber; i++) {
         inputs1[i].len = strlen(inputs1[i].contents);
         inputs2[i].len = strlen(inputs2[i].contents);
-        int actualOutput = multiCompare(&inputs1[i], &inputs2[i], 0);
+        int actualOutput = multiCompare(&inputs1[i], &inputs2[i], fromEnd[i]);
         if (!((actualOutput == outputs[i] && outputs[i] == 0) || (outputs[i] > 0 && actualOutput > 0) ||
               (outputs[i] < 0 && actualOutput < 0))) {
             printf("Failed tests_multiCompare test #(%d) %d !~ %d\n", i + 1, actualOutput, outputs[i]);
@@ -895,7 +972,7 @@ void adjustLenTrimmingWhitespaces(string *line) {
         return;
     pos--;
     while (pos != line->contents) {
-        if (isprintable(*pos))
+        if (isprintable(*pos) && !ispunctuation(*pos))
             break;
         pos--;
         line->len--;
@@ -942,7 +1019,7 @@ bool isprintable(char c) {
 
 
 bool ispunctuation(char c) {
-    return ((c >= '!' && c < '0') || c == '\'' || c == '"' || c == '`');
+    return ispunct(c) || c > 'z';
 }
 
 
