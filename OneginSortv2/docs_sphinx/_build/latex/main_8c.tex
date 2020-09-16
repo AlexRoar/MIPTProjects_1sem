@@ -11,6 +11,7 @@ Created by Александр Дремов on 28.\+08.\+2020. Available command 
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$ctype.\+h$>$}\newline
 {\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -65,13 +66,13 @@ bool \mbox{\hyperlink{main_8c_af383500efc2bec7f97102ebf4a9f26df}{perform\+All\+T
 \item 
 void \mbox{\hyperlink{main_8c_a63f981dafbd26fc68dc68db86c315829}{line\+Analyze}} (const char $\ast$line\+Current, short $\ast$inside\+Line, short $\ast$line\+Sleep)
 \item 
-void \mbox{\hyperlink{main_8c_a08690664f2416899705419e21d3e3bf3}{adjust\+Len\+Trimming\+Whitespaces}} (\mbox{\hyperlink{structstring}{string}} $\ast$line)
+void \mbox{\hyperlink{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}{adjust\+Len\+Trimming}} (\mbox{\hyperlink{structstring}{string}} $\ast$line)
 \item 
 bool \mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{has\+Visible\+Content}} (const \mbox{\hyperlink{structstring}{string}} line)
 \item 
 bool \mbox{\hyperlink{main_8c_aa58284285ec8857f4c352c3fdac08770}{tests\+\_\+has\+Visible\+Content}} (void)
 \item 
-int \mbox{\hyperlink{main_8c_a86d7f1c0a700e681f2839859a48a1763}{parse\+Args}} (const int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$reversed, bool $\ast$run\+Tests, bool $\ast$ded\+Task, char $\ast$input\+File\+Name, char $\ast$output\+File\+Name)
+int \mbox{\hyperlink{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}{parse\+Args}} (const int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$reversed, bool $\ast$run\+Tests, bool $\ast$ded\+Task, char $\ast$$\ast$input\+File\+Name, char $\ast$$\ast$output\+File\+Name)
 \item 
 size\+\_\+t \mbox{\hyperlink{main_8c_a109b595a5593ef077b58be17d9bf2658}{task\+Output}} (\mbox{\hyperlink{struct_sorted_lines_container}{Sorted\+Lines\+Container}} $\ast$container, F\+I\+LE $\ast$fp, const bool ded\+Task)
 \item 
@@ -111,13 +112,13 @@ Copyright © 2020 alexdremov. All rights reserved.
 Used to store char$\ast$ and its len so that computations are more effective 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{main_8c_a08690664f2416899705419e21d3e3bf3}\label{main_8c_a08690664f2416899705419e21d3e3bf3}} 
-\index{main.c@{main.c}!adjustLenTrimmingWhitespaces@{adjustLenTrimmingWhitespaces}}
-\index{adjustLenTrimmingWhitespaces@{adjustLenTrimmingWhitespaces}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{adjustLenTrimmingWhitespaces()}{adjustLenTrimmingWhitespaces()}}
-{\footnotesize\ttfamily void adjust\+Len\+Trimming\+Whitespaces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structstring}{string}} $\ast$}]{line }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}\label{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}} 
+\index{main.c@{main.c}!adjustLenTrimming@{adjustLenTrimming}}
+\index{adjustLenTrimming@{adjustLenTrimming}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{adjustLenTrimming()}{adjustLenTrimming()}}
+{\footnotesize\ttfamily void adjust\+Len\+Trimming (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structstring}{string}} $\ast$}]{line }\end{DoxyParamCaption})}
 
-Decreases line length so that to ignore trailing whitespaces 
+Decreases line length so that to ignore trailing whitespaces and punctuation 
 \begin{DoxyParams}{Parameters}
 {\em line} & \mbox{[}in + out\mbox{]} full analyzed string \\
 \hline
@@ -279,11 +280,11 @@ Outputs container line-\/by-\/line to the file without sorting
 \begin{DoxyReturn}{Returns}
 0 -\/ success, 1 -\/ error 
 \end{DoxyReturn}
-\mbox{\Hypertarget{main_8c_a86d7f1c0a700e681f2839859a48a1763}\label{main_8c_a86d7f1c0a700e681f2839859a48a1763}} 
+\mbox{\Hypertarget{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}\label{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}} 
 \index{main.c@{main.c}!parseArgs@{parseArgs}}
 \index{parseArgs@{parseArgs}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{parseArgs()}{parseArgs()}}
-{\footnotesize\ttfamily int parse\+Args (\begin{DoxyParamCaption}\item[{const int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{reversed,  }\item[{bool $\ast$}]{run\+Tests,  }\item[{bool $\ast$}]{ded\+Task,  }\item[{char $\ast$}]{input\+File\+Name,  }\item[{char $\ast$}]{output\+File\+Name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int parse\+Args (\begin{DoxyParamCaption}\item[{const int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{reversed,  }\item[{bool $\ast$}]{run\+Tests,  }\item[{bool $\ast$}]{ded\+Task,  }\item[{char $\ast$$\ast$}]{input\+File\+Name,  }\item[{char $\ast$$\ast$}]{output\+File\+Name }\end{DoxyParamCaption})}
 
 Parses arguments from command line 
 \begin{DoxyParams}{Parameters}

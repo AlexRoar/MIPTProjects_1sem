@@ -353,9 +353,9 @@
 </dd></dl>
 
 <dl class="c function">
-<dt id="c.adjustLenTrimmingWhitespaces">
-<span class="target" id="main_8c_1a08690664f2416899705419e21d3e3bf3"></span>void <code class="sig-name descname">adjustLenTrimmingWhitespaces</code><span class="sig-paren">(</span><a class="reference internal" href="#c.string" title="string">string</a> *<em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#c.adjustLenTrimmingWhitespaces" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Decreases line length so that to ignore trailing whitespaces <dl class="simple">
+<dt id="c.adjustLenTrimming">
+<span class="target" id="main_8c_1a279162a5d3b191e393ad6cf6ebc1da19"></span>void <code class="sig-name descname">adjustLenTrimming</code><span class="sig-paren">(</span><a class="reference internal" href="#c.string" title="string">string</a> *<em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#c.adjustLenTrimming" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decreases line length so that to ignore trailing whitespaces and punctuation <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">line</span></code>: [in + out] full analyzed string </p></li>
 </ul>
@@ -390,7 +390,7 @@
 
 <dl class="c function">
 <dt id="c.parseArgs">
-<span class="target" id="main_8c_1a86d7f1c0a700e681f2839859a48a1763"></span>int <code class="sig-name descname">parseArgs</code><span class="sig-paren">(</span><em class="property">const</em> int <em>argc</em>, <em class="property">const</em> char *<em>argv</em>[], bool *<em>reversed</em>, bool *<em>runTests</em>, bool *<em>dedTask</em>, char *<em>inputFileName</em>, char *<em>outputFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#c.parseArgs" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="main_8c_1aac5ac6a4ed25763c8b6f5a09733aa6d4"></span>int <code class="sig-name descname">parseArgs</code><span class="sig-paren">(</span><em class="property">const</em> int <em>argc</em>, <em class="property">const</em> char *<em>argv</em>[], bool *<em>reversed</em>, bool *<em>runTests</em>, bool *<em>dedTask</em>, char **<em>inputFileName</em>, char **<em>outputFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#c.parseArgs" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Parses arguments from command line <dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">argc</span></code>: [in] arguments count </p></li>
@@ -445,7 +445,7 @@
 <dl class="c var">
 <dt id="c.string.allocated">
 <span class="target" id="structstring_1abe354a07869a3bb0ffc7e1e32bfe1730"></span>bool <code class="sig-name descname">allocated</code><a class="headerlink" href="#c.string.allocated" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Whether contents were alocated by malloc (can be freed) or just a reference </p>
+<dd><p>Whether contents were alocated by calloc (can be freed) or just a reference </p>
 </dd></dl>
 
 </div>

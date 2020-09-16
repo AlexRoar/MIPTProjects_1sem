@@ -250,10 +250,10 @@ void lineAnalyze(const char *lineCurrent, short *insideLine, short *lineSleep);
 
 
 /**
- * Decreases line length so that to ignore trailing whitespaces
+ * Decreases line length so that to ignore trailing whitespaces and punctuation
  * @param line [in + out] full analyzed string
  */
-void adjustLenTrimmingWhitespaces(string *line);
+void adjustLenTrimming(string *line);
 
 
 /**
@@ -750,8 +750,8 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
     string tmpString1 = {line1String->contents, line1String->len, line1String->allocated};
     string tmpString2 = {line2String->contents, line2String->len, line2String->allocated};
     
-    adjustLenTrimmingWhitespaces(&tmpString1);
-    adjustLenTrimmingWhitespaces(&tmpString2);
+    adjustLenTrimming(&tmpString1);
+    adjustLenTrimming(&tmpString2);
     
     char *line1Current = line1String->contents;
     char *line2Current = line2String->contents;
@@ -877,26 +877,28 @@ int tests_multiCompare(void) {
         {"   a  ", 0, false},
         {"b",      0, false},
         {"\"b",    0, false},
-        {"a-ba",    0, false},
-        {"a      b    a",    0, false},
-        {"a",    0, false},
-        {"а",    0, false},
-        {"а-",    0, false},
-        {"а-а-",    0, false},
+        {"a-ba",   0, false},
+        {"a      b    a", 0, false},
+        {"a",      0, false},
+        {"а",      0, false},
+        {"а-",     0, false},
+        {"а-а-",   0, false},
+        {"ба",     0, false},
     };
     string inputs2[] = {
-        {"",  0, false},
-        {" ", 0, false},
-        {"a", 0, false},
-        {"a", 0, false},
-        {"a", 0, false},
-        {"b", 0, false},
-        {"aba", 0, false},
-        {"a b a", 0, false},
-        {"z",    0, false},
-        {"я",    0, false},
-        {"а",    0, false},
-        {"а-а-",    0, false},
+        {"",       0, false},
+        {" ",      0, false},
+        {"a",      0, false},
+        {"a",      0, false},
+        {"a",      0, false},
+        {"b",      0, false},
+        {"aba",    0, false},
+        {"a b a",  0, false},
+        {"z",      0, false},
+        {"я",      0, false},
+        {"а",      0, false},
+        {"а-а-",   0, false},
+        {"аб",     0, false},
     };
     
     bool fromEnd[] = {
@@ -910,6 +912,7 @@ int tests_multiCompare(void) {
         false,
         false,
         false,
+        true,
         true,
         true,
     };
@@ -926,7 +929,8 @@ int tests_multiCompare(void) {
         -1,
         -1,
         0,
-        0
+        0,
+        -1
     };
     
     assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string) &&
@@ -966,7 +970,7 @@ void doubleWhitespacesSkip(const string *line, const char *lineCurrent, short *l
 }
 
 
-void adjustLenTrimmingWhitespaces(string *line) {
+void adjustLenTrimming(string *line) {
     char *pos = line->contents + line->len;
     if (line->len == 0)
         return;

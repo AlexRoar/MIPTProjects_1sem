@@ -30,8 +30,8 @@
             filePath = "OneginSortv2/main.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "940"
-            endingLineNumber = "940"
+            startingLineNumber = "944"
+            endingLineNumber = "944"
             landmarkName = "tests_multiCompare()"
             landmarkType = "9">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "OneginSortv2/main.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "943"
-            endingLineNumber = "943"
+            startingLineNumber = "947"
+            endingLineNumber = "947"
             landmarkName = "tests_multiCompare()"
             landmarkType = "9">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "OneginSortv2/main.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "942"
-            endingLineNumber = "942"
+            startingLineNumber = "946"
+            endingLineNumber = "946"
             landmarkName = "tests_multiCompare()"
             landmarkType = "9">
          </BreakpointContent>

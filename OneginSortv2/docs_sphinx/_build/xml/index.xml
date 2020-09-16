@@ -41,10 +41,10 @@
     <member refid="main_8c_1a29ff68694f20e04d7f0dca4a44601dba" kind="function"><name>ispunctuation</name></member>
     <member refid="main_8c_1af383500efc2bec7f97102ebf4a9f26df" kind="function"><name>performAllTests</name></member>
     <member refid="main_8c_1a63f981dafbd26fc68dc68db86c315829" kind="function"><name>lineAnalyze</name></member>
-    <member refid="main_8c_1a08690664f2416899705419e21d3e3bf3" kind="function"><name>adjustLenTrimmingWhitespaces</name></member>
+    <member refid="main_8c_1a279162a5d3b191e393ad6cf6ebc1da19" kind="function"><name>adjustLenTrimming</name></member>
     <member refid="main_8c_1ace93612d9488e8310c391a3dc35c365b" kind="function"><name>hasVisibleContent</name></member>
     <member refid="main_8c_1aa58284285ec8857f4c352c3fdac08770" kind="function"><name>tests_hasVisibleContent</name></member>
-    <member refid="main_8c_1a86d7f1c0a700e681f2839859a48a1763" kind="function"><name>parseArgs</name></member>
+    <member refid="main_8c_1aac5ac6a4ed25763c8b6f5a09733aa6d4" kind="function"><name>parseArgs</name></member>
     <member refid="main_8c_1a109b595a5593ef077b58be17d9bf2658" kind="function"><name>taskOutput</name></member>
     <member refid="main_8c_1ac0f2228420376f4db7e1274f2b41667c" kind="function"><name>main</name></member>
   </compound>

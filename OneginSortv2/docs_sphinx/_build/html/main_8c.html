@@ -82,6 +82,7 @@ $(function() {
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;locale.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -136,14 +137,14 @@ Functions</h2></td></tr>
 <tr class="separator:af383500efc2bec7f97102ebf4a9f26df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63f981dafbd26fc68dc68db86c315829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a63f981dafbd26fc68dc68db86c315829">lineAnalyze</a> (const char *lineCurrent, short *insideLine, short *lineSleep)</td></tr>
 <tr class="separator:a63f981dafbd26fc68dc68db86c315829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08690664f2416899705419e21d3e3bf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a08690664f2416899705419e21d3e3bf3">adjustLenTrimmingWhitespaces</a> (<a class="el" href="structstring.html">string</a> *line)</td></tr>
-<tr class="separator:a08690664f2416899705419e21d3e3bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a279162a5d3b191e393ad6cf6ebc1da19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a279162a5d3b191e393ad6cf6ebc1da19">adjustLenTrimming</a> (<a class="el" href="structstring.html">string</a> *line)</td></tr>
+<tr class="separator:a279162a5d3b191e393ad6cf6ebc1da19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace93612d9488e8310c391a3dc35c365b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ace93612d9488e8310c391a3dc35c365b">hasVisibleContent</a> (const <a class="el" href="structstring.html">string</a> line)</td></tr>
 <tr class="separator:ace93612d9488e8310c391a3dc35c365b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa58284285ec8857f4c352c3fdac08770"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa58284285ec8857f4c352c3fdac08770">tests_hasVisibleContent</a> (void)</td></tr>
 <tr class="separator:aa58284285ec8857f4c352c3fdac08770"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86d7f1c0a700e681f2839859a48a1763"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a86d7f1c0a700e681f2839859a48a1763">parseArgs</a> (const int argc, const char *argv[], bool *reversed, bool *runTests, bool *dedTask, char *inputFileName, char *outputFileName)</td></tr>
-<tr class="separator:a86d7f1c0a700e681f2839859a48a1763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5ac6a4ed25763c8b6f5a09733aa6d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aac5ac6a4ed25763c8b6f5a09733aa6d4">parseArgs</a> (const int argc, const char *argv[], bool *reversed, bool *runTests, bool *dedTask, char **inputFileName, char **outputFileName)</td></tr>
+<tr class="separator:aac5ac6a4ed25763c8b6f5a09733aa6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a109b595a5593ef077b58be17d9bf2658"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a109b595a5593ef077b58be17d9bf2658">taskOutput</a> (<a class="el" href="struct_sorted_lines_container.html">SortedLinesContainer</a> *container, FILE *fp, const bool dedTask)</td></tr>
 <tr class="separator:a109b595a5593ef077b58be17d9bf2658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top"><a id="ac0f2228420376f4db7e1274f2b41667c"></a>
@@ -180,14 +181,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a08690664f2416899705419e21d3e3bf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08690664f2416899705419e21d3e3bf3">&#9670;&nbsp;</a></span>adjustLenTrimmingWhitespaces()</h2>
+<a id="a279162a5d3b191e393ad6cf6ebc1da19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a279162a5d3b191e393ad6cf6ebc1da19">&#9670;&nbsp;</a></span>adjustLenTrimming()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void adjustLenTrimmingWhitespaces </td>
+          <td class="memname">void adjustLenTrimming </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structstring.html">string</a> *&#160;</td>
           <td class="paramname"><em>line</em></td><td>)</td>
@@ -195,7 +196,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decreases line length so that to ignore trailing whitespaces </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Decreases line length so that to ignore trailing whitespaces and punctuation </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">line</td><td>[in + out] full analyzed string </td></tr>
   </table>
@@ -673,8 +674,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
 
 </div>
 </div>
-<a id="a86d7f1c0a700e681f2839859a48a1763"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86d7f1c0a700e681f2839859a48a1763">&#9670;&nbsp;</a></span>parseArgs()</h2>
+<a id="aac5ac6a4ed25763c8b6f5a09733aa6d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5ac6a4ed25763c8b6f5a09733aa6d4">&#9670;&nbsp;</a></span>parseArgs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -712,13 +713,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, co
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">char **&#160;</td>
           <td class="paramname"><em>inputFileName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">char **&#160;</td>
           <td class="paramname"><em>outputFileName</em>&#160;</td>
         </tr>
         <tr>

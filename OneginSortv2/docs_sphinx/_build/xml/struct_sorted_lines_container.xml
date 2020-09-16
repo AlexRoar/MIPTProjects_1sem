@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="41" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="41" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="42" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1ad91a10ea7146b6d134f185b630e35114" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="47" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="47" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="48" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1ac760eb237929eba1a129615c2f9dd627" prot="public" static="no" mutable="no">
         <type><ref refid="structstring" kindref="compound">string</ref> *</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="53" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="53" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="54" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a33d68c9a6bfed4e6387faf71057cf3f8" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="59" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="59" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="60" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a33fcda1c0db12711818a248a7cebc22c" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="64" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="64" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="65" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a8e9da6e9ffd2926f2e3dabfbb2bb874d" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="69" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="69" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="70" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a0ee4f444bf1f0ac36bda8e906e018357" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="74" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="74" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="75" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a932c9b2decf0ea331212abb8aa91a7a0" prot="public" static="no" mutable="no">
         <type>int(*</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="81" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="81" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="82" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1ad0bc91b219e419c63451f37aa3817d08" prot="public" static="no" mutable="no">
         <type>int(*</type>
@@ -163,7 +163,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="88" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="88" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="89" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a199db621554f5e542d2b30a6541c2af0" prot="public" static="no" mutable="no">
         <type>int(*</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="98" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="98" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="99" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1af66298867c020f84e23b42c83c55bb05" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="105" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="105" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="106" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a4b1338eb48396a8f6c6657ced61593b1" prot="public" static="no" mutable="no">
         <type>int(*</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="112" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="112" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="113" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_sorted_lines_container_1a9e25395b1003ab70af0ebb71dd2f4cef" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -279,7 +279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="118" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="118" bodyend="-1"/>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="119" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="119" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -299,7 +299,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="36" column="1" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="36" bodyend="119"/>
+    <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" line="37" column="1" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/OneginSortv2/OneginSortv2/main.c" bodystart="37" bodyend="120"/>
     <listofallmembers>
       <member refid="struct_sorted_lines_container_1a4b1338eb48396a8f6c6657ced61593b1" prot="public" virt="non-virtual"><scope>SortedLinesContainer</scope><name>allocate</name></member>
       <member refid="struct_sorted_lines_container_1a0ee4f444bf1f0ac36bda8e906e018357" prot="public" virt="non-virtual"><scope>SortedLinesContainer</scope><name>allocIncrement</name></member>
