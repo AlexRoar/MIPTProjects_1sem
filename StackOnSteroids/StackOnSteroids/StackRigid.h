@@ -17,7 +17,7 @@ typedef int StackElementType;
 typedef struct StackRigid StackRigid;
 
 typedef enum StackRigidOperationCodes{
-    STACK_OP_OK, STACK_OP_UNDERFLOW, STACK_OP_OVERFLOW, STACK_OP_NOMEMORY
+    STACK_OP_OK, STACK_OP_UNDERFLOW, STACK_OP_OVERFLOW, STACK_OP_NOMEMORY, STACK_OP_INTEGRITYERR
 } StackRigidOperationCodes;
 
 typedef enum StackRigidState{
@@ -27,8 +27,8 @@ typedef enum StackRigidState{
 StackRigid* NewStackRigid(const size_t capacity);
 
 StackRigidState StackValidate(StackRigid* stack);
-
 StackRigidOperationCodes StackPush(StackRigid** stack, StackElementType value);
+StackRigidOperationCodes StackPop(StackRigid** stack, StackElementType* value);
 
 void StackDump(FILE* output, StackRigid* stack);
 
@@ -36,8 +36,12 @@ static void __StackUpdateChecksum(StackRigid* stack);
 
 static uint32_t __StackGetChecksum(StackRigid* stack);
 
-static void __StackRealocate(StackRigid** stack);
+static uint32_t __StackGetChecksumVital(StackRigid* stack);
+
+static StackRigidOperationCodes __StackRealocate(StackRigid** stack);
 
 static uint32_t adlerChecksum(const void* firstBlock, size_t len);
+
+size_t StackRigidMemoryUse(StackRigid* stack);
 
 #endif /* StackRigid_h */
