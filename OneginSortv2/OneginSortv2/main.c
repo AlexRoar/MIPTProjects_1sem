@@ -3,10 +3,10 @@
  * @brief Created by Александр Дремов on 28.08.2020.
  * Available command line params:
  * @param -r sort from the end
- * @param -input <filepath> input file
- * @param -output <filepath> output file
- * @param -test run tests before executing
- * @param -dedtask output in Dedinsky's task format (Dedinsky mode)
+ * @param --input <filepath> input file
+ * @param --output <filepath> output file
+ * @param --test run tests before executing
+ * @param --dedtask output in Dedinsky's task format (Dedinsky mode)
  * @copyright Copyright © 2020 alexdremov. All rights reserved.
  */
 
@@ -25,7 +25,7 @@
 typedef struct string {
     char *contents;
     
-    size_t len;
+    size_t len; // encode allocation
     
     /**
      * Whether contents were alocated by calloc (can be freed) or just a reference
@@ -45,7 +45,7 @@ typedef struct SortedLinesContainer {
     /**
      * Pointer to the start of the string containing substrings separated by \n (initial buffer)
      */
-    char *fullBufferInitial;
+    char *fullBufferInitial; // remove
     
     
     /**
@@ -313,7 +313,7 @@ int main(int argc, const char *argv[]) {
             free(outputFileName);
         return EXIT_FAILURE;
     }
-    strcpy(inputFileName, "input.txt");
+    strcpy(inputFileName, "input.txt"); // argv pointer
     strcpy(outputFileName, "output.txt");
     
     if (parseArgs(argc, argv, &reversed, &runTests,
@@ -338,8 +338,7 @@ int main(int argc, const char *argv[]) {
     if (!dedTask)
         printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
     
-    SortedLinesContainer container;
-    container.construct = &construct;
+    SortedLinesContainer container = { &construct };
     
     int constructResult = constructFromFile(&container, inputFileName, reversed);
     if (constructResult == EXIT_FAILURE) {
@@ -406,21 +405,21 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
             continue;
         }
         
-        if (strcmp("-dedtask", argv[i]) == 0) {
+        if (strcmp("--dedtask", argv[i]) == 0) {
             *dedTask = true;
             continue;
         }
         
-        if (strcmp("-test", argv[i]) == 0) {
+        if (strcmp("--test", argv[i]) == 0) {
             *runTests = true;
             continue;
         }
         
-        if (strcmp("-output", argv[i]) == 0) {
+        if (strcmp("--output", argv[i]) == 0) {
             i++;
             if (i >= argc){
                 printf("Not found output file name.\n"
-                       "Please, provide filename after -output flag\n");
+                       "Please, provide filename after --output flag\n");
                 return EXIT_FAILURE;
             }
             size_t len = strlen(argv[i]);
@@ -435,11 +434,11 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
 
             continue;
         }
-        if (strcmp("-input", argv[i]) == 0) {
+        if (strcmp("--input", argv[i]) == 0) {
             i++;
             if (i >= argc){
                 printf("Not found input file name.\n"
-                       "Please, provide filename after -input flag\n");
+                       "Please, provide filename after --input flag\n");
                 return EXIT_FAILURE;
             }
             size_t len = strlen(argv[i]);
@@ -462,7 +461,9 @@ int parseArgs(const int argc, const char *argv[], bool *reversed, bool *runTests
 
 
 bool performAllTests() {
-    return tests_multiCompare() && tests_hasVisibleContent() && testContainer();
+    return tests_multiCompare()      &&
+           tests_hasVisibleContent() &&
+           testContainer();
 }
 
 
@@ -478,12 +479,12 @@ bool hasVisibleContent(const string line) {
 
 bool tests_hasVisibleContent(){
     string inputs[] = {
-        {" ", 1, false},
-        {"", 0, false},
+        {" ",   1, false},
+        {"",    0, false},
         {"asd", 3, false},
-        {"a", 1, false},
-        {"\n", 1, false},
-        {"\0", 1, false}
+        {"a",   1, false},
+        {"\n",  1, false},
+        {"\0",  1, false}
     };
     
     bool outputs[] = {
@@ -517,7 +518,7 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
     assert(this != NULL);
     assert(fullBuffer != NULL);
     
-    this->fullBuffer = calloc(length + 1, sizeof(char));
+    this->fullBuffer        = calloc(length + 1, sizeof(char));
     this->fullBufferInitial = calloc(length + 1, sizeof(char));
     if (!this->fullBuffer) {
         printf("Can't allocate space for fullBuffer in construct()\n");
@@ -529,22 +530,28 @@ int construct(struct SortedLinesContainer *this, const char *fullBuffer,
     
     size_t curCounter = 0;
     for (size_t i = 0; i < length; i++) {
-        this->fullBuffer[i] = fullBuffer[i];
+
+        this->fullBuffer[i]        =
         this->fullBufferInitial[i] = fullBuffer[i];
+
         if (curCounter == 0) {
             this->allocate(this);
             string newLocated = {(this->fullBuffer + i), 0, false};
             this->lines[this->linesNumber] = newLocated;
             this->linesNumber += 1;
+
             curCounter++;
             continue;
         }
+
         if (this->fullBuffer[i] == '\n' || this->fullBuffer[i] == '\0') {
             this->fullBuffer[i] = '\0';
             (this->lines + this->linesNumber - 1)->len = curCounter;
+
             curCounter = 0;
             continue;
         }
+
         curCounter++;
     }
     if (curCounter != 0) {
@@ -632,17 +639,19 @@ bool testContainer() {
     bool valid = true;
     
     for (size_t i = 0; i < sizeof(output) / sizeof(string); i++){
-        input[i].len = strlen(input[i].contents);
+        input[i].len  = strlen(input[i].contents);
         output[i].len = strlen(output[i].contents);
         
         size_t curPos = 0;
         char *tmpStringOutput = calloc(output[i].len * 2 + 1, sizeof(char));
         
-        SortedLinesContainer container;
+        SortedLinesContainer container = {};
         defaultContainer(&container);
         container.construct = &construct;
         container.construct(&container, input[i].contents, input[i].len, true);
+        
         container.sort(&container);
+        
         for (size_t j = 0; j < container.linesNumber; j++){
             strcpy(tmpStringOutput + curPos, container.lines[j].contents);
             tmpStringOutput[curPos + container.lines[j].len] = '\n';
@@ -797,6 +806,8 @@ int multiCompare(const void *line1, const void *line2, const int fromEnd) {
             doubleWhitespacesSkip(&tmpString2, line2Current, &line2Sleep, modifier);
         }
         
+        // define
+        
         line1Cyr = 0;
         line2Cyr = 0;
         if (modifier == -1){
@@ -933,9 +944,9 @@ int tests_multiCompare(void) {
         -1
     };
     
-    assert(sizeof(outputs) / sizeof(int) == sizeof(inputs1) / sizeof(string) &&
+    assert(sizeof(outputs) / sizeof(int)    == sizeof(inputs1) / sizeof(string) &&
            sizeof(inputs1) / sizeof(string) == sizeof(inputs2) / sizeof(string) &&
-           sizeof(fromEnd) / sizeof(bool) == sizeof(inputs2) / sizeof(string));
+           sizeof(fromEnd) / sizeof(bool)   == sizeof(inputs2) / sizeof(string));
     
     int totalNumber = sizeof(outputs) / sizeof(int);
     bool valid = true;

@@ -1,29 +1,76 @@
 \hypertarget{structstring}{}\doxysection{string Struct Reference}
 \label{structstring}\index{string@{string}}
-\doxysubsection*{Public Attributes}
+
+
+Used to store char$\ast$ and its len so that computations are more effective.  
+
+
+\doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structstring_af307778cac3a77c4e4af663bdbc90736}\label{structstring_af307778cac3a77c4e4af663bdbc90736}} 
-char $\ast$ {\bfseries contents}
-\item 
-\mbox{\Hypertarget{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}\label{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}} 
-size\+\_\+t {\bfseries len}
-\item 
 bool \mbox{\hyperlink{structstring_abe354a07869a3bb0ffc7e1e32bfe1730}{allocated}}
+\begin{DoxyCompactList}\small\item\em Whether contents were alocated by calloc (can be freed) or just a reference. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Used to store char$\ast$ and its len so that computations are more effective 
+Used to store char$\ast$ and its len so that computations are more effective. 
 
-\doxysubsection{Member Data Documentation}
+Definition at line 25 of file main.\+c.
+
+
+
+\doxysubsection{Field Documentation}
 \mbox{\Hypertarget{structstring_abe354a07869a3bb0ffc7e1e32bfe1730}\label{structstring_abe354a07869a3bb0ffc7e1e32bfe1730}} 
 \index{string@{string}!allocated@{allocated}}
 \index{allocated@{allocated}!string@{string}}
 \doxysubsubsection{\texorpdfstring{allocated}{allocated}}
 {\footnotesize\ttfamily bool string\+::allocated}
 
-Whether contents were alocated by calloc (can be freed) or just a reference 
+
+
+Whether contents were alocated by calloc (can be freed) or just a reference. 
+
+
+
+Definition at line 33 of file main.\+c.
+
+
+
+Referenced by multi\+Compare().
+
+\mbox{\Hypertarget{structstring_af307778cac3a77c4e4af663bdbc90736}\label{structstring_af307778cac3a77c4e4af663bdbc90736}} 
+\index{string@{string}!contents@{contents}}
+\index{contents@{contents}!string@{string}}
+\doxysubsubsection{\texorpdfstring{contents}{contents}}
+{\footnotesize\ttfamily char$\ast$ string\+::contents}
+
+
+
+Definition at line 26 of file main.\+c.
+
+
+
+Referenced by adjust\+Len\+Trimming(), double\+Whitespaces\+Skip(), has\+Visible\+Content(), multi\+Compare(), output\+Container(), test\+Container(), and tests\+\_\+multi\+Compare().
+
+\mbox{\Hypertarget{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}\label{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}} 
+\index{string@{string}!len@{len}}
+\index{len@{len}!string@{string}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily size\+\_\+t string\+::len}
+
+
+
+Definition at line 28 of file main.\+c.
+
+
+
+Referenced by adjust\+Len\+Trimming(), double\+Whitespaces\+Skip(), has\+Visible\+Content(), multi\+Compare(), test\+Container(), and tests\+\_\+multi\+Compare().
+
+
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

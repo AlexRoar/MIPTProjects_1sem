@@ -62,27 +62,30 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structstring-members.html">List of all members</a>  </div>
+<a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
 <div class="title">string Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Used to store char* and its len so that computations are more effective.  
+ <a href="structstring.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:af307778cac3a77c4e4af663bdbc90736"><td class="memItemLeft" align="right" valign="top"><a id="af307778cac3a77c4e4af663bdbc90736"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>contents</b></td></tr>
-<tr class="separator:af307778cac3a77c4e4af663bdbc90736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6bcf0353fd5cf2f374a9b1dd0e4a73a"><td class="memItemLeft" align="right" valign="top"><a id="aa6bcf0353fd5cf2f374a9b1dd0e4a73a"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>len</b></td></tr>
-<tr class="separator:aa6bcf0353fd5cf2f374a9b1dd0e4a73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+Data Fields</h2></td></tr>
 <tr class="memitem:abe354a07869a3bb0ffc7e1e32bfe1730"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstring.html#abe354a07869a3bb0ffc7e1e32bfe1730">allocated</a></td></tr>
+<tr class="memdesc:abe354a07869a3bb0ffc7e1e32bfe1730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether contents were alocated by calloc (can be freed) or just a reference.  <a href="structstring.html#abe354a07869a3bb0ffc7e1e32bfe1730">More...</a><br /></td></tr>
 <tr class="separator:abe354a07869a3bb0ffc7e1e32bfe1730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af307778cac3a77c4e4af663bdbc90736"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstring.html#af307778cac3a77c4e4af663bdbc90736">contents</a></td></tr>
+<tr class="separator:af307778cac3a77c4e4af663bdbc90736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6bcf0353fd5cf2f374a9b1dd0e4a73a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstring.html#aa6bcf0353fd5cf2f374a9b1dd0e4a73a">len</a></td></tr>
+<tr class="separator:aa6bcf0353fd5cf2f374a9b1dd0e4a73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Used to store char* and its len so that computations are more effective </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+<div class="textblock"><p>Used to store char* and its len so that computations are more effective. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00025">25</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
 <a id="abe354a07869a3bb0ffc7e1e32bfe1730"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe354a07869a3bb0ffc7e1e32bfe1730">&#9670;&nbsp;</a></span>allocated</h2>
 
@@ -94,12 +97,53 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>len</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Whether contents were alocated by calloc (can be freed) or just a reference </p>
+
+<p>Whether contents were alocated by calloc (can be freed) or just a reference. </p>
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00033">33</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00754">multiCompare()</a>.</p>
+
+</div>
+</div>
+<a id="af307778cac3a77c4e4af663bdbc90736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af307778cac3a77c4e4af663bdbc90736">&#9670;&nbsp;</a></span>contents</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* string::contents</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00026">26</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00984">adjustLenTrimming()</a>, <a class="el" href="main_8c_source.html#l00969">doubleWhitespacesSkip()</a>, <a class="el" href="main_8c_source.html#l00470">hasVisibleContent()</a>, <a class="el" href="main_8c_source.html#l00754">multiCompare()</a>, <a class="el" href="main_8c_source.html#l01041">outputContainer()</a>, <a class="el" href="main_8c_source.html#l00613">testContainer()</a>, and <a class="el" href="main_8c_source.html#l00883">tests_multiCompare()</a>.</p>
+
+</div>
+</div>
+<a id="aa6bcf0353fd5cf2f374a9b1dd0e4a73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6bcf0353fd5cf2f374a9b1dd0e4a73a">&#9670;&nbsp;</a></span>len</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t string::len</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00028">28</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="main_8c_source.html#l00984">adjustLenTrimming()</a>, <a class="el" href="main_8c_source.html#l00969">doubleWhitespacesSkip()</a>, <a class="el" href="main_8c_source.html#l00470">hasVisibleContent()</a>, <a class="el" href="main_8c_source.html#l00754">multiCompare()</a>, <a class="el" href="main_8c_source.html#l00613">testContainer()</a>, and <a class="el" href="main_8c_source.html#l00883">tests_multiCompare()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>OneginSortv2/<a class="el" href="main_8c.html">main.c</a></li>
+<li>OneginSortv2/<a class="el" href="main_8c_source.html">main.c</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

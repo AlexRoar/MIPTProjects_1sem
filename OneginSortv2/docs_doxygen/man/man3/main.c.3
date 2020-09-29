@@ -1,0 +1,1357 @@
+.TH "OneginSortv2/main.c" 3 "Fri Sep 18 2020" "OneginSortv2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OneginSortv2/main.c \- Created by Александр Дремов on 28\&.08\&.2020\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <ctype\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <locale\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSortedLinesContainer\fP"
+.br
+.ti -1c
+.RI "struct \fBstring\fP"
+.br
+.RI "Used to store char* and its len so that computations are more effective\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBSortedLinesContainer\fP \fBSortedLinesContainer\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBstring\fP \fBstring\fP"
+.br
+.RI "Used to store char* and its len so that computations are more effective\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBadjustLenTrimming\fP (\fBstring\fP *line)"
+.br
+.RI "Decreases line length so that to ignore trailing whitespaces and punctuation\&. "
+.ti -1c
+.RI "int \fBallocateContainer\fP (struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Check \fBSortedLinesContainer\fP allocate for information\&. "
+.ti -1c
+.RI "int \fBcompar\fP (const void *, const void *)"
+.br
+.RI "Check \fBSortedLinesContainer\fP compar for information\&. "
+.ti -1c
+.RI "int \fBcomparRev\fP (const void *, const void *)"
+.br
+.RI "Check \fBSortedLinesContainer\fP comparRev for information\&. "
+.ti -1c
+.RI "int \fBconstruct\fP (struct \fBSortedLinesContainer\fP *this, const char *fullBuffer, const size_t length, const bool fromEnd)"
+.br
+.RI "Check \fBSortedLinesContainer\fP construct for information\&. "
+.ti -1c
+.RI "int \fBconstructFromFile\fP (struct \fBSortedLinesContainer\fP *this, const char *fileName, const bool fromEnd)"
+.br
+.RI "Constructs \fBSortedLinesContainer\fP from file\&. "
+.ti -1c
+.RI "void \fBdefaultContainer\fP (struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Sets default values for \fBSortedLinesContainer\fP\&. "
+.ti -1c
+.RI "void \fBdoubleWhitespacesSkip\fP (const \fBstring\fP *line, const char *lineCurrent, short *lineSleep, const int modifier)"
+.br
+.RI "Set lineSleep to 1 if current position is somewhere between reacurring whitespaces\&. "
+.ti -1c
+.RI "void \fBfreeContainer\fP (struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Check \fBSortedLinesContainer\fP free for information\&. "
+.ti -1c
+.RI "bool \fBhasVisibleContent\fP (const \fBstring\fP line)"
+.br
+.RI "Checks whether string consists only of invisible characters\&. "
+.ti -1c
+.RI "bool \fBisprintable\fP (char c)"
+.br
+.RI "Is char is visible\&. "
+.ti -1c
+.RI "bool \fBispunctuation\fP (char c)"
+.br
+.RI "Is char is punctuation\&. "
+.ti -1c
+.RI "void \fBlineAnalyze\fP (const char *lineCurrent, short *insideLine, short *lineSleep)"
+.br
+.RI "Line analyzer\&. "
+.ti -1c
+.RI "int \fBmain\fP (int argc, const char *argv[])"
+.br
+.ti -1c
+.RI "int \fBmultiCompare\fP (const void *line1, const void *line2, const int fromEnd)"
+.br
+.RI "Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces\&. "
+.ti -1c
+.RI "size_t \fBoutputContainer\fP (\fBSortedLinesContainer\fP *this, FILE *fp)"
+.br
+.RI "Outputs container line-by-line to the file\&. "
+.ti -1c
+.RI "size_t \fBoutputContainerUnsorted\fP (\fBSortedLinesContainer\fP *this, FILE *fp)"
+.br
+.RI "Outputs container line-by-line to the file without sorting\&. "
+.ti -1c
+.RI "int \fBparseArgs\fP (const int argc, const char *argv[], bool *reversed, bool *runTests, bool *dedTask, char **inputFileName, char **outputFileName)"
+.br
+.RI "Parses arguments from command line\&. "
+.ti -1c
+.RI "bool \fBperformAllTests\fP (void)"
+.br
+.RI "Performs all tests and returns true if valid\&. "
+.ti -1c
+.RI "void \fBsortContainer\fP (struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Check \fBSortedLinesContainer\fP sort for information\&. "
+.ti -1c
+.RI "size_t \fBtaskOutput\fP (\fBSortedLinesContainer\fP *container, FILE *fp, const bool dedTask)"
+.br
+.RI "Outputs resulted container to the file, checking for Dedinsky mode\&. "
+.ti -1c
+.RI "bool \fBtestContainer\fP (void)"
+.br
+.RI "Tests for \fBSortedLinesContainer\fP\&. "
+.ti -1c
+.RI "bool \fBtests_hasVisibleContent\fP (void)"
+.br
+.RI "Tests for \fBhasVisibleContent()\fP\&. "
+.ti -1c
+.RI "int \fBtests_multiCompare\fP (void)"
+.br
+.RI "Tests for \fBdoubleWhitespacesSkip()\fP "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Created by Александр Дремов on 28\&.08\&.2020\&. 
+
+Available command line params: 
+.PP
+\fBParameters\fP
+.RS 4
+\fI-r\fP sort from the end 
+.br
+\fI&ndash;input\fP <filepath> input file 
+.br
+\fI&ndash;output\fP <filepath> output file 
+.br
+\fI&ndash;test\fP run tests before executing 
+.br
+\fI&ndash;dedtask\fP output in Dedinsky's task format (Dedinsky mode) 
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+Copyright © 2020 alexdremov\&. All rights reserved\&. 
+.RE
+.PP
+
+.PP
+Definition in file \fBmain\&.c\fP\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBSortedLinesContainer\fP \fBSortedLinesContainer\fP"
+
+.SS "typedef struct \fBstring\fP \fBstring\fP"
+
+.PP
+Used to store char* and its len so that computations are more effective\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void adjustLenTrimming (\fBstring\fP * line)"
+
+.PP
+Decreases line length so that to ignore trailing whitespaces and punctuation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP [in + out] full analyzed string 
+.RE
+.PP
+
+.PP
+Definition at line 984 of file main\&.c\&.
+.PP
+.nf
+984                                      {
+985     char *pos = line->contents + line->len;
+986     if (line->len == 0)
+987         return;
+988     pos--;
+989     while (pos != line->contents) {
+990         if (isprintable(*pos) && !ispunctuation(*pos))
+991             break;
+992         pos--;
+993         line->len--;
+994     }
+995 }
+.fi
+.PP
+References string::contents, isprintable(), ispunctuation(), and string::len\&.
+.PP
+Referenced by multiCompare()\&.
+.SS "int allocateContainer (struct \fBSortedLinesContainer\fP * this)"
+
+.PP
+Check \fBSortedLinesContainer\fP allocate for information\&. 
+.PP
+Definition at line 706 of file main\&.c\&.
+.PP
+.nf
+706                                                          {
+707     assert(this != NULL);
+708     
+709     if (!this->lines || this->linesMaxNumber == 0) {
+710         this->lines = calloc(this->allocIncrement, sizeof(string));
+711         
+712         if (this->lines == NULL) {
+713             printf("Failed allocating memory in allocateContainer()\n");
+714             this->free(this);
+715             return EXIT_FAILURE;
+716         }
+717         this->linesMaxNumber = this->allocIncrement;
+718     } else {
+719         if (this->linesNumber + 1 >= this->linesMaxNumber) {
+720             this->linesMaxNumber += this->allocIncrement;
+721             string *newAllocation = realloc(this->lines, this->linesMaxNumber * sizeof(string));
+722             
+723             if (newAllocation == NULL) {
+724                 printf("Failed reallocating memory in allocateContainer()\n");
+725                 this->free(this);
+726                 return EXIT_FAILURE;
+727             } else {
+728                 this->lines = newAllocation;
+729             }
+730             
+731         }
+732     }
+733     return EXIT_SUCCESS;
+734 }
+.fi
+.PP
+References SortedLinesContainer::allocIncrement, SortedLinesContainer::free, SortedLinesContainer::lines, SortedLinesContainer::linesMaxNumber, and SortedLinesContainer::linesNumber\&.
+.PP
+Referenced by defaultContainer()\&.
+.SS "int compar (const void * line1, const void * line2)"
+
+.PP
+Check \fBSortedLinesContainer\fP compar for information\&. 
+.PP
+Definition at line 737 of file main\&.c\&.
+.PP
+.nf
+737                                                  {
+738     assert(line1 != NULL);
+739     assert(line2 != NULL);
+740     assert(line1 != line2);
+741     
+742     return multiCompare(line1, line2, 0);
+743 }
+.fi
+.PP
+References multiCompare()\&.
+.PP
+Referenced by defaultContainer(), and sortContainer()\&.
+.SS "int comparRev (const void * line1, const void * line2)"
+
+.PP
+Check \fBSortedLinesContainer\fP comparRev for information\&. 
+.PP
+Definition at line 746 of file main\&.c\&.
+.PP
+.nf
+746                                                     {
+747     assert(line1 != NULL);
+748     assert(line2 != NULL);
+749     assert(line1 != line2);
+750     
+751     return multiCompare(line1, line2, 1);
+752 }
+.fi
+.PP
+References multiCompare()\&.
+.PP
+Referenced by defaultContainer(), and sortContainer()\&.
+.SS "int construct (struct \fBSortedLinesContainer\fP * this, const char * fullBuffer, const size_t length, const bool fromEnd)"
+
+.PP
+Check \fBSortedLinesContainer\fP construct for information\&. 
+.PP
+Definition at line 516 of file main\&.c\&.
+.PP
+.nf
+517                                                        {
+518     assert(this != NULL);
+519     assert(fullBuffer != NULL);
+520     
+521     this->fullBuffer        = calloc(length + 1, sizeof(char));
+522     this->fullBufferInitial = calloc(length + 1, sizeof(char));
+523     if (!this->fullBuffer) {
+524         printf("Can't allocate space for fullBuffer in construct()\n");
+525         this->free(this);
+526         return EXIT_FAILURE;
+527     }
+528     
+529     this->fromEnd = fromEnd;
+530     
+531     size_t curCounter = 0;
+532     for (size_t i = 0; i < length; i++) {
+533 
+534         this->fullBuffer[i]        =
+535         this->fullBufferInitial[i] = fullBuffer[i];
+536 
+537         if (curCounter == 0) {
+538             this->allocate(this);
+539             string newLocated = {(this->fullBuffer + i), 0, false};
+540             this->lines[this->linesNumber] = newLocated;
+541             this->linesNumber += 1;
+542 
+543             curCounter++;
+544             continue;
+545         }
+546 
+547         if (this->fullBuffer[i] == '\n' || this->fullBuffer[i] == '\0') {
+548             this->fullBuffer[i] = '\0';
+549             (this->lines + this->linesNumber - 1)->len = curCounter;
+550 
+551             curCounter = 0;
+552             continue;
+553         }
+554 
+555         curCounter++;
+556     }
+557     if (curCounter != 0) {
+558         (this->lines + this->linesNumber - 1)->len = curCounter;
+559     }
+560     this->fullBuffer[length] = '\0';
+561     return EXIT_SUCCESS;
+562 }
+.fi
+.PP
+References SortedLinesContainer::allocate, SortedLinesContainer::free, SortedLinesContainer::fromEnd, SortedLinesContainer::fullBuffer, SortedLinesContainer::fullBufferInitial, SortedLinesContainer::lines, and SortedLinesContainer::linesNumber\&.
+.PP
+Referenced by constructFromFile(), main(), and testContainer()\&.
+.SS "int constructFromFile (struct \fBSortedLinesContainer\fP * this, const char * fileName, const bool fromEnd)"
+
+.PP
+Constructs \fBSortedLinesContainer\fP from file\&. 
+.PP
+Definition at line 565 of file main\&.c\&.
+.PP
+.nf
+565                                                                                                    {
+566     char *buffer = 0;
+567     size_t length = 0;
+568     FILE *fp = fopen(fileName, "rb");
+569     
+570     if (fp) {
+571         fseek(fp, 0, SEEK_END);
+572         length = (size_t) ftell(fp);
+573         fseek(fp, 0, SEEK_SET);
+574         buffer = calloc(length, sizeof(char));
+575         if (buffer) {
+576             fread(buffer, 1, length, fp);
+577         } else {
+578             printf("Can't allocate memory "
+579                    "for buffer in constructFromFile()\n");
+580             free(buffer);
+581             this->free(this);
+582             return EXIT_FAILURE;
+583         }
+584         fclose(fp);
+585         size_t lenElements = length / sizeof(char);
+586         size_t newLinesNum = 0;
+587         for (size_t i = 0; i < lenElements; i++){
+588             if (buffer[i] == '\n'){
+589                 newLinesNum++;
+590             }
+591         }
+592         defaultContainer(this);
+593         
+594         this->lines = calloc(newLinesNum + 1, sizeof(string));
+595         this->linesMaxNumber = newLinesNum + 1;
+596         
+597         int constructResult = this->construct(this, buffer, lenElements, fromEnd);
+598         if (constructResult == EXIT_FAILURE) {
+599             printf("Failed constructing object in constructFromFile()\n");
+600             free(buffer);
+601             return EXIT_FAILURE;
+602         }
+603         this->sort(this);
+604         free(buffer);
+605     } else {
+606         printf("Can't open %s for read\n", fileName);
+607         return EXIT_FAILURE;
+608     }
+609     return EXIT_SUCCESS;
+610 }
+.fi
+.PP
+References construct(), defaultContainer(), SortedLinesContainer::free, SortedLinesContainer::fromEnd, SortedLinesContainer::lines, SortedLinesContainer::linesMaxNumber, and SortedLinesContainer::sort\&.
+.PP
+Referenced by main()\&.
+.SS "void defaultContainer (struct \fBSortedLinesContainer\fP * this)"
+
+.PP
+Sets default values for \fBSortedLinesContainer\fP\&. 
+.PP
+Definition at line 1015 of file main\&.c\&.
+.PP
+.nf
+1015                                                          {
+1016     this->allocIncrement = 1024;
+1017     this->linesNumber = 0;
+1018     this->fromEnd = false;
+1019     this->linesMaxNumber = 0;
+1020     this->allocate = &allocateContainer;
+1021     this->compar = &compar;
+1022     this->comparRev = &comparRev;
+1023     this->sort = &sortContainer;
+1024     this->free = &freeContainer;
+1025     this->fullBuffer = NULL;
+1026     this->fullBufferInitial = NULL;
+1027     this->lines = NULL;
+1028 }
+.fi
+.PP
+References allocateContainer(), compar(), comparRev(), freeContainer(), and sortContainer()\&.
+.PP
+Referenced by constructFromFile(), and testContainer()\&.
+.SS "void doubleWhitespacesSkip (const \fBstring\fP * line, const char * lineCurrent, short * lineSleep, const int modifier)"
+
+.PP
+Set lineSleep to 1 if current position is somewhere between reacurring whitespaces\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP [in] line to be checked 
+.br
+\fIlineCurrent\fP [in] current position 
+.br
+\fIlineSleep\fP [out] skip this symbol? 
+.br
+\fImodifier\fP [in] 1 or -1 - direction of scaning (forwards or backwards) 
+.RE
+.PP
+
+.PP
+Definition at line 969 of file main\&.c\&.
+.PP
+.nf
+969                                                                                                               {
+970     if (modifier > 0) {
+971         if (lineCurrent >= (line->contents + 1)) {
+972             if (*lineCurrent == ' ' && *(lineCurrent - 1) == ' ')
+973                 *lineSleep = 1;
+974         }
+975     } else {
+976         if (lineCurrent <= (line->contents + line->len - 1)) {
+977             if (*lineCurrent == ' ' && *(lineCurrent + 1) == ' ')
+978                 *lineSleep = 1;
+979         }
+980     }
+981 }
+.fi
+.PP
+References string::contents, and string::len\&.
+.PP
+Referenced by multiCompare()\&.
+.SS "void freeContainer (struct \fBSortedLinesContainer\fP * this)"
+
+.PP
+Check \fBSortedLinesContainer\fP free for information\&. 
+.PP
+Definition at line 681 of file main\&.c\&.
+.PP
+.nf
+681                                                       {
+682     for (size_t i = 0; i < this->linesNumber; i++) {
+683         if (this->lines[i]\&.allocated)
+684             free(this->lines[i]\&.contents);
+685     }
+686     if (this->lines)
+687         free(this->lines);
+688     
+689     if (this->fullBuffer)
+690         free(this->fullBuffer);
+691     
+692     if (this->fullBufferInitial)
+693         free(this->fullBufferInitial);
+694 }
+.fi
+.PP
+References SortedLinesContainer::free, SortedLinesContainer::fullBuffer, SortedLinesContainer::fullBufferInitial, SortedLinesContainer::lines, and SortedLinesContainer::linesNumber\&.
+.PP
+Referenced by defaultContainer()\&.
+.SS "bool hasVisibleContent (const \fBstring\fP line)"
+
+.PP
+Checks whether string consists only of invisible characters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP [in] string to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+if has some visible content 
+.RE
+.PP
+
+.PP
+Definition at line 470 of file main\&.c\&.
+.PP
+.nf
+470                                           {
+471     for (size_t i = 0; i < line\&.len; i++){
+472         if (isprintable(line\&.contents[i])){
+473             return true;
+474         }
+475     }
+476     return false;
+477 }
+.fi
+.PP
+References string::contents, isprintable(), and string::len\&.
+.PP
+Referenced by outputContainer(), and tests_hasVisibleContent()\&.
+.SS "bool isprintable (char c)"
+
+.PP
+Is char is visible\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP [in] char to be checked 
+.RE
+.PP
+
+.PP
+Definition at line 1031 of file main\&.c\&.
+.PP
+.nf
+1031                          {
+1032     return !(c == '\n' || c == '\t' || c == ' ' || c == '\r' || c == '\0');
+1033 }
+.fi
+.PP
+Referenced by adjustLenTrimming(), hasVisibleContent(), and lineAnalyze()\&.
+.SS "bool ispunctuation (char c)"
+
+.PP
+Is char is punctuation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP [in] char to be checked 
+.RE
+.PP
+
+.PP
+Definition at line 1036 of file main\&.c\&.
+.PP
+.nf
+1036                            {
+1037     return ispunct(c) || c > 'z';
+1038 }
+.fi
+.PP
+Referenced by adjustLenTrimming(), and lineAnalyze()\&.
+.SS "void lineAnalyze (const char * lineCurrent, short * insideLine, short * lineSleep)"
+
+.PP
+Line analyzer\&. Fires sleep if current symbol is not ready to be compared with something (skip this symbol) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlineCurrent\fP [in] line current position 
+.br
+\fIinsideLine\fP [in + out] whether inside line (leading whitespaces skipped) 
+.br
+\fIlineSleep\fP [in + out] whether to skip current symbol 
+.RE
+.PP
+
+.PP
+Definition at line 998 of file main\&.c\&.
+.PP
+.nf
+998                                                                                {
+999     if (!isprintable(*lineCurrent) && !*insideLine) {
+1000         *lineSleep = 1;
+1001         return;
+1002     }
+1003     if (isprintable(*lineCurrent) && !*insideLine) {
+1004         *insideLine = 1;
+1005         *lineSleep = 0;
+1006     }
+1007     if (ispunctuation(*lineCurrent)) {
+1008         *lineSleep = 1;
+1009     } else {
+1010         *lineSleep = 0;
+1011     }
+1012 }
+.fi
+.PP
+References isprintable(), and ispunctuation()\&.
+.PP
+Referenced by multiCompare()\&.
+.SS "int main (int argc, const char * argv[])"
+
+.PP
+Definition at line 297 of file main\&.c\&.
+.PP
+.nf
+297                                        {
+298     setlocale(LC_ALL, "Russian");
+299     setlocale(LC_NUMERIC, "English");
+300     
+301     bool reversed = false;
+302     bool runTests = false;
+303     bool dedTask = false;
+304     
+305     char *inputFileName = calloc(10, sizeof(char));
+306     char *outputFileName = calloc(11, sizeof(char));
+307     
+308     if (inputFileName == NULL || outputFileName == NULL){
+309         printf("Failed allocating memory\n");
+310         if (inputFileName != NULL)
+311             free(inputFileName);
+312         if (outputFileName != NULL)
+313             free(outputFileName);
+314         return EXIT_FAILURE;
+315     }
+316     strcpy(inputFileName, "input\&.txt"); // argv pointer
+317     strcpy(outputFileName, "output\&.txt");
+318     
+319     if (parseArgs(argc, argv, &reversed, &runTests,
+320                   &dedTask, &inputFileName, &outputFileName) == EXIT_FAILURE){
+321         return EXIT_FAILURE;
+322     }
+323     
+324     printf("Aleksandr Dremov\n"
+325            "(c) 2020 all rights reserved\n\n");
+326     if (runTests) {
+327         if (performAllTests()) {
+328             printf("All tests passed\n");
+329         } else {
+330             printf("Some tests failed!\n");
+331             free(inputFileName);
+332             free(outputFileName);
+333             return EXIT_FAILURE;
+334         }
+335     }
+336     
+337     printf("Will sort %s file and output to %s\n", inputFileName, outputFileName);
+338     if (!dedTask)
+339         printf("Is sort from the end: %s\n", (reversed) ? "true" : "false");
+340     
+341     SortedLinesContainer container = { &construct };
+342     
+343     int constructResult = constructFromFile(&container, inputFileName, reversed);
+344     if (constructResult == EXIT_FAILURE) {
+345         printf("Failed constructFromFile()\n");
+346         free(inputFileName);
+347         free(outputFileName);
+348         container\&.free(&container);
+349         return EXIT_FAILURE;
+350     }
+351     
+352     FILE *fp = fopen(outputFileName, "w");
+353     if (fp == NULL){
+354         printf("Cant open %s for output\n", outputFileName);
+355         free(inputFileName);
+356         free(outputFileName);
+357         container\&.free(&container);
+358         return EXIT_FAILURE;
+359     }
+360     size_t linesWrote = taskOutput(&container, fp, dedTask);
+361     
+362     fclose(fp);
+363     free(inputFileName);
+364     free(outputFileName);
+365     container\&.free(&container);
+366 
+367     return (linesWrote == 0)? EXIT_FAILURE : EXIT_SUCCESS;
+368 }
+.fi
+.PP
+References construct(), constructFromFile(), SortedLinesContainer::free, parseArgs(), performAllTests(), and taskOutput()\&.
+.SS "int multiCompare (const void * line1, const void * line2, const int fromEnd)"
+
+.PP
+Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline1\fP [in] first line 
+.br
+\fIline2\fP [in] second line 
+.br
+\fIfromEnd\fP [in] whether to compare from the end 
+.RE
+.PP
+
+.PP
+Definition at line 754 of file main\&.c\&.
+.PP
+.nf
+754                                                                           {
+755     string *line1String = (struct string *) line1;
+756     string *line2String = (struct string *) line2;
+757     
+758     // Strings are not copied\&. Just a reference with different length
+759     string tmpString1 = {line1String->contents, line1String->len, line1String->allocated};
+760     string tmpString2 = {line2String->contents, line2String->len, line2String->allocated};
+761     
+762     adjustLenTrimming(&tmpString1);
+763     adjustLenTrimming(&tmpString2);
+764     
+765     char *line1Current = line1String->contents;
+766     char *line2Current = line2String->contents;
+767     
+768     short insideLine1 = 0, insideLine2 = 0;
+769     short line1Ended = 0, line2Ended = 0;
+770     short line1Sleep = 1, line2Sleep = 1;
+771     
+772     short line1Cyr = 1, line2Cyr = 1;
+773     
+774     short int modifier = 1;
+775     if (fromEnd) {
+776         modifier = -1;
+777         line1Current += tmpString1\&.len;
+778         if (tmpString1\&.len != 0)
+779             line1Current -= 1;
+780         
+781         line2Current += tmpString2\&.len;
+782         if (tmpString2\&.len != 0)
+783             line2Current -= 1;
+784     }
+785     
+786     while (1) {
+787         if (line1Current < tmpString1\&.contents){
+788             line1Ended = 1;
+789             line1Sleep = 1;
+790         } else if (*line1Current == '\0' || line1Ended || line1Current >= tmpString1\&.contents + tmpString1\&.len) {
+791             line1Ended = 1;
+792             line1Sleep = 1;
+793         } else {
+794             lineAnalyze(line1Current, &insideLine1, &line1Sleep);
+795             doubleWhitespacesSkip(&tmpString1, line1Current, &line1Sleep, modifier);
+796         }
+797         
+798         if (line2Current < tmpString2\&.contents){
+799             line2Ended = 1;
+800             line2Sleep = 1;
+801         } else if (*line2Current == '\0' || line2Ended || line2Current >= tmpString2\&.contents + tmpString2\&.len) {
+802             line2Ended = 1;
+803             line2Sleep = 1;
+804         } else {
+805             lineAnalyze(line2Current, &insideLine2, &line2Sleep);
+806             doubleWhitespacesSkip(&tmpString2, line2Current, &line2Sleep, modifier);
+807         }
+808         
+809         // define
+810         
+811         line1Cyr = 0;
+812         line2Cyr = 0;
+813         if (modifier == -1){
+814             if (line1Current > tmpString1\&.contents && line1Sleep == 0){
+815                 if (*(line1Current - 1) == -47 || *(line1Current - 1) == -48){
+816                     line1Cyr = 1;
+817                 }
+818             }
+819             
+820             if (line2Current > tmpString2\&.contents && line2Sleep == 0){
+821                 if (*(line2Current - 1) == -47 || *(line2Current - 1) == -48){
+822                     line2Cyr = 1;
+823                 }
+824             }
+825             
+826             if (line1Cyr == 1 && line2Cyr == 1){
+827                 // Two bytes of first cyr letter
+828                 int a1 = *(line1Current - 1);
+829                 int a2 = *line1Current;
+830                 
+831                 // Two bytes of second cyr letter
+832                 int b1 = *(line2Current - 1);
+833                 int b2 = *(line2Current);
+834                 int retVal = a2 + 1000 * a1  - (b2 + 1000 * b1);
+835                 if (retVal == 0){
+836                     line1Current += modifier * 2;
+837                     line2Current += modifier * 2;
+838                     continue;
+839                 }
+840                 return retVal;
+841             } else if (line1Cyr == 1 && line2Cyr == 0){
+842                 return -1;
+843             } else if (line1Cyr == 0 && line2Cyr == 1){
+844                 return 1;
+845             }
+846         }
+847         
+848         if (line1Ended == 1 || line2Ended == 1)
+849             break;
+850         
+851         if (line1Sleep == 1 && line2Sleep == 0) {
+852             line1Current += modifier;
+853         } else if (line1Sleep == 0 && line2Sleep == 1) {
+854             line2Current += modifier;
+855         } else if (line1Sleep == 1 && line2Sleep == 1) {
+856             line1Current += modifier;
+857             line2Current += modifier;
+858         } else {
+859             if (*line1Current == *line2Current) {
+860                 line1Current += modifier;
+861                 line2Current += modifier;
+862                 continue;
+863             }
+864             return *line1Current - *line2Current;
+865         }
+866         if (modifier == -1 && line1Current == line1String->contents) {
+867             line1Ended = 1;
+868             line1Sleep = 1;
+869         }
+870         if (modifier == -1 && line2Current == line2String->contents) {
+871             line1Ended = 1;
+872             line1Sleep = 1;
+873         }
+874     }
+875     if (line1Ended == line2Ended)
+876         return 0;
+877     else {
+878         return line1Ended - line2Ended;
+879     }
+880 }
+.fi
+.PP
+References adjustLenTrimming(), string::allocated, string::contents, doubleWhitespacesSkip(), string::len, and lineAnalyze()\&.
+.PP
+Referenced by compar(), comparRev(), and tests_multiCompare()\&.
+.SS "size_t outputContainer (\fBSortedLinesContainer\fP * this, FILE * fp)"
+
+.PP
+Outputs container line-by-line to the file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthis\fP [in] container 
+.br
+\fIfp\fP [in] file pointer 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+number of lines written 
+.RE
+.PP
+
+.PP
+Definition at line 1041 of file main\&.c\&.
+.PP
+.nf
+1041                                                              {
+1042     assert(this != NULL);
+1043     if (fp == NULL) {
+1044         printf("Could not open file for output\n");
+1045         return 0;
+1046     }
+1047     
+1048     for (size_t i = 0; i < this->linesNumber; i++) {
+1049         if (!hasVisibleContent(*(this->lines + i)))
+1050             continue;
+1051         fputs((this->lines + i)->contents, fp);
+1052         fputs("\n", fp);
+1053     }
+1054     
+1055     return this->linesNumber;
+1056 }
+.fi
+.PP
+References string::contents, and hasVisibleContent()\&.
+.PP
+Referenced by taskOutput()\&.
+.SS "size_t outputContainerUnsorted (\fBSortedLinesContainer\fP * this, FILE * fp)"
+
+.PP
+Outputs container line-by-line to the file without sorting\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthis\fP [in] container 
+.br
+\fIfp\fP [in] file pointer 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 - success, 1 - error 
+.RE
+.PP
+
+.PP
+Definition at line 1058 of file main\&.c\&.
+.PP
+.nf
+1058                                                                      {
+1059     assert(this != NULL);
+1060     if (fp == NULL) {
+1061         printf("Could not open file for output\n");
+1062         return 1;
+1063     }
+1064     fprintf(fp, "%s", this->fullBufferInitial);
+1065     
+1066     return 0;
+1067 }
+.fi
+.PP
+Referenced by taskOutput()\&.
+.SS "int parseArgs (const int argc, const char * argv[], bool * reversed, bool * runTests, bool * dedTask, char ** inputFileName, char ** outputFileName)"
+
+.PP
+Parses arguments from command line\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargc\fP [in] arguments count 
+.br
+\fIargv\fP [in] arguments strings 
+.br
+\fIreversed\fP [out] sort from end or not 
+.br
+\fIrunTests\fP [out] run unit tests or not 
+.br
+\fIdedTask\fP [out] Dedinsky mode flag 
+.br
+\fIinputFileName\fP [out] input file name 
+.br
+\fIoutputFileName\fP [out] outputfile name 
+.RE
+.PP
+
+.PP
+Definition at line 400 of file main\&.c\&.
+.PP
+.nf
+401                                                                           {
+402     for (int i = 0; i < argc; i++) {
+403         if (strcmp("-r", argv[i]) == 0) {
+404             *reversed = true;
+405             continue;
+406         }
+407         
+408         if (strcmp("--dedtask", argv[i]) == 0) {
+409             *dedTask = true;
+410             continue;
+411         }
+412         
+413         if (strcmp("--test", argv[i]) == 0) {
+414             *runTests = true;
+415             continue;
+416         }
+417         
+418         if (strcmp("--output", argv[i]) == 0) {
+419             i++;
+420             if (i >= argc){
+421                 printf("Not found output file name\&.\n"
+422                        "Please, provide filename after --output flag\n");
+423                 return EXIT_FAILURE;
+424             }
+425             size_t len = strlen(argv[i]);
+426             char *outputFileNameNew = realloc(*outputFileName, sizeof(char) * (len + 1));
+427             if (outputFileNameNew == NULL) {
+428                 printf("Can't realloc memory for output file name\n");
+429                 return EXIT_FAILURE;
+430             } else {
+431                 *outputFileName = outputFileNameNew;
+432             }
+433             strcpy(*outputFileName, argv[i]);
+434 
+435             continue;
+436         }
+437         if (strcmp("--input", argv[i]) == 0) {
+438             i++;
+439             if (i >= argc){
+440                 printf("Not found input file name\&.\n"
+441                        "Please, provide filename after --input flag\n");
+442                 return EXIT_FAILURE;
+443             }
+444             size_t len = strlen(argv[i]);
+445             
+446             char *inputFileNameNew = realloc(*inputFileName, sizeof(char) * (len + 1));
+447             if (inputFileNameNew == NULL) {
+448                 printf("Can't realloc memory for input file name\n");
+449                 return EXIT_FAILURE;
+450             } else {
+451                 *inputFileName = inputFileNameNew;
+452             }
+453             
+454             strcpy(*inputFileName, argv[i]);
+455 
+456             continue;
+457         }
+458     }
+459     return EXIT_SUCCESS;
+460 }
+.fi
+.PP
+Referenced by main()\&.
+.SS "bool performAllTests (void)"
+
+.PP
+Performs all tests and returns true if valid\&. 
+.PP
+\fBReturns\fP
+.RS 4
+success 
+.RE
+.PP
+
+.PP
+Definition at line 463 of file main\&.c\&.
+.PP
+.nf
+463                        {
+464     return tests_multiCompare()      &&
+465            tests_hasVisibleContent() &&
+466            testContainer();
+467 }
+.fi
+.PP
+References testContainer(), tests_hasVisibleContent(), and tests_multiCompare()\&.
+.PP
+Referenced by main()\&.
+.SS "void sortContainer (struct \fBSortedLinesContainer\fP * this)"
+
+.PP
+Check \fBSortedLinesContainer\fP sort for information\&. 
+.PP
+Definition at line 697 of file main\&.c\&.
+.PP
+.nf
+697                                                       {
+698     if (!this->fromEnd) {
+699         qsort(this->lines, this->linesNumber, sizeof(string), this->compar);
+700     } else {
+701         qsort(this->lines, this->linesNumber, sizeof(string), this->comparRev);
+702     }
+703 }
+.fi
+.PP
+References compar(), comparRev(), SortedLinesContainer::fromEnd, SortedLinesContainer::lines, and SortedLinesContainer::linesNumber\&.
+.PP
+Referenced by defaultContainer()\&.
+.SS "size_t taskOutput (\fBSortedLinesContainer\fP * container, FILE * fp, const bool dedTask)"
+
+.PP
+Outputs resulted container to the file, checking for Dedinsky mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontainer\fP [in], in Dedinsky mode: [in+out] container to be used 
+.br
+\fIfp\fP [in] file pointer 
+.br
+\fIdedTask\fP [in] whether Dedinsky mode was specified 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file main\&.c\&.
+.PP
+.nf
+371                                                                                 {
+372     size_t linesWrote = 0;
+373     if (dedTask){
+374         printf("\nMEOW! You activated Dedinsky mode\&.\
+375                \nFasten your seatbelts, please\&.\n");
+376         printf("\
+377          _                ___       _\&.--\&.\n\
+378          \\`\&.|\\\&.\&.----\&.\&.\&.-'`   `-\&._\&.-'_\&.-'`\n\
+379          /  ' `         ,       __\&.--'\n\
+380          )/' _/     \\   `-_,   /\n\
+381          `-'\" `\"\\_  ,_\&.-;_\&.-\\_  \\\n\
+382              _\&.-'_\&./   {_\&.'   ; /\n\
+383             {_\&.---'          {_/\n\n");
+384         fprintf(fp, "=== Unsorted container ===\n");
+385         outputContainerUnsorted(container, fp);
+386         container->fromEnd = false;
+387         fprintf(fp, "\n\n=== Sorted container ===\n");
+388         linesWrote += outputContainer(container, fp);
+389         container->fromEnd = true;
+390         container->sort(container);
+391         fprintf(fp, "\n\n=== Sorted from the end container ===\n");
+392         linesWrote += outputContainer(container, fp);
+393     }else{
+394         linesWrote = outputContainer(container, fp);
+395     }
+396     return linesWrote;
+397 }
+.fi
+.PP
+References SortedLinesContainer::fromEnd, outputContainer(), outputContainerUnsorted(), and SortedLinesContainer::sort\&.
+.PP
+Referenced by main()\&.
+.SS "bool testContainer (void)"
+
+.PP
+Tests for \fBSortedLinesContainer\fP\&. 
+.PP
+\fBReturns\fP
+.RS 4
+success 
+.RE
+.PP
+
+.PP
+Definition at line 613 of file main\&.c\&.
+.PP
+.nf
+613                      {
+614     
+615     string input[] = {
+616         {"", 0, false},
+617         {"b\na\n", 0, false},
+618         {"b\naa\n", 0, false},
+619         {"", 0, false},
+620         {"a", 0, false},
+621         {"aba\naaa", 0, false},
+622         {"aca\na-ba", 0, false},
+623         {"aba\naba\n   !aaa", 0, false}
+624     };
+625     
+626     string output[] = {
+627         {"", 0, false},
+628         {"a\nb\n", 0, false},
+629         {"aa\nb\n", 0, false},
+630         {"", 0, false},
+631         {"a\n", 0, false},
+632         {"aaa\naba\n", 0, false},
+633         {"a-ba\naca\n", 0, false},
+634         {"   !aaa\naba\naba\n", 0, false}
+635     };
+636     
+637     assert(sizeof(output) / sizeof(string) == sizeof(input) / sizeof(string));
+638     
+639     bool valid = true;
+640     
+641     for (size_t i = 0; i < sizeof(output) / sizeof(string); i++){
+642         input[i]\&.len  = strlen(input[i]\&.contents);
+643         output[i]\&.len = strlen(output[i]\&.contents);
+644         
+645         size_t curPos = 0;
+646         char *tmpStringOutput = calloc(output[i]\&.len * 2 + 1, sizeof(char));
+647         
+648         SortedLinesContainer container = {};
+649         defaultContainer(&container);
+650         container\&.construct = &construct;
+651         container\&.construct(&container, input[i]\&.contents, input[i]\&.len, true);
+652         
+653         container\&.sort(&container);
+654         
+655         for (size_t j = 0; j < container\&.linesNumber; j++){
+656             strcpy(tmpStringOutput + curPos, container\&.lines[j]\&.contents);
+657             tmpStringOutput[curPos + container\&.lines[j]\&.len] = '\n';
+658             curPos += container\&.lines[j]\&.len + 1;
+659         }
+660         tmpStringOutput[curPos] = '\0';
+661         if (strcmp(tmpStringOutput, output[i]\&.contents) != 0){
+662             printf("Integration test #(%lu) failure\n"
+663                    "Expected:\n|||\n", i + 1);
+664             printf("%s\n", output[i]\&.contents);
+665             printf("|||\n");
+666             printf("Received:\n"
+667                    "|||\n");
+668             printf("%s\n", tmpStringOutput);
+669             printf("|||\n");
+670             valid = false;
+671         }
+672         
+673         container\&.free(&container);
+674         
+675         free(tmpStringOutput);
+676     }
+677     return valid;
+678 }
+.fi
+.PP
+References construct(), SortedLinesContainer::construct, string::contents, defaultContainer(), SortedLinesContainer::free, string::len, SortedLinesContainer::lines, SortedLinesContainer::linesNumber, and SortedLinesContainer::sort\&.
+.PP
+Referenced by performAllTests()\&.
+.SS "bool tests_hasVisibleContent (void)"
+
+.PP
+Tests for \fBhasVisibleContent()\fP\&. 
+.PP
+\fBReturns\fP
+.RS 4
+if valid 
+.RE
+.PP
+
+.PP
+Definition at line 480 of file main\&.c\&.
+.PP
+.nf
+480                               {
+481     string inputs[] = {
+482         {" ",   1, false},
+483         {"",    0, false},
+484         {"asd", 3, false},
+485         {"a",   1, false},
+486         {"\n",  1, false},
+487         {"\0",  1, false}
+488     };
+489     
+490     bool outputs[] = {
+491         false,
+492         false,
+493         true,
+494         true,
+495         false,
+496         false
+497     };
+498     
+499     assert(sizeof(outputs)/sizeof(bool) == sizeof(inputs)/sizeof(string));
+500     
+501     int totalNumber = sizeof(outputs)/sizeof(bool);
+502     bool valid = true;
+503     
+504     for (int i = 0; i<totalNumber; i++) {
+505         bool actualOutput = hasVisibleContent(inputs[i]);
+506         if (!(actualOutput == outputs[i])) {
+507             printf("Failed hasVisibleContent test #(%d) %d!=%d\n", i+1, actualOutput, outputs[i]);
+508             valid = false;
+509         }
+510     }
+511     
+512     return valid;
+513 }
+.fi
+.PP
+References hasVisibleContent()\&.
+.PP
+Referenced by performAllTests()\&.
+.SS "int tests_multiCompare (void)"
+
+.PP
+Tests for \fBdoubleWhitespacesSkip()\fP 
+.PP
+Definition at line 883 of file main\&.c\&.
+.PP
+.nf
+883                              {
+884     string inputs1[] = {
+885         {"",       0, false},
+886         {" ",      0, false},
+887         {"   a",   0, false},
+888         {"   a  ", 0, false},
+889         {"b",      0, false},
+890         {"\"b",    0, false},
+891         {"a-ba",   0, false},
+892         {"a      b    a", 0, false},
+893         {"a",      0, false},
+894         {"а",      0, false},
+895         {"а-",     0, false},
+896         {"а-а-",   0, false},
+897         {"ба",     0, false},
+898     };
+899     string inputs2[] = {
+900         {"",       0, false},
+901         {" ",      0, false},
+902         {"a",      0, false},
+903         {"a",      0, false},
+904         {"a",      0, false},
+905         {"b",      0, false},
+906         {"aba",    0, false},
+907         {"a b a",  0, false},
+908         {"z",      0, false},
+909         {"я",      0, false},
+910         {"а",      0, false},
+911         {"а-а-",   0, false},
+912         {"аб",     0, false},
+913     };
+914     
+915     bool fromEnd[] = {
+916         false,
+917         false,
+918         false,
+919         false,
+920         false,
+921         false,
+922         false,
+923         false,
+924         false,
+925         false,
+926         true,
+927         true,
+928         true,
+929     };
+930     
+931     int outputs[] = {
+932         0,
+933         0,
+934         0,
+935         0,
+936         1,
+937         0,
+938         0,
+939         0,
+940         -1,
+941         -1,
+942         0,
+943         0,
+944         -1
+945     };
+946     
+947     assert(sizeof(outputs) / sizeof(int)    == sizeof(inputs1) / sizeof(string) &&
+948            sizeof(inputs1) / sizeof(string) == sizeof(inputs2) / sizeof(string) &&
+949            sizeof(fromEnd) / sizeof(bool)   == sizeof(inputs2) / sizeof(string));
+950     
+951     int totalNumber = sizeof(outputs) / sizeof(int);
+952     bool valid = true;
+953     
+954     for (int i = 0; i < totalNumber; i++) {
+955         inputs1[i]\&.len = strlen(inputs1[i]\&.contents);
+956         inputs2[i]\&.len = strlen(inputs2[i]\&.contents);
+957         int actualOutput = multiCompare(&inputs1[i], &inputs2[i], fromEnd[i]);
+958         if (!((actualOutput == outputs[i] && outputs[i] == 0) || (outputs[i] > 0 && actualOutput > 0) ||
+959               (outputs[i] < 0 && actualOutput < 0))) {
+960             printf("Failed tests_multiCompare test #(%d) %d !~ %d\n", i + 1, actualOutput, outputs[i]);
+961             valid = false;
+962         }
+963     }
+964     
+965     return valid;
+966 }
+.fi
+.PP
+References string::contents, string::len, and multiCompare()\&.
+.PP
+Referenced by performAllTests()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OneginSortv2 from the source code\&.
