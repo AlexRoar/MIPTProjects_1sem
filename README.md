@@ -4,6 +4,7 @@
 
 Ну ставьте звездочки хотя бы 
 
+**Проекты проги МФТИ 1 семестр**
 - [Square Solver](SquareRoots/SquareRoots/main.c)
   - [Square Solver docs](https://alexroar.github.io/MIPTProjects_1sem/SquareRoots/docs/html/main_8c.html)
 - [Сортировщик Онегин](OneginSort/OneginSort/main.c) [insertion sort]
@@ -11,5 +12,7 @@
 - [Сортировщик Онегин v2](OneginSortv2/OneginSortv2/main.c) [quick sort + single line storage]
   - [Сортировщик Онегин v2 docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs_sphinx/_build/html/api/c_doxygen_sphinx.html#program-documentation)
   - [Сортировщик Онегин v2 docs - raw Doxygen](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs_doxygen/html/main_8c.html)
+- [Стэк на стероидах](StackOnSteroids/StackOnSteroids/StackRigid.h)
+  - [Стэк на стероидах docs](https://alexroar.github.io/MIPTProjects_1sem/StackOnSteroids/docs_sphinx/_build/html/api/c_doxygen_sphinx.html#program-documentation)
+  - [Стэк на стероидах docs - raw Doxygen](https://alexroar.github.io/MIPTProjects_1sem/StackOnSteroids/docs_doxygen/html/main_8c.html)
   
-**Проекты проги МФТИ 1 семестр**
