@@ -2,8 +2,6 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/75c9791e4ced4d66a24029409c69f22a)](https://app.codacy.com/manual/dremov.me/MIPTProjects_1sem?utm_source=github.com&utm_medium=referral&utm_content=AlexRoar/MIPTProjects_1sem&utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/badge/master)](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/overview/master)
 
-Ну ставьте звездочки хотя бы 
-
 **Проекты проги МФТИ 1 семестр**
 - [Square Solver](SquareRoots/SquareRoots/main.c)
   - [Square Solver docs](https://alexroar.github.io/MIPTProjects_1sem/SquareRoots/docs/html/main_8c.html)
