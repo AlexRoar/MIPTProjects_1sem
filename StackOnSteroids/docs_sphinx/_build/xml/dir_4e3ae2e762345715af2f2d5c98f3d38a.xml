@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="dir_4e3ae2e762345715af2f2d5c98f3d38a" kind="dir">
+    <compoundname>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids</compoundname>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="StackRigid_8cpp">StackRigid.cpp</innerfile>
+    <innerfile refid="StackRigid_8h">StackRigid.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/"/>
+  </compounddef>
+</doxygen>

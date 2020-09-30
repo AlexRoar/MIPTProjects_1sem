@@ -1,0 +1,340 @@
+<toc label="StackRigid" topic="index.html">
+  <topic label="Class Hierarchy" href="hierarchy.html">
+    <topic label="std::allocator&lt; T &gt;"/>
+    <topic label="std::array&lt; T &gt;"/>
+    <topic label="std::atomic&lt; T &gt;"/>
+    <topic label="std::atomic_ref&lt; T &gt;"/>
+    <topic label="std::auto_ptr&lt; T &gt;"/>
+    <topic label="std::basic_string&lt; Char &gt;">
+      <topic label="std::string"/>
+      <topic label="std::u16string"/>
+      <topic label="std::u32string"/>
+      <topic label="std::u8string"/>
+      <topic label="std::wstring"/>
+    </topic>
+    <topic label="std::basic_string&lt; char &gt;"/>
+    <topic label="std::basic_string&lt; char16_t &gt;"/>
+    <topic label="std::basic_string&lt; char32_t &gt;"/>
+    <topic label="std::basic_string&lt; char8_t &gt;"/>
+    <topic label="std::basic_string&lt; wchar_t &gt;"/>
+    <topic label="std::basic_string_view&lt; Char &gt;">
+      <topic label="std::string_view"/>
+      <topic label="std::u16string_view"/>
+      <topic label="std::u32string_view"/>
+      <topic label="std::u8string_view"/>
+      <topic label="std::wstring_view"/>
+    </topic>
+    <topic label="std::basic_string_view&lt; char &gt;"/>
+    <topic label="std::basic_string_view&lt; char16_t &gt;"/>
+    <topic label="std::basic_string_view&lt; char32_t &gt;"/>
+    <topic label="std::basic_string_view&lt; char8_t &gt;"/>
+    <topic label="std::basic_string_view&lt; wchar_t &gt;"/>
+    <topic label="std::bitset&lt; Bits &gt;"/>
+    <topic label="std::complex"/>
+    <topic label="std::wstring::const_iterator"/>
+    <topic label="std::map&lt; K, T &gt;::const_iterator"/>
+    <topic label="std::unordered_map&lt; K, T &gt;::const_iterator"/>
+    <topic label="std::u8string::const_iterator"/>
+    <topic label="std::multimap&lt; K, T &gt;::const_iterator"/>
+    <topic label="std::u16string::const_iterator"/>
+    <topic label="std::unordered_multimap&lt; K, T &gt;::const_iterator"/>
+    <topic label="std::set&lt; K &gt;::const_iterator"/>
+    <topic label="std::unordered_set&lt; K &gt;::const_iterator"/>
+    <topic label="std::multiset&lt; K &gt;::const_iterator"/>
+    <topic label="std::unordered_multiset&lt; K &gt;::const_iterator"/>
+    <topic label="std::u32string::const_iterator"/>
+    <topic label="std::basic_string_view&lt; Char &gt;::const_iterator"/>
+    <topic label="std::array&lt; T &gt;::const_iterator"/>
+    <topic label="std::vector&lt; T &gt;::const_iterator"/>
+    <topic label="std::span&lt; T &gt;::const_iterator"/>
+    <topic label="std::string_view::const_iterator"/>
+    <topic label="std::wstring_view::const_iterator"/>
+    <topic label="std::u8string_view::const_iterator"/>
+    <topic label="std::basic_string&lt; Char &gt;::const_iterator"/>
+    <topic label="std::u16string_view::const_iterator"/>
+    <topic label="std::u32string_view::const_iterator"/>
+    <topic label="std::deque&lt; T &gt;::const_iterator"/>
+    <topic label="std::string::const_iterator"/>
+    <topic label="std::list&lt; T &gt;::const_iterator"/>
+    <topic label="std::forward_list&lt; T &gt;::const_iterator"/>
+    <topic label="std::forward_list&lt; T &gt;::const_reverse_iterator"/>
+    <topic label="std::wstring::const_reverse_iterator"/>
+    <topic label="std::map&lt; K, T &gt;::const_reverse_iterator"/>
+    <topic label="std::unordered_map&lt; K, T &gt;::const_reverse_iterator"/>
+    <topic label="std::u8string::const_reverse_iterator"/>
+    <topic label="std::multimap&lt; K, T &gt;::const_reverse_iterator"/>
+    <topic label="std::unordered_multimap&lt; K, T &gt;::const_reverse_iterator"/>
+    <topic label="std::u16string::const_reverse_iterator"/>
+    <topic label="std::set&lt; K &gt;::const_reverse_iterator"/>
+    <topic label="std::unordered_set&lt; K &gt;::const_reverse_iterator"/>
+    <topic label="std::u32string::const_reverse_iterator"/>
+    <topic label="std::multiset&lt; K &gt;::const_reverse_iterator"/>
+    <topic label="std::unordered_multiset&lt; K &gt;::const_reverse_iterator"/>
+    <topic label="std::basic_string_view&lt; Char &gt;::const_reverse_iterator"/>
+    <topic label="std::array&lt; T &gt;::const_reverse_iterator"/>
+    <topic label="std::vector&lt; T &gt;::const_reverse_iterator"/>
+    <topic label="std::span&lt; T &gt;::const_reverse_iterator"/>
+    <topic label="std::string_view::const_reverse_iterator"/>
+    <topic label="std::u32string_view::const_reverse_iterator"/>
+    <topic label="std::u8string_view::const_reverse_iterator"/>
+    <topic label="std::wstring_view::const_reverse_iterator"/>
+    <topic label="std::basic_string&lt; Char &gt;::const_reverse_iterator"/>
+    <topic label="std::u16string_view::const_reverse_iterator"/>
+    <topic label="std::deque&lt; T &gt;::const_reverse_iterator"/>
+    <topic label="std::string::const_reverse_iterator"/>
+    <topic label="std::list&lt; T &gt;::const_reverse_iterator"/>
+    <topic label="std::deque&lt; T &gt;"/>
+    <topic label="std::error_category"/>
+    <topic label="std::error_code"/>
+    <topic label="std::error_condition"/>
+    <topic label="std::exception">
+      <topic label="std::bad_alloc"/>
+      <topic label="std::bad_cast"/>
+      <topic label="std::bad_exception"/>
+      <topic label="std::bad_typeid"/>
+      <topic label="std::ios_base::failure"/>
+      <topic label="std::logic_error">
+        <topic label="std::domain_error"/>
+        <topic label="std::invalid_argument"/>
+        <topic label="std::length_error"/>
+        <topic label="std::out_of_range"/>
+      </topic>
+      <topic label="std::runtime_error">
+        <topic label="std::overflow_error"/>
+        <topic label="std::range_error"/>
+        <topic label="std::underflow_error"/>
+      </topic>
+    </topic>
+    <topic label="std::forward_list&lt; T &gt;"/>
+    <topic label="std::ios_base">
+      <topic label="std::basic_ios&lt; char &gt;"/>
+      <topic label="std::basic_ios&lt; wchar_t &gt;"/>
+      <topic label="std::basic_ios&lt; Char &gt;">
+        <topic label="std::basic_istream&lt; char &gt;"/>
+        <topic label="std::basic_istream&lt; wchar_t &gt;"/>
+        <topic label="std::basic_ostream&lt; char &gt;"/>
+        <topic label="std::basic_ostream&lt; wchar_t &gt;"/>
+        <topic label="std::basic_istream&lt; Char &gt;">
+          <topic label="std::basic_ifstream&lt; char &gt;"/>
+          <topic label="std::basic_ifstream&lt; wchar_t &gt;"/>
+          <topic label="std::basic_iostream&lt; char &gt;"/>
+          <topic label="std::basic_iostream&lt; wchar_t &gt;"/>
+          <topic label="std::basic_istringstream&lt; char &gt;"/>
+          <topic label="std::basic_istringstream&lt; wchar_t &gt;"/>
+          <topic label="std::basic_ifstream&lt; Char &gt;">
+            <topic label="std::ifstream"/>
+            <topic label="std::wifstream"/>
+          </topic>
+          <topic label="std::basic_iostream&lt; Char &gt;">
+            <topic label="std::basic_fstream&lt; char &gt;"/>
+            <topic label="std::basic_fstream&lt; wchar_t &gt;"/>
+            <topic label="std::basic_stringstream&lt; char &gt;"/>
+            <topic label="std::basic_stringstream&lt; wchar_t &gt;"/>
+            <topic label="std::basic_fstream&lt; Char &gt;">
+              <topic label="std::fstream"/>
+              <topic label="std::wfstream"/>
+            </topic>
+            <topic label="std::basic_stringstream&lt; Char &gt;">
+              <topic label="std::stringstream"/>
+              <topic label="std::wstringstream"/>
+            </topic>
+          </topic>
+          <topic label="std::basic_istringstream&lt; Char &gt;">
+            <topic label="std::istringstream"/>
+            <topic label="std::wistringstream"/>
+          </topic>
+          <topic label="std::istream"/>
+          <topic label="std::wistream"/>
+        </topic>
+        <topic label="std::basic_ostream&lt; Char &gt;">
+          <topic label="std::basic_iostream&lt; char &gt;"/>
+          <topic label="std::basic_iostream&lt; wchar_t &gt;"/>
+          <topic label="std::basic_ofstream&lt; char &gt;"/>
+          <topic label="std::basic_ofstream&lt; wchar_t &gt;"/>
+          <topic label="std::basic_ostringstream&lt; char &gt;"/>
+          <topic label="std::basic_ostringstream&lt; wchar_t &gt;"/>
+          <topic label="std::basic_iostream&lt; Char &gt;"/>
+          <topic label="std::basic_ofstream&lt; Char &gt;">
+            <topic label="std::ofstream"/>
+            <topic label="std::wofstream"/>
+          </topic>
+          <topic label="std::basic_ostringstream&lt; Char &gt;">
+            <topic label="std::ostringstream"/>
+            <topic label="std::wostringstream"/>
+          </topic>
+          <topic label="std::ostream"/>
+          <topic label="std::wostream"/>
+        </topic>
+        <topic label="std::ios"/>
+        <topic label="std::wios"/>
+      </topic>
+    </topic>
+    <topic label="std::wstring::iterator"/>
+    <topic label="std::map&lt; K, T &gt;::iterator"/>
+    <topic label="std::u8string::iterator"/>
+    <topic label="std::unordered_map&lt; K, T &gt;::iterator"/>
+    <topic label="std::multimap&lt; K, T &gt;::iterator"/>
+    <topic label="std::unordered_multimap&lt; K, T &gt;::iterator"/>
+    <topic label="std::u16string::iterator"/>
+    <topic label="std::set&lt; K &gt;::iterator"/>
+    <topic label="std::u32string::iterator"/>
+    <topic label="std::multiset&lt; K &gt;::iterator"/>
+    <topic label="std::unordered_multiset&lt; K &gt;::iterator"/>
+    <topic label="std::basic_string_view&lt; Char &gt;::iterator"/>
+    <topic label="std::array&lt; T &gt;::iterator"/>
+    <topic label="std::vector&lt; T &gt;::iterator"/>
+    <topic label="std::span&lt; T &gt;::iterator"/>
+    <topic label="std::string_view::iterator"/>
+    <topic label="std::u8string_view::iterator"/>
+    <topic label="std::unordered_set&lt; K &gt;::iterator"/>
+    <topic label="std::wstring_view::iterator"/>
+    <topic label="std::deque&lt; T &gt;::iterator"/>
+    <topic label="std::basic_string&lt; Char &gt;::iterator"/>
+    <topic label="std::u32string_view::iterator"/>
+    <topic label="std::string::iterator"/>
+    <topic label="std::list&lt; T &gt;::iterator"/>
+    <topic label="std::u16string_view::iterator"/>
+    <topic label="std::forward_list&lt; T &gt;::iterator"/>
+    <topic label="std::jthread"/>
+    <topic label="std::list&lt; T &gt;"/>
+    <topic label="std::lock_guard&lt; T &gt;"/>
+    <topic label="std::map&lt; K, T &gt;"/>
+    <topic label="std::multimap&lt; K, T &gt;"/>
+    <topic label="std::multiset&lt; K &gt;"/>
+    <topic label="std::mutex"/>
+    <topic label="std::priority_queue&lt; T &gt;"/>
+    <topic label="std::queue&lt; T &gt;"/>
+    <topic label="std::recursive_mutex"/>
+    <topic label="std::recursive_timed_mutex"/>
+    <topic label="std::u32string_view::reverse_iterator"/>
+    <topic label="std::forward_list&lt; T &gt;::reverse_iterator"/>
+    <topic label="std::wstring::reverse_iterator"/>
+    <topic label="std::map&lt; K, T &gt;::reverse_iterator"/>
+    <topic label="std::unordered_map&lt; K, T &gt;::reverse_iterator"/>
+    <topic label="std::unordered_multimap&lt; K, T &gt;::reverse_iterator"/>
+    <topic label="std::span&lt; T &gt;::reverse_iterator"/>
+    <topic label="std::wstring_view::reverse_iterator"/>
+    <topic label="std::u16string::reverse_iterator"/>
+    <topic label="std::vector&lt; T &gt;::reverse_iterator"/>
+    <topic label="std::set&lt; K &gt;::reverse_iterator"/>
+    <topic label="std::u16string_view::reverse_iterator"/>
+    <topic label="std::multiset&lt; K &gt;::reverse_iterator"/>
+    <topic label="std::basic_string_view&lt; Char &gt;::reverse_iterator"/>
+    <topic label="std::unordered_multiset&lt; K &gt;::reverse_iterator"/>
+    <topic label="std::array&lt; T &gt;::reverse_iterator"/>
+    <topic label="std::string_view::reverse_iterator"/>
+    <topic label="std::u8string::reverse_iterator"/>
+    <topic label="std::multimap&lt; K, T &gt;::reverse_iterator"/>
+    <topic label="std::deque&lt; T &gt;::reverse_iterator"/>
+    <topic label="std::list&lt; T &gt;::reverse_iterator"/>
+    <topic label="std::u8string_view::reverse_iterator"/>
+    <topic label="std::unordered_set&lt; K &gt;::reverse_iterator"/>
+    <topic label="std::basic_string&lt; Char &gt;::reverse_iterator"/>
+    <topic label="std::u32string::reverse_iterator"/>
+    <topic label="std::string::reverse_iterator"/>
+    <topic label="std::set&lt; K &gt;"/>
+    <topic label="std::shared_lock&lt; T &gt;"/>
+    <topic label="std::shared_mutex"/>
+    <topic label="std::shared_ptr&lt; T &gt;"/>
+    <topic label="std::shared_timed_mutex"/>
+    <topic label="std::smart_ptr&lt; T &gt;"/>
+    <topic label="std::span&lt; T &gt;"/>
+    <topic label="std::stack&lt; T &gt;"/>
+    <topic label="std::system_error"/>
+    <topic label="std::thread"/>
+    <topic label="std::timed_mutex"/>
+    <topic label="std::unique_lock&lt; T &gt;"/>
+    <topic label="std::unique_ptr&lt; T &gt;"/>
+    <topic label="std::unordered_map&lt; K, T &gt;"/>
+    <topic label="std::unordered_multimap&lt; K, T &gt;"/>
+    <topic label="std::unordered_multiset&lt; K &gt;"/>
+    <topic label="std::unordered_set&lt; K &gt;"/>
+    <topic label="std::valarray&lt; T &gt;"/>
+    <topic label="std::vector&lt; T &gt;"/>
+    <topic label="std::weak_ptr&lt; T &gt;"/>
+    <topic label="K"/>
+    <topic label="T"/>
+  </topic>
+  <topic label="Structs" href="annotatedstructs.html">
+    <topic label="Struct List" href="annotatedstructs.html">
+      <topic label="StackRigid" href="structStackRigid.html">
+        <topic label="capacity" href="structStackRigid.html#a56670cc4df83ffba7a2bce7bbaad855c"/>
+        <topic label="checkSum" href="structStackRigid.html#a86ac04a9e0b2f56ade748fedfd139a3e"/>
+        <topic label="checkSumVital" href="structStackRigid.html#a0578d16af9c23c9ae00bf29b1c13cafd"/>
+        <topic label="data" href="structStackRigid.html#a6150250d0c10519886570165597ba510"/>
+        <topic label="logFile" href="structStackRigid.html#aa7c68e49e3f2171045533e2684ae2748"/>
+        <topic label="size" href="structStackRigid.html#a07b58670c3ae24a7fedd9f4a3ad1725e"/>
+      </topic>
+    </topic>
+    <topic label="Struct Index" href="structs.html"/>
+    <topic label="Files" href="files.html">
+      <topic label="File List" href="files.html">
+        <topic label="StackOnSteroids" href="dir_4e3ae2e762345715af2f2d5c98f3d38a.html">
+          <topic label="main.cpp" href="main_8cpp.html">
+            <topic label="main" href="main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c"/>
+            <topic label="StackRigidAvgTimes" href="main_8cpp.html#a48fcf97300586f7cbb6fc742b3ba6b02"/>
+          </topic>
+          <topic label="StackRigid.cpp" href="StackRigid_8cpp.html">
+            <topic label="DEBUGSPEED" href="StackRigid_8cpp.html#a024c7a2dca4a8bcc93281411d85f7d35"/>
+            <topic label="__StackGetChecksum" href="StackRigid_8cpp.html#a648682514d2a2e415c30454757b70eaa"/>
+            <topic label="__StackGetChecksumVital" href="StackRigid_8cpp.html#a709f63f68d921770a9c220e88af2dcd2"/>
+            <topic label="__StackRealocate" href="StackRigid_8cpp.html#a0566d9c52c7de00974ab803970351069"/>
+            <topic label="__StackUpdateChecksum" href="StackRigid_8cpp.html#ae84aef62fb8899daab9e6dc06d8cf93d"/>
+            <topic label="adlerChecksum" href="StackRigid_8cpp.html#a37faf27d6e9ab4e0a417f29efbda1cbb"/>
+            <topic label="NewStackRigid" href="StackRigid_8cpp.html#a78fa7085db2ddf6539c86400256a70bc"/>
+            <topic label="StackBack" href="StackRigid_8cpp.html#a6c282d58a717d9b480e1373423a862b9"/>
+            <topic label="StackDestruct" href="StackRigid_8cpp.html#a660dd8200124031484d0c9dd596130d1"/>
+            <topic label="StackDump" href="StackRigid_8cpp.html#a7b0f9ae879d5f5cd628b661cf5573d4b"/>
+            <topic label="StackPop" href="StackRigid_8cpp.html#a531f4e733d2d8af3f520414d5e25d973"/>
+            <topic label="StackPush" href="StackRigid_8cpp.html#aa71965140614d8c1654bf8a4b92b5f38"/>
+            <topic label="StackRigidMemoryUse" href="StackRigid_8cpp.html#aeff826357c5b8892871d9972ecfaf24a"/>
+            <topic label="StackValidate" href="StackRigid_8cpp.html#ae9cc68f55c68d4d8f4fb349127866446"/>
+            <topic label="movingAverageBetta" href="StackRigid_8cpp.html#a7e3b350174ff88dacd94c1c37149cdc5"/>
+            <topic label="StackRigidAvgTimes" href="StackRigid_8cpp.html#a48fcf97300586f7cbb6fc742b3ba6b02"/>
+          </topic>
+          <topic label="StackRigid.h" href="StackRigid_8h.html">
+            <topic label="StackElementType" href="StackRigid_8h.html#a5f5a2d235dc4419fc37f7f21c956cfba"/>
+            <topic label="StackRigid" href="StackRigid_8h.html#ac5d0efeed13c8b47552928dc34ac2d9a"/>
+            <topic label="StackRigidOperationCodes" href="StackRigid_8h.html#a2b23b57ad918293ba96140fc43194967"/>
+            <topic label="StackRigidState" href="StackRigid_8h.html#acc74b48b41d3ec38cb05184b602c7508"/>
+            <topic label="StackRigidOperationCodes" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039">
+              <topic label="STACK_OP_OK" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e"/>
+              <topic label="STACK_OP_UNDERFLOW" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c"/>
+              <topic label="STACK_OP_OVERFLOW" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283"/>
+              <topic label="STACK_OP_NOMEMORY" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d"/>
+              <topic label="STACK_OP_INTEGRITYERR" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33"/>
+              <topic label="STACK_OP_NULL" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e"/>
+            </topic>
+            <topic label="StackRigidState" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5f">
+              <topic label="STACK_ST_OK" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74"/>
+              <topic label="STACK_ST_INTEGRITYERR" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0"/>
+              <topic label="STACK_ST_UNINITIALIZED" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58"/>
+              <topic label="STACK_ST_NULL" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb"/>
+            </topic>
+            <topic label="__StackGetChecksum" href="StackRigid_8h.html#a648682514d2a2e415c30454757b70eaa"/>
+            <topic label="__StackGetChecksumVital" href="StackRigid_8h.html#a709f63f68d921770a9c220e88af2dcd2"/>
+            <topic label="__StackRealocate" href="StackRigid_8h.html#a0566d9c52c7de00974ab803970351069"/>
+            <topic label="__StackUpdateChecksum" href="StackRigid_8h.html#ae84aef62fb8899daab9e6dc06d8cf93d"/>
+            <topic label="adlerChecksum" href="StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb"/>
+            <topic label="NewStackRigid" href="StackRigid_8h.html#a78fa7085db2ddf6539c86400256a70bc"/>
+            <topic label="StackBack" href="StackRigid_8h.html#a6c282d58a717d9b480e1373423a862b9"/>
+            <topic label="StackDestruct" href="StackRigid_8h.html#a660dd8200124031484d0c9dd596130d1"/>
+            <topic label="StackDump" href="StackRigid_8h.html#a7b0f9ae879d5f5cd628b661cf5573d4b"/>
+            <topic label="StackPop" href="StackRigid_8h.html#a531f4e733d2d8af3f520414d5e25d973"/>
+            <topic label="StackPush" href="StackRigid_8h.html#aa71965140614d8c1654bf8a4b92b5f38"/>
+            <topic label="StackRigidMemoryUse" href="StackRigid_8h.html#aeff826357c5b8892871d9972ecfaf24a"/>
+            <topic label="StackValidate" href="StackRigid_8h.html#ae9cc68f55c68d4d8f4fb349127866446"/>
+          </topic>
+        </topic>
+      </topic>
+      <topic label="Globals" href="globals.html">
+        <topic label="All" href="globals.html"/>
+        <topic label="Functions" href="globals_func.html"/>
+        <topic label="Constants" href="globals_vars.html"/>
+        <topic label="Typedefs" href="globals_type.html"/>
+        <topic label="Enumerations" href="globals_enum.html"/>
+        <topic label="Enumerator" href="globals_eval.html"/>
+        <topic label="Macros" href="globals_defs.html"/>
+      </topic>
+    </topic>
+</toc>

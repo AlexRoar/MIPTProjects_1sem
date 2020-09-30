@@ -1,0 +1,81 @@
+.TH "StackOnSteroids/main.cpp" 3 "Wed Sep 30 2020" "StackRigid" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StackOnSteroids/main.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'StackRigid\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (int argc, const char *argv[])"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "double \fBStackRigidAvgTimes\fP [5]"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int main (int argc, const char * argv[])"
+
+.PP
+.nf
+10                                         {
+11     StackRigid* newStack = NewStackRigid(1000, stdout);
+12     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
+13     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
+14     for(size_t i = 0; i< 1000; i++){
+15         StackPush(&newStack, (int)i);
+16     }
+17     for(size_t i = 0; i < 1000; i++){
+18         int tmpVal;
+19         StackPop(&newStack, &tmpVal);
+20     }
+21     for(size_t i = 0; i < 100; i++){
+22         StackPush(&newStack, (int)i);
+23     }
+24     
+25     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
+26         char previousValue = *((char*)newStack + i);
+27         for (char bullet = -128; bullet < 127; bullet++){
+28             if (bullet == previousValue)
+29                 continue;
+30             *((char*)newStack + i) = bullet;
+31             StackRigidState state = StackValidate(newStack);
+32             if (state != STACK_ST_INTEGRITYERR){
+33                 printf("Did not spot at position %zu, byte %x\n", i, bullet);
+34                 break;
+35             }
+36             *((char*)newStack + i) = previousValue;
+37         }
+38     }
+39     
+40     printf("\nAverage checksum update time: %g s\n", StackRigidAvgTimes[0]);
+41     printf("Average validation time: %g s\n", StackRigidAvgTimes[1]);
+42     printf("Average push time: %g s\n", StackRigidAvgTimes[2]);
+43     printf("Average pop time: %g s\n", StackRigidAvgTimes[3]);
+44     printf("Average reallocation time: %g s\n", StackRigidAvgTimes[4]);
+45     StackDestruct(&newStack);
+46     return 0;
+47 }
+.fi
+.PP
+References NewStackRigid(), STACK_ST_INTEGRITYERR, StackDestruct(), StackPop(), StackPush(), StackRigidAvgTimes, StackRigidMemoryUse(), and StackValidate()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "double StackRigidAvgTimes[5]\fC [extern]\fP"
+
+.PP
+Referenced by __StackRealocate(), __StackUpdateChecksum(), main(), StackPop(), StackPush(), and StackValidate()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for StackRigid from the source code\&.

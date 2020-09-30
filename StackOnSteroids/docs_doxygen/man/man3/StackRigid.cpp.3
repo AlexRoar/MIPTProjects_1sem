@@ -1,0 +1,657 @@
+.TH "StackOnSteroids/StackRigid.cpp" 3 "Wed Sep 30 2020" "StackRigid" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StackOnSteroids/StackRigid.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'StackRigid\&.h'\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStackRigid\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDEBUGSPEED\fP   1"
+.br
+.RI "If defined, collects average speed information during the run\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static uint32_t \fB__StackGetChecksum\fP (\fBStackRigid\fP *stack)"
+.br
+.ti -1c
+.RI "static uint32_t \fB__StackGetChecksumVital\fP (\fBStackRigid\fP *stack)"
+.br
+.ti -1c
+.RI "static \fBStackRigidOperationCodes\fP \fB__StackRealocate\fP (\fBStackRigid\fP **stack, short int direction)"
+.br
+.ti -1c
+.RI "static void \fB__StackUpdateChecksum\fP (\fBStackRigid\fP *stack)"
+.br
+.ti -1c
+.RI "static uint32_t \fBadlerChecksum\fP (const void *firstBlock, size_t len)"
+.br
+.ti -1c
+.RI "\fBStackRigid\fP * \fBNewStackRigid\fP (const size_t capacity, FILE *logFile)"
+.br
+.RI "Create new stack with pre-defined capacity\&. "
+.ti -1c
+.RI "\fBStackRigidOperationCodes\fP \fBStackBack\fP (\fBStackRigid\fP *stack, \fBStackElementType\fP *value)"
+.br
+.RI "Free stack memory\&. "
+.ti -1c
+.RI "\fBStackRigidOperationCodes\fP \fBStackDestruct\fP (\fBStackRigid\fP **stack)"
+.br
+.RI "Free stack memory\&. "
+.ti -1c
+.RI "void \fBStackDump\fP (\fBStackRigid\fP *stack)"
+.br
+.RI "Dumps debug information about the stack\&. "
+.ti -1c
+.RI "\fBStackRigidOperationCodes\fP \fBStackPop\fP (\fBStackRigid\fP **stack, \fBStackElementType\fP *value)"
+.br
+.RI "Pop value from the end of the stack The operation can perform realocations if there is too much space\&. "
+.ti -1c
+.RI "\fBStackRigidOperationCodes\fP \fBStackPush\fP (\fBStackRigid\fP **stack, \fBStackElementType\fP value)"
+.br
+.RI "Push the value to the stack The operation can perform realocations if there is not enough space\&. "
+.ti -1c
+.RI "size_t \fBStackRigidMemoryUse\fP (\fBStackRigid\fP *stack)"
+.br
+.RI "Memory alocated for the Stack\&. "
+.ti -1c
+.RI "\fBStackRigidState\fP \fBStackValidate\fP (\fBStackRigid\fP *stack)"
+.br
+.RI "Perform all stack checks: checksums, general constrains\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const double \fBmovingAverageBetta\fP = 0\&.85"
+.br
+.ti -1c
+.RI "double \fBStackRigidAvgTimes\fP [5] = {}"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DEBUGSPEED   1"
+
+.PP
+If defined, collects average speed information during the run\&. 
+.SH "Function Documentation"
+.PP 
+.SS "static uint32_t __StackGetChecksum (\fBStackRigid\fP * stack)\fC [static]\fP"
+
+.PP
+.nf
+201                                                       {
+202     assert(stack);
+203     
+204     void* firstBlock = (char*)stack + sizeof(stack->checkSum);
+205     
+206     // Memory used by Stack excluding checkSum and free space
+207     const size_t memory = StackRigidMemoryUse(stack) - sizeof(stack->checkSum) - (stack->capacity - stack->size) * sizeof(StackElementType);
+208     
+209     if (stack->size > stack->capacity) {
+210         return 0;
+211     }
+212     return adlerChecksum(firstBlock, memory);
+213 }
+.fi
+.PP
+References adlerChecksum(), StackRigid::capacity, StackRigid::checkSum, StackRigid::size, and StackRigidMemoryUse()\&.
+.PP
+Referenced by __StackUpdateChecksum(), and StackValidate()\&.
+.SS "static uint32_t __StackGetChecksumVital (\fBStackRigid\fP * stack)\fC [static]\fP"
+
+.PP
+.nf
+188                                                            {
+189     assert(stack);
+190     
+191     void* firstBlock = (char*)stack + sizeof(stack->checkSum) + sizeof(stack->checkSumVital);
+192     
+193     const size_t memory = sizeof(stack->size) + sizeof(stack->capacity)+ sizeof(stack->logFile);
+194     if (stack->size > stack->capacity) {
+195         return 0;
+196     }
+197     return adlerChecksum(firstBlock, memory);
+198 }
+.fi
+.PP
+References adlerChecksum(), StackRigid::capacity, StackRigid::checkSum, StackRigid::checkSumVital, StackRigid::logFile, and StackRigid::size\&.
+.PP
+Referenced by __StackUpdateChecksum(), and StackValidate()\&.
+.SS "static \fBStackRigidOperationCodes\fP __StackRealocate (\fBStackRigid\fP ** stack, short int direction)\fC [static]\fP"
+
+.PP
+.nf
+216                                                                                           {
+217     #ifdef DEBUGSPEED
+218         clock_t start = clock();
+219     #endif
+220     if ((*stack)->capacity == 0) {
+221         (*stack)->capacity = 16;
+222         
+223         const size_t memory = StackRigidMemoryUse(*stack);
+224         
+225         StackRigid* newStack = (StackRigid*) realloc((*stack), memory);
+226         if (newStack == NULL)
+227             return STACK_OP_NOMEMORY;
+228         
+229         (*stack) = newStack;
+230     }else if(((*stack)->capacity <= (*stack)->size) && direction > 0) {
+231         // Up realocation
+232         size_t newCapacity = (*stack)->size * 2;
+233         
+234         if (newCapacity <= (*stack)->size) { //   If we exceeded size_t range
+235             newCapacity = (*stack)->size + 16; // Try to add 16 free spaces
+236             if (newCapacity < (*stack)->size) //  Even if in this case we still exceed size_t
+237                 return STACK_OP_OVERFLOW;
+238         }
+239         
+240         const size_t memoryNow = StackRigidMemoryUse(*stack);
+241         const size_t memoryNew = sizeof(StackRigid) + (newCapacity - 2) * sizeof(StackElementType);
+242         
+243         if (memoryNew >= memoryNow) {
+244             StackRigid* newStack = (StackRigid*) realloc((*stack), memoryNew);
+245             if (newStack == NULL)
+246                 return STACK_OP_NOMEMORY;
+247             
+248             (*stack) = newStack;
+249         }else{
+250             return STACK_OP_OVERFLOW; // Exceded size_t memory
+251         }
+252         (*stack)->capacity = newCapacity;
+253         
+254     }else if (((*stack)->capacity / 2\&.2 > (*stack)->size) && direction < 0) {
+255         // Down realocation
+256         size_t newCapacity = (*stack)->capacity / 2\&.2;
+257         
+258         const size_t memoryNow = StackRigidMemoryUse(*stack);
+259         const size_t memoryNew = sizeof(StackRigid) + (newCapacity - 2) * sizeof(StackElementType);
+260         
+261         if (memoryNew <= memoryNow) {
+262             StackRigid* newStack = (StackRigid*) realloc((*stack), memoryNew);
+263             if (newStack == NULL)
+264                 return STACK_OP_NOMEMORY;
+265             
+266             (*stack) = newStack;
+267             (*stack)->capacity = newCapacity;
+268         }else
+269             return STACK_OP_OVERFLOW; // Exceded size_t memory
+270     }
+271     #ifdef DEBUGSPEED
+272         clock_t end = clock();
+273         double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+274         StackRigidAvgTimes[4] = StackRigidAvgTimes[4] * (movingAverageBetta) + elapsed * (1 - movingAverageBetta);
+275     #endif
+276     return STACK_OP_OK;
+277 }
+.fi
+.PP
+References StackRigid::capacity, movingAverageBetta, StackRigid::size, STACK_OP_NOMEMORY, STACK_OP_OK, STACK_OP_OVERFLOW, StackRigidAvgTimes, and StackRigidMemoryUse()\&.
+.PP
+Referenced by StackPop(), and StackPush()\&.
+.SS "static void __StackUpdateChecksum (\fBStackRigid\fP * stack)\fC [static]\fP"
+
+.PP
+.nf
+169                                                      {
+170     assert(stack);
+171     
+172     #ifdef DEBUGSPEED
+173         clock_t start = clock();
+174     #endif
+175     
+176     stack->checkSumVital = __StackGetChecksumVital(stack);
+177     stack->checkSum = __StackGetChecksum(stack);
+178     
+179     #ifdef DEBUGSPEED
+180         clock_t end = clock();
+181         double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+182     
+183         StackRigidAvgTimes[0] = StackRigidAvgTimes[0] * (movingAverageBetta) + elapsed * (1 - movingAverageBetta);
+184     #endif
+185 }
+.fi
+.PP
+References __StackGetChecksum(), __StackGetChecksumVital(), StackRigid::checkSum, StackRigid::checkSumVital, movingAverageBetta, and StackRigidAvgTimes\&.
+.PP
+Referenced by NewStackRigid(), StackPop(), and StackPush()\&.
+.SS "static uint32_t adlerChecksum (const void * firstBlock, size_t len)\fC [static]\fP"
+
+.PP
+.nf
+280                                                                   {
+281     uint32_t a = 1, b = 0;
+282     const uint32_t MOD_ADLER = 65521;
+283     for (size_t index = 0; index < len; ++index) {
+284         a = (a + ((char*)firstBlock)[index]) % MOD_ADLER;
+285         b = (b + a) % MOD_ADLER;
+286     }
+287     return (b << 16) | a;
+288 }
+.fi
+.PP
+Referenced by __StackGetChecksum(), and __StackGetChecksumVital()\&.
+.SS "\fBStackRigid\fP* NewStackRigid (const size_t capacity, FILE * logFile)"
+
+.PP
+Create new stack with pre-defined capacity\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcapacity\fP initial stack capacity\&. Set to 0 if yo want the stack to adopt automaticaly\&. 
+.br
+\fIlogFile\fP file for logging 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+new stack pointer 
+.RE
+.PP
+
+.PP
+.nf
+37                                                                 {
+38     const size_t memory = sizeof(StackRigid) + (capacity - 2) * sizeof(StackElementType);
+39     StackRigid* pointer = (StackRigid*)calloc(memory, 1);
+40     if (pointer == NULL) {
+41         return NULL;
+42     }
+43     
+44     pointer->capacity = capacity;
+45     pointer->size = 0;
+46     pointer->logFile = logFile;
+47     pointer->checkSum = 0;
+48     pointer->checkSumVital = 0;
+49     __StackUpdateChecksum(pointer);
+50     return pointer;
+51 }
+.fi
+.PP
+References __StackUpdateChecksum(), StackRigid::capacity, StackRigid::checkSum, StackRigid::checkSumVital, StackRigid::logFile, and StackRigid::size\&.
+.PP
+Referenced by main()\&.
+.SS "\fBStackRigidOperationCodes\fP StackBack (\fBStackRigid\fP * stack, \fBStackElementType\fP * value)"
+
+.PP
+Free stack memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be used 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the outcome of the operation 
+.RE
+.PP
+
+.PP
+.nf
+123                                                                               {
+124     if (stack == NULL)
+125         return STACK_OP_NULL;
+126     
+127     StackRigidState integrityChecks = StackValidate(stack);
+128     if (integrityChecks != STACK_ST_OK) {
+129         StackDump(stack);
+130         return STACK_OP_INTEGRITYERR;
+131     }
+132     
+133     if(stack->size == 0)
+134         return STACK_OP_UNDERFLOW;
+135     
+136     *value = stack->data[stack->size - 1];
+137     return STACK_OP_OK;
+138 }
+.fi
+.PP
+References StackRigid::data, StackRigid::size, STACK_OP_INTEGRITYERR, STACK_OP_NULL, STACK_OP_OK, STACK_OP_UNDERFLOW, STACK_ST_OK, StackDump(), and StackValidate()\&.
+.SS "\fBStackRigidOperationCodes\fP StackDestruct (\fBStackRigid\fP ** stack)"
+
+.PP
+Free stack memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be distructed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the outcome of the operation 
+.RE
+.PP
+
+.PP
+.nf
+365                                                            {
+366     if (stack == NULL) {
+367         return STACK_OP_NULL;
+368     }
+369     if (*stack == NULL) {
+370         return STACK_OP_NULL;
+371     }
+372     free(*stack);
+373     return STACK_OP_OK;
+374 }
+.fi
+.PP
+References STACK_OP_NULL, and STACK_OP_OK\&.
+.PP
+Referenced by main()\&.
+.SS "void StackDump (\fBStackRigid\fP * stack)"
+
+.PP
+Dumps debug information about the stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be dumped 
+.RE
+.PP
+
+.PP
+.nf
+297                                   {
+298     time_t rawtime = time(NULL);
+299     struct tm *ptm = localtime(&rawtime);
+300     
+301     FILE* output = stack->logFile;
+302     if (output == NULL) {
+303         output = stdout;
+304         printf("\nWarning! Specified dump output is inavailbale! Selecting stdout\&.\n");
+305     }
+306     
+307     fprintf(output, "=================================\n");
+308     fprintf(output, "Stack dump %s", asctime(ptm));
+309     
+310     if (stack == NULL) {
+311         fprintf(output, "\nStack dump is impossible: NULL pointer\n");
+312     }else{
+313         fprintf(output, "Stack (");
+314         const char *status = "ok";
+315         StackRigidState checks = StackValidate(stack);
+316         switch (checks) {
+317             case STACK_ST_INTEGRITYERR:
+318                 status = "INTEGRITY ERROR SPOTTED";
+319                 break;
+320             case STACK_ST_UNINITIALIZED:
+321                 status = "UNINITIALIZED";
+322                 break;
+323             case STACK_ST_OK:
+324                 status = "ok";
+325                 break;
+326             case STACK_ST_NULL:
+327                 status = "NULL POINTER";
+328                 break;
+329         }
+330         fprintf(output, "%s", status);
+331         fprintf(output, ")");
+332         fprintf(output, " [%p]: {\n", stack);
+333         if (checks == STACK_ST_INTEGRITYERR) {
+334             fprintf(output, "ERROR! Stack structure was corrupted\&. The data below was changed from the outside\&.\n");
+335         }
+336         fprintf(output, "\t    size : %lu\n", stack->size);
+337         fprintf(output, "\tcapacity : %lu\n", stack->capacity);
+338         fprintf(output, "\tcheckSum : %x\n", stack->checkSum);
+339         
+340         fprintf(output, "\tdata [%p]: {\n", stack->data);
+341         size_t i = 0;
+342         for (i = 0; i < stack->size; i++) {
+343             fprintf(output, "\t\t");
+344             fprintf(output, "*[%lu] : %d\n", i, stack->data[i]);
+345         }
+346         fprintf(output, "\t\t _______\n");
+347         if (stack->size < stack->capacity) {
+348             fprintf(output, "\t\t [%lu] : GARBAGE(%d)\n", i + 1, stack->data[i + 1]);
+349         }
+350         if (stack->size + 1 < stack->capacity && stack->size + 1 > stack->size) {
+351             fprintf(output, "\t\t [%lu] : GARBAGE(%d)\n", i + 2, stack->data[i + 2]);
+352         }
+353         fprintf(output, "\t}\n");
+354         fprintf(output, "}\n");
+355         
+356         const size_t memory = StackRigidMemoryUse(stack);
+357         fprintf(output, "Size allocated : %lu bytes\n", memory);
+358         fprintf(output, "Raw Stack size : %lu bytes\n", sizeof(StackRigid));
+359         fprintf(output, "  Element size : %lu bytes\n", sizeof(StackElementType));
+360         fprintf(output, "     Block end : %p\n", (char*)stack + memory);
+361     }
+362     fprintf(output, "=================================\n");
+363 }
+.fi
+.PP
+References StackRigid::capacity, StackRigid::checkSum, StackRigid::data, StackRigid::logFile, StackRigid::size, STACK_ST_INTEGRITYERR, STACK_ST_NULL, STACK_ST_OK, STACK_ST_UNINITIALIZED, StackRigidMemoryUse(), and StackValidate()\&.
+.PP
+Referenced by StackBack(), StackPop(), and StackPush()\&.
+.SS "\fBStackRigidOperationCodes\fP StackPop (\fBStackRigid\fP ** stack, \fBStackElementType\fP * value)"
+
+.PP
+Pop value from the end of the stack The operation can perform realocations if there is too much space\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be distructed 
+.br
+\fIvalue\fP value to be pushed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the outcome of the operation 
+.RE
+.PP
+
+.PP
+.nf
+90                                                                                {
+91     #ifdef DEBUGSPEED
+92         clock_t start = clock();
+93     #endif
+94     
+95     if (stack == NULL)
+96         return STACK_OP_NULL;
+97     
+98     StackRigidState integrityChecks = StackValidate(*stack);
+99     if (integrityChecks != STACK_ST_OK) {
+100         StackDump(*stack);
+101         return STACK_OP_INTEGRITYERR;
+102     }
+103     
+104     if((*stack)->size == 0)
+105         return STACK_OP_UNDERFLOW;
+106     
+107     *value = (*stack)->data[(*stack)->size - 1];
+108     (*stack)->size -= 1;
+109     
+110     __StackRealocate(stack, -1);
+111     __StackUpdateChecksum(*stack);
+112     
+113     #ifdef DEBUGSPEED
+114         clock_t end = clock();
+115         double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+116         StackRigidAvgTimes[3] = StackRigidAvgTimes[3] * (movingAverageBetta) + elapsed * (1 - movingAverageBetta);
+117     #endif
+118     
+119     return STACK_OP_OK;
+120 }
+.fi
+.PP
+References __StackRealocate(), __StackUpdateChecksum(), movingAverageBetta, STACK_OP_INTEGRITYERR, STACK_OP_NULL, STACK_OP_OK, STACK_OP_UNDERFLOW, STACK_ST_OK, StackDump(), StackRigidAvgTimes, and StackValidate()\&.
+.PP
+Referenced by main()\&.
+.SS "\fBStackRigidOperationCodes\fP StackPush (\fBStackRigid\fP ** stack, \fBStackElementType\fP value)"
+
+.PP
+Push the value to the stack The operation can perform realocations if there is not enough space\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be changed 
+.br
+\fIvalue\fP value to be pushed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the outcome of the operation 
+.RE
+.PP
+
+.PP
+.nf
+54                                                                                {
+55     #ifdef DEBUGSPEED
+56         clock_t start = clock();
+57     #endif
+58     if (stack == NULL)
+59         return STACK_OP_NULL;
+60     
+61     StackRigidState integrityChecks = StackValidate(*stack);
+62     if (integrityChecks != STACK_ST_OK) {
+63         StackDump(*stack);
+64         return STACK_OP_INTEGRITYERR;
+65     }
+66     
+67     StackRigidOperationCodes realocResult = __StackRealocate(stack, 1);
+68     if (realocResult != STACK_OP_OK) {
+69         StackDump(*stack);
+70         return realocResult;
+71     }
+72     
+73     (*stack)->data[(*stack)->size] = value;
+74     (*stack)->size += 1;
+75     
+76     __StackUpdateChecksum(*stack);
+77     
+78     if ((*stack)->size == 0) {
+79         return STACK_OP_OVERFLOW;
+80     }
+81     #ifdef DEBUGSPEED
+82         clock_t end = clock();
+83         double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+84         StackRigidAvgTimes[2] = StackRigidAvgTimes[2] * (movingAverageBetta) + elapsed * (1 - movingAverageBetta);
+85     #endif
+86     return STACK_OP_OK;
+87 }
+.fi
+.PP
+References __StackRealocate(), __StackUpdateChecksum(), movingAverageBetta, STACK_OP_INTEGRITYERR, STACK_OP_NULL, STACK_OP_OK, STACK_OP_OVERFLOW, STACK_ST_OK, StackDump(), StackRigidAvgTimes, and StackValidate()\&.
+.PP
+Referenced by main()\&.
+.SS "size_t StackRigidMemoryUse (\fBStackRigid\fP * stack)"
+
+.PP
+Memory alocated for the Stack\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be checked 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+alocated bytes 
+.RE
+.PP
+
+.PP
+.nf
+291                                               {
+292     assert(stack);
+293     return sizeof(StackRigid) + (stack->capacity - 2) * sizeof(StackElementType);
+294 }
+.fi
+.PP
+References StackRigid::capacity\&.
+.PP
+Referenced by __StackGetChecksum(), __StackRealocate(), main(), and StackDump()\&.
+.SS "\fBStackRigidState\fP StackValidate (\fBStackRigid\fP * stack)"
+
+.PP
+Perform all stack checks: checksums, general constrains\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstack\fP Stack to be validated 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+calculated state 
+.RE
+.PP
+
+.PP
+.nf
+141                                                  {
+142     #ifdef DEBUGSPEED
+143         clock_t start = clock();
+144     #endif
+145     
+146     if (stack == NULL)
+147         return STACK_ST_NULL;
+148     
+149     if (stack->size > stack->capacity || stack->checkSum == 0 || stack->checkSumVital == 0)
+150         return STACK_ST_INTEGRITYERR;
+151     
+152     uint32_t currentChecksumVital = __StackGetChecksumVital(stack);
+153     if (currentChecksumVital != stack->checkSumVital || currentChecksumVital == 0)
+154         return STACK_ST_INTEGRITYERR;
+155     
+156     uint32_t currentChecksum = __StackGetChecksum(stack);
+157     if (currentChecksum != stack->checkSum || currentChecksum == 0)
+158         return STACK_ST_INTEGRITYERR;
+159     
+160     #ifdef DEBUGSPEED
+161         clock_t end = clock();
+162         double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
+163         StackRigidAvgTimes[1] = StackRigidAvgTimes[1] * (movingAverageBetta) + elapsed * (1 - movingAverageBetta);
+164     #endif
+165     return STACK_ST_OK;
+166 }
+.fi
+.PP
+References __StackGetChecksum(), __StackGetChecksumVital(), StackRigid::capacity, StackRigid::checkSum, StackRigid::checkSumVital, movingAverageBetta, StackRigid::size, STACK_ST_INTEGRITYERR, STACK_ST_NULL, STACK_ST_OK, and StackRigidAvgTimes\&.
+.PP
+Referenced by main(), StackBack(), StackDump(), StackPop(), and StackPush()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const double movingAverageBetta = 0\&.85"
+
+.PP
+Referenced by __StackRealocate(), __StackUpdateChecksum(), StackPop(), StackPush(), and StackValidate()\&.
+.SS "double StackRigidAvgTimes[5] = {}"
+
+.PP
+Referenced by __StackRealocate(), __StackUpdateChecksum(), main(), StackPop(), StackPush(), and StackValidate()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for StackRigid from the source code\&.

@@ -1,0 +1,1562 @@
+\hypertarget{main_8c}{}\doxysection{Onegin\+Sortv2/main.c File Reference}
+\label{main_8c}\index{OneginSortv2/main.c@{OneginSortv2/main.c}}
+
+
+Created by Александр Дремов on 28.\+08.\+2020.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}}
+\item 
+struct \mbox{\hyperlink{structstring}{string}}
+\begin{DoxyCompactList}\small\item\em Used to store char$\ast$ and its len so that computations are more effective. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} \mbox{\hyperlink{main_8c_a9283990307c3b89049895dc41a0a842e}{Sorted\+Lines\+Container}}
+\item 
+typedef struct \mbox{\hyperlink{structstring}{string}} \mbox{\hyperlink{main_8c_a63e2e3ee7db5274c6a3929edfc07c6c9}{string}}
+\begin{DoxyCompactList}\small\item\em Used to store char$\ast$ and its len so that computations are more effective. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}{adjust\+Len\+Trimming}} (\mbox{\hyperlink{structstring}{string}} $\ast$line)
+\begin{DoxyCompactList}\small\item\em Decreases line length so that to ignore trailing whitespaces and punctuation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}{allocate\+Container}} (struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this)
+\begin{DoxyCompactList}\small\item\em Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} allocate for information. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a68cc8023292b0ea3f252df3b1574c25e}{compar}} (const void $\ast$, const void $\ast$)
+\begin{DoxyCompactList}\small\item\em Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} compar for information. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_abcf15012a2fb0c1386bacef43c4daf00}{compar\+Rev}} (const void $\ast$, const void $\ast$)
+\begin{DoxyCompactList}\small\item\em Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} compar\+Rev for information. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a3ad318bf54450f731877b345b26df12b}{construct}} (struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this, const char $\ast$full\+Buffer, const size\+\_\+t length, const bool from\+End)
+\begin{DoxyCompactList}\small\item\em Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} construct for information. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a73faabe5f7cc9095e9a455f83ad1a9f3}{construct\+From\+File}} (struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this, const char $\ast$file\+Name, const bool from\+End)
+\begin{DoxyCompactList}\small\item\em Constructs \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} from file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a041889d582387b35ded6cfee002e22b4}{default\+Container}} (struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this)
+\begin{DoxyCompactList}\small\item\em Sets default values for \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}{double\+Whitespaces\+Skip}} (const \mbox{\hyperlink{structstring}{string}} $\ast$line, const char $\ast$line\+Current, short $\ast$line\+Sleep, const int modifier)
+\begin{DoxyCompactList}\small\item\em Set line\+Sleep to 1 if current position is somewhere between reacurring whitespaces. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a8b5489b599da81ac0e2b085beedd614c}{free\+Container}} (struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this)
+\begin{DoxyCompactList}\small\item\em Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} free for information. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{has\+Visible\+Content}} (const \mbox{\hyperlink{structstring}{string}} line)
+\begin{DoxyCompactList}\small\item\em Checks whether string consists only of invisible characters. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}} (char c)
+\begin{DoxyCompactList}\small\item\em Is char is visible. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8c_a29ff68694f20e04d7f0dca4a44601dba}{ispunctuation}} (char c)
+\begin{DoxyCompactList}\small\item\em Is char is punctuation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a63f981dafbd26fc68dc68db86c315829}{line\+Analyze}} (const char $\ast$line\+Current, short $\ast$inside\+Line, short $\ast$line\+Sleep)
+\begin{DoxyCompactList}\small\item\em Line analyzer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ac0f2228420376f4db7e1274f2b41667c}{main}} (int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{main_8c_a3c1234cb27a98ea870582cd8f8e16695}{multi\+Compare}} (const void $\ast$line1, const void $\ast$line2, const int from\+End)
+\begin{DoxyCompactList}\small\item\em Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{main_8c_a8847d54454fdf77f0b6f7620bb9266b6}{output\+Container}} (\mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this, F\+I\+LE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Outputs container line-\/by-\/line to the file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{main_8c_aabe4af40fbd59db06828b771441e96b4}{output\+Container\+Unsorted}} (\mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this, F\+I\+LE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Outputs container line-\/by-\/line to the file without sorting. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}{parse\+Args}} (const int argc, const char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$reversed, bool $\ast$run\+Tests, bool $\ast$ded\+Task, char $\ast$$\ast$input\+File\+Name, char $\ast$$\ast$output\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Parses arguments from command line. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8c_af383500efc2bec7f97102ebf4a9f26df}{perform\+All\+Tests}} (void)
+\begin{DoxyCompactList}\small\item\em Performs all tests and returns true if valid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}{sort\+Container}} (struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$this)
+\begin{DoxyCompactList}\small\item\em Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} sort for information. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{main_8c_a109b595a5593ef077b58be17d9bf2658}{task\+Output}} (\mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$container, F\+I\+LE $\ast$fp, const bool ded\+Task)
+\begin{DoxyCompactList}\small\item\em Outputs resulted container to the file, checking for Dedinsky mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8c_aaf1b2281e87493ca16748dcde3c28f40}{test\+Container}} (void)
+\begin{DoxyCompactList}\small\item\em Tests for \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8c_aa58284285ec8857f4c352c3fdac08770}{tests\+\_\+has\+Visible\+Content}} (void)
+\begin{DoxyCompactList}\small\item\em Tests for \mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{has\+Visible\+Content()}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_abf3e092777453bd8240103379c6046b1}{tests\+\_\+multi\+Compare}} (void)
+\begin{DoxyCompactList}\small\item\em Tests for \mbox{\hyperlink{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}{double\+Whitespaces\+Skip()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Created by Александр Дремов on 28.\+08.\+2020. 
+
+Available command line params\+: 
+\begin{DoxyParams}{Parameters}
+{\em -\/r} & sort from the end \\
+\hline
+{\em --input} & $<$filepath$>$ input file \\
+\hline
+{\em --output} & $<$filepath$>$ output file \\
+\hline
+{\em --test} & run tests before executing \\
+\hline
+{\em --dedtask} & output in Dedinsky\textquotesingle{}s task format (Dedinsky mode) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyCopyright}{Copyright}
+Copyright © 2020 alexdremov. All rights reserved. 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{main_8c_a9283990307c3b89049895dc41a0a842e}\label{main_8c_a9283990307c3b89049895dc41a0a842e}} 
+\index{main.c@{main.c}!SortedLinesContainer@{SortedLinesContainer}}
+\index{SortedLinesContainer@{SortedLinesContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SortedLinesContainer}{SortedLinesContainer}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}}}
+
+\mbox{\Hypertarget{main_8c_a63e2e3ee7db5274c6a3929edfc07c6c9}\label{main_8c_a63e2e3ee7db5274c6a3929edfc07c6c9}} 
+\index{main.c@{main.c}!string@{string}}
+\index{string@{string}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{string}{string}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structstring}{string}} \mbox{\hyperlink{structstring}{string}}}
+
+
+
+Used to store char$\ast$ and its len so that computations are more effective. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}\label{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}} 
+\index{main.c@{main.c}!adjustLenTrimming@{adjustLenTrimming}}
+\index{adjustLenTrimming@{adjustLenTrimming}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{adjustLenTrimming()}{adjustLenTrimming()}}
+{\footnotesize\ttfamily void adjust\+Len\+Trimming (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structstring}{string}} $\ast$}]{line }\end{DoxyParamCaption})}
+
+
+
+Decreases line length so that to ignore trailing whitespaces and punctuation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & \mbox{[}in + out\mbox{]} full analyzed string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 984 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{984                                      \{}
+\DoxyCodeLine{985     \textcolor{keywordtype}{char} *pos = line-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} + line-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}};}
+\DoxyCodeLine{986     \textcolor{keywordflow}{if} (line-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} == 0)}
+\DoxyCodeLine{987         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{988     pos-\/-\/;}
+\DoxyCodeLine{989     \textcolor{keywordflow}{while} (pos != line-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}) \{}
+\DoxyCodeLine{990         \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}}(*pos) \&\& !\mbox{\hyperlink{main_8c_a29ff68694f20e04d7f0dca4a44601dba}{ispunctuation}}(*pos))}
+\DoxyCodeLine{991             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{992         pos-\/-\/;}
+\DoxyCodeLine{993         line-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}-\/-\/;}
+\DoxyCodeLine{994     \}}
+\DoxyCodeLine{995 \}}
+
+\end{DoxyCode}
+
+
+References string\+::contents, isprintable(), ispunctuation(), and string\+::len.
+
+
+
+Referenced by multi\+Compare().
+
+\mbox{\Hypertarget{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}\label{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}} 
+\index{main.c@{main.c}!allocateContainer@{allocateContainer}}
+\index{allocateContainer@{allocateContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{allocateContainer()}{allocateContainer()}}
+{\footnotesize\ttfamily int allocate\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+
+
+Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} allocate for information. 
+
+
+
+Definition at line 706 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{706                                                          \{}
+\DoxyCodeLine{707     assert(\textcolor{keyword}{this} != NULL);}
+\DoxyCodeLine{708     }
+\DoxyCodeLine{709     \textcolor{keywordflow}{if} (!this-\/>lines || this-\/>linesMaxNumber == 0) \{}
+\DoxyCodeLine{710         this-\/>lines = calloc(this-\/>allocIncrement, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{711         }
+\DoxyCodeLine{712         \textcolor{keywordflow}{if} (this-\/>lines == NULL) \{}
+\DoxyCodeLine{713             printf(\textcolor{stringliteral}{"{}Failed allocating memory in allocateContainer()\(\backslash\)n"{}});}
+\DoxyCodeLine{714             this-\/>free(\textcolor{keyword}{this});}
+\DoxyCodeLine{715             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{716         \}}
+\DoxyCodeLine{717         this-\/>linesMaxNumber = this-\/>allocIncrement;}
+\DoxyCodeLine{718     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{719         \textcolor{keywordflow}{if} (this-\/>linesNumber + 1 >= this-\/>linesMaxNumber) \{}
+\DoxyCodeLine{720             this-\/>linesMaxNumber += this-\/>allocIncrement;}
+\DoxyCodeLine{721             \textcolor{keywordtype}{string} *newAllocation = realloc(this-\/>lines, this-\/>linesMaxNumber * \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{722             }
+\DoxyCodeLine{723             \textcolor{keywordflow}{if} (newAllocation == NULL) \{}
+\DoxyCodeLine{724                 printf(\textcolor{stringliteral}{"{}Failed reallocating memory in allocateContainer()\(\backslash\)n"{}});}
+\DoxyCodeLine{725                 this-\/>free(\textcolor{keyword}{this});}
+\DoxyCodeLine{726                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{727             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{728                 this-\/>lines = newAllocation;}
+\DoxyCodeLine{729             \}}
+\DoxyCodeLine{730             }
+\DoxyCodeLine{731         \}}
+\DoxyCodeLine{732     \}}
+\DoxyCodeLine{733     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{734 \}}
+
+\end{DoxyCode}
+
+
+References Sorted\+Lines\+Container\+::alloc\+Increment, Sorted\+Lines\+Container\+::free, Sorted\+Lines\+Container\+::lines, Sorted\+Lines\+Container\+::lines\+Max\+Number, and Sorted\+Lines\+Container\+::lines\+Number.
+
+
+
+Referenced by default\+Container().
+
+\mbox{\Hypertarget{main_8c_a68cc8023292b0ea3f252df3b1574c25e}\label{main_8c_a68cc8023292b0ea3f252df3b1574c25e}} 
+\index{main.c@{main.c}!compar@{compar}}
+\index{compar@{compar}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{compar()}{compar()}}
+{\footnotesize\ttfamily int compar (\begin{DoxyParamCaption}\item[{const void $\ast$}]{line1,  }\item[{const void $\ast$}]{line2 }\end{DoxyParamCaption})}
+
+
+
+Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} compar for information. 
+
+
+
+Definition at line 737 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{737                                                  \{}
+\DoxyCodeLine{738     assert(line1 != NULL);}
+\DoxyCodeLine{739     assert(line2 != NULL);}
+\DoxyCodeLine{740     assert(line1 != line2);}
+\DoxyCodeLine{741     }
+\DoxyCodeLine{742     \textcolor{keywordflow}{return} \mbox{\hyperlink{main_8c_a3c1234cb27a98ea870582cd8f8e16695}{multiCompare}}(line1, line2, 0);}
+\DoxyCodeLine{743 \}}
+
+\end{DoxyCode}
+
+
+References multi\+Compare().
+
+
+
+Referenced by default\+Container(), and sort\+Container().
+
+\mbox{\Hypertarget{main_8c_abcf15012a2fb0c1386bacef43c4daf00}\label{main_8c_abcf15012a2fb0c1386bacef43c4daf00}} 
+\index{main.c@{main.c}!comparRev@{comparRev}}
+\index{comparRev@{comparRev}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{comparRev()}{comparRev()}}
+{\footnotesize\ttfamily int compar\+Rev (\begin{DoxyParamCaption}\item[{const void $\ast$}]{line1,  }\item[{const void $\ast$}]{line2 }\end{DoxyParamCaption})}
+
+
+
+Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} compar\+Rev for information. 
+
+
+
+Definition at line 746 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{746                                                     \{}
+\DoxyCodeLine{747     assert(line1 != NULL);}
+\DoxyCodeLine{748     assert(line2 != NULL);}
+\DoxyCodeLine{749     assert(line1 != line2);}
+\DoxyCodeLine{750     }
+\DoxyCodeLine{751     \textcolor{keywordflow}{return} \mbox{\hyperlink{main_8c_a3c1234cb27a98ea870582cd8f8e16695}{multiCompare}}(line1, line2, 1);}
+\DoxyCodeLine{752 \}}
+
+\end{DoxyCode}
+
+
+References multi\+Compare().
+
+
+
+Referenced by default\+Container(), and sort\+Container().
+
+\mbox{\Hypertarget{main_8c_a3ad318bf54450f731877b345b26df12b}\label{main_8c_a3ad318bf54450f731877b345b26df12b}} 
+\index{main.c@{main.c}!construct@{construct}}
+\index{construct@{construct}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{construct()}{construct()}}
+{\footnotesize\ttfamily int construct (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{const char $\ast$}]{full\+Buffer,  }\item[{const size\+\_\+t}]{length,  }\item[{const bool}]{from\+End }\end{DoxyParamCaption})}
+
+
+
+Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} construct for information. 
+
+
+
+Definition at line 516 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{517                                                        \{}
+\DoxyCodeLine{518     assert(\textcolor{keyword}{this} != NULL);}
+\DoxyCodeLine{519     assert(fullBuffer != NULL);}
+\DoxyCodeLine{520     }
+\DoxyCodeLine{521     this-\/>fullBuffer        = calloc(length + 1, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{522     this-\/>fullBufferInitial = calloc(length + 1, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{523     \textcolor{keywordflow}{if} (!this-\/>fullBuffer) \{}
+\DoxyCodeLine{524         printf(\textcolor{stringliteral}{"{}Can't allocate space for fullBuffer in construct()\(\backslash\)n"{}});}
+\DoxyCodeLine{525         this-\/>free(\textcolor{keyword}{this});}
+\DoxyCodeLine{526         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{527     \}}
+\DoxyCodeLine{528     }
+\DoxyCodeLine{529     this-\/>fromEnd = fromEnd;}
+\DoxyCodeLine{530     }
+\DoxyCodeLine{531     \textcolor{keywordtype}{size\_t} curCounter = 0;}
+\DoxyCodeLine{532     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < length; i++) \{}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{534         this-\/>fullBuffer[i]        =}
+\DoxyCodeLine{535         this-\/>fullBufferInitial[i] = fullBuffer[i];}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537         \textcolor{keywordflow}{if} (curCounter == 0) \{}
+\DoxyCodeLine{538             this-\/>allocate(\textcolor{keyword}{this});}
+\DoxyCodeLine{539             \textcolor{keywordtype}{string} newLocated = \{(this-\/>fullBuffer + i), 0, \textcolor{keyword}{false}\};}
+\DoxyCodeLine{540             this-\/>lines[this-\/>linesNumber] = newLocated;}
+\DoxyCodeLine{541             this-\/>linesNumber += 1;}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543             curCounter++;}
+\DoxyCodeLine{544             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{545         \}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547         \textcolor{keywordflow}{if} (this-\/>fullBuffer[i] == \textcolor{charliteral}{'\(\backslash\)n'} || this-\/>fullBuffer[i] == \textcolor{charliteral}{'\(\backslash\)0'}) \{}
+\DoxyCodeLine{548             this-\/>fullBuffer[i] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{549             (this-\/>lines + this-\/>linesNumber -\/ 1)-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = curCounter;}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551             curCounter = 0;}
+\DoxyCodeLine{552             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{553         \}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555         curCounter++;}
+\DoxyCodeLine{556     \}}
+\DoxyCodeLine{557     \textcolor{keywordflow}{if} (curCounter != 0) \{}
+\DoxyCodeLine{558         (this-\/>lines + this-\/>linesNumber -\/ 1)-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = curCounter;}
+\DoxyCodeLine{559     \}}
+\DoxyCodeLine{560     this-\/>fullBuffer[length] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{561     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{562 \}}
+
+\end{DoxyCode}
+
+
+References Sorted\+Lines\+Container\+::allocate, Sorted\+Lines\+Container\+::free, Sorted\+Lines\+Container\+::from\+End, Sorted\+Lines\+Container\+::full\+Buffer, Sorted\+Lines\+Container\+::full\+Buffer\+Initial, Sorted\+Lines\+Container\+::lines, and Sorted\+Lines\+Container\+::lines\+Number.
+
+
+
+Referenced by construct\+From\+File(), main(), and test\+Container().
+
+\mbox{\Hypertarget{main_8c_a73faabe5f7cc9095e9a455f83ad1a9f3}\label{main_8c_a73faabe5f7cc9095e9a455f83ad1a9f3}} 
+\index{main.c@{main.c}!constructFromFile@{constructFromFile}}
+\index{constructFromFile@{constructFromFile}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{constructFromFile()}{constructFromFile()}}
+{\footnotesize\ttfamily int construct\+From\+File (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{const char $\ast$}]{file\+Name,  }\item[{const bool}]{from\+End }\end{DoxyParamCaption})}
+
+
+
+Constructs \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} from file. 
+
+
+
+Definition at line 565 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{565                                                                                                    \{}
+\DoxyCodeLine{566     \textcolor{keywordtype}{char} *buffer = 0;}
+\DoxyCodeLine{567     \textcolor{keywordtype}{size\_t} length = 0;}
+\DoxyCodeLine{568     FILE *fp = fopen(fileName, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{569     }
+\DoxyCodeLine{570     \textcolor{keywordflow}{if} (fp) \{}
+\DoxyCodeLine{571         fseek(fp, 0, SEEK\_END);}
+\DoxyCodeLine{572         length = (size\_t) ftell(fp);}
+\DoxyCodeLine{573         fseek(fp, 0, SEEK\_SET);}
+\DoxyCodeLine{574         buffer = calloc(length, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{575         \textcolor{keywordflow}{if} (buffer) \{}
+\DoxyCodeLine{576             fread(buffer, 1, length, fp);}
+\DoxyCodeLine{577         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{578             printf(\textcolor{stringliteral}{"{}Can't allocate memory "{}}}
+\DoxyCodeLine{579                    \textcolor{stringliteral}{"{}for buffer in constructFromFile()\(\backslash\)n"{}});}
+\DoxyCodeLine{580             free(buffer);}
+\DoxyCodeLine{581             this-\/>free(\textcolor{keyword}{this});}
+\DoxyCodeLine{582             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{583         \}}
+\DoxyCodeLine{584         fclose(fp);}
+\DoxyCodeLine{585         \textcolor{keywordtype}{size\_t} lenElements = length / \textcolor{keyword}{sizeof}(char);}
+\DoxyCodeLine{586         \textcolor{keywordtype}{size\_t} newLinesNum = 0;}
+\DoxyCodeLine{587         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < lenElements; i++)\{}
+\DoxyCodeLine{588             \textcolor{keywordflow}{if} (buffer[i] == \textcolor{charliteral}{'\(\backslash\)n'})\{}
+\DoxyCodeLine{589                 newLinesNum++;}
+\DoxyCodeLine{590             \}}
+\DoxyCodeLine{591         \}}
+\DoxyCodeLine{592         \mbox{\hyperlink{main_8c_a041889d582387b35ded6cfee002e22b4}{defaultContainer}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{593         }
+\DoxyCodeLine{594         this-\/>lines = calloc(newLinesNum + 1, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{595         this-\/>linesMaxNumber = newLinesNum + 1;}
+\DoxyCodeLine{596         }
+\DoxyCodeLine{597         \textcolor{keywordtype}{int} constructResult = this-\/>\mbox{\hyperlink{main_8c_a3ad318bf54450f731877b345b26df12b}{construct}}(\textcolor{keyword}{this}, buffer, lenElements, fromEnd);}
+\DoxyCodeLine{598         \textcolor{keywordflow}{if} (constructResult == EXIT\_FAILURE) \{}
+\DoxyCodeLine{599             printf(\textcolor{stringliteral}{"{}Failed constructing object in constructFromFile()\(\backslash\)n"{}});}
+\DoxyCodeLine{600             free(buffer);}
+\DoxyCodeLine{601             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{602         \}}
+\DoxyCodeLine{603         this-\/>sort(\textcolor{keyword}{this});}
+\DoxyCodeLine{604         free(buffer);}
+\DoxyCodeLine{605     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{606         printf(\textcolor{stringliteral}{"{}Can't open \%s for read\(\backslash\)n"{}}, fileName);}
+\DoxyCodeLine{607         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{608     \}}
+\DoxyCodeLine{609     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{610 \}}
+
+\end{DoxyCode}
+
+
+References construct(), default\+Container(), Sorted\+Lines\+Container\+::free, Sorted\+Lines\+Container\+::from\+End, Sorted\+Lines\+Container\+::lines, Sorted\+Lines\+Container\+::lines\+Max\+Number, and Sorted\+Lines\+Container\+::sort.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{main_8c_a041889d582387b35ded6cfee002e22b4}\label{main_8c_a041889d582387b35ded6cfee002e22b4}} 
+\index{main.c@{main.c}!defaultContainer@{defaultContainer}}
+\index{defaultContainer@{defaultContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{defaultContainer()}{defaultContainer()}}
+{\footnotesize\ttfamily void default\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+
+
+Sets default values for \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}}. 
+
+
+
+Definition at line 1015 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1015                                                          \{}
+\DoxyCodeLine{1016     this-\/>allocIncrement = 1024;}
+\DoxyCodeLine{1017     this-\/>linesNumber = 0;}
+\DoxyCodeLine{1018     this-\/>fromEnd = \textcolor{keyword}{false};}
+\DoxyCodeLine{1019     this-\/>linesMaxNumber = 0;}
+\DoxyCodeLine{1020     this-\/>allocate = \&\mbox{\hyperlink{main_8c_a4fa27962cf0edfd6d28256ce2eed87cc}{allocateContainer}};}
+\DoxyCodeLine{1021     this-\/>\mbox{\hyperlink{main_8c_a68cc8023292b0ea3f252df3b1574c25e}{compar}} = \&\mbox{\hyperlink{main_8c_a68cc8023292b0ea3f252df3b1574c25e}{compar}};}
+\DoxyCodeLine{1022     this-\/>\mbox{\hyperlink{main_8c_abcf15012a2fb0c1386bacef43c4daf00}{comparRev}} = \&\mbox{\hyperlink{main_8c_abcf15012a2fb0c1386bacef43c4daf00}{comparRev}};}
+\DoxyCodeLine{1023     this-\/>sort = \&\mbox{\hyperlink{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}{sortContainer}};}
+\DoxyCodeLine{1024     this-\/>free = \&\mbox{\hyperlink{main_8c_a8b5489b599da81ac0e2b085beedd614c}{freeContainer}};}
+\DoxyCodeLine{1025     this-\/>fullBuffer = NULL;}
+\DoxyCodeLine{1026     this-\/>fullBufferInitial = NULL;}
+\DoxyCodeLine{1027     this-\/>lines = NULL;}
+\DoxyCodeLine{1028 \}}
+
+\end{DoxyCode}
+
+
+References allocate\+Container(), compar(), compar\+Rev(), free\+Container(), and sort\+Container().
+
+
+
+Referenced by construct\+From\+File(), and test\+Container().
+
+\mbox{\Hypertarget{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}\label{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}} 
+\index{main.c@{main.c}!doubleWhitespacesSkip@{doubleWhitespacesSkip}}
+\index{doubleWhitespacesSkip@{doubleWhitespacesSkip}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{doubleWhitespacesSkip()}{doubleWhitespacesSkip()}}
+{\footnotesize\ttfamily void double\+Whitespaces\+Skip (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structstring}{string}} $\ast$}]{line,  }\item[{const char $\ast$}]{line\+Current,  }\item[{short $\ast$}]{line\+Sleep,  }\item[{const int}]{modifier }\end{DoxyParamCaption})}
+
+
+
+Set line\+Sleep to 1 if current position is somewhere between reacurring whitespaces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & \mbox{[}in\mbox{]} line to be checked \\
+\hline
+{\em line\+Current} & \mbox{[}in\mbox{]} current position \\
+\hline
+{\em line\+Sleep} & \mbox{[}out\mbox{]} skip this symbol? \\
+\hline
+{\em modifier} & \mbox{[}in\mbox{]} 1 or -\/1 -\/ direction of scaning (forwards or backwards) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 969 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{969                                                                                                               \{}
+\DoxyCodeLine{970     \textcolor{keywordflow}{if} (modifier > 0) \{}
+\DoxyCodeLine{971         \textcolor{keywordflow}{if} (lineCurrent >= (line-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} + 1)) \{}
+\DoxyCodeLine{972             \textcolor{keywordflow}{if} (*lineCurrent == \textcolor{charliteral}{' '} \&\& *(lineCurrent -\/ 1) == \textcolor{charliteral}{' '})}
+\DoxyCodeLine{973                 *lineSleep = 1;}
+\DoxyCodeLine{974         \}}
+\DoxyCodeLine{975     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{976         \textcolor{keywordflow}{if} (lineCurrent <= (line-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} + line-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} -\/ 1)) \{}
+\DoxyCodeLine{977             \textcolor{keywordflow}{if} (*lineCurrent == \textcolor{charliteral}{' '} \&\& *(lineCurrent + 1) == \textcolor{charliteral}{' '})}
+\DoxyCodeLine{978                 *lineSleep = 1;}
+\DoxyCodeLine{979         \}}
+\DoxyCodeLine{980     \}}
+\DoxyCodeLine{981 \}}
+
+\end{DoxyCode}
+
+
+References string\+::contents, and string\+::len.
+
+
+
+Referenced by multi\+Compare().
+
+\mbox{\Hypertarget{main_8c_a8b5489b599da81ac0e2b085beedd614c}\label{main_8c_a8b5489b599da81ac0e2b085beedd614c}} 
+\index{main.c@{main.c}!freeContainer@{freeContainer}}
+\index{freeContainer@{freeContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{freeContainer()}{freeContainer()}}
+{\footnotesize\ttfamily void free\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+
+
+Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} free for information. 
+
+
+
+Definition at line 681 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{681                                                       \{}
+\DoxyCodeLine{682     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < this-\/>linesNumber; i++) \{}
+\DoxyCodeLine{683         \textcolor{keywordflow}{if} (this-\/>lines[i].\mbox{\hyperlink{structstring_abe354a07869a3bb0ffc7e1e32bfe1730}{allocated}})}
+\DoxyCodeLine{684             free(this-\/>lines[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{685     \}}
+\DoxyCodeLine{686     \textcolor{keywordflow}{if} (this-\/>lines)}
+\DoxyCodeLine{687         free(this-\/>lines);}
+\DoxyCodeLine{688     }
+\DoxyCodeLine{689     \textcolor{keywordflow}{if} (this-\/>fullBuffer)}
+\DoxyCodeLine{690         free(this-\/>fullBuffer);}
+\DoxyCodeLine{691     }
+\DoxyCodeLine{692     \textcolor{keywordflow}{if} (this-\/>fullBufferInitial)}
+\DoxyCodeLine{693         free(this-\/>fullBufferInitial);}
+\DoxyCodeLine{694 \}}
+
+\end{DoxyCode}
+
+
+References Sorted\+Lines\+Container\+::free, Sorted\+Lines\+Container\+::full\+Buffer, Sorted\+Lines\+Container\+::full\+Buffer\+Initial, Sorted\+Lines\+Container\+::lines, and Sorted\+Lines\+Container\+::lines\+Number.
+
+
+
+Referenced by default\+Container().
+
+\mbox{\Hypertarget{main_8c_ace93612d9488e8310c391a3dc35c365b}\label{main_8c_ace93612d9488e8310c391a3dc35c365b}} 
+\index{main.c@{main.c}!hasVisibleContent@{hasVisibleContent}}
+\index{hasVisibleContent@{hasVisibleContent}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hasVisibleContent()}{hasVisibleContent()}}
+{\footnotesize\ttfamily bool has\+Visible\+Content (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structstring}{string}}}]{line }\end{DoxyParamCaption})}
+
+
+
+Checks whether string consists only of invisible characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & \mbox{[}in\mbox{]} string to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if has some visible content 
+\end{DoxyReturn}
+
+
+Definition at line 470 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{470                                           \{}
+\DoxyCodeLine{471     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < line.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}; i++)\{}
+\DoxyCodeLine{472         \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}}(line.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}[i]))\{}
+\DoxyCodeLine{473             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{474         \}}
+\DoxyCodeLine{475     \}}
+\DoxyCodeLine{476     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{477 \}}
+
+\end{DoxyCode}
+
+
+References string\+::contents, isprintable(), and string\+::len.
+
+
+
+Referenced by output\+Container(), and tests\+\_\+has\+Visible\+Content().
+
+\mbox{\Hypertarget{main_8c_a1410b6a126f12066a25a5cf2f040fb52}\label{main_8c_a1410b6a126f12066a25a5cf2f040fb52}} 
+\index{main.c@{main.c}!isprintable@{isprintable}}
+\index{isprintable@{isprintable}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{isprintable()}{isprintable()}}
+{\footnotesize\ttfamily bool isprintable (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Is char is visible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \mbox{[}in\mbox{]} char to be checked \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1031 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1031                          \{}
+\DoxyCodeLine{1032     \textcolor{keywordflow}{return} !(c == \textcolor{charliteral}{'\(\backslash\)n'} || c == \textcolor{charliteral}{'\(\backslash\)t'} || c == \textcolor{charliteral}{' '} || c == \textcolor{charliteral}{'\(\backslash\)r'} || c == \textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{1033 \}}
+
+\end{DoxyCode}
+
+
+Referenced by adjust\+Len\+Trimming(), has\+Visible\+Content(), and line\+Analyze().
+
+\mbox{\Hypertarget{main_8c_a29ff68694f20e04d7f0dca4a44601dba}\label{main_8c_a29ff68694f20e04d7f0dca4a44601dba}} 
+\index{main.c@{main.c}!ispunctuation@{ispunctuation}}
+\index{ispunctuation@{ispunctuation}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ispunctuation()}{ispunctuation()}}
+{\footnotesize\ttfamily bool ispunctuation (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Is char is punctuation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \mbox{[}in\mbox{]} char to be checked \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1036 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1036                            \{}
+\DoxyCodeLine{1037     \textcolor{keywordflow}{return} ispunct(c) || c > \textcolor{charliteral}{'z'};}
+\DoxyCodeLine{1038 \}}
+
+\end{DoxyCode}
+
+
+Referenced by adjust\+Len\+Trimming(), and line\+Analyze().
+
+\mbox{\Hypertarget{main_8c_a63f981dafbd26fc68dc68db86c315829}\label{main_8c_a63f981dafbd26fc68dc68db86c315829}} 
+\index{main.c@{main.c}!lineAnalyze@{lineAnalyze}}
+\index{lineAnalyze@{lineAnalyze}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{lineAnalyze()}{lineAnalyze()}}
+{\footnotesize\ttfamily void line\+Analyze (\begin{DoxyParamCaption}\item[{const char $\ast$}]{line\+Current,  }\item[{short $\ast$}]{inside\+Line,  }\item[{short $\ast$}]{line\+Sleep }\end{DoxyParamCaption})}
+
+
+
+Line analyzer. 
+
+Fires sleep if current symbol is not ready to be compared with something (skip this symbol) 
+\begin{DoxyParams}{Parameters}
+{\em line\+Current} & \mbox{[}in\mbox{]} line current position \\
+\hline
+{\em inside\+Line} & \mbox{[}in + out\mbox{]} whether inside line (leading whitespaces skipped) \\
+\hline
+{\em line\+Sleep} & \mbox{[}in + out\mbox{]} whether to skip current symbol \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 998 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{998                                                                                \{}
+\DoxyCodeLine{999     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}}(*lineCurrent) \&\& !*insideLine) \{}
+\DoxyCodeLine{1000         *lineSleep = 1;}
+\DoxyCodeLine{1001         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{1002     \}}
+\DoxyCodeLine{1003     \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_a1410b6a126f12066a25a5cf2f040fb52}{isprintable}}(*lineCurrent) \&\& !*insideLine) \{}
+\DoxyCodeLine{1004         *insideLine = 1;}
+\DoxyCodeLine{1005         *lineSleep = 0;}
+\DoxyCodeLine{1006     \}}
+\DoxyCodeLine{1007     \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_a29ff68694f20e04d7f0dca4a44601dba}{ispunctuation}}(*lineCurrent)) \{}
+\DoxyCodeLine{1008         *lineSleep = 1;}
+\DoxyCodeLine{1009     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{1010         *lineSleep = 0;}
+\DoxyCodeLine{1011     \}}
+\DoxyCodeLine{1012 \}}
+
+\end{DoxyCode}
+
+
+References isprintable(), and ispunctuation().
+
+
+
+Referenced by multi\+Compare().
+
+\mbox{\Hypertarget{main_8c_ac0f2228420376f4db7e1274f2b41667c}\label{main_8c_ac0f2228420376f4db7e1274f2b41667c}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 297 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297                                        \{}
+\DoxyCodeLine{298     setlocale(LC\_ALL, \textcolor{stringliteral}{"{}Russian"{}});}
+\DoxyCodeLine{299     setlocale(LC\_NUMERIC, \textcolor{stringliteral}{"{}English"{}});}
+\DoxyCodeLine{300     }
+\DoxyCodeLine{301     \textcolor{keywordtype}{bool} reversed = \textcolor{keyword}{false};}
+\DoxyCodeLine{302     \textcolor{keywordtype}{bool} runTests = \textcolor{keyword}{false};}
+\DoxyCodeLine{303     \textcolor{keywordtype}{bool} dedTask = \textcolor{keyword}{false};}
+\DoxyCodeLine{304     }
+\DoxyCodeLine{305     \textcolor{keywordtype}{char} *inputFileName = calloc(10, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{306     \textcolor{keywordtype}{char} *outputFileName = calloc(11, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{307     }
+\DoxyCodeLine{308     \textcolor{keywordflow}{if} (inputFileName == NULL || outputFileName == NULL)\{}
+\DoxyCodeLine{309         printf(\textcolor{stringliteral}{"{}Failed allocating memory\(\backslash\)n"{}});}
+\DoxyCodeLine{310         \textcolor{keywordflow}{if} (inputFileName != NULL)}
+\DoxyCodeLine{311             free(inputFileName);}
+\DoxyCodeLine{312         \textcolor{keywordflow}{if} (outputFileName != NULL)}
+\DoxyCodeLine{313             free(outputFileName);}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{315     \}}
+\DoxyCodeLine{316     strcpy(inputFileName, \textcolor{stringliteral}{"{}input.txt"{}}); \textcolor{comment}{// argv pointer}}
+\DoxyCodeLine{317     strcpy(outputFileName, \textcolor{stringliteral}{"{}output.txt"{}});}
+\DoxyCodeLine{318     }
+\DoxyCodeLine{319     \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}{parseArgs}}(argc, argv, \&reversed, \&runTests,}
+\DoxyCodeLine{320                   \&dedTask, \&inputFileName, \&outputFileName) == EXIT\_FAILURE)\{}
+\DoxyCodeLine{321         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{322     \}}
+\DoxyCodeLine{323     }
+\DoxyCodeLine{324     printf(\textcolor{stringliteral}{"{}Aleksandr Dremov\(\backslash\)n"{}}}
+\DoxyCodeLine{325            \textcolor{stringliteral}{"{}(c) 2020 all rights reserved\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{326     \textcolor{keywordflow}{if} (runTests) \{}
+\DoxyCodeLine{327         \textcolor{keywordflow}{if} (\mbox{\hyperlink{main_8c_af383500efc2bec7f97102ebf4a9f26df}{performAllTests}}()) \{}
+\DoxyCodeLine{328             printf(\textcolor{stringliteral}{"{}All tests passed\(\backslash\)n"{}});}
+\DoxyCodeLine{329         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{330             printf(\textcolor{stringliteral}{"{}Some tests failed!\(\backslash\)n"{}});}
+\DoxyCodeLine{331             free(inputFileName);}
+\DoxyCodeLine{332             free(outputFileName);}
+\DoxyCodeLine{333             \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{334         \}}
+\DoxyCodeLine{335     \}}
+\DoxyCodeLine{336     }
+\DoxyCodeLine{337     printf(\textcolor{stringliteral}{"{}Will sort \%s file and output to \%s\(\backslash\)n"{}}, inputFileName, outputFileName);}
+\DoxyCodeLine{338     \textcolor{keywordflow}{if} (!dedTask)}
+\DoxyCodeLine{339         printf(\textcolor{stringliteral}{"{}Is sort from the end: \%s\(\backslash\)n"{}}, (reversed) ? \textcolor{stringliteral}{"{}true"{}} : \textcolor{stringliteral}{"{}false"{}});}
+\DoxyCodeLine{340     }
+\DoxyCodeLine{341     \mbox{\hyperlink{structSortedLinesContainer}{SortedLinesContainer}} container = \{ \&\mbox{\hyperlink{main_8c_a3ad318bf54450f731877b345b26df12b}{construct}} \};}
+\DoxyCodeLine{342     }
+\DoxyCodeLine{343     \textcolor{keywordtype}{int} constructResult = \mbox{\hyperlink{main_8c_a73faabe5f7cc9095e9a455f83ad1a9f3}{constructFromFile}}(\&container, inputFileName, reversed);}
+\DoxyCodeLine{344     \textcolor{keywordflow}{if} (constructResult == EXIT\_FAILURE) \{}
+\DoxyCodeLine{345         printf(\textcolor{stringliteral}{"{}Failed constructFromFile()\(\backslash\)n"{}});}
+\DoxyCodeLine{346         free(inputFileName);}
+\DoxyCodeLine{347         free(outputFileName);}
+\DoxyCodeLine{348         container.\mbox{\hyperlink{structSortedLinesContainer_a9e25395b1003ab70af0ebb71dd2f4cef}{free}}(\&container);}
+\DoxyCodeLine{349         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{350     \}}
+\DoxyCodeLine{351     }
+\DoxyCodeLine{352     FILE *fp = fopen(outputFileName, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{353     \textcolor{keywordflow}{if} (fp == NULL)\{}
+\DoxyCodeLine{354         printf(\textcolor{stringliteral}{"{}Cant open \%s for output\(\backslash\)n"{}}, outputFileName);}
+\DoxyCodeLine{355         free(inputFileName);}
+\DoxyCodeLine{356         free(outputFileName);}
+\DoxyCodeLine{357         container.\mbox{\hyperlink{structSortedLinesContainer_a9e25395b1003ab70af0ebb71dd2f4cef}{free}}(\&container);}
+\DoxyCodeLine{358         \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{359     \}}
+\DoxyCodeLine{360     \textcolor{keywordtype}{size\_t} linesWrote = \mbox{\hyperlink{main_8c_a109b595a5593ef077b58be17d9bf2658}{taskOutput}}(\&container, fp, dedTask);}
+\DoxyCodeLine{361     }
+\DoxyCodeLine{362     fclose(fp);}
+\DoxyCodeLine{363     free(inputFileName);}
+\DoxyCodeLine{364     free(outputFileName);}
+\DoxyCodeLine{365     container.\mbox{\hyperlink{structSortedLinesContainer_a9e25395b1003ab70af0ebb71dd2f4cef}{free}}(\&container);}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367     \textcolor{keywordflow}{return} (linesWrote == 0)? EXIT\_FAILURE : EXIT\_SUCCESS;}
+\DoxyCodeLine{368 \}}
+
+\end{DoxyCode}
+
+
+References construct(), construct\+From\+File(), Sorted\+Lines\+Container\+::free, parse\+Args(), perform\+All\+Tests(), and task\+Output().
+
+\mbox{\Hypertarget{main_8c_a3c1234cb27a98ea870582cd8f8e16695}\label{main_8c_a3c1234cb27a98ea870582cd8f8e16695}} 
+\index{main.c@{main.c}!multiCompare@{multiCompare}}
+\index{multiCompare@{multiCompare}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{multiCompare()}{multiCompare()}}
+{\footnotesize\ttfamily int multi\+Compare (\begin{DoxyParamCaption}\item[{const void $\ast$}]{line1,  }\item[{const void $\ast$}]{line2,  }\item[{const int}]{from\+End }\end{DoxyParamCaption})}
+
+
+
+Compare strings lexicographically, removing punctuation, trimming unprintable, and removing double whitespaces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line1} & \mbox{[}in\mbox{]} first line \\
+\hline
+{\em line2} & \mbox{[}in\mbox{]} second line \\
+\hline
+{\em from\+End} & \mbox{[}in\mbox{]} whether to compare from the end \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 754 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{754                                                                           \{}
+\DoxyCodeLine{755     \textcolor{keywordtype}{string} *line1String = (\textcolor{keyword}{struct }\mbox{\hyperlink{structstring}{string}} *) line1;}
+\DoxyCodeLine{756     \textcolor{keywordtype}{string} *line2String = (\textcolor{keyword}{struct }\mbox{\hyperlink{structstring}{string}} *) line2;}
+\DoxyCodeLine{757     }
+\DoxyCodeLine{758     \textcolor{comment}{// Strings are not copied. Just a reference with different length}}
+\DoxyCodeLine{759     \textcolor{keywordtype}{string} tmpString1 = \{line1String-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}, line1String-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}, line1String-\/>\mbox{\hyperlink{structstring_abe354a07869a3bb0ffc7e1e32bfe1730}{allocated}}\};}
+\DoxyCodeLine{760     \textcolor{keywordtype}{string} tmpString2 = \{line2String-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}, line2String-\/>\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}, line2String-\/>\mbox{\hyperlink{structstring_abe354a07869a3bb0ffc7e1e32bfe1730}{allocated}}\};}
+\DoxyCodeLine{761     }
+\DoxyCodeLine{762     \mbox{\hyperlink{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}{adjustLenTrimming}}(\&tmpString1);}
+\DoxyCodeLine{763     \mbox{\hyperlink{main_8c_a279162a5d3b191e393ad6cf6ebc1da19}{adjustLenTrimming}}(\&tmpString2);}
+\DoxyCodeLine{764     }
+\DoxyCodeLine{765     \textcolor{keywordtype}{char} *line1Current = line1String-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}};}
+\DoxyCodeLine{766     \textcolor{keywordtype}{char} *line2Current = line2String-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}};}
+\DoxyCodeLine{767     }
+\DoxyCodeLine{768     \textcolor{keywordtype}{short} insideLine1 = 0, insideLine2 = 0;}
+\DoxyCodeLine{769     \textcolor{keywordtype}{short} line1Ended = 0, line2Ended = 0;}
+\DoxyCodeLine{770     \textcolor{keywordtype}{short} line1Sleep = 1, line2Sleep = 1;}
+\DoxyCodeLine{771     }
+\DoxyCodeLine{772     \textcolor{keywordtype}{short} line1Cyr = 1, line2Cyr = 1;}
+\DoxyCodeLine{773     }
+\DoxyCodeLine{774     \textcolor{keywordtype}{short} \textcolor{keywordtype}{int} modifier = 1;}
+\DoxyCodeLine{775     \textcolor{keywordflow}{if} (fromEnd) \{}
+\DoxyCodeLine{776         modifier = -\/1;}
+\DoxyCodeLine{777         line1Current += tmpString1.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}};}
+\DoxyCodeLine{778         \textcolor{keywordflow}{if} (tmpString1.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} != 0)}
+\DoxyCodeLine{779             line1Current -\/= 1;}
+\DoxyCodeLine{780         }
+\DoxyCodeLine{781         line2Current += tmpString2.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}};}
+\DoxyCodeLine{782         \textcolor{keywordflow}{if} (tmpString2.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} != 0)}
+\DoxyCodeLine{783             line2Current -\/= 1;}
+\DoxyCodeLine{784     \}}
+\DoxyCodeLine{785     }
+\DoxyCodeLine{786     \textcolor{keywordflow}{while} (1) \{}
+\DoxyCodeLine{787         \textcolor{keywordflow}{if} (line1Current < tmpString1.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}})\{}
+\DoxyCodeLine{788             line1Ended = 1;}
+\DoxyCodeLine{789             line1Sleep = 1;}
+\DoxyCodeLine{790         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*line1Current == \textcolor{charliteral}{'\(\backslash\)0'} || line1Ended || line1Current >= tmpString1.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} + tmpString1.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}) \{}
+\DoxyCodeLine{791             line1Ended = 1;}
+\DoxyCodeLine{792             line1Sleep = 1;}
+\DoxyCodeLine{793         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{794             \mbox{\hyperlink{main_8c_a63f981dafbd26fc68dc68db86c315829}{lineAnalyze}}(line1Current, \&insideLine1, \&line1Sleep);}
+\DoxyCodeLine{795             \mbox{\hyperlink{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}{doubleWhitespacesSkip}}(\&tmpString1, line1Current, \&line1Sleep, modifier);}
+\DoxyCodeLine{796         \}}
+\DoxyCodeLine{797         }
+\DoxyCodeLine{798         \textcolor{keywordflow}{if} (line2Current < tmpString2.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}})\{}
+\DoxyCodeLine{799             line2Ended = 1;}
+\DoxyCodeLine{800             line2Sleep = 1;}
+\DoxyCodeLine{801         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*line2Current == \textcolor{charliteral}{'\(\backslash\)0'} || line2Ended || line2Current >= tmpString2.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} + tmpString2.\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}) \{}
+\DoxyCodeLine{802             line2Ended = 1;}
+\DoxyCodeLine{803             line2Sleep = 1;}
+\DoxyCodeLine{804         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{805             \mbox{\hyperlink{main_8c_a63f981dafbd26fc68dc68db86c315829}{lineAnalyze}}(line2Current, \&insideLine2, \&line2Sleep);}
+\DoxyCodeLine{806             \mbox{\hyperlink{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}{doubleWhitespacesSkip}}(\&tmpString2, line2Current, \&line2Sleep, modifier);}
+\DoxyCodeLine{807         \}}
+\DoxyCodeLine{808         }
+\DoxyCodeLine{809         \textcolor{comment}{// define}}
+\DoxyCodeLine{810         }
+\DoxyCodeLine{811         line1Cyr = 0;}
+\DoxyCodeLine{812         line2Cyr = 0;}
+\DoxyCodeLine{813         \textcolor{keywordflow}{if} (modifier == -\/1)\{}
+\DoxyCodeLine{814             \textcolor{keywordflow}{if} (line1Current > tmpString1.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} \&\& line1Sleep == 0)\{}
+\DoxyCodeLine{815                 \textcolor{keywordflow}{if} (*(line1Current -\/ 1) == -\/47 || *(line1Current -\/ 1) == -\/48)\{}
+\DoxyCodeLine{816                     line1Cyr = 1;}
+\DoxyCodeLine{817                 \}}
+\DoxyCodeLine{818             \}}
+\DoxyCodeLine{819             }
+\DoxyCodeLine{820             \textcolor{keywordflow}{if} (line2Current > tmpString2.\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}} \&\& line2Sleep == 0)\{}
+\DoxyCodeLine{821                 \textcolor{keywordflow}{if} (*(line2Current -\/ 1) == -\/47 || *(line2Current -\/ 1) == -\/48)\{}
+\DoxyCodeLine{822                     line2Cyr = 1;}
+\DoxyCodeLine{823                 \}}
+\DoxyCodeLine{824             \}}
+\DoxyCodeLine{825             }
+\DoxyCodeLine{826             \textcolor{keywordflow}{if} (line1Cyr == 1 \&\& line2Cyr == 1)\{}
+\DoxyCodeLine{827                 \textcolor{comment}{// Two bytes of first cyr letter}}
+\DoxyCodeLine{828                 \textcolor{keywordtype}{int} a1 = *(line1Current -\/ 1);}
+\DoxyCodeLine{829                 \textcolor{keywordtype}{int} a2 = *line1Current;}
+\DoxyCodeLine{830                 }
+\DoxyCodeLine{831                 \textcolor{comment}{// Two bytes of second cyr letter}}
+\DoxyCodeLine{832                 \textcolor{keywordtype}{int} b1 = *(line2Current -\/ 1);}
+\DoxyCodeLine{833                 \textcolor{keywordtype}{int} b2 = *(line2Current);}
+\DoxyCodeLine{834                 \textcolor{keywordtype}{int} retVal = a2 + 1000 * a1  -\/ (b2 + 1000 * b1);}
+\DoxyCodeLine{835                 \textcolor{keywordflow}{if} (retVal == 0)\{}
+\DoxyCodeLine{836                     line1Current += modifier * 2;}
+\DoxyCodeLine{837                     line2Current += modifier * 2;}
+\DoxyCodeLine{838                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{839                 \}}
+\DoxyCodeLine{840                 \textcolor{keywordflow}{return} retVal;}
+\DoxyCodeLine{841             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (line1Cyr == 1 \&\& line2Cyr == 0)\{}
+\DoxyCodeLine{842                 \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{843             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (line1Cyr == 0 \&\& line2Cyr == 1)\{}
+\DoxyCodeLine{844                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{845             \}}
+\DoxyCodeLine{846         \}}
+\DoxyCodeLine{847         }
+\DoxyCodeLine{848         \textcolor{keywordflow}{if} (line1Ended == 1 || line2Ended == 1)}
+\DoxyCodeLine{849             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{850         }
+\DoxyCodeLine{851         \textcolor{keywordflow}{if} (line1Sleep == 1 \&\& line2Sleep == 0) \{}
+\DoxyCodeLine{852             line1Current += modifier;}
+\DoxyCodeLine{853         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (line1Sleep == 0 \&\& line2Sleep == 1) \{}
+\DoxyCodeLine{854             line2Current += modifier;}
+\DoxyCodeLine{855         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (line1Sleep == 1 \&\& line2Sleep == 1) \{}
+\DoxyCodeLine{856             line1Current += modifier;}
+\DoxyCodeLine{857             line2Current += modifier;}
+\DoxyCodeLine{858         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{859             \textcolor{keywordflow}{if} (*line1Current == *line2Current) \{}
+\DoxyCodeLine{860                 line1Current += modifier;}
+\DoxyCodeLine{861                 line2Current += modifier;}
+\DoxyCodeLine{862                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{863             \}}
+\DoxyCodeLine{864             \textcolor{keywordflow}{return} *line1Current -\/ *line2Current;}
+\DoxyCodeLine{865         \}}
+\DoxyCodeLine{866         \textcolor{keywordflow}{if} (modifier == -\/1 \&\& line1Current == line1String-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}) \{}
+\DoxyCodeLine{867             line1Ended = 1;}
+\DoxyCodeLine{868             line1Sleep = 1;}
+\DoxyCodeLine{869         \}}
+\DoxyCodeLine{870         \textcolor{keywordflow}{if} (modifier == -\/1 \&\& line2Current == line2String-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}) \{}
+\DoxyCodeLine{871             line1Ended = 1;}
+\DoxyCodeLine{872             line1Sleep = 1;}
+\DoxyCodeLine{873         \}}
+\DoxyCodeLine{874     \}}
+\DoxyCodeLine{875     \textcolor{keywordflow}{if} (line1Ended == line2Ended)}
+\DoxyCodeLine{876         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{877     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{878         \textcolor{keywordflow}{return} line1Ended -\/ line2Ended;}
+\DoxyCodeLine{879     \}}
+\DoxyCodeLine{880 \}}
+
+\end{DoxyCode}
+
+
+References adjust\+Len\+Trimming(), string\+::allocated, string\+::contents, double\+Whitespaces\+Skip(), string\+::len, and line\+Analyze().
+
+
+
+Referenced by compar(), compar\+Rev(), and tests\+\_\+multi\+Compare().
+
+\mbox{\Hypertarget{main_8c_a8847d54454fdf77f0b6f7620bb9266b6}\label{main_8c_a8847d54454fdf77f0b6f7620bb9266b6}} 
+\index{main.c@{main.c}!outputContainer@{outputContainer}}
+\index{outputContainer@{outputContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{outputContainer()}{outputContainer()}}
+{\footnotesize\ttfamily size\+\_\+t output\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+Outputs container line-\/by-\/line to the file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in\mbox{]} container \\
+\hline
+{\em fp} & \mbox{[}in\mbox{]} file pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of lines written 
+\end{DoxyReturn}
+
+
+Definition at line 1041 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1041                                                              \{}
+\DoxyCodeLine{1042     assert(\textcolor{keyword}{this} != NULL);}
+\DoxyCodeLine{1043     \textcolor{keywordflow}{if} (fp == NULL) \{}
+\DoxyCodeLine{1044         printf(\textcolor{stringliteral}{"{}Could not open file for output\(\backslash\)n"{}});}
+\DoxyCodeLine{1045         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{1046     \}}
+\DoxyCodeLine{1047     }
+\DoxyCodeLine{1048     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < this-\/>linesNumber; i++) \{}
+\DoxyCodeLine{1049         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{hasVisibleContent}}(*(this-\/>lines + i)))}
+\DoxyCodeLine{1050             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{1051         fputs((this-\/>lines + i)-\/>\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}, fp);}
+\DoxyCodeLine{1052         fputs(\textcolor{stringliteral}{"{}\(\backslash\)n"{}}, fp);}
+\DoxyCodeLine{1053     \}}
+\DoxyCodeLine{1054     }
+\DoxyCodeLine{1055     \textcolor{keywordflow}{return} this-\/>linesNumber;}
+\DoxyCodeLine{1056 \}}
+
+\end{DoxyCode}
+
+
+References string\+::contents, and has\+Visible\+Content().
+
+
+
+Referenced by task\+Output().
+
+\mbox{\Hypertarget{main_8c_aabe4af40fbd59db06828b771441e96b4}\label{main_8c_aabe4af40fbd59db06828b771441e96b4}} 
+\index{main.c@{main.c}!outputContainerUnsorted@{outputContainerUnsorted}}
+\index{outputContainerUnsorted@{outputContainerUnsorted}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{outputContainerUnsorted()}{outputContainerUnsorted()}}
+{\footnotesize\ttfamily size\+\_\+t output\+Container\+Unsorted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+Outputs container line-\/by-\/line to the file without sorting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & \mbox{[}in\mbox{]} container \\
+\hline
+{\em fp} & \mbox{[}in\mbox{]} file pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 -\/ success, 1 -\/ error 
+\end{DoxyReturn}
+
+
+Definition at line 1058 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1058                                                                      \{}
+\DoxyCodeLine{1059     assert(\textcolor{keyword}{this} != NULL);}
+\DoxyCodeLine{1060     \textcolor{keywordflow}{if} (fp == NULL) \{}
+\DoxyCodeLine{1061         printf(\textcolor{stringliteral}{"{}Could not open file for output\(\backslash\)n"{}});}
+\DoxyCodeLine{1062         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{1063     \}}
+\DoxyCodeLine{1064     fprintf(fp, \textcolor{stringliteral}{"{}\%s"{}}, this-\/>fullBufferInitial);}
+\DoxyCodeLine{1065     }
+\DoxyCodeLine{1066     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{1067 \}}
+
+\end{DoxyCode}
+
+
+Referenced by task\+Output().
+
+\mbox{\Hypertarget{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}\label{main_8c_aac5ac6a4ed25763c8b6f5a09733aa6d4}} 
+\index{main.c@{main.c}!parseArgs@{parseArgs}}
+\index{parseArgs@{parseArgs}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{parseArgs()}{parseArgs()}}
+{\footnotesize\ttfamily int parse\+Args (\begin{DoxyParamCaption}\item[{const int}]{argc,  }\item[{const char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{reversed,  }\item[{bool $\ast$}]{run\+Tests,  }\item[{bool $\ast$}]{ded\+Task,  }\item[{char $\ast$$\ast$}]{input\+File\+Name,  }\item[{char $\ast$$\ast$}]{output\+File\+Name }\end{DoxyParamCaption})}
+
+
+
+Parses arguments from command line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \mbox{[}in\mbox{]} arguments count \\
+\hline
+{\em argv} & \mbox{[}in\mbox{]} arguments strings \\
+\hline
+{\em reversed} & \mbox{[}out\mbox{]} sort from end or not \\
+\hline
+{\em run\+Tests} & \mbox{[}out\mbox{]} run unit tests or not \\
+\hline
+{\em ded\+Task} & \mbox{[}out\mbox{]} Dedinsky mode flag \\
+\hline
+{\em input\+File\+Name} & \mbox{[}out\mbox{]} input file name \\
+\hline
+{\em output\+File\+Name} & \mbox{[}out\mbox{]} outputfile name \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 400 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{401                                                                           \{}
+\DoxyCodeLine{402     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < argc; i++) \{}
+\DoxyCodeLine{403         \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/r"{}}, argv[i]) == 0) \{}
+\DoxyCodeLine{404             *reversed = \textcolor{keyword}{true};}
+\DoxyCodeLine{405             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{406         \}}
+\DoxyCodeLine{407         }
+\DoxyCodeLine{408         \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/-\/dedtask"{}}, argv[i]) == 0) \{}
+\DoxyCodeLine{409             *dedTask = \textcolor{keyword}{true};}
+\DoxyCodeLine{410             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{411         \}}
+\DoxyCodeLine{412         }
+\DoxyCodeLine{413         \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/-\/test"{}}, argv[i]) == 0) \{}
+\DoxyCodeLine{414             *runTests = \textcolor{keyword}{true};}
+\DoxyCodeLine{415             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{416         \}}
+\DoxyCodeLine{417         }
+\DoxyCodeLine{418         \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/-\/output"{}}, argv[i]) == 0) \{}
+\DoxyCodeLine{419             i++;}
+\DoxyCodeLine{420             \textcolor{keywordflow}{if} (i >= argc)\{}
+\DoxyCodeLine{421                 printf(\textcolor{stringliteral}{"{}Not found output file name.\(\backslash\)n"{}}}
+\DoxyCodeLine{422                        \textcolor{stringliteral}{"{}Please, provide filename after -\/-\/output flag\(\backslash\)n"{}});}
+\DoxyCodeLine{423                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{424             \}}
+\DoxyCodeLine{425             \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = strlen(argv[i]);}
+\DoxyCodeLine{426             \textcolor{keywordtype}{char} *outputFileNameNew = realloc(*outputFileName, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} + 1));}
+\DoxyCodeLine{427             \textcolor{keywordflow}{if} (outputFileNameNew == NULL) \{}
+\DoxyCodeLine{428                 printf(\textcolor{stringliteral}{"{}Can't realloc memory for output file name\(\backslash\)n"{}});}
+\DoxyCodeLine{429                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{430             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{431                 *outputFileName = outputFileNameNew;}
+\DoxyCodeLine{432             \}}
+\DoxyCodeLine{433             strcpy(*outputFileName, argv[i]);}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{436         \}}
+\DoxyCodeLine{437         \textcolor{keywordflow}{if} (strcmp(\textcolor{stringliteral}{"{}-\/-\/input"{}}, argv[i]) == 0) \{}
+\DoxyCodeLine{438             i++;}
+\DoxyCodeLine{439             \textcolor{keywordflow}{if} (i >= argc)\{}
+\DoxyCodeLine{440                 printf(\textcolor{stringliteral}{"{}Not found input file name.\(\backslash\)n"{}}}
+\DoxyCodeLine{441                        \textcolor{stringliteral}{"{}Please, provide filename after -\/-\/input flag\(\backslash\)n"{}});}
+\DoxyCodeLine{442                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{443             \}}
+\DoxyCodeLine{444             \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = strlen(argv[i]);}
+\DoxyCodeLine{445             }
+\DoxyCodeLine{446             \textcolor{keywordtype}{char} *inputFileNameNew = realloc(*inputFileName, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}) * (\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} + 1));}
+\DoxyCodeLine{447             \textcolor{keywordflow}{if} (inputFileNameNew == NULL) \{}
+\DoxyCodeLine{448                 printf(\textcolor{stringliteral}{"{}Can't realloc memory for input file name\(\backslash\)n"{}});}
+\DoxyCodeLine{449                 \textcolor{keywordflow}{return} EXIT\_FAILURE;}
+\DoxyCodeLine{450             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{451                 *inputFileName = inputFileNameNew;}
+\DoxyCodeLine{452             \}}
+\DoxyCodeLine{453             }
+\DoxyCodeLine{454             strcpy(*inputFileName, argv[i]);}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{457         \}}
+\DoxyCodeLine{458     \}}
+\DoxyCodeLine{459     \textcolor{keywordflow}{return} EXIT\_SUCCESS;}
+\DoxyCodeLine{460 \}}
+
+\end{DoxyCode}
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{main_8c_af383500efc2bec7f97102ebf4a9f26df}\label{main_8c_af383500efc2bec7f97102ebf4a9f26df}} 
+\index{main.c@{main.c}!performAllTests@{performAllTests}}
+\index{performAllTests@{performAllTests}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{performAllTests()}{performAllTests()}}
+{\footnotesize\ttfamily bool perform\+All\+Tests (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Performs all tests and returns true if valid. 
+
+\begin{DoxyReturn}{Returns}
+success 
+\end{DoxyReturn}
+
+
+Definition at line 463 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{463                        \{}
+\DoxyCodeLine{464     \textcolor{keywordflow}{return} \mbox{\hyperlink{main_8c_abf3e092777453bd8240103379c6046b1}{tests\_multiCompare}}()      \&\&}
+\DoxyCodeLine{465            \mbox{\hyperlink{main_8c_aa58284285ec8857f4c352c3fdac08770}{tests\_hasVisibleContent}}() \&\&}
+\DoxyCodeLine{466            \mbox{\hyperlink{main_8c_aaf1b2281e87493ca16748dcde3c28f40}{testContainer}}();}
+\DoxyCodeLine{467 \}}
+
+\end{DoxyCode}
+
+
+References test\+Container(), tests\+\_\+has\+Visible\+Content(), and tests\+\_\+multi\+Compare().
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}\label{main_8c_a9df39c8c56d2f12a9ecb84e59062e662}} 
+\index{main.c@{main.c}!sortContainer@{sortContainer}}
+\index{sortContainer@{sortContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{sortContainer()}{sortContainer()}}
+{\footnotesize\ttfamily void sort\+Container (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+
+
+Check \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} sort for information. 
+
+
+
+Definition at line 697 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{697                                                       \{}
+\DoxyCodeLine{698     \textcolor{keywordflow}{if} (!this-\/>fromEnd) \{}
+\DoxyCodeLine{699         qsort(this-\/>lines, this-\/>linesNumber, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}), this-\/>\mbox{\hyperlink{main_8c_a68cc8023292b0ea3f252df3b1574c25e}{compar}});}
+\DoxyCodeLine{700     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{701         qsort(this-\/>lines, this-\/>linesNumber, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}), this-\/>\mbox{\hyperlink{main_8c_abcf15012a2fb0c1386bacef43c4daf00}{comparRev}});}
+\DoxyCodeLine{702     \}}
+\DoxyCodeLine{703 \}}
+
+\end{DoxyCode}
+
+
+References compar(), compar\+Rev(), Sorted\+Lines\+Container\+::from\+End, Sorted\+Lines\+Container\+::lines, and Sorted\+Lines\+Container\+::lines\+Number.
+
+
+
+Referenced by default\+Container().
+
+\mbox{\Hypertarget{main_8c_a109b595a5593ef077b58be17d9bf2658}\label{main_8c_a109b595a5593ef077b58be17d9bf2658}} 
+\index{main.c@{main.c}!taskOutput@{taskOutput}}
+\index{taskOutput@{taskOutput}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{taskOutput()}{taskOutput()}}
+{\footnotesize\ttfamily size\+\_\+t task\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}} $\ast$}]{container,  }\item[{F\+I\+LE $\ast$}]{fp,  }\item[{const bool}]{ded\+Task }\end{DoxyParamCaption})}
+
+
+
+Outputs resulted container to the file, checking for Dedinsky mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em container} & \mbox{[}in\mbox{]}, in Dedinsky mode\+: \mbox{[}in+out\mbox{]} container to be used \\
+\hline
+{\em fp} & \mbox{[}in\mbox{]} file pointer \\
+\hline
+{\em ded\+Task} & \mbox{[}in\mbox{]} whether Dedinsky mode was specified \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 371 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{371                                                                                 \{}
+\DoxyCodeLine{372     \textcolor{keywordtype}{size\_t} linesWrote = 0;}
+\DoxyCodeLine{373     \textcolor{keywordflow}{if} (dedTask)\{}
+\DoxyCodeLine{374         printf(\textcolor{stringliteral}{"{}\(\backslash\)nMEOW! You activated Dedinsky mode.\(\backslash\)}}
+\DoxyCodeLine{375 \textcolor{stringliteral}{               \(\backslash\)nFasten your seatbelts, please.\(\backslash\)n"{}});}
+\DoxyCodeLine{376         printf(\textcolor{stringliteral}{"{}\(\backslash\)}}
+\DoxyCodeLine{377 \textcolor{stringliteral}{         \_                \_\_\_       \_.-\/-\/.\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{378 \textcolor{stringliteral}{         \(\backslash\)\(\backslash\)`.|\(\backslash\)\(\backslash\)..-\/-\/-\/-\/...-\/'`   `-\/.\_.-\/'\_.-\/'`\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{379 \textcolor{stringliteral}{         /  ' `         ,       \_\_.-\/-\/'\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{380 \textcolor{stringliteral}{         )/' \_/     \(\backslash\)\(\backslash\)   `-\/\_,   /\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{381 \textcolor{stringliteral}{         `-\/'\(\backslash\)"{} `\(\backslash\)"{}\(\backslash\)\(\backslash\)\_  ,\_.-\/;\_.-\/\(\backslash\)\(\backslash\)\_  \(\backslash\)\(\backslash\)\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{382 \textcolor{stringliteral}{             \_.-\/'\_./   \{\_.'   ; /\(\backslash\)n\(\backslash\)}}
+\DoxyCodeLine{383 \textcolor{stringliteral}{            \{\_.-\/-\/-\/'          \{\_/\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{384         fprintf(fp, \textcolor{stringliteral}{"{}=== Unsorted container ===\(\backslash\)n"{}});}
+\DoxyCodeLine{385         \mbox{\hyperlink{main_8c_aabe4af40fbd59db06828b771441e96b4}{outputContainerUnsorted}}(container, fp);}
+\DoxyCodeLine{386         container-\/>\mbox{\hyperlink{structSortedLinesContainer_a33d68c9a6bfed4e6387faf71057cf3f8}{fromEnd}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{387         fprintf(fp, \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n=== Sorted container ===\(\backslash\)n"{}});}
+\DoxyCodeLine{388         linesWrote += \mbox{\hyperlink{main_8c_a8847d54454fdf77f0b6f7620bb9266b6}{outputContainer}}(container, fp);}
+\DoxyCodeLine{389         container-\/>\mbox{\hyperlink{structSortedLinesContainer_a33d68c9a6bfed4e6387faf71057cf3f8}{fromEnd}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{390         container-\/>\mbox{\hyperlink{structSortedLinesContainer_af66298867c020f84e23b42c83c55bb05}{sort}}(container);}
+\DoxyCodeLine{391         fprintf(fp, \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n=== Sorted from the end container ===\(\backslash\)n"{}});}
+\DoxyCodeLine{392         linesWrote += \mbox{\hyperlink{main_8c_a8847d54454fdf77f0b6f7620bb9266b6}{outputContainer}}(container, fp);}
+\DoxyCodeLine{393     \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{394         linesWrote = \mbox{\hyperlink{main_8c_a8847d54454fdf77f0b6f7620bb9266b6}{outputContainer}}(container, fp);}
+\DoxyCodeLine{395     \}}
+\DoxyCodeLine{396     \textcolor{keywordflow}{return} linesWrote;}
+\DoxyCodeLine{397 \}}
+
+\end{DoxyCode}
+
+
+References Sorted\+Lines\+Container\+::from\+End, output\+Container(), output\+Container\+Unsorted(), and Sorted\+Lines\+Container\+::sort.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{main_8c_aaf1b2281e87493ca16748dcde3c28f40}\label{main_8c_aaf1b2281e87493ca16748dcde3c28f40}} 
+\index{main.c@{main.c}!testContainer@{testContainer}}
+\index{testContainer@{testContainer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{testContainer()}{testContainer()}}
+{\footnotesize\ttfamily bool test\+Container (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests for \mbox{\hyperlink{structSortedLinesContainer}{Sorted\+Lines\+Container}}. 
+
+\begin{DoxyReturn}{Returns}
+success 
+\end{DoxyReturn}
+
+
+Definition at line 613 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{613                      \{}
+\DoxyCodeLine{614     }
+\DoxyCodeLine{615     \textcolor{keywordtype}{string} input[] = \{}
+\DoxyCodeLine{616         \{\textcolor{stringliteral}{"{}"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{617         \{\textcolor{stringliteral}{"{}b\(\backslash\)na\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{618         \{\textcolor{stringliteral}{"{}b\(\backslash\)naa\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{619         \{\textcolor{stringliteral}{"{}"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{620         \{\textcolor{stringliteral}{"{}a"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{621         \{\textcolor{stringliteral}{"{}aba\(\backslash\)naaa"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{622         \{\textcolor{stringliteral}{"{}aca\(\backslash\)na-\/ba"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{623         \{\textcolor{stringliteral}{"{}aba\(\backslash\)naba\(\backslash\)n   !aaa"{}}, 0, \textcolor{keyword}{false}\}}
+\DoxyCodeLine{624     \};}
+\DoxyCodeLine{625     }
+\DoxyCodeLine{626     \textcolor{keywordtype}{string} output[] = \{}
+\DoxyCodeLine{627         \{\textcolor{stringliteral}{"{}"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{628         \{\textcolor{stringliteral}{"{}a\(\backslash\)nb\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{629         \{\textcolor{stringliteral}{"{}aa\(\backslash\)nb\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{630         \{\textcolor{stringliteral}{"{}"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{631         \{\textcolor{stringliteral}{"{}a\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{632         \{\textcolor{stringliteral}{"{}aaa\(\backslash\)naba\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{633         \{\textcolor{stringliteral}{"{}a-\/ba\(\backslash\)naca\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{634         \{\textcolor{stringliteral}{"{}   !aaa\(\backslash\)naba\(\backslash\)naba\(\backslash\)n"{}}, 0, \textcolor{keyword}{false}\}}
+\DoxyCodeLine{635     \};}
+\DoxyCodeLine{636     }
+\DoxyCodeLine{637     assert(\textcolor{keyword}{sizeof}(output) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}) == \textcolor{keyword}{sizeof}(input) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{638     }
+\DoxyCodeLine{639     \textcolor{keywordtype}{bool} valid = \textcolor{keyword}{true};}
+\DoxyCodeLine{640     }
+\DoxyCodeLine{641     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < \textcolor{keyword}{sizeof}(output) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}); i++)\{}
+\DoxyCodeLine{642         input[i].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}  = strlen(input[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{643         output[i].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = strlen(output[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{644         }
+\DoxyCodeLine{645         \textcolor{keywordtype}{size\_t} curPos = 0;}
+\DoxyCodeLine{646         \textcolor{keywordtype}{char} *tmpStringOutput = calloc(output[i].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} * 2 + 1, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{647         }
+\DoxyCodeLine{648         \mbox{\hyperlink{structSortedLinesContainer}{SortedLinesContainer}} container = \{\};}
+\DoxyCodeLine{649         \mbox{\hyperlink{main_8c_a041889d582387b35ded6cfee002e22b4}{defaultContainer}}(\&container);}
+\DoxyCodeLine{650         container.\mbox{\hyperlink{structSortedLinesContainer_a199db621554f5e542d2b30a6541c2af0}{construct}} = \&\mbox{\hyperlink{main_8c_a3ad318bf54450f731877b345b26df12b}{construct}};}
+\DoxyCodeLine{651         container.\mbox{\hyperlink{structSortedLinesContainer_a199db621554f5e542d2b30a6541c2af0}{construct}}(\&container, input[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}, input[i].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{652         }
+\DoxyCodeLine{653         container.\mbox{\hyperlink{structSortedLinesContainer_af66298867c020f84e23b42c83c55bb05}{sort}}(\&container);}
+\DoxyCodeLine{654         }
+\DoxyCodeLine{655         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < container.\mbox{\hyperlink{structSortedLinesContainer_a33fcda1c0db12711818a248a7cebc22c}{linesNumber}}; j++)\{}
+\DoxyCodeLine{656             strcpy(tmpStringOutput + curPos, container.\mbox{\hyperlink{structSortedLinesContainer_ac760eb237929eba1a129615c2f9dd627}{lines}}[j].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{657             tmpStringOutput[curPos + container.\mbox{\hyperlink{structSortedLinesContainer_ac760eb237929eba1a129615c2f9dd627}{lines}}[j].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}}] = \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{658             curPos += container.\mbox{\hyperlink{structSortedLinesContainer_ac760eb237929eba1a129615c2f9dd627}{lines}}[j].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} + 1;}
+\DoxyCodeLine{659         \}}
+\DoxyCodeLine{660         tmpStringOutput[curPos] = \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{661         \textcolor{keywordflow}{if} (strcmp(tmpStringOutput, output[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}}) != 0)\{}
+\DoxyCodeLine{662             printf(\textcolor{stringliteral}{"{}Integration test \#(\%lu) failure\(\backslash\)n"{}}}
+\DoxyCodeLine{663                    \textcolor{stringliteral}{"{}Expected:\(\backslash\)n|||\(\backslash\)n"{}}, i + 1);}
+\DoxyCodeLine{664             printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, output[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{665             printf(\textcolor{stringliteral}{"{}|||\(\backslash\)n"{}});}
+\DoxyCodeLine{666             printf(\textcolor{stringliteral}{"{}Received:\(\backslash\)n"{}}}
+\DoxyCodeLine{667                    \textcolor{stringliteral}{"{}|||\(\backslash\)n"{}});}
+\DoxyCodeLine{668             printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}}, tmpStringOutput);}
+\DoxyCodeLine{669             printf(\textcolor{stringliteral}{"{}|||\(\backslash\)n"{}});}
+\DoxyCodeLine{670             valid = \textcolor{keyword}{false};}
+\DoxyCodeLine{671         \}}
+\DoxyCodeLine{672         }
+\DoxyCodeLine{673         container.\mbox{\hyperlink{structSortedLinesContainer_a9e25395b1003ab70af0ebb71dd2f4cef}{free}}(\&container);}
+\DoxyCodeLine{674         }
+\DoxyCodeLine{675         free(tmpStringOutput);}
+\DoxyCodeLine{676     \}}
+\DoxyCodeLine{677     \textcolor{keywordflow}{return} valid;}
+\DoxyCodeLine{678 \}}
+
+\end{DoxyCode}
+
+
+References construct(), Sorted\+Lines\+Container\+::construct, string\+::contents, default\+Container(), Sorted\+Lines\+Container\+::free, string\+::len, Sorted\+Lines\+Container\+::lines, Sorted\+Lines\+Container\+::lines\+Number, and Sorted\+Lines\+Container\+::sort.
+
+
+
+Referenced by perform\+All\+Tests().
+
+\mbox{\Hypertarget{main_8c_aa58284285ec8857f4c352c3fdac08770}\label{main_8c_aa58284285ec8857f4c352c3fdac08770}} 
+\index{main.c@{main.c}!tests\_hasVisibleContent@{tests\_hasVisibleContent}}
+\index{tests\_hasVisibleContent@{tests\_hasVisibleContent}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tests\_hasVisibleContent()}{tests\_hasVisibleContent()}}
+{\footnotesize\ttfamily bool tests\+\_\+has\+Visible\+Content (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests for \mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{has\+Visible\+Content()}}. 
+
+\begin{DoxyReturn}{Returns}
+if valid 
+\end{DoxyReturn}
+
+
+Definition at line 480 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{480                               \{}
+\DoxyCodeLine{481     \textcolor{keywordtype}{string} inputs[] = \{}
+\DoxyCodeLine{482         \{\textcolor{stringliteral}{"{} "{}},   1, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{483         \{\textcolor{stringliteral}{"{}"{}},    0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{484         \{\textcolor{stringliteral}{"{}asd"{}}, 3, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{485         \{\textcolor{stringliteral}{"{}a"{}},   1, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{486         \{\textcolor{stringliteral}{"{}\(\backslash\)n"{}},  1, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{487         \{\textcolor{stringliteral}{"{}\(\backslash\)0"{}},  1, \textcolor{keyword}{false}\}}
+\DoxyCodeLine{488     \};}
+\DoxyCodeLine{489     }
+\DoxyCodeLine{490     \textcolor{keywordtype}{bool} outputs[] = \{}
+\DoxyCodeLine{491         \textcolor{keyword}{false},}
+\DoxyCodeLine{492         \textcolor{keyword}{false},}
+\DoxyCodeLine{493         \textcolor{keyword}{true},}
+\DoxyCodeLine{494         \textcolor{keyword}{true},}
+\DoxyCodeLine{495         \textcolor{keyword}{false},}
+\DoxyCodeLine{496         \textcolor{keyword}{false}}
+\DoxyCodeLine{497     \};}
+\DoxyCodeLine{498     }
+\DoxyCodeLine{499     assert(\textcolor{keyword}{sizeof}(outputs)/\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{bool}) == \textcolor{keyword}{sizeof}(inputs)/\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{500     }
+\DoxyCodeLine{501     \textcolor{keywordtype}{int} totalNumber = \textcolor{keyword}{sizeof}(outputs)/\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{502     \textcolor{keywordtype}{bool} valid = \textcolor{keyword}{true};}
+\DoxyCodeLine{503     }
+\DoxyCodeLine{504     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i<totalNumber; i++) \{}
+\DoxyCodeLine{505         \textcolor{keywordtype}{bool} actualOutput = \mbox{\hyperlink{main_8c_ace93612d9488e8310c391a3dc35c365b}{hasVisibleContent}}(inputs[i]);}
+\DoxyCodeLine{506         \textcolor{keywordflow}{if} (!(actualOutput == outputs[i])) \{}
+\DoxyCodeLine{507             printf(\textcolor{stringliteral}{"{}Failed hasVisibleContent test \#(\%d) \%d!=\%d\(\backslash\)n"{}}, i+1, actualOutput, outputs[i]);}
+\DoxyCodeLine{508             valid = \textcolor{keyword}{false};}
+\DoxyCodeLine{509         \}}
+\DoxyCodeLine{510     \}}
+\DoxyCodeLine{511     }
+\DoxyCodeLine{512     \textcolor{keywordflow}{return} valid;}
+\DoxyCodeLine{513 \}}
+
+\end{DoxyCode}
+
+
+References has\+Visible\+Content().
+
+
+
+Referenced by perform\+All\+Tests().
+
+\mbox{\Hypertarget{main_8c_abf3e092777453bd8240103379c6046b1}\label{main_8c_abf3e092777453bd8240103379c6046b1}} 
+\index{main.c@{main.c}!tests\_multiCompare@{tests\_multiCompare}}
+\index{tests\_multiCompare@{tests\_multiCompare}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tests\_multiCompare()}{tests\_multiCompare()}}
+{\footnotesize\ttfamily int tests\+\_\+multi\+Compare (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Tests for \mbox{\hyperlink{main_8c_ae24bf70d6e394ac8181c4bdb28c72321}{double\+Whitespaces\+Skip()}} 
+
+
+
+Definition at line 883 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{883                              \{}
+\DoxyCodeLine{884     \textcolor{keywordtype}{string} inputs1[] = \{}
+\DoxyCodeLine{885         \{\textcolor{stringliteral}{"{}"{}},       0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{886         \{\textcolor{stringliteral}{"{} "{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{887         \{\textcolor{stringliteral}{"{}   a"{}},   0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{888         \{\textcolor{stringliteral}{"{}   a  "{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{889         \{\textcolor{stringliteral}{"{}b"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{890         \{\textcolor{stringliteral}{"{}\(\backslash\)"{}b"{}},    0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{891         \{\textcolor{stringliteral}{"{}a-\/ba"{}},   0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{892         \{\textcolor{stringliteral}{"{}a      b    a"{}}, 0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{893         \{\textcolor{stringliteral}{"{}a"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{894         \{\textcolor{stringliteral}{"{}а"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{895         \{\textcolor{stringliteral}{"{}а-\/"{}},     0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{896         \{\textcolor{stringliteral}{"{}а-\/а-\/"{}},   0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{897         \{\textcolor{stringliteral}{"{}ба"{}},     0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{898     \};}
+\DoxyCodeLine{899     \textcolor{keywordtype}{string} inputs2[] = \{}
+\DoxyCodeLine{900         \{\textcolor{stringliteral}{"{}"{}},       0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{901         \{\textcolor{stringliteral}{"{} "{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{902         \{\textcolor{stringliteral}{"{}a"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{903         \{\textcolor{stringliteral}{"{}a"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{904         \{\textcolor{stringliteral}{"{}a"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{905         \{\textcolor{stringliteral}{"{}b"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{906         \{\textcolor{stringliteral}{"{}aba"{}},    0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{907         \{\textcolor{stringliteral}{"{}a b a"{}},  0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{908         \{\textcolor{stringliteral}{"{}z"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{909         \{\textcolor{stringliteral}{"{}я"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{910         \{\textcolor{stringliteral}{"{}а"{}},      0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{911         \{\textcolor{stringliteral}{"{}а-\/а-\/"{}},   0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{912         \{\textcolor{stringliteral}{"{}аб"{}},     0, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{913     \};}
+\DoxyCodeLine{914     }
+\DoxyCodeLine{915     \textcolor{keywordtype}{bool} fromEnd[] = \{}
+\DoxyCodeLine{916         \textcolor{keyword}{false},}
+\DoxyCodeLine{917         \textcolor{keyword}{false},}
+\DoxyCodeLine{918         \textcolor{keyword}{false},}
+\DoxyCodeLine{919         \textcolor{keyword}{false},}
+\DoxyCodeLine{920         \textcolor{keyword}{false},}
+\DoxyCodeLine{921         \textcolor{keyword}{false},}
+\DoxyCodeLine{922         \textcolor{keyword}{false},}
+\DoxyCodeLine{923         \textcolor{keyword}{false},}
+\DoxyCodeLine{924         \textcolor{keyword}{false},}
+\DoxyCodeLine{925         \textcolor{keyword}{false},}
+\DoxyCodeLine{926         \textcolor{keyword}{true},}
+\DoxyCodeLine{927         \textcolor{keyword}{true},}
+\DoxyCodeLine{928         \textcolor{keyword}{true},}
+\DoxyCodeLine{929     \};}
+\DoxyCodeLine{930     }
+\DoxyCodeLine{931     \textcolor{keywordtype}{int} outputs[] = \{}
+\DoxyCodeLine{932         0,}
+\DoxyCodeLine{933         0,}
+\DoxyCodeLine{934         0,}
+\DoxyCodeLine{935         0,}
+\DoxyCodeLine{936         1,}
+\DoxyCodeLine{937         0,}
+\DoxyCodeLine{938         0,}
+\DoxyCodeLine{939         0,}
+\DoxyCodeLine{940         -\/1,}
+\DoxyCodeLine{941         -\/1,}
+\DoxyCodeLine{942         0,}
+\DoxyCodeLine{943         0,}
+\DoxyCodeLine{944         -\/1}
+\DoxyCodeLine{945     \};}
+\DoxyCodeLine{946     }
+\DoxyCodeLine{947     assert(\textcolor{keyword}{sizeof}(outputs) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})    == \textcolor{keyword}{sizeof}(inputs1) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}) \&\&}
+\DoxyCodeLine{948            \textcolor{keyword}{sizeof}(inputs1) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}) == \textcolor{keyword}{sizeof}(inputs2) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}) \&\&}
+\DoxyCodeLine{949            \textcolor{keyword}{sizeof}(fromEnd) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{bool})   == \textcolor{keyword}{sizeof}(inputs2) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{string}));}
+\DoxyCodeLine{950     }
+\DoxyCodeLine{951     \textcolor{keywordtype}{int} totalNumber = \textcolor{keyword}{sizeof}(outputs) / \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{952     \textcolor{keywordtype}{bool} valid = \textcolor{keyword}{true};}
+\DoxyCodeLine{953     }
+\DoxyCodeLine{954     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < totalNumber; i++) \{}
+\DoxyCodeLine{955         inputs1[i].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = strlen(inputs1[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{956         inputs2[i].\mbox{\hyperlink{structstring_aa6bcf0353fd5cf2f374a9b1dd0e4a73a}{len}} = strlen(inputs2[i].\mbox{\hyperlink{structstring_af307778cac3a77c4e4af663bdbc90736}{contents}});}
+\DoxyCodeLine{957         \textcolor{keywordtype}{int} actualOutput = \mbox{\hyperlink{main_8c_a3c1234cb27a98ea870582cd8f8e16695}{multiCompare}}(\&inputs1[i], \&inputs2[i], fromEnd[i]);}
+\DoxyCodeLine{958         \textcolor{keywordflow}{if} (!((actualOutput == outputs[i] \&\& outputs[i] == 0) || (outputs[i] > 0 \&\& actualOutput > 0) ||}
+\DoxyCodeLine{959               (outputs[i] < 0 \&\& actualOutput < 0))) \{}
+\DoxyCodeLine{960             printf(\textcolor{stringliteral}{"{}Failed tests\_multiCompare test \#(\%d) \%d !\string~ \%d\(\backslash\)n"{}}, i + 1, actualOutput, outputs[i]);}
+\DoxyCodeLine{961             valid = \textcolor{keyword}{false};}
+\DoxyCodeLine{962         \}}
+\DoxyCodeLine{963     \}}
+\DoxyCodeLine{964     }
+\DoxyCodeLine{965     \textcolor{keywordflow}{return} valid;}
+\DoxyCodeLine{966 \}}
+
+\end{DoxyCode}
+
+
+References string\+::contents, string\+::len, and multi\+Compare().
+
+
+
+Referenced by perform\+All\+Tests().
+

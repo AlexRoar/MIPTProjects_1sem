@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>StackRigid</title>
+    <briefdescription>
+<para>This Stack is almost impossible to kill and fool. All undefined behaviour memory accesses will be spoted and reported. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This Stack is almost impossible to kill and fool. All undefined behaviour memory accesses will be spoted and reported. <simplesect kind="author"><para>Aleksandr Dremov </para>
+</simplesect>
+<simplesect kind="copyright"><para>Aleksandr Dremov, MIPT 2020 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

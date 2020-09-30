@@ -1,0 +1,840 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="StackRigid_8h" kind="file" language="C++">
+    <compoundname>StackRigid.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes local="no">time.h</includes>
+    <includedby refid="main_8cpp" local="yes">/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp</includedby>
+    <includedby refid="StackRigid_8cpp" local="yes">/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h</label>
+        <link refid="StackRigid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>time.h</label>
+      </node>
+      <node id="3">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h</label>
+        <link refid="StackRigid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp</label>
+        <link refid="StackRigid_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039" prot="public" static="no" strong="no">
+        <type></type>
+        <name>StackRigidOperationCodes</name>
+        <enumvalue id="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" prot="public">
+          <name>STACK_OP_OK</name>
+          <briefdescription>
+<para>Succesful operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c" prot="public">
+          <name>STACK_OP_UNDERFLOW</name>
+          <briefdescription>
+<para>Tried to get value from the empty stack. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283" prot="public">
+          <name>STACK_OP_OVERFLOW</name>
+          <briefdescription>
+<para>Stack overflow and new memory allocation failed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d" prot="public">
+          <name>STACK_OP_NOMEMORY</name>
+          <briefdescription>
+<para>No memory for stack alocations. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" prot="public">
+          <name>STACK_OP_INTEGRITYERR</name>
+          <briefdescription>
+<para>Stack memory was altered by some outer access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" prot="public">
+          <name>STACK_OP_NULL</name>
+          <briefdescription>
+<para>Found NULL pointer during the operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Codes returned after operations on Stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="31" column="1" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" bodystart="31" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="enum" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>StackRigidState</name>
+        <enumvalue id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" prot="public">
+          <name>STACK_ST_OK</name>
+          <briefdescription>
+<para>Stack is running as expected. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" prot="public">
+          <name>STACK_ST_INTEGRITYERR</name>
+          <briefdescription>
+<para>Stack was altered by some outer access. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58" prot="public">
+          <name>STACK_ST_UNINITIALIZED</name>
+          <briefdescription>
+<para>Stack is uninitialized. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb" prot="public">
+          <name>STACK_ST_NULL</name>
+          <briefdescription>
+<para>Found NULL pointer during the operation. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Codes characterizing Stack state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="62" column="1" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" bodystart="62" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" prot="public" static="no">
+        <type>int</type>
+        <definition>typedef int StackElementType</definition>
+        <argsstring></argsstring>
+        <name>StackElementType</name>
+        <briefdescription>
+<para>Element type to be used in Stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="20" column="13" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="StackRigid_8h_1ac5d0efeed13c8b47552928dc34ac2d9a" prot="public" static="no">
+        <type>struct <ref refid="structStackRigid" kindref="compound">StackRigid</ref></type>
+        <definition>typedef struct StackRigid StackRigid</definition>
+        <argsstring></argsstring>
+        <name>StackRigid</name>
+        <briefdescription>
+<para>The main structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>There&apos;s no definition in the header file in order to block direct parameters access </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="20" column="13" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="StackRigid_8h_1a2b23b57ad918293ba96140fc43194967" prot="public" static="no">
+        <type>enum <ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
+        <definition>typedef enum StackRigidOperationCodes StackRigidOperationCodes</definition>
+        <argsstring></argsstring>
+        <name>StackRigidOperationCodes</name>
+        <briefdescription>
+<para>Codes returned after operations on Stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="56" column="26"/>
+      </memberdef>
+      <memberdef kind="typedef" id="StackRigid_8h_1acc74b48b41d3ec38cb05184b602c7508" prot="public" static="no">
+        <type>enum <ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref></type>
+        <definition>typedef enum StackRigidState StackRigidState</definition>
+        <argsstring></argsstring>
+        <name>StackRigidState</name>
+        <briefdescription>
+<para>Codes characterizing Stack state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="79" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+        <definition>StackRigid* NewStackRigid</definition>
+        <argsstring>(const size_t capacity, FILE *logFile)</argsstring>
+        <name>NewStackRigid</name>
+        <param>
+          <type>const size_t</type>
+          <declname>capacity</declname>
+        </param>
+        <param>
+          <type>FILE *</type>
+          <declname>logFile</declname>
+        </param>
+        <briefdescription>
+<para>Create new stack with pre-defined capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">capacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>initial stack capacity. Set to 0 if yo want the stack to adopt automaticaly. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">logFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>file for logging </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>new stack pointer </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="88" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="37" bodyend="51" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="88" declcolumn="12"/>
+        <references refid="StackRigid_8cpp_1ae84aef62fb8899daab9e6dc06d8cf93d" compoundref="StackRigid_8cpp" startline="169" endline="185">__StackUpdateChecksum</references>
+        <references refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" compoundref="StackRigid_8cpp" startline="30">StackRigid::capacity</references>
+        <references refid="structStackRigid_1a86ac04a9e0b2f56ade748fedfd139a3e" compoundref="StackRigid_8cpp" startline="28">StackRigid::checkSum</references>
+        <references refid="structStackRigid_1a0578d16af9c23c9ae00bf29b1c13cafd" compoundref="StackRigid_8cpp" startline="29">StackRigid::checkSumVital</references>
+        <references refid="structStackRigid_1aa7c68e49e3f2171045533e2684ae2748" compoundref="StackRigid_8cpp" startline="32">StackRigid::logFile</references>
+        <references refid="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" compoundref="StackRigid_8cpp" startline="31">StackRigid::size</references>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref></type>
+        <definition>StackRigidState StackValidate</definition>
+        <argsstring>(StackRigid *stack)</argsstring>
+        <name>StackValidate</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Perform all stack checks: checksums, general constrains. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be validated </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>calculated state </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="96" column="17" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="141" bodyend="166" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="96" declcolumn="17"/>
+        <references refid="StackRigid_8cpp_1a648682514d2a2e415c30454757b70eaa" compoundref="StackRigid_8cpp" startline="201" endline="213">__StackGetChecksum</references>
+        <references refid="StackRigid_8cpp_1a709f63f68d921770a9c220e88af2dcd2" compoundref="StackRigid_8cpp" startline="188" endline="198">__StackGetChecksumVital</references>
+        <references refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" compoundref="StackRigid_8cpp" startline="30">StackRigid::capacity</references>
+        <references refid="structStackRigid_1a86ac04a9e0b2f56ade748fedfd139a3e" compoundref="StackRigid_8cpp" startline="28">StackRigid::checkSum</references>
+        <references refid="structStackRigid_1a0578d16af9c23c9ae00bf29b1c13cafd" compoundref="StackRigid_8cpp" startline="29">StackRigid::checkSumVital</references>
+        <references refid="StackRigid_8cpp_1a7e3b350174ff88dacd94c1c37149cdc5" compoundref="StackRigid_8cpp" startline="22">movingAverageBetta</references>
+        <references refid="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" compoundref="StackRigid_8cpp" startline="31">StackRigid::size</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="70">STACK_ST_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb" compoundref="StackRigid_8h" startline="78">STACK_ST_NULL</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" compoundref="StackRigid_8h" startline="66">STACK_ST_OK</references>
+        <references refid="StackRigid_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" compoundref="StackRigid_8cpp" startline="123" endline="138">StackBack</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+        <referencedby refid="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" compoundref="StackRigid_8cpp" startline="90" endline="120">StackPop</referencedby>
+        <referencedby refid="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38" compoundref="StackRigid_8cpp" startline="54" endline="87">StackPush</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
+        <definition>StackRigidOperationCodes StackPush</definition>
+        <argsstring>(StackRigid **stack, StackElementType value)</argsstring>
+        <name>StackPush</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> **</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Push the value to the stack The operation can perform realocations if there is not enough space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be changed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value to be pushed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the outcome of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="106" column="26" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="54" bodyend="87" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="106" declcolumn="26"/>
+        <references refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</references>
+        <references refid="StackRigid_8cpp_1ae84aef62fb8899daab9e6dc06d8cf93d" compoundref="StackRigid_8cpp" startline="169" endline="185">__StackUpdateChecksum</references>
+        <references refid="StackRigid_8cpp_1a7e3b350174ff88dacd94c1c37149cdc5" compoundref="StackRigid_8cpp" startline="22">movingAverageBetta</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" compoundref="StackRigid_8h" startline="51">STACK_OP_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" compoundref="StackRigid_8h" startline="55">STACK_OP_NULL</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" compoundref="StackRigid_8h" startline="35">STACK_OP_OK</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283" compoundref="StackRigid_8h" startline="43">STACK_OP_OVERFLOW</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" compoundref="StackRigid_8h" startline="66">STACK_ST_OK</references>
+        <references refid="StackRigid_8cpp_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</references>
+        <references refid="StackRigid_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
+        <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
+        <definition>StackRigidOperationCodes StackPop</definition>
+        <argsstring>(StackRigid **stack, StackElementType *value)</argsstring>
+        <name>StackPop</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> **</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pop value from the end of the stack The operation can perform realocations if there is too much space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be distructed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>value to be pushed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the outcome of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="116" column="26" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="90" bodyend="120" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="116" declcolumn="26"/>
+        <references refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</references>
+        <references refid="StackRigid_8cpp_1ae84aef62fb8899daab9e6dc06d8cf93d" compoundref="StackRigid_8cpp" startline="169" endline="185">__StackUpdateChecksum</references>
+        <references refid="StackRigid_8cpp_1a7e3b350174ff88dacd94c1c37149cdc5" compoundref="StackRigid_8cpp" startline="22">movingAverageBetta</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" compoundref="StackRigid_8h" startline="51">STACK_OP_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" compoundref="StackRigid_8h" startline="55">STACK_OP_NULL</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" compoundref="StackRigid_8h" startline="35">STACK_OP_OK</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c" compoundref="StackRigid_8h" startline="39">STACK_OP_UNDERFLOW</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" compoundref="StackRigid_8h" startline="66">STACK_ST_OK</references>
+        <references refid="StackRigid_8cpp_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</references>
+        <references refid="StackRigid_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
+        <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a660dd8200124031484d0c9dd596130d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
+        <definition>StackRigidOperationCodes StackDestruct</definition>
+        <argsstring>(StackRigid **stack)</argsstring>
+        <name>StackDestruct</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> **</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Free stack memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be distructed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the outcome of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="124" column="26" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="365" bodyend="374" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="124" declcolumn="26"/>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" compoundref="StackRigid_8h" startline="55">STACK_OP_NULL</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" compoundref="StackRigid_8h" startline="35">STACK_OP_OK</references>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
+        <definition>StackRigidOperationCodes StackBack</definition>
+        <argsstring>(StackRigid *stack, StackElementType *value)</argsstring>
+        <name>StackBack</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Free stack memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be used </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the outcome of the operation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="132" column="26" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="123" bodyend="138" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="132" declcolumn="26"/>
+        <references refid="structStackRigid_1a6150250d0c10519886570165597ba510" compoundref="StackRigid_8cpp" startline="33">StackRigid::data</references>
+        <references refid="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" compoundref="StackRigid_8cpp" startline="31">StackRigid::size</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" compoundref="StackRigid_8h" startline="51">STACK_OP_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" compoundref="StackRigid_8h" startline="55">STACK_OP_NULL</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" compoundref="StackRigid_8h" startline="35">STACK_OP_OK</references>
+        <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c" compoundref="StackRigid_8h" startline="39">STACK_OP_UNDERFLOW</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" compoundref="StackRigid_8h" startline="66">STACK_ST_OK</references>
+        <references refid="StackRigid_8cpp_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</references>
+        <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StackDump</definition>
+        <argsstring>(StackRigid *stack)</argsstring>
+        <name>StackDump</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Dumps debug information about the stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be dumped </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="139" column="6" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="297" bodyend="363" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="139" declcolumn="6"/>
+        <references refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" compoundref="StackRigid_8cpp" startline="30">StackRigid::capacity</references>
+        <references refid="structStackRigid_1a86ac04a9e0b2f56ade748fedfd139a3e" compoundref="StackRigid_8cpp" startline="28">StackRigid::checkSum</references>
+        <references refid="structStackRigid_1a6150250d0c10519886570165597ba510" compoundref="StackRigid_8cpp" startline="33">StackRigid::data</references>
+        <references refid="structStackRigid_1aa7c68e49e3f2171045533e2684ae2748" compoundref="StackRigid_8cpp" startline="32">StackRigid::logFile</references>
+        <references refid="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" compoundref="StackRigid_8cpp" startline="31">StackRigid::size</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="70">STACK_ST_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb" compoundref="StackRigid_8h" startline="78">STACK_ST_NULL</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" compoundref="StackRigid_8h" startline="66">STACK_ST_OK</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58" compoundref="StackRigid_8h" startline="74">STACK_ST_UNINITIALIZED</references>
+        <references refid="StackRigid_8cpp_1aeff826357c5b8892871d9972ecfaf24a" compoundref="StackRigid_8cpp" startline="291" endline="294">StackRigidMemoryUse</references>
+        <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
+        <referencedby refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" compoundref="StackRigid_8cpp" startline="123" endline="138">StackBack</referencedby>
+        <referencedby refid="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" compoundref="StackRigid_8cpp" startline="90" endline="120">StackPop</referencedby>
+        <referencedby refid="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38" compoundref="StackRigid_8cpp" startline="54" endline="87">StackPush</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1aeff826357c5b8892871d9972ecfaf24a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t StackRigidMemoryUse</definition>
+        <argsstring>(StackRigid *stack)</argsstring>
+        <name>StackRigidMemoryUse</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Memory alocated for the Stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be checked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>alocated bytes </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="147" column="8" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="291" bodyend="294" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="147" declcolumn="8"/>
+        <references refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" compoundref="StackRigid_8cpp" startline="30">StackRigid::capacity</references>
+        <referencedby refid="StackRigid_8cpp_1a648682514d2a2e415c30454757b70eaa" compoundref="StackRigid_8cpp" startline="201" endline="213">__StackGetChecksum</referencedby>
+        <referencedby refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1ae84aef62fb8899daab9e6dc06d8cf93d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void __StackUpdateChecksum</definition>
+        <argsstring>(StackRigid *stack)</argsstring>
+        <name>__StackUpdateChecksum</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Not for the manual use! <verbatim>* Stack memory :  [ __stack area__ | value 1, value 2, ..., value n || ___garbage area___]
+* ____________________________________________________________________^ alterations in this area are not checked
+* </verbatim> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack that checksums are needed to be updated </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="159" column="13" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="159" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a648682514d2a2e415c30454757b70eaa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t __StackGetChecksum</definition>
+        <argsstring>(StackRigid *stack)</argsstring>
+        <name>__StackGetChecksum</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Claculates big Stack checksum. Uses Adler-32 method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Not for the manual use! <verbatim>* Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
+* ________________from here ^__________________________________________________________^to here
+* </verbatim> </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack that checksums are needed to be updated </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="171" column="17" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="171" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a709f63f68d921770a9c220e88af2dcd2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t __StackGetChecksumVital</definition>
+        <argsstring>(StackRigid *stack)</argsstring>
+        <name>__StackGetChecksumVital</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> *</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+<para>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary because <ref refid="StackRigid_8h_1a648682514d2a2e415c30454757b70eaa" kindref="member">__StackGetChecksum()</ref> relies on capacity and size. If they were changed, behaviour is undefined. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Not for the manual use!</para>
+</simplesect>
+<verbatim>* Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
+* ______________________________from here ^__________________^to here
+* </verbatim> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack that checksums are needed to be updated </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="185" column="17" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="185" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a0566d9c52c7de00974ab803970351069" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
+        <definition>static StackRigidOperationCodes __StackRealocate</definition>
+        <argsstring>(StackRigid **stack, short int direction)</argsstring>
+        <name>__StackRealocate</name>
+        <param>
+          <type><ref refid="structStackRigid" kindref="compound">StackRigid</ref> **</type>
+          <declname>stack</declname>
+        </param>
+        <param>
+          <type>short int</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Realocates Stack if needed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Not for the manual use! </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Stack to be realocated </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which direction realocations are available. &gt; 0 -&gt; expand space if needed, &lt; 0 -&gt; shrink space if needed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="194" column="33" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="194" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>static uint32_t adlerChecksum</definition>
+        <argsstring>(const void *firstBlock, size_t len)</argsstring>
+        <name>adlerChecksum</name>
+        <param>
+          <type>const void *</type>
+          <declname>firstBlock</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Calculates Adler-32 checksum from the firstBlock to the firstBlock + len. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Not for the manual use! </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">firstBlock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>first block to include to the checksum </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>length of byte sequence </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>checksum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="204" column="17" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="204" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#ifndef<sp/>StackRigid_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>StackRigid_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="StackRigid_8h_1ac5d0efeed13c8b47552928dc34ac2d9a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structStackRigid" kindref="compound">StackRigid</ref><sp/><ref refid="structStackRigid" kindref="compound">StackRigid</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref>{</highlight></codeline>
+<codeline lineno="35" refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" kindref="member">STACK_OP_OK</ref>,</highlight></codeline>
+<codeline lineno="39" refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c" kindref="member">STACK_OP_UNDERFLOW</ref>,</highlight></codeline>
+<codeline lineno="43" refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283" kindref="member">STACK_OP_OVERFLOW</ref>,</highlight></codeline>
+<codeline lineno="47" refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d" kindref="member">STACK_OP_NOMEMORY</ref>,</highlight></codeline>
+<codeline lineno="51" refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" kindref="member">STACK_OP_INTEGRITYERR</ref>,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" kindref="member">STACK_OP_NULL</ref></highlight></codeline>
+<codeline lineno="56" refid="StackRigid_8h_1a2b23b57ad918293ba96140fc43194967" refkind="member"><highlight class="normal">}<sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref>{</highlight></codeline>
+<codeline lineno="66" refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" kindref="member">STACK_ST_OK</ref>,</highlight></codeline>
+<codeline lineno="70" refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" kindref="member">STACK_ST_INTEGRITYERR</ref>,</highlight></codeline>
+<codeline lineno="74" refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58" kindref="member">STACK_ST_UNINITIALIZED</ref>,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb" kindref="member">STACK_ST_NULL</ref></highlight></codeline>
+<codeline lineno="79" refid="StackRigid_8h_1acc74b48b41d3ec38cb05184b602c7508" refkind="member"><highlight class="normal">}<sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/><ref refid="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" kindref="member">NewStackRigid</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" kindref="member">capacity</ref>,<sp/>FILE*<sp/><ref refid="structStackRigid_1aa7c68e49e3f2171045533e2684ae2748" kindref="member">logFile</ref>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref><sp/><ref refid="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" kindref="member">StackValidate</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref><sp/><ref refid="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38" kindref="member">StackPush</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>**<sp/>stack,<sp/><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref><sp/>value);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref><sp/><ref refid="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" kindref="member">StackPop</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>**<sp/>stack,<sp/><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref>*<sp/>value);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref><sp/><ref refid="StackRigid_8h_1a660dd8200124031484d0c9dd596130d1" kindref="member">StackDestruct</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>**<sp/>stack);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref><sp/><ref refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" kindref="member">StackBack</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack,<sp/><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref>*<sp/>value);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" kindref="member">StackDump</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1aeff826357c5b8892871d9972ecfaf24a" kindref="member">StackRigidMemoryUse</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159" refid="StackRigid_8h_1ae84aef62fb8899daab9e6dc06d8cf93d" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1ae84aef62fb8899daab9e6dc06d8cf93d" kindref="member">__StackUpdateChecksum</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="StackRigid_8h_1a648682514d2a2e415c30454757b70eaa" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="StackRigid_8h_1a648682514d2a2e415c30454757b70eaa" kindref="member">__StackGetChecksum</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="StackRigid_8h_1a709f63f68d921770a9c220e88af2dcd2" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="StackRigid_8h_1a709f63f68d921770a9c220e88af2dcd2" kindref="member">__StackGetChecksumVital</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>stack);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="StackRigid_8h_1a0566d9c52c7de00974ab803970351069" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref><sp/><ref refid="StackRigid_8h_1a0566d9c52c7de00974ab803970351069" kindref="member">__StackRealocate</ref>(<ref refid="structStackRigid" kindref="compound">StackRigid</ref>**<sp/>stack,<sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>direction);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb" refkind="member"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb" kindref="member">adlerChecksum</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>firstBlock,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>StackRigid_h<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h"/>
+  </compounddef>
+</doxygen>

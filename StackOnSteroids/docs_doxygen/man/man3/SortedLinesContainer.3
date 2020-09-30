@@ -1,0 +1,233 @@
+.TH "SortedLinesContainer" 3 "Fri Sep 18 2020" "OneginSortv2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SortedLinesContainer
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int(* \fBallocate\fP )(struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Allocates memory so that lines object can contain one more element Uses allocIncrement\&. "
+.ti -1c
+.RI "size_t \fBallocIncrement\fP"
+.br
+.RI "How much new elements will be allocated when running out of space\&. "
+.ti -1c
+.RI "int(* \fBcompar\fP )(const void *line1, const void *line2)"
+.br
+.RI "Function used in qsort for regular comparison\&. "
+.ti -1c
+.RI "int(* \fBcomparRev\fP )(const void *line1, const void *line2)"
+.br
+.RI "Function used in qsort for comparison from the end of the string\&. "
+.ti -1c
+.RI "int(* \fBconstruct\fP )(struct \fBSortedLinesContainer\fP *this, const char *\fBfullBuffer\fP, const size_t length, const bool \fBfromEnd\fP)"
+.br
+.RI "Constructs default object Invisible charecters are trimmed and blank lines are removed\&. "
+.ti -1c
+.RI "void(* \fBfree\fP )(struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Frees space\&. "
+.ti -1c
+.RI "bool \fBfromEnd\fP"
+.br
+.RI "Whether to perform comparison from the end\&. "
+.ti -1c
+.RI "char * \fBfullBuffer\fP"
+.br
+.RI "Pointer to the start of the string containing substrings separated by \\0 (
+.br
+ replaced by \\0) "
+.ti -1c
+.RI "char * \fBfullBufferInitial\fP"
+.br
+.RI "Pointer to the start of the string containing substrings separated by 
+.br
+ (initial buffer) "
+.ti -1c
+.RI "\fBstring\fP * \fBlines\fP"
+.br
+.RI "Strings containing starts of substrings in fullBuffer\&. "
+.ti -1c
+.RI "size_t \fBlinesMaxNumber\fP"
+.br
+.RI "Number of max elements in lines\&. "
+.ti -1c
+.RI "size_t \fBlinesNumber\fP"
+.br
+.RI "Number of objects in lines\&. "
+.ti -1c
+.RI "void(* \fBsort\fP )(struct \fBSortedLinesContainer\fP *this)"
+.br
+.RI "Performs sorting of lines array\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 37 of file main\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "int(* SortedLinesContainer::allocate) (struct \fBSortedLinesContainer\fP *this)"
+
+.PP
+Allocates memory so that lines object can contain one more element Uses allocIncrement\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthis\fP [in + out] object to be constructed 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file main\&.c\&.
+.PP
+Referenced by construct()\&.
+.SS "size_t SortedLinesContainer::allocIncrement"
+
+.PP
+How much new elements will be allocated when running out of space\&. 
+.PP
+Definition at line 75 of file main\&.c\&.
+.PP
+Referenced by allocateContainer()\&.
+.SS "int(* SortedLinesContainer::compar) (const void *line1, const void *line2)"
+
+.PP
+Function used in qsort for regular comparison\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline1\fP [in] first struct string object 
+.br
+\fIline2\fP [in] second struct string object 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file main\&.c\&.
+.SS "int(* SortedLinesContainer::comparRev) (const void *line1, const void *line2)"
+
+.PP
+Function used in qsort for comparison from the end of the string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline1\fP [in] first struct string object 
+.br
+\fIline2\fP [in] second struct string object 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file main\&.c\&.
+.SS "int(* SortedLinesContainer::construct) (struct \fBSortedLinesContainer\fP *this, const char *\fBfullBuffer\fP, const size_t length, const bool \fBfromEnd\fP)"
+
+.PP
+Constructs default object Invisible charecters are trimmed and blank lines are removed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthis\fP [in + out] object to be constructed 
+.br
+\fIfullBuffer\fP [in] pointer to the first char of readed file 
+.br
+\fIlength\fP [in] length of the buffer 
+.br
+\fIfromEnd\fP [in] whether to sort from the end 
+.RE
+.PP
+
+.PP
+Definition at line 99 of file main\&.c\&.
+.PP
+Referenced by testContainer()\&.
+.SS "void(* SortedLinesContainer::free) (struct \fBSortedLinesContainer\fP *this)"
+
+.PP
+Frees space\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthis\fP [in + out] object to be constructed 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file main\&.c\&.
+.PP
+Referenced by allocateContainer(), construct(), constructFromFile(), freeContainer(), main(), and testContainer()\&.
+.SS "bool SortedLinesContainer::fromEnd"
+
+.PP
+Whether to perform comparison from the end\&. 
+.PP
+Definition at line 60 of file main\&.c\&.
+.PP
+Referenced by construct(), constructFromFile(), sortContainer(), and taskOutput()\&.
+.SS "char* SortedLinesContainer::fullBuffer"
+
+.PP
+Pointer to the start of the string containing substrings separated by \\0 (
+.br
+ replaced by \\0) 
+.PP
+Definition at line 42 of file main\&.c\&.
+.PP
+Referenced by construct(), and freeContainer()\&.
+.SS "char* SortedLinesContainer::fullBufferInitial"
+
+.PP
+Pointer to the start of the string containing substrings separated by 
+.br
+ (initial buffer) 
+.PP
+Definition at line 48 of file main\&.c\&.
+.PP
+Referenced by construct(), and freeContainer()\&.
+.SS "\fBstring\fP* SortedLinesContainer::lines"
+
+.PP
+Strings containing starts of substrings in fullBuffer\&. 
+.PP
+Definition at line 54 of file main\&.c\&.
+.PP
+Referenced by allocateContainer(), construct(), constructFromFile(), freeContainer(), sortContainer(), and testContainer()\&.
+.SS "size_t SortedLinesContainer::linesMaxNumber"
+
+.PP
+Number of max elements in lines\&. 
+.PP
+Definition at line 70 of file main\&.c\&.
+.PP
+Referenced by allocateContainer(), and constructFromFile()\&.
+.SS "size_t SortedLinesContainer::linesNumber"
+
+.PP
+Number of objects in lines\&. 
+.PP
+Definition at line 65 of file main\&.c\&.
+.PP
+Referenced by allocateContainer(), construct(), freeContainer(), sortContainer(), and testContainer()\&.
+.SS "void(* SortedLinesContainer::sort) (struct \fBSortedLinesContainer\fP *this)"
+
+.PP
+Performs sorting of lines array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIthis\fP [in + out] object to be constructed 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file main\&.c\&.
+.PP
+Referenced by constructFromFile(), taskOutput(), and testContainer()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OneginSortv2 from the source code\&.

@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+  <TOC>
+    <Node>
+      <Name>Root</Name>
+      <Path>index.html</Path>
+      <Subnodes>
+       <Node>
+        <Name>Class Hierarchy</Name>
+        <Path>hierarchy.html</Path>
+        <Subnodes>
+         <Node>
+          <Name>std::allocator&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::array&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::atomic&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::atomic_ref&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::auto_ptr&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; Char &gt;</Name>
+          <Path></Path>
+          <Subnodes>
+           <Node>
+            <Name>std::string</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::u16string</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::u32string</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::u8string</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::wstring</Name>
+            <Path></Path>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; char &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; char16_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; char32_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; char8_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; wchar_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; Char &gt;</Name>
+          <Path></Path>
+          <Subnodes>
+           <Node>
+            <Name>std::string_view</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::u16string_view</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::u32string_view</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::u8string_view</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::wstring_view</Name>
+            <Path></Path>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; char &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; char16_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; char32_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; char8_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; wchar_t &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::bitset&lt; Bits &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::complex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::map&lt; K, T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_map&lt; K, T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multimap&lt; K, T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multimap&lt; K, T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::set&lt; K &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_set&lt; K &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multiset&lt; K &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multiset&lt; K &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; Char &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::array&lt; T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::vector&lt; T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::span&lt; T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string_view::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring_view::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string_view::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; Char &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string_view::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string_view::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::deque&lt; T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::list&lt; T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::forward_list&lt; T &gt;::const_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::forward_list&lt; T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::map&lt; K, T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_map&lt; K, T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multimap&lt; K, T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multimap&lt; K, T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::set&lt; K &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_set&lt; K &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multiset&lt; K &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multiset&lt; K &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; Char &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::array&lt; T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::vector&lt; T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::span&lt; T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string_view::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string_view::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string_view::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring_view::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; Char &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string_view::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::deque&lt; T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::list&lt; T &gt;::const_reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::deque&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::error_category</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::error_code</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::error_condition</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::exception</Name>
+          <Path></Path>
+          <Subnodes>
+           <Node>
+            <Name>std::bad_alloc</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::bad_cast</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::bad_exception</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::bad_typeid</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::ios_base::failure</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::logic_error</Name>
+            <Path></Path>
+            <Subnodes>
+             <Node>
+              <Name>std::domain_error</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::invalid_argument</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::length_error</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::out_of_range</Name>
+              <Path></Path>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>std::runtime_error</Name>
+            <Path></Path>
+            <Subnodes>
+             <Node>
+              <Name>std::overflow_error</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::range_error</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::underflow_error</Name>
+              <Path></Path>
+             </Node>
+            </Subnodes>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>std::forward_list&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::ios_base</Name>
+          <Path></Path>
+          <Subnodes>
+           <Node>
+            <Name>std::basic_ios&lt; char &gt;</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::basic_ios&lt; wchar_t &gt;</Name>
+            <Path></Path>
+           </Node>
+           <Node>
+            <Name>std::basic_ios&lt; Char &gt;</Name>
+            <Path></Path>
+            <Subnodes>
+             <Node>
+              <Name>std::basic_istream&lt; char &gt;</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::basic_istream&lt; wchar_t &gt;</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::basic_ostream&lt; char &gt;</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::basic_ostream&lt; wchar_t &gt;</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::basic_istream&lt; Char &gt;</Name>
+              <Path></Path>
+              <Subnodes>
+               <Node>
+                <Name>std::basic_ifstream&lt; char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ifstream&lt; wchar_t &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_iostream&lt; char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_iostream&lt; wchar_t &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_istringstream&lt; char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_istringstream&lt; wchar_t &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ifstream&lt; Char &gt;</Name>
+                <Path></Path>
+                <Subnodes>
+                 <Node>
+                  <Name>std::ifstream</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::wifstream</Name>
+                  <Path></Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>std::basic_iostream&lt; Char &gt;</Name>
+                <Path></Path>
+                <Subnodes>
+                 <Node>
+                  <Name>std::basic_fstream&lt; char &gt;</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::basic_fstream&lt; wchar_t &gt;</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::basic_stringstream&lt; char &gt;</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::basic_stringstream&lt; wchar_t &gt;</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::basic_fstream&lt; Char &gt;</Name>
+                  <Path></Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>std::fstream</Name>
+                    <Path></Path>
+                   </Node>
+                   <Node>
+                    <Name>std::wfstream</Name>
+                    <Path></Path>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>std::basic_stringstream&lt; Char &gt;</Name>
+                  <Path></Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>std::stringstream</Name>
+                    <Path></Path>
+                   </Node>
+                   <Node>
+                    <Name>std::wstringstream</Name>
+                    <Path></Path>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>std::basic_istringstream&lt; Char &gt;</Name>
+                <Path></Path>
+                <Subnodes>
+                 <Node>
+                  <Name>std::istringstream</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::wistringstream</Name>
+                  <Path></Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>std::istream</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::wistream</Name>
+                <Path></Path>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>std::basic_ostream&lt; Char &gt;</Name>
+              <Path></Path>
+              <Subnodes>
+               <Node>
+                <Name>std::basic_iostream&lt; char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_iostream&lt; wchar_t &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ofstream&lt; char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ofstream&lt; wchar_t &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ostringstream&lt; char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ostringstream&lt; wchar_t &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_iostream&lt; Char &gt;</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::basic_ofstream&lt; Char &gt;</Name>
+                <Path></Path>
+                <Subnodes>
+                 <Node>
+                  <Name>std::ofstream</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::wofstream</Name>
+                  <Path></Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>std::basic_ostringstream&lt; Char &gt;</Name>
+                <Path></Path>
+                <Subnodes>
+                 <Node>
+                  <Name>std::ostringstream</Name>
+                  <Path></Path>
+                 </Node>
+                 <Node>
+                  <Name>std::wostringstream</Name>
+                  <Path></Path>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>std::ostream</Name>
+                <Path></Path>
+               </Node>
+               <Node>
+                <Name>std::wostream</Name>
+                <Path></Path>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>std::ios</Name>
+              <Path></Path>
+             </Node>
+             <Node>
+              <Name>std::wios</Name>
+              <Path></Path>
+             </Node>
+            </Subnodes>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>std::wstring::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::map&lt; K, T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_map&lt; K, T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multimap&lt; K, T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multimap&lt; K, T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::set&lt; K &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multiset&lt; K &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multiset&lt; K &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; Char &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::array&lt; T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::vector&lt; T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::span&lt; T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string_view::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string_view::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_set&lt; K &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring_view::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::deque&lt; T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; Char &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string_view::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::list&lt; T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string_view::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::forward_list&lt; T &gt;::iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::jthread</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::list&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::lock_guard&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::map&lt; K, T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multimap&lt; K, T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multiset&lt; K &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::mutex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::priority_queue&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::queue&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::recursive_mutex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::recursive_timed_mutex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string_view::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::forward_list&lt; T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::map&lt; K, T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_map&lt; K, T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multimap&lt; K, T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::span&lt; T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::wstring_view::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::vector&lt; T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::set&lt; K &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u16string_view::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multiset&lt; K &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string_view&lt; Char &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multiset&lt; K &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::array&lt; T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string_view::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::multimap&lt; K, T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::deque&lt; T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::list&lt; T &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u8string_view::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_set&lt; K &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::basic_string&lt; Char &gt;::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::u32string::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::string::reverse_iterator</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::set&lt; K &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::shared_lock&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::shared_mutex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::shared_ptr&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::shared_timed_mutex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::smart_ptr&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::span&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::stack&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::system_error</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::thread</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::timed_mutex</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unique_lock&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unique_ptr&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_map&lt; K, T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multimap&lt; K, T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_multiset&lt; K &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::unordered_set&lt; K &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::valarray&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::vector&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>std::weak_ptr&lt; T &gt;</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>K</Name>
+          <Path></Path>
+         </Node>
+         <Node>
+          <Name>T</Name>
+          <Path></Path>
+         </Node>
+        </Subnodes>
+       </Node>
+       <Node>
+        <Name>Structs</Name>
+        <Path>annotatedstructs.html</Path>
+        <Subnodes>
+         <Node>
+          <Name>Struct List</Name>
+          <Path>annotatedstructs.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>StackRigid</Name>
+            <Path>structStackRigid.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>capacity</Name>
+              <Path>structStackRigid.html</Path>
+              <Anchor>a56670cc4df83ffba7a2bce7bbaad855c</Anchor>
+             </Node>
+             <Node>
+              <Name>checkSum</Name>
+              <Path>structStackRigid.html</Path>
+              <Anchor>a86ac04a9e0b2f56ade748fedfd139a3e</Anchor>
+             </Node>
+             <Node>
+              <Name>checkSumVital</Name>
+              <Path>structStackRigid.html</Path>
+              <Anchor>a0578d16af9c23c9ae00bf29b1c13cafd</Anchor>
+             </Node>
+             <Node>
+              <Name>data</Name>
+              <Path>structStackRigid.html</Path>
+              <Anchor>a6150250d0c10519886570165597ba510</Anchor>
+             </Node>
+             <Node>
+              <Name>logFile</Name>
+              <Path>structStackRigid.html</Path>
+              <Anchor>aa7c68e49e3f2171045533e2684ae2748</Anchor>
+             </Node>
+             <Node>
+              <Name>size</Name>
+              <Path>structStackRigid.html</Path>
+              <Anchor>a07b58670c3ae24a7fedd9f4a3ad1725e</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+          </Subnodes>
+         </Node>
+         <Node>
+          <Name>Struct Index</Name>
+          <Path>structs.html</Path>
+         </Node>
+         <Node>
+          <Name>Files</Name>
+          <Path>files.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>File List</Name>
+            <Path>files.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>StackOnSteroids</Name>
+              <Path>dir_4e3ae2e762345715af2f2d5c98f3d38a.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>main.cpp</Name>
+                <Path>main_8cpp.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>main</Name>
+                  <Path>main_8cpp.html</Path>
+                  <Anchor>ac0f2228420376f4db7e1274f2b41667c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidAvgTimes</Name>
+                  <Path>main_8cpp.html</Path>
+                  <Anchor>a48fcf97300586f7cbb6fc742b3ba6b02</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>StackRigid.cpp</Name>
+                <Path>StackRigid_8cpp.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>DEBUGSPEED</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a024c7a2dca4a8bcc93281411d85f7d35</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackGetChecksum</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a648682514d2a2e415c30454757b70eaa</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackGetChecksumVital</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a709f63f68d921770a9c220e88af2dcd2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackRealocate</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a0566d9c52c7de00974ab803970351069</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackUpdateChecksum</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>ae84aef62fb8899daab9e6dc06d8cf93d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>adlerChecksum</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a37faf27d6e9ab4e0a417f29efbda1cbb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>NewStackRigid</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a78fa7085db2ddf6539c86400256a70bc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackBack</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a6c282d58a717d9b480e1373423a862b9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackDestruct</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a660dd8200124031484d0c9dd596130d1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackDump</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a7b0f9ae879d5f5cd628b661cf5573d4b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackPop</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a531f4e733d2d8af3f520414d5e25d973</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackPush</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>aa71965140614d8c1654bf8a4b92b5f38</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidMemoryUse</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>aeff826357c5b8892871d9972ecfaf24a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackValidate</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>ae9cc68f55c68d4d8f4fb349127866446</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>movingAverageBetta</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a7e3b350174ff88dacd94c1c37149cdc5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidAvgTimes</Name>
+                  <Path>StackRigid_8cpp.html</Path>
+                  <Anchor>a48fcf97300586f7cbb6fc742b3ba6b02</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>StackRigid.h</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>StackElementType</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a5f5a2d235dc4419fc37f7f21c956cfba</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigid</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>ac5d0efeed13c8b47552928dc34ac2d9a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidOperationCodes</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a2b23b57ad918293ba96140fc43194967</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidState</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>acc74b48b41d3ec38cb05184b602c7508</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidOperationCodes</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>afa660da841608914d20d9819a7efe039</Anchor>
+                  <Subnodes>
+                   <Node>
+                    <Name>STACK_OP_OK</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_OP_UNDERFLOW</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_OP_OVERFLOW</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_OP_NOMEMORY</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_OP_INTEGRITYERR</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_OP_NULL</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidState</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5f</Anchor>
+                  <Subnodes>
+                   <Node>
+                    <Name>STACK_ST_OK</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_ST_INTEGRITYERR</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_ST_UNINITIALIZED</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>STACK_ST_NULL</Name>
+                    <Path>StackRigid_8h.html</Path>
+                    <Anchor>a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>__StackGetChecksum</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a648682514d2a2e415c30454757b70eaa</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackGetChecksumVital</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a709f63f68d921770a9c220e88af2dcd2</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackRealocate</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a0566d9c52c7de00974ab803970351069</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>__StackUpdateChecksum</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>ae84aef62fb8899daab9e6dc06d8cf93d</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>adlerChecksum</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a37faf27d6e9ab4e0a417f29efbda1cbb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>NewStackRigid</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a78fa7085db2ddf6539c86400256a70bc</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackBack</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a6c282d58a717d9b480e1373423a862b9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackDestruct</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a660dd8200124031484d0c9dd596130d1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackDump</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a7b0f9ae879d5f5cd628b661cf5573d4b</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackPop</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a531f4e733d2d8af3f520414d5e25d973</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackPush</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>aa71965140614d8c1654bf8a4b92b5f38</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackRigidMemoryUse</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>aeff826357c5b8892871d9972ecfaf24a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>StackValidate</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>ae9cc68f55c68d4d8f4fb349127866446</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+              </Subnodes>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Globals</Name>
+            <Path>globals.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>All</Name>
+              <Path>globals.html</Path>
+             </Node>
+             <Node>
+              <Name>Functions</Name>
+              <Path>globals_func.html</Path>
+             </Node>
+             <Node>
+              <Name>Constants</Name>
+              <Path>globals_vars.html</Path>
+             </Node>
+             <Node>
+              <Name>Typedefs</Name>
+              <Path>globals_type.html</Path>
+             </Node>
+             <Node>
+              <Name>Enumerations</Name>
+              <Path>globals_enum.html</Path>
+             </Node>
+             <Node>
+              <Name>Enumerator</Name>
+              <Path>globals_eval.html</Path>
+             </Node>
+             <Node>
+              <Name>Macros</Name>
+              <Path>globals_defs.html</Path>
+             </Node>
+            </Subnodes>
+           </Node>
+          </Subnodes>
+         </Node>
+      </Subnodes>
+    </Node>
+  </TOC>
+</DocSetNodes>

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes refid="StackRigid_8h" local="yes">StackRigid.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>StackRigid.h</label>
+        <link refid="StackRigid_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>assert.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="1">
+        <label>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp</label>
+        <link refid="main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>time.h</label>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double StackRigidAvgTimes[5]</definition>
+        <argsstring>[5]</argsstring>
+        <name>StackRigidAvgTimes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" line="8" column="15" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="23" bodyend="-1" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" declline="8" declcolumn="15"/>
+        <referencedby refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</referencedby>
+        <referencedby refid="StackRigid_8cpp_1ae84aef62fb8899daab9e6dc06d8cf93d" compoundref="StackRigid_8cpp" startline="169" endline="185">__StackUpdateChecksum</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" compoundref="StackRigid_8cpp" startline="90" endline="120">StackPop</referencedby>
+        <referencedby refid="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38" compoundref="StackRigid_8cpp" startline="54" endline="87">StackPush</referencedby>
+        <referencedby refid="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(int argc, const char *argv[])</argsstring>
+        <name>main</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" line="10" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" bodystart="10" bodyend="47"/>
+        <references refid="StackRigid_8cpp_1a78fa7085db2ddf6539c86400256a70bc" compoundref="StackRigid_8cpp" startline="37" endline="51">NewStackRigid</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="70">STACK_ST_INTEGRITYERR</references>
+        <references refid="StackRigid_8cpp_1a660dd8200124031484d0c9dd596130d1" compoundref="StackRigid_8cpp" startline="365" endline="374">StackDestruct</references>
+        <references refid="StackRigid_8cpp_1a531f4e733d2d8af3f520414d5e25d973" compoundref="StackRigid_8cpp" startline="90" endline="120">StackPop</references>
+        <references refid="StackRigid_8cpp_1aa71965140614d8c1654bf8a4b92b5f38" compoundref="StackRigid_8cpp" startline="54" endline="87">StackPush</references>
+        <references refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
+        <references refid="StackRigid_8cpp_1aeff826357c5b8892871d9972ecfaf24a" compoundref="StackRigid_8cpp" startline="291" endline="294">StackRigidMemoryUse</references>
+        <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>main.cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>StackOnSteroids</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>Created<sp/>by<sp/>Александр<sp/>Дремов<sp/>on<sp/>29.09.2020.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="StackRigid_8h" kindref="compound">StackRigid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" kindref="member">StackRigidAvgTimes</ref>[5];</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[])<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structStackRigid" kindref="compound">StackRigid</ref>*<sp/>newStack<sp/>=<sp/><ref refid="StackRigid_8cpp_1a78fa7085db2ddf6539c86400256a70bc" kindref="member">NewStackRigid</ref>(1000,<sp/>stdout);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>size_t<sp/>volume:<sp/>%lu<sp/>bytes\n&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;checksum<sp/>volume:<sp/>%lu<sp/>bytes\n&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32_t));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<sp/>1000;<sp/>i++){</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8cpp_1aa71965140614d8c1654bf8a4b92b5f38" kindref="member">StackPush</ref>(&amp;newStack,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)i);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>1000;<sp/>i++){</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tmpVal;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8cpp_1a531f4e733d2d8af3f520414d5e25d973" kindref="member">StackPop</ref>(&amp;newStack,<sp/>&amp;tmpVal);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>100;<sp/>i++){</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8cpp_1aa71965140614d8c1654bf8a4b92b5f38" kindref="member">StackPush</ref>(&amp;newStack,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)i);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="StackRigid_8cpp_1aeff826357c5b8892871d9972ecfaf24a" kindref="member">StackRigidMemoryUse</ref>(newStack);<sp/>i++){</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>previousValue<sp/>=<sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>bullet<sp/>=<sp/>-128;<sp/>bullet<sp/>&lt;<sp/>127;<sp/>bullet++){</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bullet<sp/>==<sp/>previousValue)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i)<sp/>=<sp/>bullet;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref><sp/>state<sp/>=<sp/><ref refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" kindref="member">StackValidate</ref>(newStack);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state<sp/>!=<sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" kindref="member">STACK_ST_INTEGRITYERR</ref>){</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Did<sp/>not<sp/>spot<sp/>at<sp/>position<sp/>%zu,<sp/>byte<sp/>%x\n&quot;</highlight><highlight class="normal">,<sp/>i,<sp/>bullet);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i)<sp/>=<sp/>previousValue;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nAverage<sp/>checksum<sp/>update<sp/>time:<sp/>%g<sp/>s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" kindref="member">StackRigidAvgTimes</ref>[0]);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Average<sp/>validation<sp/>time:<sp/>%g<sp/>s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" kindref="member">StackRigidAvgTimes</ref>[1]);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Average<sp/>push<sp/>time:<sp/>%g<sp/>s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" kindref="member">StackRigidAvgTimes</ref>[2]);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Average<sp/>pop<sp/>time:<sp/>%g<sp/>s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" kindref="member">StackRigidAvgTimes</ref>[3]);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Average<sp/>reallocation<sp/>time:<sp/>%g<sp/>s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="main_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" kindref="member">StackRigidAvgTimes</ref>[4]);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8cpp_1a660dd8200124031484d0c9dd596130d1" kindref="member">StackDestruct</ref>(&amp;newStack);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>DEBUGSPEED</highlight></codeline>
+    </programlisting>
+    <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp"/>
+  </compounddef>
+</doxygen>

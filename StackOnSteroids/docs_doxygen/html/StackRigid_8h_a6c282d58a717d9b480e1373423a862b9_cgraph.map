@@ -1,0 +1,9 @@
+<map id="StackBack" name="StackBack">
+<area shape="rect" id="node1" title="Free stack memory." alt="" coords="5,31,92,57"/>
+<area shape="rect" id="node2" href="$StackRigid_8cpp.html#a7b0f9ae879d5f5cd628b661cf5573d4b" title="Dumps debug information about the stack." alt="" coords="140,5,231,32"/>
+<area shape="rect" id="node4" href="$StackRigid_8cpp.html#ae9cc68f55c68d4d8f4fb349127866446" title="Perform all stack checks: checksums, general constrains." alt="" coords="279,56,381,83"/>
+<area shape="rect" id="node3" href="$StackRigid_8cpp.html#aeff826357c5b8892871d9972ecfaf24a" title="Memory alocated for the Stack." alt="" coords="657,19,815,45"/>
+<area shape="rect" id="node5" href="$StackRigid_8cpp.html#a648682514d2a2e415c30454757b70eaa" title=" " alt="" coords="442,56,597,83"/>
+<area shape="rect" id="node7" href="$StackRigid_8cpp.html#a709f63f68d921770a9c220e88af2dcd2" title=" " alt="" coords="429,107,609,133"/>
+<area shape="rect" id="node6" href="$StackRigid_8cpp.html#a37faf27d6e9ab4e0a417f29efbda1cbb" title=" " alt="" coords="679,81,793,108"/>
+</map>

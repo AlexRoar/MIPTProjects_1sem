@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Program documentation &mdash; StackRigid  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> StackRigid
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Program documentation</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">StackRigid</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/c_doxygen_sphinx.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-documentation">
+<span id="api-main"></span><h1>Program documentation<a class="headerlink" href="#program-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Typedefs</p>
+<dl class="c type">
+<dt id="c.StackElementType">
+<span class="target" id="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba"></span><em class="property">typedef </em>int <code class="sig-name descname">StackElementType</code><a class="headerlink" href="#c.StackElementType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Element type to be used in Stack. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt id="c.StackRigid">
+<span class="target" id="StackRigid_8h_1ac5d0efeed13c8b47552928dc34ac2d9a"></span><em class="property">typedef </em><em class="property">struct</em> <a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> <code class="sig-name descname">StackRigid</code><a class="headerlink" href="#c.StackRigid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The main structure. </p>
+<p>There’s no definition in the header file in order to block direct parameters access </p>
+</dd></dl>
+
+<dl class="c type">
+<dt>
+<span class="target" id="StackRigid_8h_1a2b23b57ad918293ba96140fc43194967"></span><em class="property">typedef </em><em class="property">enum</em> <a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">StackRigidOperationCodes</code><br /></dt>
+<dd><p>Codes returned after operations on Stack. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt>
+<span class="target" id="StackRigid_8h_1acc74b48b41d3ec38cb05184b602c7508"></span><em class="property">typedef </em><em class="property">enum</em> <a class="reference internal" href="#c.StackRigidState" title="StackRigidState">StackRigidState</a> <code class="sig-name descname">StackRigidState</code><br /></dt>
+<dd><p>Codes characterizing Stack state. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Enums</p>
+<dl class="c enum">
+<dt id="c.StackRigidOperationCodes">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039"></span><em class="property">enum </em><code class="sig-name descname">StackRigidOperationCodes</code><a class="headerlink" href="#c.StackRigidOperationCodes" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Codes returned after operations on Stack. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_OK">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_OK</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_OK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Succesful operation. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_UNDERFLOW">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_UNDERFLOW</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_UNDERFLOW" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tried to get value from the empty stack. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_OVERFLOW">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_OVERFLOW</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_OVERFLOW" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stack overflow and new memory allocation failed. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_NOMEMORY">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_NOMEMORY</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_NOMEMORY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>No memory for stack alocations. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_INTEGRITYERR">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_INTEGRITYERR</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_INTEGRITYERR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stack memory was altered by some outer access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_NULL">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_NULL</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_NULL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Found NULL pointer during the operation. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt id="c.StackRigidState">
+<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f"></span><em class="property">enum </em><code class="sig-name descname">StackRigidState</code><a class="headerlink" href="#c.StackRigidState" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Codes characterizing Stack state. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt id="c.StackRigidState.STACK_ST_OK">
+<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_OK</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_OK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stack is running as expected. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidState.STACK_ST_INTEGRITYERR">
+<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_INTEGRITYERR</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_INTEGRITYERR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stack was altered by some outer access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidState.STACK_ST_UNINITIALIZED">
+<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_UNINITIALIZED</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_UNINITIALIZED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stack is uninitialized. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt id="c.StackRigidState.STACK_ST_NULL">
+<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_NULL</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_NULL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Found NULL pointer during the operation. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="c function">
+<dt id="c.NewStackRigid">
+<span class="target" id="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc"></span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<code class="sig-name descname">NewStackRigid</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>capacity</em>, FILE *<em>logFile</em><span class="sig-paren">)</span><a class="headerlink" href="#c.NewStackRigid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create new stack with pre-defined capacity. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>new stack pointer </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">capacity</span></code>: initial stack capacity. Set to 0 if yo want the stack to adopt automaticaly. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">logFile</span></code>: file for logging </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackValidate">
+<span class="target" id="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446"></span><a class="reference internal" href="#c.StackRigidState" title="StackRigidState">StackRigidState</a> <code class="sig-name descname">StackValidate</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackValidate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform all stack checks: checksums, general constrains. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>calculated state </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack to be validated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackPush">
+<span class="target" id="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38"></span><a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">StackPush</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> **<em>stack</em>, <a class="reference internal" href="#c.StackElementType" title="StackElementType">StackElementType</a> <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackPush" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Push the value to the stack The operation can perform realocations if there is not enough space. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be changed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: value to be pushed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackPop">
+<span class="target" id="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973"></span><a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">StackPop</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> **<em>stack</em>, <a class="reference internal" href="#c.StackElementType" title="StackElementType">StackElementType</a> *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackPop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pop value from the end of the stack The operation can perform realocations if there is too much space. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be distructed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">value</span></code>: value to be pushed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackDestruct">
+<span class="target" id="StackRigid_8h_1a660dd8200124031484d0c9dd596130d1"></span><a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">StackDestruct</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> **<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackDestruct" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free stack memory. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be distructed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackBack">
+<span class="target" id="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9"></span><a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">StackBack</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em>, <a class="reference internal" href="#c.StackElementType" title="StackElementType">StackElementType</a> *<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackBack" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free stack memory. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">stack</span></code>: Stack to be used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackDump">
+<span class="target" id="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b"></span>void <code class="sig-name descname">StackDump</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackDump" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Dumps debug information about the stack. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack to be dumped </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.StackRigidMemoryUse">
+<span class="target" id="StackRigid_8h_1aeff826357c5b8892871d9972ecfaf24a"></span>size_t <code class="sig-name descname">StackRigidMemoryUse</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackRigidMemoryUse" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Memory alocated for the Stack. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>alocated bytes </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack to be checked </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.__StackUpdateChecksum">
+<span class="target" id="StackRigid_8h_1ae84aef62fb8899daab9e6dc06d8cf93d"></span>void <code class="sig-name descname">__StackUpdateChecksum</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.__StackUpdateChecksum" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">__stack</span> <span class="n">area__</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">____________________________________________________________________</span><span class="o">^</span> <span class="n">alterations</span> <span class="n">in</span> <span class="n">this</span> <span class="n">area</span> <span class="n">are</span> <span class="n">not</span> <span class="n">checked</span>
+<span class="o">*</span>
+</pre></div>
+</div>
+ </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.__StackGetChecksum">
+<span class="target" id="StackRigid_8h_1a648682514d2a2e415c30454757b70eaa"></span>uint32_t <code class="sig-name descname">__StackGetChecksum</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.__StackGetChecksum" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Claculates big Stack checksum. Uses Adler-32 method. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________________________________________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
+<span class="o">*</span>
+</pre></div>
+</div>
+ </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.__StackGetChecksumVital">
+<span class="target" id="StackRigid_8h_1a709f63f68d921770a9c220e88af2dcd2"></span>uint32_t <code class="sig-name descname">__StackGetChecksumVital</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> *<em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.__StackGetChecksumVital" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary because <a class="reference internal" href="#StackRigid_8h_1a648682514d2a2e415c30454757b70eaa"><span class="std std-ref">__StackGetChecksum()</span></a> relies on capacity and size. If they were changed, behaviour is undefined. </p>
+<p><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">______________________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
+<span class="o">*</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use!</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.__StackRealocate">
+<span class="target" id="StackRigid_8h_1a0566d9c52c7de00974ab803970351069"></span><a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">__StackRealocate</code><span class="sig-paren">(</span><a class="reference internal" href="#c.StackRigid" title="StackRigid">StackRigid</a> **<em>stack</em>, short int <em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#c.__StackRealocate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Realocates Stack if needed. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be realocated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: which direction realocations are available. &gt; 0 -&gt; expand space if needed, &lt; 0 -&gt; shrink space if needed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt id="c.adlerChecksum">
+<span class="target" id="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb"></span>uint32_t <code class="sig-name descname">adlerChecksum</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>firstBlock</em>, size_t <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#c.adlerChecksum" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculates Adler-32 checksum from the firstBlock to the firstBlock + len. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>checksum </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">firstBlock</span></code>: first block to include to the checksum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">len</span></code>: length of byte sequence </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Aleksandr Dremov
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

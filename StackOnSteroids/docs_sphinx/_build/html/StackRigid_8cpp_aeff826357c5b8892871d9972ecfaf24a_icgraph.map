@@ -1,0 +1,13 @@
+<map id="StackRigidMemoryUse" name="StackRigidMemoryUse">
+<area shape="rect" id="node1" title="Memory alocated for the Stack." alt="" coords="841,195,999,222"/>
+<area shape="rect" id="node2" href="$StackRigid_8cpp.html#a648682514d2a2e415c30454757b70eaa" title=" " alt="" coords="639,297,793,323"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title=" " alt="" coords="5,195,56,222"/>
+<area shape="rect" id="node10" href="$StackRigid_8h.html#a7b0f9ae879d5f5cd628b661cf5573d4b" title="Dumps debug information about the stack." alt="" coords="307,145,398,171"/>
+<area shape="rect" id="node11" href="$StackRigid_8cpp.html#a0566d9c52c7de00974ab803970351069" title=" " alt="" coords="288,297,417,323"/>
+<area shape="rect" id="node3" href="$StackRigid_8cpp.html#ae84aef62fb8899daab9e6dc06d8cf93d" title=" " alt="" coords="265,347,440,374"/>
+<area shape="rect" id="node8" href="$StackRigid_8h.html#ae9cc68f55c68d4d8f4fb349127866446" title="Perform all stack checks: checksums, general constrains." alt="" coords="488,195,591,222"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a78fa7085db2ddf6539c86400256a70bc" title="Create new stack with pre&#45;defined capacity." alt="" coords="104,322,217,349"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#a531f4e733d2d8af3f520414d5e25d973" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="121,246,200,273"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#aa71965140614d8c1654bf8a4b92b5f38" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="117,195,204,222"/>
+<area shape="rect" id="node9" href="$StackRigid_8h.html#a6c282d58a717d9b480e1373423a862b9" title="Free stack memory." alt="" coords="117,119,204,146"/>
+</map>

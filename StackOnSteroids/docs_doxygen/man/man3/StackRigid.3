@@ -1,0 +1,62 @@
+.TH "StackRigid" 3 "Wed Sep 30 2020" "StackRigid" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StackRigid
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBcapacity\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcheckSum\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcheckSumVital\fP"
+.br
+.ti -1c
+.RI "\fBStackElementType\fP \fBdata\fP [1]"
+.br
+.ti -1c
+.RI "FILE * \fBlogFile\fP"
+.br
+.ti -1c
+.RI "size_t \fBsize\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+.SH "Field Documentation"
+.PP 
+.SS "size_t StackRigid::capacity"
+
+.PP
+Referenced by __StackGetChecksum(), __StackGetChecksumVital(), __StackRealocate(), NewStackRigid(), StackDump(), StackRigidMemoryUse(), and StackValidate()\&.
+.SS "uint32_t StackRigid::checkSum"
+
+.PP
+Referenced by __StackGetChecksum(), __StackGetChecksumVital(), __StackUpdateChecksum(), NewStackRigid(), StackDump(), and StackValidate()\&.
+.SS "uint32_t StackRigid::checkSumVital"
+
+.PP
+Referenced by __StackGetChecksumVital(), __StackUpdateChecksum(), NewStackRigid(), and StackValidate()\&.
+.SS "\fBStackElementType\fP StackRigid::data[1]"
+
+.PP
+Referenced by StackBack(), and StackDump()\&.
+.SS "FILE* StackRigid::logFile"
+
+.PP
+Referenced by __StackGetChecksumVital(), NewStackRigid(), and StackDump()\&.
+.SS "size_t StackRigid::size"
+
+.PP
+Referenced by __StackGetChecksum(), __StackGetChecksumVital(), __StackRealocate(), NewStackRigid(), StackBack(), StackDump(), and StackValidate()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for StackRigid from the source code\&.

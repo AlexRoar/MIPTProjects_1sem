@@ -1,0 +1,54 @@
+.TH "string" 3 "Fri Sep 18 2020" "OneginSortv2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+string \- Used to store char* and its len so that computations are more effective\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "bool \fBallocated\fP"
+.br
+.RI "Whether contents were alocated by calloc (can be freed) or just a reference\&. "
+.ti -1c
+.RI "char * \fBcontents\fP"
+.br
+.ti -1c
+.RI "size_t \fBlen\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Used to store char* and its len so that computations are more effective\&. 
+.PP
+Definition at line 25 of file main\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "bool string::allocated"
+
+.PP
+Whether contents were alocated by calloc (can be freed) or just a reference\&. 
+.PP
+Definition at line 33 of file main\&.c\&.
+.PP
+Referenced by multiCompare()\&.
+.SS "char* string::contents"
+
+.PP
+Definition at line 26 of file main\&.c\&.
+.PP
+Referenced by adjustLenTrimming(), doubleWhitespacesSkip(), hasVisibleContent(), multiCompare(), outputContainer(), testContainer(), and tests_multiCompare()\&.
+.SS "size_t string::len"
+
+.PP
+Definition at line 28 of file main\&.c\&.
+.PP
+Referenced by adjustLenTrimming(), doubleWhitespacesSkip(), hasVisibleContent(), multiCompare(), testContainer(), and tests_multiCompare()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OneginSortv2 from the source code\&.

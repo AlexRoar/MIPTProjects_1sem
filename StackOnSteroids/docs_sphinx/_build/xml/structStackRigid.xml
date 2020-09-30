@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+  <compounddef id="structStackRigid" kind="struct" language="C++" prot="public">
+    <compoundname>StackRigid</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structStackRigid_1a86ac04a9e0b2f56ade748fedfd139a3e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t StackRigid::checkSum</definition>
+        <argsstring></argsstring>
+        <name>checkSum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="28" column="14" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="28" bodyend="-1"/>
+        <referencedby refid="StackRigid_8cpp_1a648682514d2a2e415c30454757b70eaa" compoundref="StackRigid_8cpp" startline="201" endline="213">__StackGetChecksum</referencedby>
+        <referencedby refid="StackRigid_8cpp_1a709f63f68d921770a9c220e88af2dcd2" compoundref="StackRigid_8cpp" startline="188" endline="198">__StackGetChecksumVital</referencedby>
+        <referencedby refid="StackRigid_8cpp_1ae84aef62fb8899daab9e6dc06d8cf93d" compoundref="StackRigid_8cpp" startline="169" endline="185">__StackUpdateChecksum</referencedby>
+        <referencedby refid="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" compoundref="StackRigid_8cpp" startline="37" endline="51">NewStackRigid</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+        <referencedby refid="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structStackRigid_1a0578d16af9c23c9ae00bf29b1c13cafd" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t StackRigid::checkSumVital</definition>
+        <argsstring></argsstring>
+        <name>checkSumVital</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="29" column="14" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="29" bodyend="-1"/>
+        <referencedby refid="StackRigid_8cpp_1a709f63f68d921770a9c220e88af2dcd2" compoundref="StackRigid_8cpp" startline="188" endline="198">__StackGetChecksumVital</referencedby>
+        <referencedby refid="StackRigid_8cpp_1ae84aef62fb8899daab9e6dc06d8cf93d" compoundref="StackRigid_8cpp" startline="169" endline="185">__StackUpdateChecksum</referencedby>
+        <referencedby refid="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" compoundref="StackRigid_8cpp" startline="37" endline="51">NewStackRigid</referencedby>
+        <referencedby refid="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t StackRigid::capacity</definition>
+        <argsstring></argsstring>
+        <name>capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="30" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="30" bodyend="-1"/>
+        <referencedby refid="StackRigid_8cpp_1a648682514d2a2e415c30454757b70eaa" compoundref="StackRigid_8cpp" startline="201" endline="213">__StackGetChecksum</referencedby>
+        <referencedby refid="StackRigid_8cpp_1a709f63f68d921770a9c220e88af2dcd2" compoundref="StackRigid_8cpp" startline="188" endline="198">__StackGetChecksumVital</referencedby>
+        <referencedby refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</referencedby>
+        <referencedby refid="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" compoundref="StackRigid_8cpp" startline="37" endline="51">NewStackRigid</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+        <referencedby refid="StackRigid_8h_1aeff826357c5b8892871d9972ecfaf24a" compoundref="StackRigid_8cpp" startline="291" endline="294">StackRigidMemoryUse</referencedby>
+        <referencedby refid="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t StackRigid::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="31" column="12" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="31" bodyend="-1"/>
+        <referencedby refid="StackRigid_8cpp_1a648682514d2a2e415c30454757b70eaa" compoundref="StackRigid_8cpp" startline="201" endline="213">__StackGetChecksum</referencedby>
+        <referencedby refid="StackRigid_8cpp_1a709f63f68d921770a9c220e88af2dcd2" compoundref="StackRigid_8cpp" startline="188" endline="198">__StackGetChecksumVital</referencedby>
+        <referencedby refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</referencedby>
+        <referencedby refid="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" compoundref="StackRigid_8cpp" startline="37" endline="51">NewStackRigid</referencedby>
+        <referencedby refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" compoundref="StackRigid_8cpp" startline="123" endline="138">StackBack</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+        <referencedby refid="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structStackRigid_1aa7c68e49e3f2171045533e2684ae2748" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* StackRigid::logFile</definition>
+        <argsstring></argsstring>
+        <name>logFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="32" column="10" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="32" bodyend="-1"/>
+        <referencedby refid="StackRigid_8cpp_1a709f63f68d921770a9c220e88af2dcd2" compoundref="StackRigid_8cpp" startline="188" endline="198">__StackGetChecksumVital</referencedby>
+        <referencedby refid="StackRigid_8h_1a78fa7085db2ddf6539c86400256a70bc" compoundref="StackRigid_8cpp" startline="37" endline="51">NewStackRigid</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structStackRigid_1a6150250d0c10519886570165597ba510" prot="public" static="no" mutable="no">
+        <type><ref refid="StackRigid_8h_1a5f5a2d235dc4419fc37f7f21c956cfba" kindref="member">StackElementType</ref></type>
+        <definition>StackElementType StackRigid::data[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="33" column="22" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="33" bodyend="-1"/>
+        <referencedby refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" compoundref="StackRigid_8cpp" startline="123" endline="138">StackBack</referencedby>
+        <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" line="27" column="1" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="27" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" prot="public" virt="non-virtual"><scope>StackRigid</scope><name>capacity</name></member>
+      <member refid="structStackRigid_1a86ac04a9e0b2f56ade748fedfd139a3e" prot="public" virt="non-virtual"><scope>StackRigid</scope><name>checkSum</name></member>
+      <member refid="structStackRigid_1a0578d16af9c23c9ae00bf29b1c13cafd" prot="public" virt="non-virtual"><scope>StackRigid</scope><name>checkSumVital</name></member>
+      <member refid="structStackRigid_1a6150250d0c10519886570165597ba510" prot="public" virt="non-virtual"><scope>StackRigid</scope><name>data</name></member>
+      <member refid="structStackRigid_1aa7c68e49e3f2171045533e2684ae2748" prot="public" virt="non-virtual"><scope>StackRigid</scope><name>logFile</name></member>
+      <member refid="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" prot="public" virt="non-virtual"><scope>StackRigid</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
