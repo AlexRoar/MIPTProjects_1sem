@@ -265,7 +265,7 @@
         <references refid="structStackRigid_1a0578d16af9c23c9ae00bf29b1c13cafd" compoundref="StackRigid_8cpp" startline="29">StackRigid::checkSumVital</references>
         <references refid="structStackRigid_1aa7c68e49e3f2171045533e2684ae2748" compoundref="StackRigid_8cpp" startline="32">StackRigid::logFile</references>
         <references refid="structStackRigid_1a07b58670c3ae24a7fedd9f4a3ad1725e" compoundref="StackRigid_8cpp" startline="31">StackRigid::size</references>
-        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="StackRigid_8h_1ae9cc68f55c68d4d8f4fb349127866446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref></type>
@@ -307,7 +307,7 @@
         <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb" compoundref="StackRigid_8h" startline="78">STACK_ST_NULL</references>
         <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" compoundref="StackRigid_8h" startline="66">STACK_ST_OK</references>
         <references refid="StackRigid_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
-        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
         <referencedby refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" compoundref="StackRigid_8cpp" startline="123" endline="138">StackBack</referencedby>
         <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
         <referencedby refid="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" compoundref="StackRigid_8cpp" startline="90" endline="120">StackPop</referencedby>
@@ -365,7 +365,7 @@
         <references refid="StackRigid_8cpp_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</references>
         <references refid="StackRigid_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
         <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
-        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
@@ -419,7 +419,7 @@
         <references refid="StackRigid_8cpp_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</references>
         <references refid="StackRigid_8cpp_1a48fcf97300586f7cbb6fc742b3ba6b02" compoundref="StackRigid_8cpp" startline="23">StackRigidAvgTimes</references>
         <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
-        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="StackRigid_8h_1a660dd8200124031484d0c9dd596130d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
@@ -452,7 +452,7 @@
         <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" line="124" column="26" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.cpp" bodystart="365" bodyend="374" declfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/StackRigid.h" declline="124" declcolumn="26"/>
         <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" compoundref="StackRigid_8h" startline="55">STACK_OP_NULL</references>
         <references refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" compoundref="StackRigid_8h" startline="35">STACK_OP_OK</references>
-        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kindref="member">StackRigidOperationCodes</ref></type>
@@ -535,6 +535,7 @@
         <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58" compoundref="StackRigid_8h" startline="74">STACK_ST_UNINITIALIZED</references>
         <references refid="StackRigid_8cpp_1aeff826357c5b8892871d9972ecfaf24a" compoundref="StackRigid_8cpp" startline="291" endline="294">StackRigidMemoryUse</references>
         <references refid="StackRigid_8cpp_1ae9cc68f55c68d4d8f4fb349127866446" compoundref="StackRigid_8cpp" startline="141" endline="166">StackValidate</references>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
         <referencedby refid="StackRigid_8h_1a6c282d58a717d9b480e1373423a862b9" compoundref="StackRigid_8cpp" startline="123" endline="138">StackBack</referencedby>
         <referencedby refid="StackRigid_8h_1a531f4e733d2d8af3f520414d5e25d973" compoundref="StackRigid_8cpp" startline="90" endline="120">StackPop</referencedby>
         <referencedby refid="StackRigid_8h_1aa71965140614d8c1654bf8a4b92b5f38" compoundref="StackRigid_8cpp" startline="54" endline="87">StackPush</referencedby>
@@ -571,7 +572,7 @@
         <references refid="structStackRigid_1a56670cc4df83ffba7a2bce7bbaad855c" compoundref="StackRigid_8cpp" startline="30">StackRigid::capacity</references>
         <referencedby refid="StackRigid_8cpp_1a648682514d2a2e415c30454757b70eaa" compoundref="StackRigid_8cpp" startline="201" endline="213">__StackGetChecksum</referencedby>
         <referencedby refid="StackRigid_8cpp_1a0566d9c52c7de00974ab803970351069" compoundref="StackRigid_8cpp" startline="216" endline="277">__StackRealocate</referencedby>
-        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="10" endline="47">main</referencedby>
+        <referencedby refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" compoundref="main_8cpp" startline="13" endline="52">main</referencedby>
         <referencedby refid="StackRigid_8h_1a7b0f9ae879d5f5cd628b661cf5573d4b" compoundref="StackRigid_8cpp" startline="297" endline="363">StackDump</referencedby>
       </memberdef>
       <memberdef kind="function" id="StackRigid_8h_1ae84aef62fb8899daab9e6dc06d8cf93d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">

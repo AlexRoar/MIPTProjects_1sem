@@ -1,4 +1,4 @@
-.TH "StackOnSteroids/main.cpp" 3 "Wed Sep 30 2020" "StackRigid" \" -*- nroff -*-
+.TH "StackOnSteroids/main.cpp" 3 "Thu Oct 1 2020" "StackRigid" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,6 +15,7 @@ StackOnSteroids/main.cpp
 .ti -1c
 .RI "int \fBmain\fP (int argc, const char *argv[])"
 .br
+.RI "Here, I try somehow to break the Stack\&. "
 .in -1c
 .SS "Variables"
 
@@ -28,48 +29,52 @@ StackOnSteroids/main.cpp
 .SS "int main (int argc, const char * argv[])"
 
 .PP
+Here, I try somehow to break the Stack\&. 
+.PP
 .nf
-10                                         {
-11     StackRigid* newStack = NewStackRigid(1000, stdout);
-12     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
-13     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
-14     for(size_t i = 0; i< 1000; i++){
-15         StackPush(&newStack, (int)i);
-16     }
-17     for(size_t i = 0; i < 1000; i++){
-18         int tmpVal;
-19         StackPop(&newStack, &tmpVal);
-20     }
-21     for(size_t i = 0; i < 100; i++){
-22         StackPush(&newStack, (int)i);
-23     }
-24     
-25     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
-26         char previousValue = *((char*)newStack + i);
-27         for (char bullet = -128; bullet < 127; bullet++){
-28             if (bullet == previousValue)
-29                 continue;
-30             *((char*)newStack + i) = bullet;
-31             StackRigidState state = StackValidate(newStack);
-32             if (state != STACK_ST_INTEGRITYERR){
-33                 printf("Did not spot at position %zu, byte %x\n", i, bullet);
-34                 break;
-35             }
-36             *((char*)newStack + i) = previousValue;
-37         }
-38     }
-39     
-40     printf("\nAverage checksum update time: %g s\n", StackRigidAvgTimes[0]);
-41     printf("Average validation time: %g s\n", StackRigidAvgTimes[1]);
-42     printf("Average push time: %g s\n", StackRigidAvgTimes[2]);
-43     printf("Average pop time: %g s\n", StackRigidAvgTimes[3]);
-44     printf("Average reallocation time: %g s\n", StackRigidAvgTimes[4]);
-45     StackDestruct(&newStack);
-46     return 0;
-47 }
+13                                         {
+14     StackRigid* newStack = NewStackRigid(1000, stdout);
+15     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
+16     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
+17     for(size_t i = 0; i< 1000; i++){
+18         StackPush(&newStack, (int)i);
+19     }
+20     for(size_t i = 0; i < 1000; i++){
+21         int tmpVal;
+22         StackPop(&newStack, &tmpVal);
+23 //        printf("Popped %d\n", tmpVal);
+24     }
+25     for(size_t i = 0; i < 100; i++){
+26         StackPush(&newStack, (int)i);
+27     }
+28     
+29     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
+30         char previousValue = *((char*)newStack + i);
+31         for (char bullet = -128; bullet < 127; bullet++){
+32             if (bullet == previousValue)
+33                 continue;
+34             *((char*)newStack + i) = bullet;
+35             StackRigidState state = StackValidate(newStack);
+36             if (state != STACK_ST_INTEGRITYERR){
+37                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
+38                 break;
+39             }
+40             *((char*)newStack + i) = previousValue;
+41         }
+42     }
+43     
+44     printf("\nAverage checksum update time: %g s/1000op\n", StackRigidAvgTimes[0] * 1000);
+45     printf("Average validation time: %g s/1000op\n", StackRigidAvgTimes[1]* 1000);
+46     printf("Average push time: %g s/1000op\n", StackRigidAvgTimes[2]* 1000);
+47     printf("Average pop time: %g s/1000op\n", StackRigidAvgTimes[3]* 1000);
+48     printf("Average reallocation time: %g s/1000op\n", StackRigidAvgTimes[4]* 1000);
+49     StackDump(newStack);
+50     StackDestruct(&newStack);
+51     return 0;
+52 }
 .fi
 .PP
-References NewStackRigid(), STACK_ST_INTEGRITYERR, StackDestruct(), StackPop(), StackPush(), StackRigidAvgTimes, StackRigidMemoryUse(), and StackValidate()\&.
+References NewStackRigid(), STACK_ST_INTEGRITYERR, StackDestruct(), StackDump(), StackPop(), StackPush(), StackRigidAvgTimes, StackRigidMemoryUse(), and StackValidate()\&.
 .SH "Variable Documentation"
 .PP 
 .SS "double StackRigidAvgTimes[5]\fC [extern]\fP"
