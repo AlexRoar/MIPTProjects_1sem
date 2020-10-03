@@ -21,6 +21,10 @@
 #define StackElementDump(FILE, VALUE) {fprintf(FILE, "%d", VALUE);}
 #endif
 
+#ifndef StackElementType
+#define StackElementType int
+#endif
+
 #ifndef StackRigid_h
 #define StackRigid_h
 
