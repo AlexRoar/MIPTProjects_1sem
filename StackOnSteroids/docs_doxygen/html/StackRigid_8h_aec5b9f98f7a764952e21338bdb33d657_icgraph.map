@@ -1,0 +1,13 @@
+<map id="__StackGetChecksum" name="__StackGetChecksum">
+<area shape="rect" id="node1" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="1024,226,1179,252"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="801,302,976,328"/>
+<area shape="rect" id="node11" href="$StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688" title="Perform all stack checks: checksums, general constrains." alt="" coords="443,80,546,107"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#af8b6893750f868193aa85e4bdc86b200" title=" " alt="" coords="621,251,753,278"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,226,187,252"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,175,191,202"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c" title="Realocates Stack if needed." alt="" coords="239,226,368,252"/>
+<area shape="rect" id="node8" href="$StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15" title="Dumps debug information about the stack." alt="" coords="258,124,349,151"/>
+<area shape="rect" id="node10" href="$StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf" title="Memory alocated for the Stack." alt="" coords="416,200,573,227"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,175,56,202"/>
+<area shape="rect" id="node9" href="$StackRigid_8h.html#a5a14ed95132af097042c940751e1087a" title="Free stack memory." alt="" coords="104,48,191,75"/>
+</map>

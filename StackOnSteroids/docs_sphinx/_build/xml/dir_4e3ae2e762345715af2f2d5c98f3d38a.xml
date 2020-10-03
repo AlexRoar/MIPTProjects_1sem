@@ -3,7 +3,6 @@
   <compounddef id="dir_4e3ae2e762345715af2f2d5c98f3d38a" kind="dir">
     <compoundname>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids</compoundname>
     <innerfile refid="main_8cpp">main.cpp</innerfile>
-    <innerfile refid="StackEssentials_8h">StackEssentials.h</innerfile>
     <innerfile refid="StackRigid_8h">StackRigid.h</innerfile>
     <briefdescription>
     </briefdescription>

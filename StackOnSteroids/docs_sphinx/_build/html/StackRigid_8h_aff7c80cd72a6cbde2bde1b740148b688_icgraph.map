@@ -1,0 +1,8 @@
+<map id="StackValidate" name="StackValidate">
+<area shape="rect" id="node1" title="Perform all stack checks: checksums, general constrains." alt="" coords="377,74,480,101"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,49,56,76"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#a5a14ed95132af097042c940751e1087a" title="Free stack memory." alt="" coords="104,176,191,202"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15" title="Dumps debug information about the stack." alt="" coords="239,125,329,152"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,24,187,50"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,74,191,101"/>
+</map>

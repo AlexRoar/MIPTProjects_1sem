@@ -1,0 +1,8 @@
+<map id="__StackGetChecksum" name="__StackGetChecksum">
+<area shape="rect" id="node1" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="5,68,160,95"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb" title="Calculates Adler&#45;32 checksum from the firstBlock to the firstBlock + len." alt="" coords="1044,29,1157,56"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#af8b6893750f868193aa85e4bdc86b200" title=" " alt="" coords="413,80,545,107"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf" title="Memory alocated for the Stack." alt="" coords="208,93,365,120"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="593,80,768,107"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#adc53f4c04137400ffb8b2b16dd7f0766" title="Uses Adler&#45;32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca..." alt="" coords="816,55,996,81"/>
+</map>

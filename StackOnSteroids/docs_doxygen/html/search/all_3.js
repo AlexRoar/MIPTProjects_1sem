@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data_7',['data',['../StackRigid_8h.html#a1c97025785fbf9a8397e31479800f8fc',1,'StackRigid.h']]],
-  ['direction_8',['direction',['../StackRigid_8h.html#a4766bcac8da8eeda84b39290e8a39006',1,'StackRigid.h']]]
+  ['main_7',['main',['../main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c',1,'main.cpp']]],
+  ['main_2ecpp_8',['main.cpp',['../main_8cpp.html',1,'']]]
 ];

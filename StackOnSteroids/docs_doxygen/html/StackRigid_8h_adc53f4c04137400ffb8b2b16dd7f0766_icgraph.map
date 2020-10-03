@@ -1,0 +1,14 @@
+<map id="__StackGetChecksumVital" name="__StackGetChecksumVital">
+<area shape="rect" id="node1" title="Uses Adler&#45;32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca..." alt="" coords="1365,307,1545,334"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="1143,256,1317,283"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688" title="Perform all stack checks: checksums, general constrains." alt="" coords="391,206,493,232"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#af8b6893750f868193aa85e4bdc86b200" title=" " alt="" coords="963,155,1095,182"/>
+<area shape="rect" id="node9" href="$StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,162,187,188"/>
+<area shape="rect" id="node10" href="$StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,35,191,62"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#aec5b9f98f7a764952e21338bdb33d657" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="555,206,709,232"/>
+<area shape="rect" id="node8" href="$StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15" title="Dumps debug information about the stack." alt="" coords="239,136,329,163"/>
+<area shape="rect" id="node11" href="$StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c" title="Realocates Stack if needed." alt="" coords="377,40,507,67"/>
+<area shape="rect" id="node12" href="$StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf" title="Memory alocated for the Stack." alt="" coords="757,104,915,131"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,111,56,138"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#a5a14ed95132af097042c940751e1087a" title="Free stack memory." alt="" coords="104,238,191,264"/>
+</map>

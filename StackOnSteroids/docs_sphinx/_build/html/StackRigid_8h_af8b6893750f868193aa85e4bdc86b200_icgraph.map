@@ -1,4 +1,13 @@
 <map id="StackElementType" name="StackElementType">
-<area shape="rect" id="node1" title=" " alt="" coords="92,5,224,32"/>
-<area shape="rect" id="node2" href="$StackRigid_8h.html#af79bbc185100ee1491995ae80396a2f3" title=" " alt="" coords="5,5,44,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1047,144,1179,171"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#aec5b9f98f7a764952e21338bdb33d657" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="639,195,793,221"/>
+<area shape="rect" id="node9" href="$StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15" title="Dumps debug information about the stack." alt="" coords="258,397,349,424"/>
+<area shape="rect" id="node10" href="$StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c" title="Realocates Stack if needed." alt="" coords="239,43,368,69"/>
+<area shape="rect" id="node11" href="$StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf" title="Memory alocated for the Stack." alt="" coords="841,93,999,120"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="416,169,591,196"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688" title="Perform all stack checks: checksums, general constrains." alt="" coords="452,257,555,284"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,144,187,171"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,220,191,247"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,220,56,247"/>
+<area shape="rect" id="node8" href="$StackRigid_8h.html#a5a14ed95132af097042c940751e1087a" title="Free stack memory." alt="" coords="104,347,191,373"/>
 </map>

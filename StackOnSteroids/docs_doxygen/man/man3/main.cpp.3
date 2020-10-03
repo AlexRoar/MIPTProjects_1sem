@@ -13,7 +13,7 @@ StackOnSteroids/main.cpp
 
 .in +1c
 .ti -1c
-.RI "#define \fBStackElementDump\fP(FILE,  VALUE)   {\fBfprintf\fP(FILE, '%g', VALUE);}"
+.RI "#define \fBStackElementDump\fP(FILE,  VALUE)   {fprintf(FILE, '%g', VALUE);}"
 .br
 .ti -1c
 .RI "#define \fBStackElementType\fP   int"
@@ -34,7 +34,7 @@ StackOnSteroids/main.cpp
 .in -1c
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define StackElementDump(FILE, VALUE)   {\fBfprintf\fP(FILE, '%g', VALUE);}"
+.SS "#define StackElementDump(FILE, VALUE)   {fprintf(FILE, '%g', VALUE);}"
 
 .SS "#define StackElementType   int"
 
@@ -57,37 +57,37 @@ Here, I try somehow to break the Stack\&.
 25     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
 26     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
 27     for(size_t i = 0; i< 1000; i++){
-28         StackPush_int(&newStack, (int)i);
+28         StackPush(&newStack, (int)i);
 29     }
 30     for(size_t i = 0; i < 1000; i++){
 31         int tmpVal;
-32         StackPop_int(&newStack, &tmpVal);
+32         StackPop(&newStack, &tmpVal);
 33 //        printf("Popped %d\n", tmpVal);
 34     }
 35     for(size_t i = 0; i < 100; i++){
-36         StackPush_int(&newStack, (int)i);
+36         StackPush(&newStack, (int)i);
 37     }
 38     
 39     StackRigid_double* newStackDouble = NewStackRigid_double(1000, stdout);
 40     for(size_t i = 0; i< 1000; i++){
-41         StackPush_double(&newStackDouble, (double)(i));
+41         StackPush(&newStackDouble, (double)(i));
 42     }
 43     for(size_t i = 0; i < 1000; i++){
 44         double tmpVal;
-45         StackPop_double(&newStackDouble, &tmpVal);
+45         StackPop(&newStackDouble, &tmpVal);
 46 //        printf("Popped %d\n", tmpVal);
 47     }
 48     for(size_t i = 0; i < 100; i++){
-49         StackPush_double(&newStackDouble, (double)i/(double)rand());
+49         StackPush(&newStackDouble, (double)i/(double)rand());
 50     }
 51     
-52     for(size_t i = 0; i < StackRigidMemoryUse_int(newStack); i++){
+52     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
 53         char previousValue = *((char*)newStack + i);
 54         for (char bullet = -128; bullet < 127; bullet++){
 55             if (bullet == previousValue)
 56                 continue;
 57             *((char*)newStack + i) = bullet;
-58             StackRigidState state = StackValidate_int(newStack);
+58             StackRigidState state = StackValidate(newStack);
 59             if (state != STACK_ST_INTEGRITYERR){
 60                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
 61                 break;
@@ -96,14 +96,14 @@ Here, I try somehow to break the Stack\&.
 64         }
 65     }
 66 
-67     StackDump_int(newStack);
-68     StackDump_double(newStackDouble);
-69     StackDestruct_int(&newStack);
+67     StackDump(newStack);
+68     StackDump(newStackDouble);
+69     StackDestruct(&newStack);
 70     return 0;
 71 }
 .fi
 .PP
-References i, and STACK_ST_INTEGRITYERR\&.
+References STACK_ST_INTEGRITYERR, StackDestruct(), StackDump(), StackPop(), StackPush(), StackRigidMemoryUse(), and StackValidate()\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for StackRigid from the source code\&.

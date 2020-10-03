@@ -1,0 +1,12 @@
+<map id="StackPush" name="StackPush">
+<area shape="rect" id="node1" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="5,124,92,150"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c" title="Realocates Stack if needed." alt="" coords="140,22,269,49"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="497,124,672,150"/>
+<area shape="rect" id="node9" href="$StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15" title="Dumps debug information about the stack." alt="" coords="159,98,250,125"/>
+<area shape="rect" id="node10" href="$StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688" title="Perform all stack checks: checksums, general constrains." alt="" coords="533,174,636,201"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#af8b6893750f868193aa85e4bdc86b200" title=" " alt="" coords="317,22,449,49"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf" title="Memory alocated for the Stack." alt="" coords="948,61,1105,88"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#aec5b9f98f7a764952e21338bdb33d657" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="733,124,887,150"/>
+<area shape="rect" id="node8" href="$StackRigid_8h.html#adc53f4c04137400ffb8b2b16dd7f0766" title="Uses Adler&#45;32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca..." alt="" coords="720,174,900,201"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb" title="Calculates Adler&#45;32 checksum from the firstBlock to the firstBlock + len." alt="" coords="970,137,1083,164"/>
+</map>

@@ -1034,131 +1034,6 @@
               </Subnodes>
              </Node>
              <Node>
-              <Name>StackEssentials.h</Name>
-              <Path>StackEssentials_8h.html</Path>
-              <Subnodes>
-               <Node>
-                <Name>StackRigid</Name>
-                <Path>StackEssentials_8h.html</Path>
-                <Anchor>ac5d0efeed13c8b47552928dc34ac2d9a</Anchor>
-               </Node>
-               <Node>
-                <Name>StackRigidOperationCodes</Name>
-                <Path>StackEssentials_8h.html</Path>
-                <Anchor>a2b23b57ad918293ba96140fc43194967</Anchor>
-               </Node>
-               <Node>
-                <Name>StackRigidState</Name>
-                <Path>StackEssentials_8h.html</Path>
-                <Anchor>acc74b48b41d3ec38cb05184b602c7508</Anchor>
-               </Node>
-               <Node>
-                <Name>StackRigidOperationCodes</Name>
-                <Path>StackEssentials_8h.html</Path>
-                <Anchor>afa660da841608914d20d9819a7efe039</Anchor>
-                <Subnodes>
-                 <Node>
-                  <Name>STACK_OP_OK</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_UNDERFLOW</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_OVERFLOW</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_NOMEMORY</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_INTEGRITYERR</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_NULL</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_UNDERFLOW</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_OVERFLOW</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_NOMEMORY</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_INTEGRITYERR</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_NULL</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-               <Node>
-                <Name>StackRigidState</Name>
-                <Path>StackEssentials_8h.html</Path>
-                <Anchor>a3afb87b043e438be2a48ba69fe4deb5f</Anchor>
-                <Subnodes>
-                 <Node>
-                  <Name>STACK_ST_OK</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_INTEGRITYERR</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_UNINITIALIZED</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_NULL</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_INTEGRITYERR</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_UNINITIALIZED</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_NULL</Name>
-                  <Path>StackRigid_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb</Anchor>
-                 </Node>
-                </Subnodes>
-               </Node>
-              </Subnodes>
-             </Node>
-             <Node>
               <Name>StackRigid.h</Name>
               <Path>StackRigid_8h.html</Path>
               <Subnodes>
@@ -1199,33 +1074,8 @@
                 <Subnodes>
                  <Node>
                   <Name>STACK_OP_OK</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_UNDERFLOW</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_OVERFLOW</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_NOMEMORY</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_INTEGRITYERR</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_OP_NULL</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e</Anchor>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e</Anchor>
                  </Node>
                  <Node>
                   <Name>STACK_OP_UNDERFLOW</Name>
@@ -1261,23 +1111,8 @@
                 <Subnodes>
                  <Node>
                   <Name>STACK_ST_OK</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_INTEGRITYERR</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_UNINITIALIZED</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58</Anchor>
-                 </Node>
-                 <Node>
-                  <Name>STACK_ST_NULL</Name>
-                  <Path>StackEssentials_8h.html</Path>
-                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb</Anchor>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74</Anchor>
                  </Node>
                  <Node>
                   <Name>STACK_ST_INTEGRITYERR</Name>
@@ -1299,62 +1134,27 @@
                <Node>
                 <Name>__overload</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a96894c6e311ee779636592014ad2766c</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a9adbd875476f245e288278f140fbdc80</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>aa153ee87892e9f6ac0dc09be1d86e137</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ad2aa809be4069ec43ea7acc81fe0dac5</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a818a7cd3215adbdabf0536a09bdb43b7</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a9b8f2344f7d59d6e3cb6658c2421ae31</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a4da094d1d949e620fca0a15b481b46de</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>abf30878508ba254a5dee43d7ee97e812</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a97a66ed9a1a8be64c213ac8f57f80dfd</Anchor>
-               </Node>
-               <Node>
-                <Name>__overload</Name>
-                <Path>StackRigid_8h.html</Path>
                 <Anchor>a94083fea0de2aea65e4fb9440048f757</Anchor>
                </Node>
                <Node>
-                <Name>__overload</Name>
+                <Name>__StackGetChecksum</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a7a941e78c0980d17350db0d968cde4ad</Anchor>
+                <Anchor>aec5b9f98f7a764952e21338bdb33d657</Anchor>
                </Node>
                <Node>
-                <Name>__overload</Name>
+                <Name>__StackGetChecksumVital</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a836cd947f32595eadd82154f5344b182</Anchor>
+                <Anchor>adc53f4c04137400ffb8b2b16dd7f0766</Anchor>
+               </Node>
+               <Node>
+                <Name>__StackRealocate</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>abebf4fe4d74c00e6c77133e0cc6aff7c</Anchor>
+               </Node>
+               <Node>
+                <Name>__StackUpdateChecksum</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a1c658f9883a1c527daca9053c4270cc3</Anchor>
                </Node>
                <Node>
                 <Name>adlerChecksum</Name>
@@ -1362,154 +1162,19 @@
                 <Anchor>a37faf27d6e9ab4e0a417f29efbda1cbb</Anchor>
                </Node>
                <Node>
-                <Name>adlerChecksum</Name>
+                <Name>StackBack</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a660098758f67572f0d1a8e0381e2ad4b</Anchor>
+                <Anchor>a5a14ed95132af097042c940751e1087a</Anchor>
                </Node>
                <Node>
-                <Name>for</Name>
+                <Name>StackDestruct</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>ab6e1a246017ca3742ce77f0b32327841</Anchor>
+                <Anchor>a53fd24cced8a15cd9b5eba14c46be8bf</Anchor>
                </Node>
                <Node>
-                <Name>fprintf</Name>
+                <Name>StackDump</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>ade6725d32f719f41a22d20ab9be146b6</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a8d8008eab112c549b111559c2450f83d</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a0e04fda11c1ca6c07e10492f8a79fcef</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a957e3ac0432b16bd0b0b331bc5b5db6c</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a0df8bd3a5eea34005eab1a1dcc33b897</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a3e42dd2239aac378191c1757dd87877f</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>af85e0dc8d441df46d42e87aceb74882f</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>abdf17366eeaad5a885c6d9f879dbb345</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>af898ae2b970c700129aacbaf5a2885dc</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a18b7cb11f7020175c4eed7b327382f7d</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a65b039f6f4b41b137413ce0e0e3197fd</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>aa6a81f3b0cc5ce95d6b654f1d08a67f1</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ac7f14232afefe5d6d99cc8a2d2284307</Anchor>
-               </Node>
-               <Node>
-                <Name>fprintf</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a132a01dc2ac14b0b055e9881c96a9e49</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ac3f2a71b97d4042e4d01ddcc25a452f0</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>aed5e33faf012386d8e74d010d2359eaa</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a5dd53bb08db89e777a3fcb0349c621e0</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a20f08133b032e39c58d05a46339714c7</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>af79bbc185100ee1491995ae80396a2f3</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a16a7171e9728bb34fc74d1c2c3d59275</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>aea62c82768cd6ef1a56cd05e68501788</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a1b40b170e263c4f9624a0b0e26a750b7</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>aaab6a4481bea7da1de566fcf9ff2132c</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a0ae26ae1c312c7f76a50eb9087580724</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a5905730f9ceb85034f9cd5849194cbbf</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a6255c701c412ca293fc27561ae802ebd</Anchor>
-               </Node>
-               <Node>
-                <Name>if</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ac59b21b66112b7b013203caff8473b32</Anchor>
-               </Node>
-               <Node>
-                <Name>sizeof</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a94a014c56957d128b71edf7751ec0a47</Anchor>
+                <Anchor>a3cda48db0043a1f64ec157f2c0235f15</Anchor>
                </Node>
                <Node>
                 <Name>StackElementType</Name>
@@ -1517,114 +1182,24 @@
                 <Anchor>af8b6893750f868193aa85e4bdc86b200</Anchor>
                </Node>
                <Node>
-                <Name>switch</Name>
+                <Name>StackPop</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a1d864cc9683f31009e740a88e7dd9e08</Anchor>
+                <Anchor>a984cb1d53f4129fda870b57ade0d6c51</Anchor>
                </Node>
                <Node>
-                <Name>checks</Name>
+                <Name>StackPush</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>aa24d2025a949cfcab6af74bbea7bbd93</Anchor>
+                <Anchor>aa9a346debdba44a4d6d8a6d165aecba7</Anchor>
                </Node>
                <Node>
-                <Name>checkSum</Name>
+                <Name>StackRigidMemoryUse</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a78512a9976489009fe415634772b2edf</Anchor>
+                <Anchor>a127c18498567a23b96117f7d368c19cf</Anchor>
                </Node>
                <Node>
-                <Name>checkSumVital</Name>
+                <Name>StackValidate</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a5786bffb29b2425c43a80d1ecddbc416</Anchor>
-               </Node>
-               <Node>
-                <Name>currentChecksum</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a93186122a9f6b9791d9b1d7929397034</Anchor>
-               </Node>
-               <Node>
-                <Name>currentChecksumVital</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a2caa8097440c1e2a2423da9b7ae9404c</Anchor>
-               </Node>
-               <Node>
-                <Name>data</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a1c97025785fbf9a8397e31479800f8fc</Anchor>
-               </Node>
-               <Node>
-                <Name>direction</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a4766bcac8da8eeda84b39290e8a39006</Anchor>
-               </Node>
-               <Node>
-                <Name>else</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a0544c3fe466e421738dae463968b70ba</Anchor>
-               </Node>
-               <Node>
-                <Name>firstBlock</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a95d3254ef28c50444625b7eb7a0005e3</Anchor>
-               </Node>
-               <Node>
-                <Name>i</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ae46bd26d7133dfe98f8cec7c5ac5c7a1</Anchor>
-               </Node>
-               <Node>
-                <Name>integrityChecks</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a2c1f314ba75202e9c0ef4e2d93a7bb6d</Anchor>
-               </Node>
-               <Node>
-                <Name>memory</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>aac6e07c71f4eb8265c1ba1efda2dd8ed</Anchor>
-               </Node>
-               <Node>
-                <Name>output</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ab41bf19330e50c3c7bf3544c53f30971</Anchor>
-               </Node>
-               <Node>
-                <Name>ptm</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a968bd499cfe6e605baa6874ca0c86d2e</Anchor>
-               </Node>
-               <Node>
-                <Name>realocResult</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a19c628be7020d2b8a22b37cba648660e</Anchor>
-               </Node>
-               <Node>
-                <Name>size</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>af5b7426926caad2613af178a841c4a99</Anchor>
-               </Node>
-               <Node>
-                <Name>stack</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>add98115d16c73f44db53adf6684e9071</Anchor>
-               </Node>
-               <Node>
-                <Name>STACK_OP_OK</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a049b8238cb27892165351846886d6a2e</Anchor>
-               </Node>
-               <Node>
-                <Name>STACK_ST_OK</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a4b2b5de94a6d5cbd85ca204c433b6e74</Anchor>
-               </Node>
-               <Node>
-                <Name>status</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>ac9758d3e0260183af2f6a061cd9254f5</Anchor>
-               </Node>
-               <Node>
-                <Name>value</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>a1f81d06f9ccd5ec47176a7fc466b6030</Anchor>
+                <Anchor>aff7c80cd72a6cbde2bde1b740148b688</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1643,10 +1218,6 @@
            <Node>
             <Name>Functions</Name>
             <Path>globals_func.html</Path>
-           </Node>
-           <Node>
-            <Name>Constants</Name>
-            <Path>globals_vars.html</Path>
            </Node>
            <Node>
             <Name>Typedefs</Name>

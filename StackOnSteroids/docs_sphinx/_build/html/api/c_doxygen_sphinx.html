@@ -198,7 +198,7 @@
 <p><em>Values:</em></p>
 <dl class="c enumerator">
 <dt id="c.StackRigidOperationCodes.STACK_OP_OK">
-<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_OK</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_OK" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_OK</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_OK" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Succesful operation. </p>
 </dd></dl>
 
@@ -232,36 +232,6 @@
 <dd><p>Found NULL pointer during the operation. </p>
 </dd></dl>
 
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_UNDERFLOW</code><br /></dt>
-<dd><p>Tried to get value from the empty stack. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_OVERFLOW</code><br /></dt>
-<dd><p>Stack overflow and new memory allocation failed. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_NOMEMORY</code><br /></dt>
-<dd><p>No memory for stack alocations. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_INTEGRITYERR</code><br /></dt>
-<dd><p>Stack memory was altered by some outer access. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_NULL</code><br /></dt>
-<dd><p>Found NULL pointer during the operation. </p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="c enum">
@@ -271,7 +241,7 @@
 <p><em>Values:</em></p>
 <dl class="c enumerator">
 <dt id="c.StackRigidState.STACK_ST_OK">
-<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_OK</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_OK" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_OK</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_OK" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Stack is running as expected. </p>
 </dd></dl>
 
@@ -290,24 +260,6 @@
 <dl class="c enumerator">
 <dt id="c.StackRigidState.STACK_ST_NULL">
 <span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_NULL</code><a class="headerlink" href="#c.StackRigidState.STACK_ST_NULL" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Found NULL pointer during the operation. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_INTEGRITYERR</code><br /></dt>
-<dd><p>Stack was altered by some outer access. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_UNINITIALIZED</code><br /></dt>
-<dd><p>Stack is uninitialized. </p>
-</dd></dl>
-
-<dl class="c enumerator">
-<dt>
-<span class="target" id="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_ST_NULL</code><br /></dt>
 <dd><p>Found NULL pointer during the operation. </p>
 </dd></dl>
 
@@ -354,7 +306,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1ad2aa809be4069ec43ea7acc81fe0dac5"></span><code class="sig-name descname">void __overload (__StackUpdateChecksum, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1a1c658f9883a1c527daca9053c4270cc3"></span><code class="sig-name descname">void __StackUpdateChecksum (__overload(StackRigid, StackElementType) *stack)</code></dt>
 <dd><p>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element. </p>
 <p><dl class="simple">
 <dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">__stack</span> <span class="n">area__</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
@@ -374,7 +326,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a96894c6e311ee779636592014ad2766c"></span><code class="sig-name descname">uint32_t __overload (__StackGetChecksum, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1aec5b9f98f7a764952e21338bdb33d657"></span><code class="sig-name descname">uint32_t __StackGetChecksum (__overload(StackRigid, StackElementType) *stack)</code></dt>
 <dd><p>Claculates big Stack checksum. Uses Adler-32 method. </p>
 <p><dl class="simple">
 <dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
@@ -394,8 +346,8 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a9adbd875476f245e288278f140fbdc80"></span><code class="sig-name descname">uint32_t __overload (__StackGetChecksumVital, StackElementType)(__overload(StackRigid</code></dt>
-<dd><p>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary because __StackGetChecksum() relies on capacity and size. If they were changed, behaviour is undefined. </p>
+<span class="target" id="StackRigid_8h_1adc53f4c04137400ffb8b2b16dd7f0766"></span><code class="sig-name descname">uint32_t __StackGetChecksumVital (__overload(StackRigid, StackElementType) *stack)</code></dt>
+<dd><p>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary because <a class="reference internal" href="#StackRigid_8h_1aec5b9f98f7a764952e21338bdb33d657"><span class="std std-ref">__StackGetChecksum()</span></a> relies on capacity and size. If they were changed, behaviour is undefined. </p>
 <p><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
 <span class="o">*</span> <span class="n">______________________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
 <span class="o">*</span>
@@ -414,7 +366,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1aa153ee87892e9f6ac0dc09be1d86e137"></span><code class="sig-name descname">StackRigidOperationCodes __overload (__StackRealocate, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1abebf4fe4d74c00e6c77133e0cc6aff7c"></span><code class="sig-name descname">StackRigidOperationCodes __StackRealocate (__overload(StackRigid, StackElementType) **stack, short int direction)</code></dt>
 <dd><p>Realocates Stack if needed. </p>
 <p><dl class="simple">
 <dt><strong>Attention</strong></dt><dd><p>Not for the manual use! </p>
@@ -435,7 +387,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a836cd947f32595eadd82154f5344b182"></span><code class="sig-name descname">StackRigidState __overload (StackValidate, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1aff7c80cd72a6cbde2bde1b740148b688"></span><code class="sig-name descname">StackRigidState StackValidate (__overload(StackRigid, StackElementType) *stack)</code></dt>
 <dd><p>Perform all stack checks: checksums, general constrains. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>calculated state </p>
@@ -450,7 +402,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a97a66ed9a1a8be64c213ac8f57f80dfd"></span><code class="sig-name descname">StackRigidOperationCodes __overload (StackPush, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1aa9a346debdba44a4d6d8a6d165aecba7"></span><code class="sig-name descname">StackRigidOperationCodes StackPush (__overload(StackRigid, StackElementType) **stack, StackElementType value)</code></dt>
 <dd><p>Push the value to the stack The operation can perform realocations if there is not enough space. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
@@ -466,7 +418,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1abf30878508ba254a5dee43d7ee97e812"></span><code class="sig-name descname">StackRigidOperationCodes __overload (StackPop, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1a984cb1d53f4129fda870b57ade0d6c51"></span><code class="sig-name descname">StackRigidOperationCodes StackPop (__overload(StackRigid, StackElementType) **stack, StackElementType *value)</code></dt>
 <dd><p>Pop value from the end of the stack The operation can perform realocations if there is too much space. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
@@ -482,7 +434,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a9b8f2344f7d59d6e3cb6658c2421ae31"></span><code class="sig-name descname">StackRigidOperationCodes __overload (StackDestruct, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1a53fd24cced8a15cd9b5eba14c46be8bf"></span><code class="sig-name descname">StackRigidOperationCodes StackDestruct (__overload(StackRigid, StackElementType) **stack)</code></dt>
 <dd><p>Free stack memory. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
@@ -497,7 +449,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a818a7cd3215adbdabf0536a09bdb43b7"></span><code class="sig-name descname">StackRigidOperationCodes __overload (StackBack, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1a5a14ed95132af097042c940751e1087a"></span><code class="sig-name descname">StackRigidOperationCodes StackBack (__overload(StackRigid, StackElementType) *stack, StackElementType *value)</code></dt>
 <dd><p>Free stack memory. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
@@ -512,7 +464,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a4da094d1d949e620fca0a15b481b46de"></span><code class="sig-name descname">void __overload (StackDump, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1a3cda48db0043a1f64ec157f2c0235f15"></span><code class="sig-name descname">void StackDump (__overload(StackRigid, StackElementType) *stack)</code></dt>
 <dd><p>Dumps debug information about the stack. </p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
@@ -525,7 +477,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a7a941e78c0980d17350db0d968cde4ad"></span><code class="sig-name descname">size_t __overload (StackRigidMemoryUse, StackElementType)(__overload(StackRigid</code></dt>
+<span class="target" id="StackRigid_8h_1a127c18498567a23b96117f7d368c19cf"></span><code class="sig-name descname">size_t StackRigidMemoryUse (__overload(StackRigid, StackElementType) *stack)</code></dt>
 <dd><p>Memory alocated for the Stack. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>alocated bytes </p>
@@ -537,271 +489,6 @@
 </dl>
 </p>
 </dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1af79bbc185100ee1491995ae80396a2f3"></span><code class="sig-name descname">if (integrityChecks !=STACK_ST_OK)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1aea62c82768cd6ef1a56cd05e68501788"></span><code class="sig-name descname">if (realocResult !=STACK_OP_OK)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1ac3f2a71b97d4042e4d01ddcc25a452f0"></span><code class="sig-name descname">if ((*stack) -&gt;size==0)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a6255c701c412ca293fc27561ae802ebd"></span><code class="sig-name descname">if (stack-&gt;size==0) return STACK_OP_UNDERFLOW</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1aaab6a4481bea7da1de566fcf9ff2132c"></span><code class="sig-name descname">if (stack-&gt;size &gt; stack-&gt;capacity||stack-&gt;checkSum==0||stack-&gt;checkSumVital==0) return STACK_ST_INTEGRITYERR</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a20f08133b032e39c58d05a46339714c7"></span><code class="sig-name descname">if (currentChecksumVital !=stack-&gt;checkSumVital||currentChecksumVital==0) return STACK_ST_INTEGRITYERR</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a5dd53bb08db89e777a3fcb0349c621e0"></span><code class="sig-name descname">if (currentChecksum !=stack-&gt;checkSum||currentChecksum==0) return STACK_ST_INTEGRITYERR</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a1b40b170e263c4f9624a0b0e26a750b7"></span><code class="sig-name descname">if (stack-&gt;size &gt; stack-&gt;capacity)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a660098758f67572f0d1a8e0381e2ad4b"></span><code class="sig-name descname">return adlerChecksum (firstBlock, memory)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a94a014c56957d128b71edf7751ec0a47"></span><code class="sig-name descname">return sizeof (__overload(StackRigid, StackElementType))+(stack -&gt; capacity - 1) *sizeof(StackElementType)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a16a7171e9728bb34fc74d1c2c3d59275"></span><code class="sig-name descname">if (output==NULL)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a0df8bd3a5eea34005eab1a1dcc33b897"></span><code class="sig-name descname">fprintf (output, &quot;=================================\n&quot;)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1ac7f14232afefe5d6d99cc8a2d2284307"></span><code class="sig-name descname">fprintf (output, &quot;Stack dump %s&quot;, asctime(ptm))</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1ac59b21b66112b7b013203caff8473b32"></span><code class="sig-name descname">if (stack==NULL)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a1d864cc9683f31009e740a88e7dd9e08"></span><code class="sig-name descname">switch (checks)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a0e04fda11c1ca6c07e10492f8a79fcef"></span><code class="sig-name descname">fprintf (output, &quot;%s&quot;, status)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a957e3ac0432b16bd0b0b331bc5b5db6c"></span><code class="sig-name descname">fprintf (output, &quot;)&quot;)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1aed5e33faf012386d8e74d010d2359eaa"></span><code class="sig-name descname">if (checks==STACK_ST_INTEGRITYERR)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a3e42dd2239aac378191c1757dd87877f"></span><code class="sig-name descname">fprintf (output, &quot;\t    size : %lu\n&quot;, stack-&gt;size)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1abdf17366eeaad5a885c6d9f879dbb345"></span><code class="sig-name descname">fprintf (output, &quot;\tcapacity : %lu\n&quot;, stack-&gt;capacity)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1af898ae2b970c700129aacbaf5a2885dc"></span><code class="sig-name descname">fprintf (output, &quot;\tcheckSum : %x\n&quot;, stack-&gt;checkSum)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1ab6e1a246017ca3742ce77f0b32327841"></span><code class="sig-name descname">for (i=0;i&lt; stack-&gt;size;i++)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1af85e0dc8d441df46d42e87aceb74882f"></span><code class="sig-name descname">fprintf (output, &quot;\t\t _______\n&quot;)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a5905730f9ceb85034f9cd5849194cbbf"></span><code class="sig-name descname">if (stack-&gt;size&lt; stack-&gt;capacity)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a0ae26ae1c312c7f76a50eb9087580724"></span><code class="sig-name descname">if (stack-&gt;size+1&lt; stack-&gt;capacity &amp;&amp;stack-&gt;size+1 &gt; stack-&gt;size)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a18b7cb11f7020175c4eed7b327382f7d"></span><code class="sig-name descname">fprintf (output, &quot;\t}\n&quot;)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a132a01dc2ac14b0b055e9881c96a9e49"></span><code class="sig-name descname">fprintf (output, &quot;}\n&quot;)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1aa6a81f3b0cc5ce95d6b654f1d08a67f1"></span><code class="sig-name descname">fprintf (output, &quot;Size allocated : %lu bytes\n&quot;, memory)</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a65b039f6f4b41b137413ce0e0e3197fd"></span><code class="sig-name descname">fprintf (output, &quot;Raw Stack size : %lu bytes\n&quot;, sizeof(__overload(StackRigid, StackElementType)))</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a8d8008eab112c549b111559c2450f83d"></span><code class="sig-name descname">fprintf (output, &quot;  Element size : %lu bytes\n&quot;, sizeof(StackElementType))</code></dt>
-<dd></dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1ade6725d32f719f41a22d20ab9be146b6"></span><code class="sig-name descname">fprintf (output, &quot;     Block end : %p\n&quot;,(char *) stack+memory)</code></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric">Variables</p>
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1add98115d16c73f44db53adf6684e9071"></span><code class="sig-name descname">void StackElementType * stack  {if (stack == NULL)        return STACK_ST_NULL</code></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1a4766bcac8da8eeda84b39290e8a39006"></span><code class="sig-name descname">StackRigidOperationCodes StackElementType short int direction</code></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1a1f81d06f9ccd5ec47176a7fc466b6030"></span><code class="sig-name descname">StackRigidOperationCodes StackElementType StackElementType value  {if (stack == NULL)        return STACK_OP_NULL</code></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.integrityChecks">
-<span class="target" id="StackRigid_8h_1a2c1f314ba75202e9c0ef4e2d93a7bb6d"></span><a class="reference internal" href="#c.StackRigidState" title="StackRigidState">StackRigidState</a> <code class="sig-name descname">integrityChecks</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(StackValidate, StackElementType)(*stack)<a class="headerlink" href="#c.integrityChecks" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.realocResult">
-<span class="target" id="StackRigid_8h_1a19c628be7020d2b8a22b37cba648660e"></span><a class="reference internal" href="#c.StackRigidOperationCodes" title="StackRigidOperationCodes">StackRigidOperationCodes</a> <code class="sig-name descname">realocResult</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(__StackRealocate, StackElementType)(stack, 1)<a class="headerlink" href="#c.realocResult" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.data">
-<span class="target" id="StackRigid_8h_1a1c97025785fbf9a8397e31479800f8fc"></span>stack <code class="sig-name descname">data</code>[(*<code class="sig-name descname">stack</code>)-&gt;size] = value<a class="headerlink" href="#c.data" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.size">
-<span class="target" id="StackRigid_8h_1af5b7426926caad2613af178a841c4a99"></span>stack <code class="sig-name descname">size</code> = 1<a class="headerlink" href="#c.size" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1a049b8238cb27892165351846886d6a2e"></span><code class="sig-name descname">return STACK_OP_OK</code></dt>
-<dd><p>Succesful operation. </p>
-</dd></dl>
-
-<dl class="c var">
-<dt id="c.currentChecksumVital">
-<span class="target" id="StackRigid_8h_1a2caa8097440c1e2a2423da9b7ae9404c"></span>uint32_t <code class="sig-name descname">currentChecksumVital</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(__StackGetChecksumVital, StackElementType)(stack)<a class="headerlink" href="#c.currentChecksumVital" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.currentChecksum">
-<span class="target" id="StackRigid_8h_1a93186122a9f6b9791d9b1d7929397034"></span>uint32_t <code class="sig-name descname">currentChecksum</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(__StackGetChecksum, StackElementType)(stack)<a class="headerlink" href="#c.currentChecksum" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1a4b2b5de94a6d5cbd85ca204c433b6e74"></span><code class="sig-name descname">return STACK_ST_OK</code></dt>
-<dd><p>Stack is running as expected. </p>
-</dd></dl>
-
-<dl class="c var">
-<dt id="c.checkSumVital">
-<span class="target" id="StackRigid_8h_1a5786bffb29b2425c43a80d1ecddbc416"></span>stack <code class="sig-name descname">checkSumVital</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(__StackGetChecksumVital, StackElementType)(stack)<a class="headerlink" href="#c.checkSumVital" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.checkSum">
-<span class="target" id="StackRigid_8h_1a78512a9976489009fe415634772b2edf"></span>stack <code class="sig-name descname">checkSum</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(__StackGetChecksum, StackElementType)(stack)<a class="headerlink" href="#c.checkSum" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1a95d3254ef28c50444625b7eb7a0005e3"></span><code class="sig-name descname">void * firstBlock   = (char*)stack + sizeof(stack-&gt;checkSum) + sizeof(stack-&gt;checkSumVital)</code></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.memory">
-<span class="target" id="StackRigid_8h_1aac6e07c71f4eb8265c1ba1efda2dd8ed"></span><em class="property">const</em> size_t <code class="sig-name descname">memory</code> = sizeof(stack-&gt;size) + sizeof(stack-&gt;capacity)+ sizeof(stack-&gt;logFile)<a class="headerlink" href="#c.memory" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.ptm">
-<span class="target" id="StackRigid_8h_1a968bd499cfe6e605baa6874ca0c86d2e"></span><em class="property">struct</em> tm *<code class="sig-name descname">ptm</code> = localtime(&amp;rawtime)<a class="headerlink" href="#c.ptm" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.output">
-<span class="target" id="StackRigid_8h_1ab41bf19330e50c3c7bf3544c53f30971"></span>FILE *<code class="sig-name descname">output</code> = stack-&gt;logFile<a class="headerlink" href="#c.output" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt>
-<span class="target" id="StackRigid_8h_1a0544c3fe466e421738dae463968b70ba"></span><code class="sig-name descname">else  {fprintf(output, &quot;Stack (&quot;)</code></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.status">
-<span class="target" id="StackRigid_8h_1ac9758d3e0260183af2f6a061cd9254f5"></span><em class="property">const</em> char *<code class="sig-name descname">status</code> = &quot;ok&quot;<a class="headerlink" href="#c.status" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.checks">
-<span class="target" id="StackRigid_8h_1aa24d2025a949cfcab6af74bbea7bbd93"></span><a class="reference internal" href="#c.StackRigidState" title="StackRigidState">StackRigidState</a> <code class="sig-name descname">checks</code> = <a class="reference internal" href="#c.__overload" title="__overload">__overload</a>(StackValidate, StackElementType)(stack)<a class="headerlink" href="#c.checks" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c var">
-<dt id="c.i">
-<span class="target" id="StackRigid_8h_1ae46bd26d7133dfe98f8cec7c5ac5c7a1"></span>size_t <code class="sig-name descname">i</code> = 0<a class="headerlink" href="#c.i" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
 
 </div>
 </div>

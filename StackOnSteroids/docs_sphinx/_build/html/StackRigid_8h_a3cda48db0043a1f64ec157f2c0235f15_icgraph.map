@@ -1,0 +1,7 @@
+<map id="StackDump" name="StackDump">
+<area shape="rect" id="node1" title="Dumps debug information about the stack." alt="" coords="239,52,329,79"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,78,56,104"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#a5a14ed95132af097042c940751e1087a" title="Free stack memory." alt="" coords="104,27,191,54"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,78,187,104"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,128,191,155"/>
+</map>

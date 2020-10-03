@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['else_9',['else',['../StackRigid_8h.html#a0544c3fe466e421738dae463968b70ba',1,'StackRigid.h']]],
-  ['evaluator_10',['EVALUATOR',['../StackRigid_8h.html#a90ce550ff78fd420b633c5d88dfd2883',1,'StackRigid.h']]]
+  ['paster_9',['PASTER',['../StackRigid_8h.html#a96e0bc8f204dbef33b6e6a664c5b5663',1,'StackRigid.h']]]
 ];

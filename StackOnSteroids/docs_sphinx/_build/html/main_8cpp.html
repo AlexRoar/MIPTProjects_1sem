@@ -113,7 +113,7 @@ Macros</h2></td></tr>
 <tr class="memitem:a5d5557764da222ed9bdc5f5aba30da9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5d5557764da222ed9bdc5f5aba30da9d">StackElementType</a>&#160;&#160;&#160;int</td></tr>
 <tr class="memdesc:a5d5557764da222ed9bdc5f5aba30da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element type to be used in Stack.  <a href="main_8cpp.html#a5d5557764da222ed9bdc5f5aba30da9d">More...</a><br /></td></tr>
 <tr class="separator:a5d5557764da222ed9bdc5f5aba30da9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a231d62549d9cfc45a003c319b7e1779e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a231d62549d9cfc45a003c319b7e1779e">StackElementDump</a>(FILE,  VALUE)&#160;&#160;&#160;{<a class="el" href="StackRigid_8h.html#ade6725d32f719f41a22d20ab9be146b6">fprintf</a>(FILE, &quot;%g&quot;, VALUE);}</td></tr>
+<tr class="memitem:a231d62549d9cfc45a003c319b7e1779e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a231d62549d9cfc45a003c319b7e1779e">StackElementDump</a>(FILE,  VALUE)&#160;&#160;&#160;{fprintf(FILE, &quot;%g&quot;, VALUE);}</td></tr>
 <tr class="separator:a231d62549d9cfc45a003c319b7e1779e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d5557764da222ed9bdc5f5aba30da9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5d5557764da222ed9bdc5f5aba30da9d">StackElementType</a>&#160;&#160;&#160;double</td></tr>
 <tr class="memdesc:a5d5557764da222ed9bdc5f5aba30da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element type to be used in Stack.  <a href="main_8cpp.html#a5d5557764da222ed9bdc5f5aba30da9d">More...</a><br /></td></tr>
@@ -147,7 +147,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;{<a class="el" href="StackRigid_8h.html#ade6725d32f719f41a22d20ab9be146b6">fprintf</a>(FILE, &quot;%g&quot;, VALUE);}</td>
+          <td></td><td>&#160;&#160;&#160;{fprintf(FILE, &quot;%g&quot;, VALUE);}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -226,61 +226,88 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    StackRigid_int* newStack = NewStackRigid_int(1000, stdout);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    printf(<span class="stringliteral">&quot;  size_t volume: %lu bytes\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>));</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    printf(<span class="stringliteral">&quot;checksum volume: %lu bytes\n&quot;</span>, <span class="keyword">sizeof</span>(uint32_t));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>&lt; 1000; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        StackPush_int(&amp;newStack, (<span class="keywordtype">int</span>)<a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt; 1000; i++){</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7">StackPush</a>(&amp;newStack, (<span class="keywordtype">int</span>)i);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> &lt; 1000; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 1000; i++){</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">int</span> tmpVal;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        StackPop_int(&amp;newStack, &amp;tmpVal);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51">StackPop</a>(&amp;newStack, &amp;tmpVal);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//        printf(&quot;Popped %d\n&quot;, tmpVal);</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> &lt; 100; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        StackPush_int(&amp;newStack, (<span class="keywordtype">int</span>)<a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 100; i++){</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7">StackPush</a>(&amp;newStack, (<span class="keywordtype">int</span>)i);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    StackRigid_double* newStackDouble = NewStackRigid_double(1000, stdout);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>&lt; 1000; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        StackPush_double(&amp;newStackDouble, (<span class="keywordtype">double</span>)(<a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt; 1000; i++){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7">StackPush</a>(&amp;newStackDouble, (<span class="keywordtype">double</span>)(i));</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> &lt; 1000; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 1000; i++){</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">double</span> tmpVal;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        StackPop_double(&amp;newStackDouble, &amp;tmpVal);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51">StackPop</a>(&amp;newStackDouble, &amp;tmpVal);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//        printf(&quot;Popped %d\n&quot;, tmpVal);</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> &lt; 100; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        StackPush_double(&amp;newStackDouble, (<span class="keywordtype">double</span>)<a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>/(<span class="keywordtype">double</span>)rand());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; 100; i++){</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7">StackPush</a>(&amp;newStackDouble, (<span class="keywordtype">double</span>)i/(<span class="keywordtype">double</span>)rand());</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> = 0; <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a> &lt; StackRigidMemoryUse_int(newStack); <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>++){</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">char</span> previousValue = *((<span class="keywordtype">char</span>*)newStack + <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf">StackRigidMemoryUse</a>(newStack); i++){</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">char</span> previousValue = *((<span class="keywordtype">char</span>*)newStack + i);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">char</span> bullet = -128; bullet &lt; 127; bullet++){</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span> (bullet == previousValue)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            *((<span class="keywordtype">char</span>*)newStack + <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>) = bullet;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5f">StackRigidState</a> state = StackValidate_int(newStack);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (state != <a class="code" href="StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0">STACK_ST_INTEGRITYERR</a>){</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                printf(<span class="stringliteral">&quot;Did not spot intervention at position %zu, byte %x\n&quot;</span>, <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>, bullet);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            *((<span class="keywordtype">char</span>*)newStack + i) = bullet;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <a class="code" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5f">StackRigidState</a> state = <a class="code" href="StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688">StackValidate</a>(newStack);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (state != <a class="code" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0">STACK_ST_INTEGRITYERR</a>){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                printf(<span class="stringliteral">&quot;Did not spot intervention at position %zu, byte %x\n&quot;</span>, i, bullet);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            *((<span class="keywordtype">char</span>*)newStack + <a class="code" href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a>) = previousValue;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            *((<span class="keywordtype">char</span>*)newStack + i) = previousValue;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    StackDump_int(newStack);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    StackDump_double(newStackDouble);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    StackDestruct_int(&amp;newStack);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15">StackDump</a>(newStack);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15">StackDump</a>(newStackDouble);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="StackRigid_8h.html#a53fd24cced8a15cd9b5eba14c46be8bf">StackDestruct</a>(&amp;newStack);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="StackRigid_8h_source.html#l00494">i</a>, and <a class="el" href="StackEssentials_8h_source.html#l00059">STACK_ST_INTEGRITYERR</a>.</p>
+<p class="reference">References <a class="el" href="StackRigid_8h_source.html#l00085">STACK_ST_INTEGRITYERR</a>, <a class="el" href="StackRigid_8h_source.html#l00525">StackDestruct()</a>, <a class="el" href="StackRigid_8h_source.html#l00450">StackDump()</a>, <a class="el" href="StackRigid_8h_source.html#l00284">StackPop()</a>, <a class="el" href="StackRigid_8h_source.html#l00239">StackPush()</a>, <a class="el" href="StackRigid_8h_source.html#l00444">StackRigidMemoryUse()</a>, and <a class="el" href="StackRigid_8h_source.html#l00326">StackValidate()</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="main_8cpp_ac0f2228420376f4db7e1274f2b41667c_cgraph.png" border="0" usemap="#amain_8cpp_ac0f2228420376f4db7e1274f2b41667c_cgraph" alt=""/></div>
+<map name="main_8cpp_ac0f2228420376f4db7e1274f2b41667c_cgraph" id="amain_8cpp_ac0f2228420376f4db7e1274f2b41667c_cgraph">
+<area shape="rect" title="Here, I try somehow to break the Stack." alt="" coords="5,183,56,209"/>
+<area shape="rect" href="StackRigid_8h.html#a53fd24cced8a15cd9b5eba14c46be8bf" title="Free stack memory." alt="" coords="104,5,211,32"/>
+<area shape="rect" href="StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15" title="Dumps debug information about the stack." alt="" coords="278,157,369,184"/>
+<area shape="rect" href="StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf" title="Memory alocated for the Stack." alt="" coords="1067,157,1224,184"/>
+<area shape="rect" href="StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688" title="Perform all stack checks: checksums, general constrains." alt="" coords="451,411,553,437"/>
+<area shape="rect" href="StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="118,208,197,235"/>
+<area shape="rect" href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="114,259,201,285"/>
+<area shape="rect" href="StackRigid_8h.html#af8b6893750f868193aa85e4bdc86b200" title=" " alt="" coords="436,208,568,235"/>
+<area shape="rect" href="StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="616,309,791,336"/>
+<area shape="rect" href="StackRigid_8h.html#aec5b9f98f7a764952e21338bdb33d657" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="851,284,1006,311"/>
+<area shape="rect" href="StackRigid_8h.html#adc53f4c04137400ffb8b2b16dd7f0766" title="Uses Adler&#45;32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca..." alt="" coords="839,335,1019,361"/>
+<area shape="rect" href="StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb" title="Calculates Adler&#45;32 checksum from the firstBlock to the firstBlock + len." alt="" coords="1089,309,1202,336"/>
+<area shape="rect" href="StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c" title="Realocates Stack if needed." alt="" coords="259,208,388,235"/>
+</map>
+</div>
 
 </div>
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aStackEssentials_8h_html_a3afb87b043e438be2a48ba69fe4deb5f"><div class="ttname"><a href="StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5f">StackRigidState</a></div><div class="ttdeci">StackRigidState</div><div class="ttdoc">Codes characterizing Stack state.</div><div class="ttdef"><b>Definition:</b> <a href="StackEssentials_8h_source.html#l00051">StackEssentials.h:51</a></div></div>
-<div class="ttc" id="aStackRigid_8h_html_ae46bd26d7133dfe98f8cec7c5ac5c7a1"><div class="ttname"><a href="StackRigid_8h.html#ae46bd26d7133dfe98f8cec7c5ac5c7a1">i</a></div><div class="ttdeci">size_t i</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00494">StackRigid.h:494</a></div></div>
-<div class="ttc" id="aStackEssentials_8h_html_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0"><div class="ttname"><a href="StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0">STACK_ST_INTEGRITYERR</a></div><div class="ttdeci">@ STACK_ST_INTEGRITYERR</div><div class="ttdoc">Stack was altered by some outer access.</div><div class="ttdef"><b>Definition:</b> <a href="StackEssentials_8h_source.html#l00059">StackEssentials.h:59</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_a3afb87b043e438be2a48ba69fe4deb5f"><div class="ttname"><a href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5f">StackRigidState</a></div><div class="ttdeci">StackRigidState</div><div class="ttdoc">Codes characterizing Stack state.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00077">StackRigid.h:77</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_a3cda48db0043a1f64ec157f2c0235f15"><div class="ttname"><a href="StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15">StackDump</a></div><div class="ttdeci">void StackDump(__overload(StackRigid, StackElementType) *stack)</div><div class="ttdoc">Dumps debug information about the stack.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00450">StackRigid.h:450</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_aa9a346debdba44a4d6d8a6d165aecba7"><div class="ttname"><a href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7">StackPush</a></div><div class="ttdeci">StackRigidOperationCodes StackPush(__overload(StackRigid, StackElementType) **stack, StackElementType value)</div><div class="ttdoc">Push the value to the stack The operation can perform realocations if there is not enough space.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00239">StackRigid.h:239</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_a53fd24cced8a15cd9b5eba14c46be8bf"><div class="ttname"><a href="StackRigid_8h.html#a53fd24cced8a15cd9b5eba14c46be8bf">StackDestruct</a></div><div class="ttdeci">StackRigidOperationCodes StackDestruct(__overload(StackRigid, StackElementType) **stack)</div><div class="ttdoc">Free stack memory.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00525">StackRigid.h:525</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_aff7c80cd72a6cbde2bde1b740148b688"><div class="ttname"><a href="StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688">StackValidate</a></div><div class="ttdeci">StackRigidState StackValidate(__overload(StackRigid, StackElementType) *stack)</div><div class="ttdoc">Perform all stack checks: checksums, general constrains.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00326">StackRigid.h:326</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_a127c18498567a23b96117f7d368c19cf"><div class="ttname"><a href="StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf">StackRigidMemoryUse</a></div><div class="ttdeci">size_t StackRigidMemoryUse(__overload(StackRigid, StackElementType) *stack)</div><div class="ttdoc">Memory alocated for the Stack.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00444">StackRigid.h:444</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0"><div class="ttname"><a href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0">STACK_ST_INTEGRITYERR</a></div><div class="ttdeci">@ STACK_ST_INTEGRITYERR</div><div class="ttdoc">Stack was altered by some outer access.</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00085">StackRigid.h:85</a></div></div>
+<div class="ttc" id="aStackRigid_8h_html_a984cb1d53f4129fda870b57ade0d6c51"><div class="ttname"><a href="StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51">StackPop</a></div><div class="ttdeci">StackRigidOperationCodes StackPop(__overload(StackRigid, StackElementType) **stack, StackElementType *value)</div><div class="ttdoc">Pop value from the end of the stack The operation can perform realocations if there is too much space...</div><div class="ttdef"><b>Definition:</b> <a href="StackRigid_8h_source.html#l00284">StackRigid.h:284</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
