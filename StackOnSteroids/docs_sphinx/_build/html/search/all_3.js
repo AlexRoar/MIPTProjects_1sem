@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data_8',['data',['../structStackRigid.html#a6150250d0c10519886570165597ba510',1,'StackRigid']]],
-  ['debugspeed_9',['DEBUGSPEED',['../StackRigid_8cpp.html#a024c7a2dca4a8bcc93281411d85f7d35',1,'StackRigid.cpp']]]
+  ['data_7',['data',['../StackRigid_8h.html#a1c97025785fbf9a8397e31479800f8fc',1,'StackRigid.h']]],
+  ['direction_8',['direction',['../StackRigid_8h.html#a4766bcac8da8eeda84b39290e8a39006',1,'StackRigid.h']]]
 ];

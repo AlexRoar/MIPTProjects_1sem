@@ -67,6 +67,11 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This Stack is almost impossible to kill and fool. All undefined behaviour memory accesses will be spoted and reported. </p><dl class="section author"><dt>Author</dt><dd>Aleksandr Dremov </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Before including .h file, you need to define <a class="el" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e">StackElementDump(FILE, VALUE)</a> and StackElementType <br  />
+Example:<br  />
+#define <a class="el" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e">StackElementDump(FILE, VALUE)</a> {fprintf(FILE, "%g", VALUE);}<br  />
+#define StackElementType double<br  />
+</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Aleksandr Dremov, MIPT 2020 </dd></dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

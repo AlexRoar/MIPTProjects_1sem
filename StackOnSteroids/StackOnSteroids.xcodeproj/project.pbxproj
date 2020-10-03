@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A013D47B2523502F0071D2F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A013D47A2523502F0071D2F2 /* main.cpp */; };
-		A0C6E2792523360800FB1304 /* StackRigid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0C6E2782523360800FB1304 /* StackRigid.cpp */; };
+		A071A76D2527C023008711EF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A76C2527C023008711EF /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +24,8 @@
 
 /* Begin PBXFileReference section */
 		A013D478252350130071D2F2 /* StackRigid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackRigid.h; sourceTree = "<group>"; };
-		A013D47A2523502F0071D2F2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A071A76C2527C023008711EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A0C6E2752523360800FB1304 /* StackOnSteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StackOnSteroids; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0C6E2782523360800FB1304 /* StackRigid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StackRigid.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +58,8 @@
 		A0C6E2772523360800FB1304 /* StackOnSteroids */ = {
 			isa = PBXGroup;
 			children = (
-				A0C6E2782523360800FB1304 /* StackRigid.cpp */,
 				A013D478252350130071D2F2 /* StackRigid.h */,
-				A013D47A2523502F0071D2F2 /* main.cpp */,
+				A071A76C2527C023008711EF /* main.cpp */,
 			);
 			path = StackOnSteroids;
 			sourceTree = "<group>";
@@ -123,8 +120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A013D47B2523502F0071D2F2 /* main.cpp in Sources */,
-				A0C6E2792523360800FB1304 /* StackRigid.cpp in Sources */,
+				A071A76D2527C023008711EF /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

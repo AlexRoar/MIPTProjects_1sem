@@ -1,4 +1,4 @@
-.TH "StackOnSteroids/main.cpp" 3 "Fri Oct 2 2020" "StackRigid" \" -*- nroff -*-
+.TH "StackOnSteroids/main.cpp" 3 "Sat Oct 3 2020" "StackRigid" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -9,6 +9,21 @@ StackOnSteroids/main.cpp
 \fC#include 'StackRigid\&.h'\fP
 .br
 
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBStackElementDump\fP(FILE,  VALUE)   {\fBfprintf\fP(FILE, '%g', VALUE);}"
+.br
+.ti -1c
+.RI "#define \fBStackElementType\fP   int"
+.br
+.RI "Element type to be used in Stack\&. "
+.ti -1c
+.RI "#define \fBStackElementType\fP   double"
+.br
+.RI "Element type to be used in Stack\&. "
+.in -1c
 .SS "Functions"
 
 .in +1c
@@ -17,13 +32,18 @@ StackOnSteroids/main.cpp
 .br
 .RI "Here, I try somehow to break the Stack\&. "
 .in -1c
-.SS "Variables"
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define StackElementDump(FILE, VALUE)   {\fBfprintf\fP(FILE, '%g', VALUE);}"
 
-.in +1c
-.ti -1c
-.RI "double \fBStackRigidAvgTimes\fP [5]"
-.br
-.in -1c
+.SS "#define StackElementType   int"
+
+.PP
+Element type to be used in Stack\&. 
+.SS "#define StackElementType   double"
+
+.PP
+Element type to be used in Stack\&. 
 .SH "Function Documentation"
 .PP 
 .SS "int main (int argc, const char * argv[])"
@@ -32,55 +52,58 @@ StackOnSteroids/main.cpp
 Here, I try somehow to break the Stack\&. 
 .PP
 .nf
-13                                         {
-14     StackRigid* newStack = NewStackRigid(1000, stdout);
-15     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
-16     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
-17     for(size_t i = 0; i< 1000; i++){
-18         StackPush(&newStack, (int)i);
-19     }
-20     for(size_t i = 0; i < 1000; i++){
-21         int tmpVal;
-22         StackPop(&newStack, &tmpVal);
-23 //        printf("Popped %d\n", tmpVal);
-24     }
-25     for(size_t i = 0; i < 100; i++){
-26         StackPush(&newStack, (int)i);
-27     }
-28     
-29     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
-30         char previousValue = *((char*)newStack + i);
-31         for (char bullet = -128; bullet < 127; bullet++){
-32             if (bullet == previousValue)
-33                 continue;
-34             *((char*)newStack + i) = bullet;
-35             StackRigidState state = StackValidate(newStack);
-36             if (state != STACK_ST_INTEGRITYERR){
-37                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
-38                 break;
-39             }
-40             *((char*)newStack + i) = previousValue;
-41         }
+23                                         {
+24     StackRigid_int* newStack = NewStackRigid_int(1000, stdout);
+25     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
+26     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
+27     for(size_t i = 0; i< 1000; i++){
+28         StackPush_int(&newStack, (int)i);
+29     }
+30     for(size_t i = 0; i < 1000; i++){
+31         int tmpVal;
+32         StackPop_int(&newStack, &tmpVal);
+33 //        printf("Popped %d\n", tmpVal);
+34     }
+35     for(size_t i = 0; i < 100; i++){
+36         StackPush_int(&newStack, (int)i);
+37     }
+38     
+39     StackRigid_double* newStackDouble = NewStackRigid_double(1000, stdout);
+40     for(size_t i = 0; i< 1000; i++){
+41         StackPush_double(&newStackDouble, (double)(i));
 42     }
-43     
-44     printf("\nAverage checksum update time: %g s/1000op\n", StackRigidAvgTimes[0] * 1000);
-45     printf("Average validation time: %g s/1000op\n", StackRigidAvgTimes[1]* 1000);
-46     printf("Average push time: %g s/1000op\n", StackRigidAvgTimes[2]* 1000);
-47     printf("Average pop time: %g s/1000op\n", StackRigidAvgTimes[3]* 1000);
-48     printf("Average reallocation time: %g s/1000op\n", StackRigidAvgTimes[4]* 1000);
-49     StackDump(newStack);
-50     StackDestruct(&newStack);
-51     return 0;
-52 }
+43     for(size_t i = 0; i < 1000; i++){
+44         double tmpVal;
+45         StackPop_double(&newStackDouble, &tmpVal);
+46 //        printf("Popped %d\n", tmpVal);
+47     }
+48     for(size_t i = 0; i < 100; i++){
+49         StackPush_double(&newStackDouble, (double)i/(double)rand());
+50     }
+51     
+52     for(size_t i = 0; i < StackRigidMemoryUse_int(newStack); i++){
+53         char previousValue = *((char*)newStack + i);
+54         for (char bullet = -128; bullet < 127; bullet++){
+55             if (bullet == previousValue)
+56                 continue;
+57             *((char*)newStack + i) = bullet;
+58             StackRigidState state = StackValidate_int(newStack);
+59             if (state != STACK_ST_INTEGRITYERR){
+60                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
+61                 break;
+62             }
+63             *((char*)newStack + i) = previousValue;
+64         }
+65     }
+66 
+67     StackDump_int(newStack);
+68     StackDump_double(newStackDouble);
+69     StackDestruct_int(&newStack);
+70     return 0;
+71 }
 .fi
 .PP
-References NewStackRigid(), STACK_ST_INTEGRITYERR, StackDestruct(), StackDump(), StackPop(), StackPush(), StackRigidAvgTimes, StackRigidMemoryUse(), and StackValidate()\&.
-.SH "Variable Documentation"
-.PP 
-.SS "double StackRigidAvgTimes[5]\fC [extern]\fP"
-
-.PP
-Referenced by __StackRealocate(), __StackUpdateChecksum(), main(), StackPop(), StackPush(), and StackValidate()\&.
+References i, and STACK_ST_INTEGRITYERR\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for StackRigid from the source code\&.

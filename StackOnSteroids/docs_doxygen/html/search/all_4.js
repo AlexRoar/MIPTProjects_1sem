@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['logfile_10',['logFile',['../structStackRigid.html#aa7c68e49e3f2171045533e2684ae2748',1,'StackRigid']]]
+  ['else_9',['else',['../StackRigid_8h.html#a0544c3fe466e421738dae463968b70ba',1,'StackRigid.h']]],
+  ['evaluator_10',['EVALUATOR',['../StackRigid_8h.html#a90ce550ff78fd420b633c5d88dfd2883',1,'StackRigid.h']]]
 ];

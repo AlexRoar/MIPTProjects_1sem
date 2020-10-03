@@ -1,0 +1,195 @@
+\hypertarget{StackEssentials_8h}{}\doxysection{Stack\+On\+Steroids/\+Stack\+Essentials.h File Reference}
+\label{StackEssentials_8h}\index{StackOnSteroids/StackEssentials.h@{StackOnSteroids/StackEssentials.h}}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{StackEssentials_8h_ac5d0efeed13c8b47552928dc34ac2d9a}{Stack\+Rigid}} \mbox{\hyperlink{StackEssentials_8h_ac5d0efeed13c8b47552928dc34ac2d9a}{Stack\+Rigid}}
+\begin{DoxyCompactList}\small\item\em The main structure. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039}{Stack\+Rigid\+Operation\+Codes}} \mbox{\hyperlink{StackEssentials_8h_a2b23b57ad918293ba96140fc43194967}{Stack\+Rigid\+Operation\+Codes}}
+\begin{DoxyCompactList}\small\item\em Codes returned after operations on Stack. \end{DoxyCompactList}\item 
+typedef enum \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}} \mbox{\hyperlink{StackEssentials_8h_acc74b48b41d3ec38cb05184b602c7508}{Stack\+Rigid\+State}}
+\begin{DoxyCompactList}\small\item\em Codes characterizing Stack state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039}{Stack\+Rigid\+Operation\+Codes}} \{ \newline
+\mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK}}, 
+\mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}}, 
+\mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}, 
+\mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY}}, 
+\newline
+\mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR}}, 
+\mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL}}, 
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}}, 
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}, 
+\newline
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY}}, 
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR}}, 
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Codes returned after operations on Stack. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}} \{ \newline
+\mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK}}, 
+\mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR}}, 
+\mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED}}, 
+\mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL}}, 
+\newline
+\mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR}}, 
+\mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED}}, 
+\mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Codes characterizing Stack state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{StackEssentials_8h_ac5d0efeed13c8b47552928dc34ac2d9a}\label{StackEssentials_8h_ac5d0efeed13c8b47552928dc34ac2d9a}} 
+\index{StackEssentials.h@{StackEssentials.h}!StackRigid@{StackRigid}}
+\index{StackRigid@{StackRigid}!StackEssentials.h@{StackEssentials.h}}
+\doxysubsubsection{\texorpdfstring{StackRigid}{StackRigid}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{StackEssentials_8h_ac5d0efeed13c8b47552928dc34ac2d9a}{Stack\+Rigid}} \mbox{\hyperlink{StackEssentials_8h_ac5d0efeed13c8b47552928dc34ac2d9a}{Stack\+Rigid}}}
+
+
+
+The main structure. 
+
+There\textquotesingle{}s no definition in the header file in order to block direct parameters access \mbox{\Hypertarget{StackEssentials_8h_a2b23b57ad918293ba96140fc43194967}\label{StackEssentials_8h_a2b23b57ad918293ba96140fc43194967}} 
+\index{StackEssentials.h@{StackEssentials.h}!StackRigidOperationCodes@{StackRigidOperationCodes}}
+\index{StackRigidOperationCodes@{StackRigidOperationCodes}!StackEssentials.h@{StackEssentials.h}}
+\doxysubsubsection{\texorpdfstring{StackRigidOperationCodes}{StackRigidOperationCodes}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039}{Stack\+Rigid\+Operation\+Codes}} \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039}{Stack\+Rigid\+Operation\+Codes}}}
+
+
+
+Codes returned after operations on Stack. 
+
+\mbox{\Hypertarget{StackEssentials_8h_acc74b48b41d3ec38cb05184b602c7508}\label{StackEssentials_8h_acc74b48b41d3ec38cb05184b602c7508}} 
+\index{StackEssentials.h@{StackEssentials.h}!StackRigidState@{StackRigidState}}
+\index{StackRigidState@{StackRigidState}!StackEssentials.h@{StackEssentials.h}}
+\doxysubsubsection{\texorpdfstring{StackRigidState}{StackRigidState}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}} \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}}}
+
+
+
+Codes characterizing Stack state. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039}} 
+\index{StackEssentials.h@{StackEssentials.h}!StackRigidOperationCodes@{StackRigidOperationCodes}}
+\index{StackRigidOperationCodes@{StackRigidOperationCodes}!StackEssentials.h@{StackEssentials.h}}
+\doxysubsubsection{\texorpdfstring{StackRigidOperationCodes}{StackRigidOperationCodes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039}{Stack\+Rigid\+Operation\+Codes}}}
+
+
+
+Codes returned after operations on Stack. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_OK@{STACK\_OP\_OK}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_OK@{STACK\_OP\_OK}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK&Succesful operation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_UNDERFLOW@{STACK\_OP\_UNDERFLOW}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_UNDERFLOW@{STACK\_OP\_UNDERFLOW}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW&Tried to get value from the empty stack. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_OVERFLOW@{STACK\_OP\_OVERFLOW}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_OVERFLOW@{STACK\_OP\_OVERFLOW}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW&Stack overflow and new memory allocation failed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_NOMEMORY@{STACK\_OP\_NOMEMORY}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_NOMEMORY@{STACK\_OP\_NOMEMORY}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY&No memory for stack alocations. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_INTEGRITYERR@{STACK\_OP\_INTEGRITYERR}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_INTEGRITYERR@{STACK\_OP\_INTEGRITYERR}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR&Stack memory was altered by some outer access. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_NULL@{STACK\_OP\_NULL}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_NULL@{STACK\_OP\_NULL}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL&Found N\+U\+LL pointer during the operation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_UNDERFLOW@{STACK\_OP\_UNDERFLOW}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_UNDERFLOW@{STACK\_OP\_UNDERFLOW}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW&Tried to get value from the empty stack. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_OVERFLOW@{STACK\_OP\_OVERFLOW}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_OVERFLOW@{STACK\_OP\_OVERFLOW}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW&Stack overflow and new memory allocation failed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_NOMEMORY@{STACK\_OP\_NOMEMORY}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_NOMEMORY@{STACK\_OP\_NOMEMORY}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY&No memory for stack alocations. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_INTEGRITYERR@{STACK\_OP\_INTEGRITYERR}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_INTEGRITYERR@{STACK\_OP\_INTEGRITYERR}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR&Stack memory was altered by some outer access. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_NULL@{STACK\_OP\_NULL}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_OP\_NULL@{STACK\_OP\_NULL}}}\mbox{\Hypertarget{StackEssentials_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}\label{StackEssentials_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL&Found N\+U\+LL pointer during the operation. \\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                                      \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b}{STACK\_OP\_OK}},}
+\DoxyCodeLine{28     \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}},}
+\DoxyCodeLine{32     \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}},}
+\DoxyCodeLine{36     \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}},}
+\DoxyCodeLine{40     \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}},}
+\DoxyCodeLine{44     \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}}}
+\DoxyCodeLine{45 \} \mbox{\hyperlink{StackEssentials_8h_afa660da841608914d20d9819a7efe039}{StackRigidOperationCodes}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}} 
+\index{StackEssentials.h@{StackEssentials.h}!StackRigidState@{StackRigidState}}
+\index{StackRigidState@{StackRigidState}!StackEssentials.h@{StackEssentials.h}}
+\doxysubsubsection{\texorpdfstring{StackRigidState}{StackRigidState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}}}
+
+
+
+Codes characterizing Stack state. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_OK@{STACK\_ST\_OK}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_OK@{STACK\_ST\_OK}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK&Stack is running as expected. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_INTEGRITYERR@{STACK\_ST\_INTEGRITYERR}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_INTEGRITYERR@{STACK\_ST\_INTEGRITYERR}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR&Stack was altered by some outer access. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_UNINITIALIZED@{STACK\_ST\_UNINITIALIZED}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_UNINITIALIZED@{STACK\_ST\_UNINITIALIZED}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED&Stack is uninitialized. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_NULL@{STACK\_ST\_NULL}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_NULL@{STACK\_ST\_NULL}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL&Found N\+U\+LL pointer during the operation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_INTEGRITYERR@{STACK\_ST\_INTEGRITYERR}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_INTEGRITYERR@{STACK\_ST\_INTEGRITYERR}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR&Stack was altered by some outer access. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_UNINITIALIZED@{STACK\_ST\_UNINITIALIZED}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_UNINITIALIZED@{STACK\_ST\_UNINITIALIZED}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED&Stack is uninitialized. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_ST\_NULL@{STACK\_ST\_NULL}!StackEssentials.h@{StackEssentials.h}}\index{StackEssentials.h@{StackEssentials.h}!STACK\_ST\_NULL@{STACK\_ST\_NULL}}}\mbox{\Hypertarget{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}\label{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}} 
+S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL&Found N\+U\+LL pointer during the operation. \\
+\hline
+
+\end{DoxyEnumFields}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                             \{}
+\DoxyCodeLine{55     \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34}{STACK\_ST\_OK}},}
+\DoxyCodeLine{59     \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}},}
+\DoxyCodeLine{63     \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{STACK\_ST\_UNINITIALIZED}},}
+\DoxyCodeLine{67     \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}}}
+\DoxyCodeLine{68 \} \mbox{\hyperlink{StackEssentials_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}};}
+
+\end{DoxyCode}

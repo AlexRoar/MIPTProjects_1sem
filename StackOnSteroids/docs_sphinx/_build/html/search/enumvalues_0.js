@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['stack_5fop_5fintegrityerr_72',['STACK_OP_INTEGRITYERR',['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33',1,'StackRigid.h']]],
-  ['stack_5fop_5fnomemory_73',['STACK_OP_NOMEMORY',['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d',1,'StackRigid.h']]],
-  ['stack_5fop_5fnull_74',['STACK_OP_NULL',['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e',1,'StackRigid.h']]],
-  ['stack_5fop_5fok_75',['STACK_OP_OK',['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e',1,'StackRigid.h']]],
-  ['stack_5fop_5foverflow_76',['STACK_OP_OVERFLOW',['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283',1,'StackRigid.h']]],
-  ['stack_5fop_5funderflow_77',['STACK_OP_UNDERFLOW',['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c',1,'StackRigid.h']]],
-  ['stack_5fst_5fintegrityerr_78',['STACK_ST_INTEGRITYERR',['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0',1,'StackRigid.h']]],
-  ['stack_5fst_5fnull_79',['STACK_ST_NULL',['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb',1,'StackRigid.h']]],
-  ['stack_5fst_5fok_80',['STACK_ST_OK',['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74',1,'StackRigid.h']]],
-  ['stack_5fst_5funinitialized_81',['STACK_ST_UNINITIALIZED',['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58',1,'StackRigid.h']]]
+  ['stack_5fop_5fintegrityerr_85',['STACK_OP_INTEGRITYERR',['../StackEssentials_8h.html#afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33',1,'STACK_OP_INTEGRITYERR():&#160;StackEssentials.h'],['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33',1,'STACK_OP_INTEGRITYERR():&#160;StackRigid.h']]],
+  ['stack_5fop_5fnomemory_86',['STACK_OP_NOMEMORY',['../StackEssentials_8h.html#afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d',1,'STACK_OP_NOMEMORY():&#160;StackEssentials.h'],['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d',1,'STACK_OP_NOMEMORY():&#160;StackRigid.h']]],
+  ['stack_5fop_5fnull_87',['STACK_OP_NULL',['../StackEssentials_8h.html#afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e',1,'STACK_OP_NULL():&#160;StackEssentials.h'],['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e',1,'STACK_OP_NULL():&#160;StackRigid.h']]],
+  ['stack_5fop_5fok_88',['STACK_OP_OK',['../StackEssentials_8h.html#afa660da841608914d20d9819a7efe039abd09a7714cc602ea848ab2c9fa37692b',1,'StackEssentials.h']]],
+  ['stack_5fop_5foverflow_89',['STACK_OP_OVERFLOW',['../StackEssentials_8h.html#afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283',1,'STACK_OP_OVERFLOW():&#160;StackEssentials.h'],['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283',1,'STACK_OP_OVERFLOW():&#160;StackRigid.h']]],
+  ['stack_5fop_5funderflow_90',['STACK_OP_UNDERFLOW',['../StackEssentials_8h.html#afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c',1,'STACK_OP_UNDERFLOW():&#160;StackEssentials.h'],['../StackRigid_8h.html#afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c',1,'STACK_OP_UNDERFLOW():&#160;StackRigid.h']]],
+  ['stack_5fst_5fintegrityerr_91',['STACK_ST_INTEGRITYERR',['../StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0',1,'STACK_ST_INTEGRITYERR():&#160;StackEssentials.h'],['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0',1,'STACK_ST_INTEGRITYERR():&#160;StackRigid.h']]],
+  ['stack_5fst_5fnull_92',['STACK_ST_NULL',['../StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb',1,'STACK_ST_NULL():&#160;StackEssentials.h'],['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb',1,'STACK_ST_NULL():&#160;StackRigid.h']]],
+  ['stack_5fst_5fok_93',['STACK_ST_OK',['../StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa989d56d3bc427c9d383509dce98c6a34',1,'StackEssentials.h']]],
+  ['stack_5fst_5funinitialized_94',['STACK_ST_UNINITIALIZED',['../StackEssentials_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58',1,'STACK_ST_UNINITIALIZED():&#160;StackEssentials.h'],['../StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58',1,'STACK_ST_UNINITIALIZED():&#160;StackRigid.h']]]
 ];

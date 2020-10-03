@@ -1,0 +1,143 @@
+.TH "StackOnSteroids/StackEssentials.h" 3 "Sat Oct 3 2020" "StackRigid" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StackOnSteroids/StackEssentials.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBStackRigid\fP \fBStackRigid\fP"
+.br
+.RI "The main structure\&. "
+.ti -1c
+.RI "typedef enum \fBStackRigidOperationCodes\fP \fBStackRigidOperationCodes\fP"
+.br
+.RI "Codes returned after operations on Stack\&. "
+.ti -1c
+.RI "typedef enum \fBStackRigidState\fP \fBStackRigidState\fP"
+.br
+.RI "Codes characterizing Stack state\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBStackRigidOperationCodes\fP { \fBSTACK_OP_OK\fP, \fBSTACK_OP_UNDERFLOW\fP, \fBSTACK_OP_OVERFLOW\fP, \fBSTACK_OP_NOMEMORY\fP, \fBSTACK_OP_INTEGRITYERR\fP, \fBSTACK_OP_NULL\fP, \fBSTACK_OP_UNDERFLOW\fP, \fBSTACK_OP_OVERFLOW\fP, \fBSTACK_OP_NOMEMORY\fP, \fBSTACK_OP_INTEGRITYERR\fP, \fBSTACK_OP_NULL\fP }"
+.br
+.RI "Codes returned after operations on Stack\&. "
+.ti -1c
+.RI "enum \fBStackRigidState\fP { \fBSTACK_ST_OK\fP, \fBSTACK_ST_INTEGRITYERR\fP, \fBSTACK_ST_UNINITIALIZED\fP, \fBSTACK_ST_NULL\fP, \fBSTACK_ST_INTEGRITYERR\fP, \fBSTACK_ST_UNINITIALIZED\fP, \fBSTACK_ST_NULL\fP }"
+.br
+.RI "Codes characterizing Stack state\&. "
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBStackRigid\fP \fBStackRigid\fP"
+
+.PP
+The main structure\&. There's no definition in the header file in order to block direct parameters access 
+.SS "typedef enum \fBStackRigidOperationCodes\fP \fBStackRigidOperationCodes\fP"
+
+.PP
+Codes returned after operations on Stack\&. 
+.SS "typedef enum \fBStackRigidState\fP \fBStackRigidState\fP"
+
+.PP
+Codes characterizing Stack state\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBStackRigidOperationCodes\fP"
+
+.PP
+Codes returned after operations on Stack\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTACK_OP_OK \fP\fP
+Succesful operation\&. 
+.TP
+\fB\fISTACK_OP_UNDERFLOW \fP\fP
+Tried to get value from the empty stack\&. 
+.TP
+\fB\fISTACK_OP_OVERFLOW \fP\fP
+Stack overflow and new memory allocation failed\&. 
+.TP
+\fB\fISTACK_OP_NOMEMORY \fP\fP
+No memory for stack alocations\&. 
+.TP
+\fB\fISTACK_OP_INTEGRITYERR \fP\fP
+Stack memory was altered by some outer access\&. 
+.TP
+\fB\fISTACK_OP_NULL \fP\fP
+Found NULL pointer during the operation\&. 
+.TP
+\fB\fISTACK_OP_UNDERFLOW \fP\fP
+Tried to get value from the empty stack\&. 
+.TP
+\fB\fISTACK_OP_OVERFLOW \fP\fP
+Stack overflow and new memory allocation failed\&. 
+.TP
+\fB\fISTACK_OP_NOMEMORY \fP\fP
+No memory for stack alocations\&. 
+.TP
+\fB\fISTACK_OP_INTEGRITYERR \fP\fP
+Stack memory was altered by some outer access\&. 
+.TP
+\fB\fISTACK_OP_NULL \fP\fP
+Found NULL pointer during the operation\&. 
+.PP
+.nf
+20                                      {
+24     STACK_OP_OK,
+28     STACK_OP_UNDERFLOW,
+32     STACK_OP_OVERFLOW,
+36     STACK_OP_NOMEMORY,
+40     STACK_OP_INTEGRITYERR,
+44     STACK_OP_NULL
+45 } StackRigidOperationCodes;
+.fi
+.SS "enum \fBStackRigidState\fP"
+
+.PP
+Codes characterizing Stack state\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTACK_ST_OK \fP\fP
+Stack is running as expected\&. 
+.TP
+\fB\fISTACK_ST_INTEGRITYERR \fP\fP
+Stack was altered by some outer access\&. 
+.TP
+\fB\fISTACK_ST_UNINITIALIZED \fP\fP
+Stack is uninitialized\&. 
+.TP
+\fB\fISTACK_ST_NULL \fP\fP
+Found NULL pointer during the operation\&. 
+.TP
+\fB\fISTACK_ST_INTEGRITYERR \fP\fP
+Stack was altered by some outer access\&. 
+.TP
+\fB\fISTACK_ST_UNINITIALIZED \fP\fP
+Stack is uninitialized\&. 
+.TP
+\fB\fISTACK_ST_NULL \fP\fP
+Found NULL pointer during the operation\&. 
+.PP
+.nf
+51                             {
+55     STACK_ST_OK,
+59     STACK_ST_INTEGRITYERR,
+63     STACK_ST_UNINITIALIZED,
+67     STACK_ST_NULL
+68 } StackRigidState;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for StackRigid from the source code\&.
