@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 //        printf("Popped %d\n", tmpVal);
     }
     for(size_t i = 0; i < 100; i++){
-        StackPush(&newStack, (int)i);
+        StackPush(&newStack, (int)i + 1);
     }
     
     StackRigid_double* newStackDouble = NewStackRigid_double(1000, stdout);
@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
 //        printf("Popped %d\n", tmpVal);
     }
     for(size_t i = 0; i < 100; i++){
-        StackPush(&newStackDouble, (double)i/(double)rand());
+        StackPush(&newStackDouble, (double)rand());
     }
     
     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
