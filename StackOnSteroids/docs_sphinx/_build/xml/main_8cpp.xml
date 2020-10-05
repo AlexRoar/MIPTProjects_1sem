@@ -96,14 +96,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" line="23" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" bodystart="23" bodyend="71"/>
-        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="104">STACK_ST_INTEGRITYERR</references>
-        <references refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" compoundref="StackRigid_8h" startline="545" endline="554">StackDestruct</references>
-        <references refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" compoundref="StackRigid_8h" startline="466" endline="542">StackDump</references>
-        <references refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" compoundref="StackRigid_8h" startline="300" endline="322">StackPop</references>
-        <references refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" compoundref="StackRigid_8h" startline="248" endline="277">StackPush</references>
-        <references refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" compoundref="StackRigid_8h" startline="460" endline="463">StackRigidMemoryUse</references>
-        <references refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" compoundref="StackRigid_8h" startline="345" endline="362">StackValidate</references>
+        <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" line="23" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" bodystart="23" bodyend="76"/>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="90">STACK_ST_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" compoundref="StackRigid_8h" startline="561" endline="576">StackDestruct</references>
+        <references refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" compoundref="StackRigid_8h" startline="475" endline="558">StackDump</references>
+        <references refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" compoundref="StackRigid_8h" startline="311" endline="332">StackPop</references>
+        <references refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" compoundref="StackRigid_8h" startline="257" endline="288">StackPush</references>
+        <references refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" compoundref="StackRigid_8h" startline="469" endline="472">StackRigidMemoryUse</references>
+        <references refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" compoundref="StackRigid_8h" startline="355" endline="372">StackValidate</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -139,7 +139,7 @@
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" kindref="member">StackPop</ref>(&amp;newStack,<sp/>&amp;tmpVal);</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;Popped<sp/>%d\n&quot;,<sp/>tmpVal);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>100;<sp/>i++){</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>15;<sp/>i++){</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" kindref="member">StackPush</ref>(&amp;newStack,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)i<sp/>+<sp/>1);</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
@@ -152,30 +152,35 @@
 <codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" kindref="member">StackPop</ref>(&amp;newStackDouble,<sp/>&amp;tmpVal);</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;Popped<sp/>%d\n&quot;,<sp/>tmpVal);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>100;<sp/>i++){</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>15;<sp/>i++){</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" kindref="member">StackPush</ref>(&amp;newStackDouble,<sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)i<sp/>+<sp/>0.5);</highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" kindref="member">StackRigidMemoryUse</ref>(newStack);<sp/>i++){</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>previousValue<sp/>=<sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>bullet<sp/>=<sp/>-128;<sp/>bullet<sp/>&lt;<sp/>127;<sp/>bullet++){</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bullet<sp/>==<sp/>previousValue)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i)<sp/>=<sp/>bullet;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref><sp/>state<sp/>=<sp/><ref refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" kindref="member">StackValidate</ref>(newStack);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state<sp/>!=<sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" kindref="member">STACK_ST_INTEGRITYERR</ref>){</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Did<sp/>not<sp/>spot<sp/>intervention<sp/>at<sp/>position<sp/>%zu,<sp/>byte<sp/>%x\n&quot;</highlight><highlight class="normal">,<sp/>i,<sp/>bullet);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i)<sp/>=<sp/>previousValue;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kindref="member">StackDump</ref>(newStack);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kindref="member">StackDump</ref>(newStackDouble);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" kindref="member">StackDestruct</ref>(&amp;newStack);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>memoryUse<sp/>=<sp/><ref refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" kindref="member">StackRigidMemoryUse</ref>(newStack);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>memoryUse;<sp/>i++){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>previousValue<sp/>=<sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>bullet<sp/>=<sp/>-128;<sp/>bullet<sp/>&lt;<sp/>127;<sp/>bullet++){</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bullet<sp/>==<sp/>previousValue)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i)<sp/>=<sp/>bullet;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kindref="member">StackRigidState</ref><sp/>state<sp/>=<sp/><ref refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" kindref="member">StackValidate</ref>(newStack);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state<sp/>!=<sp/><ref refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" kindref="member">STACK_ST_INTEGRITYERR</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Did<sp/>not<sp/>spot<sp/>intervention<sp/>at<sp/>position<sp/>%zu,<sp/>byte<sp/>%x\n&quot;</highlight><highlight class="normal">,<sp/>i,<sp/>bullet);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state<sp/>=<sp/><ref refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" kindref="member">StackValidate</ref>(newStack);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kindref="member">StackDump</ref>(newStack);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStack<sp/>+<sp/>i)<sp/>=<sp/>previousValue;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kindref="member">StackDump</ref>(newStack);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kindref="member">StackDump</ref>(newStackDouble);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStackDouble<sp/>+<sp/>10)<sp/>=<sp/>0xFF;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kindref="member">StackDump</ref>(newStackDouble);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" kindref="member">StackDestruct</ref>(&amp;newStack);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp"/>
   </compounddef>

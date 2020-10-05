@@ -21,6 +21,7 @@
     <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d" kind="enumvalue"><name>STACK_OP_NOMEMORY</name></member>
     <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33" kind="enumvalue"><name>STACK_OP_INTEGRITYERR</name></member>
     <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e" kind="enumvalue"><name>STACK_OP_NULL</name></member>
+    <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60" kind="enumvalue"><name>STACK_OP_PTRINVALID</name></member>
     <member refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5f" kind="enum"><name>StackRigidState</name></member>
     <member refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74" kind="enumvalue"><name>STACK_ST_OK</name></member>
     <member refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" kind="enumvalue"><name>STACK_ST_INTEGRITYERR</name></member>
@@ -35,6 +36,7 @@
     <member refid="StackRigid_8h_1abada3e312a622648ad335f352a42fb77" kind="variable"><name>checkSumVital</name></member>
     <member refid="StackRigid_8h_1aa353e5db4d253654aaf3aa7725423d79" kind="variable"><name>pointer</name></member>
     <member refid="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb" kind="function"><name>adlerChecksum</name></member>
+    <member refid="StackRigid_8h_1a7d1b2013ebc1eb1ac8e6e8cd3c3430f6" kind="function"><name>validPtr</name></member>
     <member refid="StackRigid_8h_1a69f8836a95e570d00f92d7140ef23dab" kind="function"><name>__overload</name></member>
     <member refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" kind="function"><name>StackValidate</name></member>
     <member refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" kind="function"><name>StackPush</name></member>
@@ -47,7 +49,7 @@
     <member refid="StackRigid_8h_1a08de7058bae2a1e0c566024850286498" kind="function"><name>__StackGetChecksum</name></member>
     <member refid="StackRigid_8h_1a2a07c9f65f61c8ca3112dcfaefb4b3be" kind="function"><name>__StackGetChecksumVital</name></member>
     <member refid="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe" kind="function"><name>__StackRealocate</name></member>
-    <member refid="StackRigid_8h_1af56b93e9447ab919c05fdf11ac1b212b" kind="function"><name>if</name></member>
+    <member refid="StackRigid_8h_1ac8642b0fd8e7d8880bb0a1daf266f5a2" kind="function"><name>if</name></member>
     <member refid="StackRigid_8h_1aced2adff6d60187031434138a012a119" kind="function"><name>__StackUpdateChecksum</name></member>
   </compound>
   <compound refid="dir_4e3ae2e762345715af2f2d5c98f3d38a" kind="dir"><name>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids</name>

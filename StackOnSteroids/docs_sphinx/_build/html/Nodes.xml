@@ -1107,6 +1107,11 @@
                   <Path>StackRigid_8h.html</Path>
                   <Anchor>afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e</Anchor>
                  </Node>
+                 <Node>
+                  <Name>STACK_OP_PTRINVALID</Name>
+                  <Path>StackRigid_8h.html</Path>
+                  <Anchor>afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60</Anchor>
+                 </Node>
                 </Subnodes>
                </Node>
                <Node>
@@ -1174,7 +1179,7 @@
                <Node>
                 <Name>if</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>af56b93e9447ab919c05fdf11ac1b212b</Anchor>
+                <Anchor>ac8642b0fd8e7d8880bb0a1daf266f5a2</Anchor>
                </Node>
                <Node>
                 <Name>StackBack</Name>
@@ -1210,6 +1215,11 @@
                 <Name>StackValidate</Name>
                 <Path>StackRigid_8h.html</Path>
                 <Anchor>a8ffebb1dd3f306eca52e8b34ad325f1c</Anchor>
+               </Node>
+               <Node>
+                <Name>validPtr</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a7d1b2013ebc1eb1ac8e6e8cd3c3430f6</Anchor>
                </Node>
                <Node>
                 <Name>capacity</Name>

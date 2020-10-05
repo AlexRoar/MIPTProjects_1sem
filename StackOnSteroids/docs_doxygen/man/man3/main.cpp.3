@@ -64,7 +64,7 @@ Here, I try somehow to break the Stack\&.
 32         StackPop(&newStack, &tmpVal);
 33 //        printf("Popped %d\n", tmpVal);
 34     }
-35     for(size_t i = 0; i < 100; i++){
+35     for(size_t i = 0; i < 15; i++){
 36         StackPush(&newStack, (int)i + 1);
 37     }
 38     
@@ -77,30 +77,35 @@ Here, I try somehow to break the Stack\&.
 45         StackPop(&newStackDouble, &tmpVal);
 46 //        printf("Popped %d\n", tmpVal);
 47     }
-48     for(size_t i = 0; i < 100; i++){
+48     for(size_t i = 0; i < 15; i++){
 49         StackPush(&newStackDouble, (double)i + 0\&.5);
 50     }
 51     
-52     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
-53         char previousValue = *((char*)newStack + i);
-54         for (char bullet = -128; bullet < 127; bullet++){
-55             if (bullet == previousValue)
-56                 continue;
-57             *((char*)newStack + i) = bullet;
-58             StackRigidState state = StackValidate(newStack);
-59             if (state != STACK_ST_INTEGRITYERR){
-60                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
-61                 break;
-62             }
-63             *((char*)newStack + i) = previousValue;
-64         }
-65     }
-66 
-67     StackDump(newStack);
-68     StackDump(newStackDouble);
-69     StackDestruct(&newStack);
-70     return 0;
-71 }
+52     size_t memoryUse = StackRigidMemoryUse(newStack);
+53     for(size_t i = 0; i < memoryUse; i++){
+54         char previousValue = *((char*)newStack + i);
+55         for (char bullet = -128; bullet < 127; bullet++){
+56             if (bullet == previousValue)
+57                 continue;
+58             *((char*)newStack + i) = bullet;
+59             StackRigidState state = StackValidate(newStack);
+60             if (state != STACK_ST_INTEGRITYERR) {
+61                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
+62                 state = StackValidate(newStack);
+63                 StackDump(newStack);
+64                 break;
+65             }
+66         }
+67         *((char*)newStack + i) = previousValue;
+68     }
+69 
+70     StackDump(newStack);
+71     StackDump(newStackDouble);
+72     *((char*)newStackDouble + 10) = 0xFF;
+73     StackDump(newStackDouble);
+74     StackDestruct(&newStack);
+75     return 0;
+76 }
 .fi
 .PP
 References STACK_ST_INTEGRITYERR, StackDestruct(), StackDump(), StackPop(), StackPush(), StackRigidMemoryUse(), and StackValidate()\&.

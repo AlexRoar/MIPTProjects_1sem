@@ -239,6 +239,12 @@
 <dd><p>Found NULL pointer during the operation. </p>
 </dd></dl>
 
+<dl class="c enumerator">
+<dt id="c.StackRigidOperationCodes.STACK_OP_PTRINVALID">
+<span class="target" id="StackRigid_8h_1afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60"></span><em class="property">enumerator </em><code class="sig-name descname">STACK_OP_PTRINVALID</code><a class="headerlink" href="#c.StackRigidOperationCodes.STACK_OP_PTRINVALID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Found invalid pointer during the operation. </p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="c enum">
@@ -292,6 +298,11 @@
 </dl>
 </p>
 </dd></dl>
+
+<dl class="c function">
+<dt id="c.validPtr">
+<span class="target" id="StackRigid_8h_1a7d1b2013ebc1eb1ac8e6e8cd3c3430f6"></span>int <code class="sig-name descname">validPtr</code><span class="sig-paren">(</span>void *<em>ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.validPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
 
 <dl class="c function">
 <dt>
@@ -496,7 +507,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1af56b93e9447ab919c05fdf11ac1b212b"></span><code class="sig-name descname">if (pointer==NULL)</code></dt>
+<span class="target" id="StackRigid_8h_1ac8642b0fd8e7d8880bb0a1daf266f5a2"></span><code class="sig-name descname">if (!validPtr(pointer))</code></dt>
 <dd></dd></dl>
 
 <dl class="c function">

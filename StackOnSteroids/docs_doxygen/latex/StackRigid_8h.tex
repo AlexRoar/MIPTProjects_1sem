@@ -48,7 +48,8 @@ enum \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039}{Stack\+Ri
 \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY}}, 
 \newline
 \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR}}, 
-\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL}}
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL}}, 
+\mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60}{S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+P\+T\+R\+I\+N\+V\+A\+L\+ID}}
  \}
 \begin{DoxyCompactList}\small\item\em Codes returned after operations on Stack. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}} \{ \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK}}, 
@@ -74,7 +75,7 @@ static void \mbox{\hyperlink{StackRigid_8h_aafaff2554f25a2dd6681bf409da8fe8e}{\+
 \item 
 static uint32\+\_\+t \mbox{\hyperlink{StackRigid_8h_a37faf27d6e9ab4e0a417f29efbda1cbb}{adler\+Checksum}} (const void $\ast$first\+Block, size\+\_\+t len)
 \begin{DoxyCompactList}\small\item\em Calculates Adler-\/32 checksum from the first\+Block to the first\+Block + len. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{StackRigid_8h_af56b93e9447ab919c05fdf11ac1b212b}{if}} (\mbox{\hyperlink{StackRigid_8h_aa353e5db4d253654aaf3aa7725423d79}{pointer}}==N\+U\+LL)
+\mbox{\hyperlink{StackRigid_8h_ac8642b0fd8e7d8880bb0a1daf266f5a2}{if}} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{valid\+Ptr}}(\mbox{\hyperlink{StackRigid_8h_aa353e5db4d253654aaf3aa7725423d79}{pointer}}))
 \item 
 \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039}{Stack\+Rigid\+Operation\+Codes}} \mbox{\hyperlink{StackRigid_8h_a81920cc1380e65ab9173893cb1772d86}{Stack\+Back}} (\mbox{\hyperlink{StackRigid_8h_a69f8836a95e570d00f92d7140ef23dab}{\+\_\+\+\_\+overload}}(Stack\+Rigid) $\ast$stack, \mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{Stack\+Element\+Type}} $\ast$value)
 \begin{DoxyCompactList}\small\item\em Free stack memory. \end{DoxyCompactList}\item 
@@ -89,7 +90,9 @@ void \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{Stack\+Du
 size\+\_\+t \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{Stack\+Rigid\+Memory\+Use}} (\mbox{\hyperlink{StackRigid_8h_a69f8836a95e570d00f92d7140ef23dab}{\+\_\+\+\_\+overload}}(Stack\+Rigid) $\ast$stack)
 \begin{DoxyCompactList}\small\item\em Memory alocated for the Stack. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{Stack\+Rigid\+State}} \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{Stack\+Validate}} (\mbox{\hyperlink{StackRigid_8h_a69f8836a95e570d00f92d7140ef23dab}{\+\_\+\+\_\+overload}}(Stack\+Rigid) $\ast$stack)
-\begin{DoxyCompactList}\small\item\em Perform all stack checks\+: checksums, general constrains. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Perform all stack checks\+: checksums, general constrains. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{valid\+Ptr}} (void $\ast$ptr)
+\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -207,17 +210,22 @@ S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR&Stack memory w
 S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL&Found N\+U\+LL pointer during the operation. \\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STACK\_OP\_PTRINVALID@{STACK\_OP\_PTRINVALID}!StackRigid.h@{StackRigid.h}}\index{StackRigid.h@{StackRigid.h}!STACK\_OP\_PTRINVALID@{STACK\_OP\_PTRINVALID}}}\mbox{\Hypertarget{StackRigid_8h_afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60}\label{StackRigid_8h_afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60}} 
+S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+P\+T\+R\+I\+N\+V\+A\+L\+ID&Found invalid pointer during the operation. \\
+\hline
+
 \end{DoxyEnumFields}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{65                                      \{}
-\DoxyCodeLine{69     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}},}
-\DoxyCodeLine{73     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}},}
-\DoxyCodeLine{77     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}},}
-\DoxyCodeLine{81     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}},}
-\DoxyCodeLine{85     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}},}
-\DoxyCodeLine{89     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}}}
-\DoxyCodeLine{90 \} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039}{StackRigidOperationCodes}};}
+\DoxyCodeLine{47                                      \{}
+\DoxyCodeLine{51     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}},}
+\DoxyCodeLine{55     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}},}
+\DoxyCodeLine{59     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}},}
+\DoxyCodeLine{63     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}},}
+\DoxyCodeLine{67     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}},}
+\DoxyCodeLine{71     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}},}
+\DoxyCodeLine{75     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60}{STACK\_OP\_PTRINVALID}}}
+\DoxyCodeLine{76 \} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039}{StackRigidOperationCodes}};}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}\label{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}} 
@@ -250,12 +258,12 @@ S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL&Found N\+U\+LL pointer during the oper
 \end{DoxyEnumFields}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{96                             \{}
-\DoxyCodeLine{100     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}},}
-\DoxyCodeLine{104     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}},}
-\DoxyCodeLine{108     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{STACK\_ST\_UNINITIALIZED}},}
-\DoxyCodeLine{112     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}}}
-\DoxyCodeLine{113 \} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}};}
+\DoxyCodeLine{82                             \{}
+\DoxyCodeLine{86     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}},}
+\DoxyCodeLine{90     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}},}
+\DoxyCodeLine{94     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{STACK\_ST\_UNINITIALIZED}},}
+\DoxyCodeLine{98     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}}}
+\DoxyCodeLine{99 \} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}};}
 
 \end{DoxyCode}
 
@@ -285,14 +293,14 @@ new stack pointer
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{121                               \{}
-\DoxyCodeLine{122     int32\_t \mbox{\hyperlink{StackRigid_8h_a8a32205e08c87c56f05f432202831329}{checkSum}};}
-\DoxyCodeLine{123     uint32\_t \mbox{\hyperlink{StackRigid_8h_abada3e312a622648ad335f352a42fb77}{checkSumVital}};}
-\DoxyCodeLine{124     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{StackRigid_8h_abc869d0afb33fc960e297465165cd334}{capacity}};}
-\DoxyCodeLine{125     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{StackRigid_8h_aa778f833989c5b73d0fbe86e9b6ef977}{size}};}
-\DoxyCodeLine{126     FILE* \mbox{\hyperlink{StackRigid_8h_a0fd979660380e3adb438912bd62e4a41}{logFile}};}
-\DoxyCodeLine{127     \mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}} data[1];}
-\DoxyCodeLine{128 \};}
+\DoxyCodeLine{129                               \{}
+\DoxyCodeLine{130     int32\_t \mbox{\hyperlink{StackRigid_8h_a8a32205e08c87c56f05f432202831329}{checkSum}};}
+\DoxyCodeLine{131     uint32\_t \mbox{\hyperlink{StackRigid_8h_abada3e312a622648ad335f352a42fb77}{checkSumVital}};}
+\DoxyCodeLine{132     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{StackRigid_8h_abc869d0afb33fc960e297465165cd334}{capacity}};}
+\DoxyCodeLine{133     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{StackRigid_8h_aa778f833989c5b73d0fbe86e9b6ef977}{size}};}
+\DoxyCodeLine{134     FILE* \mbox{\hyperlink{StackRigid_8h_a0fd979660380e3adb438912bd62e4a41}{logFile}};}
+\DoxyCodeLine{135     \mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}} data[1];}
+\DoxyCodeLine{136 \};}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{StackRigid_8h_a08de7058bae2a1e0c566024850286498}\label{StackRigid_8h_a08de7058bae2a1e0c566024850286498}} 
@@ -321,24 +329,24 @@ Not for the manual use! \begin{DoxyVerb}* Stack memory : [ checkSum checkSumVita
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{387                                                                    \{}
-\DoxyCodeLine{388     assert(stack);}
-\DoxyCodeLine{389     }
-\DoxyCodeLine{390     \textcolor{keywordtype}{void}* firstBlock = (\textcolor{keywordtype}{char}*)stack + \textcolor{keyword}{sizeof}(stack-\/>checkSum);}
-\DoxyCodeLine{391     }
-\DoxyCodeLine{392     \textcolor{comment}{// Memory used by Stack excluding checkSum and free space}}
-\DoxyCodeLine{393 \textcolor{preprocessor}{    \#ifndef DEBUG}}
-\DoxyCodeLine{394         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(stack) -\/ \textcolor{keyword}{sizeof}(stack-\/>checkSum) -\/ (stack-\/>capacity -\/ stack-\/>size) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
-\DoxyCodeLine{395 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{396 \textcolor{preprocessor}{    \#ifdef DEBUG}}
-\DoxyCodeLine{397         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(stack) -\/ \textcolor{keyword}{sizeof}(stack-\/>checkSum);}
-\DoxyCodeLine{398 \textcolor{preprocessor}{    \#endif}}
-\DoxyCodeLine{399     }
-\DoxyCodeLine{400     \textcolor{keywordflow}{if} (stack-\/>size > stack-\/>capacity) \{}
-\DoxyCodeLine{401         \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{402     \}}
-\DoxyCodeLine{403     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a37faf27d6e9ab4e0a417f29efbda1cbb}{adlerChecksum}}(firstBlock, memory);}
-\DoxyCodeLine{404 \}}
+\DoxyCodeLine{396                                                                    \{}
+\DoxyCodeLine{397     assert(stack);}
+\DoxyCodeLine{398     }
+\DoxyCodeLine{399     \textcolor{keywordtype}{void}* firstBlock = (\textcolor{keywordtype}{char}*)stack + \textcolor{keyword}{sizeof}(stack-\/>checkSum);}
+\DoxyCodeLine{400     }
+\DoxyCodeLine{401     \textcolor{comment}{// Memory used by Stack excluding checkSum and free space}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{    \#ifndef DEBUG}}
+\DoxyCodeLine{403         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(stack) -\/ \textcolor{keyword}{sizeof}(stack-\/>checkSum) -\/ (stack-\/>capacity -\/ stack-\/>size) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
+\DoxyCodeLine{404 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{    \#ifdef DEBUG}}
+\DoxyCodeLine{406         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(stack) -\/ \textcolor{keyword}{sizeof}(stack-\/>checkSum);}
+\DoxyCodeLine{407 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{408     }
+\DoxyCodeLine{409     \textcolor{keywordflow}{if} (stack-\/>size > stack-\/>capacity) \{}
+\DoxyCodeLine{410         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{411     \}}
+\DoxyCodeLine{412     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a37faf27d6e9ab4e0a417f29efbda1cbb}{adlerChecksum}}(firstBlock, memory);}
+\DoxyCodeLine{413 \}}
 
 \end{DoxyCode}
 
@@ -356,7 +364,8 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=350pt]{StackRigid_8h_a08de7058bae2a1e0c566024850286498_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -386,17 +395,17 @@ Not for the manual use!
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{374                                                                         \{}
-\DoxyCodeLine{375     assert(stack);}
-\DoxyCodeLine{376     }
-\DoxyCodeLine{377     \textcolor{keywordtype}{void}* firstBlock = (\textcolor{keywordtype}{char}*)stack + \textcolor{keyword}{sizeof}(stack-\/>checkSum) + \textcolor{keyword}{sizeof}(stack-\/>checkSumVital);}
-\DoxyCodeLine{378     }
-\DoxyCodeLine{379     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = (\textcolor{keywordtype}{char}*)(stack-\/>data) -\/ (\textcolor{keywordtype}{char}*)(firstBlock);}
-\DoxyCodeLine{380     \textcolor{keywordflow}{if} (stack-\/>size > stack-\/>capacity) \{}
-\DoxyCodeLine{381         \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{382     \}}
-\DoxyCodeLine{383     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a37faf27d6e9ab4e0a417f29efbda1cbb}{adlerChecksum}}(firstBlock, memory);}
-\DoxyCodeLine{384 \}}
+\DoxyCodeLine{383                                                                         \{}
+\DoxyCodeLine{384     assert(stack);}
+\DoxyCodeLine{385     }
+\DoxyCodeLine{386     \textcolor{keywordtype}{void}* firstBlock = (\textcolor{keywordtype}{char}*)stack + \textcolor{keyword}{sizeof}(stack-\/>checkSum) + \textcolor{keyword}{sizeof}(stack-\/>checkSumVital);}
+\DoxyCodeLine{387     }
+\DoxyCodeLine{388     \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = (\textcolor{keywordtype}{char}*)(stack-\/>data) -\/ (\textcolor{keywordtype}{char}*)firstBlock;}
+\DoxyCodeLine{389     \textcolor{keywordflow}{if} (stack-\/>size > stack-\/>capacity) \{}
+\DoxyCodeLine{390         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{391     \}}
+\DoxyCodeLine{392     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a37faf27d6e9ab4e0a417f29efbda1cbb}{adlerChecksum}}(firstBlock, memory);}
+\DoxyCodeLine{393 \}}
 
 \end{DoxyCode}
 
@@ -414,7 +423,8 @@ Here is the call graph for this function\+:\nopagebreak
 \includegraphics[width=336pt]{StackRigid_8h_a2a07c9f65f61c8ca3112dcfaefb4b3be_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -443,69 +453,70 @@ Not for the manual use!
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{407                                                                                                        \{}
-\DoxyCodeLine{408     \textcolor{keywordflow}{if} ((*stack)-\/>capacity == 0) \{}
-\DoxyCodeLine{409         (*stack)-\/>capacity = 16; \textcolor{comment}{// capacity if was 0}}
-\DoxyCodeLine{410         }
-\DoxyCodeLine{411         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
-\DoxyCodeLine{412         }
-\DoxyCodeLine{413          \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)* newStack = ( \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)*) realloc((*stack), memory);}
-\DoxyCodeLine{414         \textcolor{keywordflow}{if} (newStack == NULL)}
-\DoxyCodeLine{415             \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}};}
-\DoxyCodeLine{416         }
-\DoxyCodeLine{417         (*stack) = newStack;}
-\DoxyCodeLine{418     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(((*stack)-\/>capacity <= (*stack)-\/>size) \&\& direction > 0) \{ \textcolor{comment}{// Up realocation}}
-\DoxyCodeLine{419         \textcolor{keywordtype}{size\_t} newCapacity = (*stack)-\/>size * 2;}
-\DoxyCodeLine{420         }
-\DoxyCodeLine{421         \textcolor{keywordflow}{if} (newCapacity <= (*stack)-\/>size) \{ \textcolor{comment}{//   If we exceeded size\_t range}}
-\DoxyCodeLine{422             newCapacity = (*stack)-\/>size + 16; \textcolor{comment}{// Try to add 16 free spaces}}
-\DoxyCodeLine{423             \textcolor{keywordflow}{if} (newCapacity < (*stack)-\/>size) \textcolor{comment}{//  Even if in this case we still exceed size\_t}}
-\DoxyCodeLine{424                 \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}};}
-\DoxyCodeLine{425         \}}
-\DoxyCodeLine{426         }
-\DoxyCodeLine{427         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNow = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
-\DoxyCodeLine{428         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNew = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)) + (newCapacity -\/ 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
+\DoxyCodeLine{416                                                                                                        \{}
+\DoxyCodeLine{417     \textcolor{keywordflow}{if} ((*stack)-\/>capacity == 0) \{}
+\DoxyCodeLine{418         (*stack)-\/>capacity = 16; \textcolor{comment}{// capacity if was 0}}
+\DoxyCodeLine{419         }
+\DoxyCodeLine{420         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
+\DoxyCodeLine{421         }
+\DoxyCodeLine{422          \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)* newStack = ( \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)*) realloc((*stack), memory);}
+\DoxyCodeLine{423         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(newStack))}
+\DoxyCodeLine{424             \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}};}
+\DoxyCodeLine{425         }
+\DoxyCodeLine{426         (*stack) = newStack;}
+\DoxyCodeLine{427     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(((*stack)-\/>capacity <= (*stack)-\/>size) \&\& direction > 0) \{ \textcolor{comment}{// Up realocation}}
+\DoxyCodeLine{428         \textcolor{keywordtype}{size\_t} newCapacity = (*stack)-\/>size * 2;}
 \DoxyCodeLine{429         }
-\DoxyCodeLine{430         \textcolor{keywordflow}{if} (memoryNew >= memoryNow) \{}
-\DoxyCodeLine{431              \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)* newStack = ( \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)*) realloc((*stack), memoryNew);}
-\DoxyCodeLine{432             \textcolor{keywordflow}{if} (newStack == NULL)}
-\DoxyCodeLine{433                 \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}};}
-\DoxyCodeLine{434             }
-\DoxyCodeLine{435             (*stack) = newStack;}
-\DoxyCodeLine{436         \}\textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{437             \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}}; \textcolor{comment}{// Exceded size\_t memory}}
-\DoxyCodeLine{438         \}}
-\DoxyCodeLine{439         (*stack)-\/>capacity = newCapacity;}
-\DoxyCodeLine{440         }
-\DoxyCodeLine{441     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (((*stack)-\/>capacity / 2.2 > (*stack)-\/>size) \&\& direction < 0) \{ \textcolor{comment}{// Down realocation}}
-\DoxyCodeLine{442         \textcolor{keywordtype}{size\_t} newCapacity = (*stack)-\/>capacity / 2.2;}
-\DoxyCodeLine{443         }
-\DoxyCodeLine{444         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNow = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
-\DoxyCodeLine{445         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNew = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)) + (newCapacity -\/ 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
-\DoxyCodeLine{446         }
-\DoxyCodeLine{447         \textcolor{keywordflow}{if} (memoryNew <= memoryNow) \{}
-\DoxyCodeLine{448              \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)* newStack = ( \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)*) realloc((*stack), memoryNew);}
-\DoxyCodeLine{449             \textcolor{keywordflow}{if} (newStack == NULL)}
-\DoxyCodeLine{450                 \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}};}
-\DoxyCodeLine{451             }
-\DoxyCodeLine{452             (*stack) = newStack;}
-\DoxyCodeLine{453             (*stack)-\/>capacity = newCapacity;}
-\DoxyCodeLine{454         \}\textcolor{keywordflow}{else}}
-\DoxyCodeLine{455             \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}}; \textcolor{comment}{// Exceded size\_t memory}}
-\DoxyCodeLine{456     \}}
-\DoxyCodeLine{457     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
-\DoxyCodeLine{458 \}}
+\DoxyCodeLine{430         \textcolor{keywordflow}{if} (newCapacity <= (*stack)-\/>size) \{ \textcolor{comment}{//   If we exceeded size\_t range}}
+\DoxyCodeLine{431             newCapacity = (*stack)-\/>size + 16; \textcolor{comment}{// Try to add 16 free spaces}}
+\DoxyCodeLine{432             \textcolor{keywordflow}{if} (newCapacity < (*stack)-\/>size) \textcolor{comment}{//  Even if in this case we still exceed size\_t}}
+\DoxyCodeLine{433                 \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}};}
+\DoxyCodeLine{434         \}}
+\DoxyCodeLine{435         }
+\DoxyCodeLine{436         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNow = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
+\DoxyCodeLine{437         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNew = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)) + (newCapacity -\/ 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
+\DoxyCodeLine{438         }
+\DoxyCodeLine{439         \textcolor{keywordflow}{if} (memoryNew >= memoryNow) \{}
+\DoxyCodeLine{440              \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)* newStack = ( \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)*) realloc((*stack), memoryNew);}
+\DoxyCodeLine{441             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(newStack))}
+\DoxyCodeLine{442                 \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}};}
+\DoxyCodeLine{443             }
+\DoxyCodeLine{444             (*stack) = newStack;}
+\DoxyCodeLine{445         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{446             \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}}; \textcolor{comment}{// Exceded size\_t memory}}
+\DoxyCodeLine{447         \}}
+\DoxyCodeLine{448         (*stack)-\/>capacity = newCapacity;}
+\DoxyCodeLine{449         }
+\DoxyCodeLine{450     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (((*stack)-\/>capacity / 2.2 > (*stack)-\/>size) \&\& direction < 0) \{ \textcolor{comment}{// Down realocation}}
+\DoxyCodeLine{451         \textcolor{keywordtype}{size\_t} newCapacity = (*stack)-\/>capacity / 2.2;}
+\DoxyCodeLine{452         }
+\DoxyCodeLine{453         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNow = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
+\DoxyCodeLine{454         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNew = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)) + (newCapacity -\/ 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
+\DoxyCodeLine{455         }
+\DoxyCodeLine{456         \textcolor{keywordflow}{if} (memoryNew <= memoryNow) \{}
+\DoxyCodeLine{457              \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)* newStack = ( \mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)*) realloc((*stack), memoryNew);}
+\DoxyCodeLine{458             \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(newStack))}
+\DoxyCodeLine{459                 \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ac5fdd9b73e4decd4f5ddca7b680c345d}{STACK\_OP\_NOMEMORY}};}
+\DoxyCodeLine{460             }
+\DoxyCodeLine{461             (*stack) = newStack;}
+\DoxyCodeLine{462             (*stack)-\/>capacity = newCapacity;}
+\DoxyCodeLine{463         \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{464             \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}}; \textcolor{comment}{// Exceded size\_t memory}}
+\DoxyCodeLine{465     \}}
+\DoxyCodeLine{466     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
+\DoxyCodeLine{467 \}}
 
 \end{DoxyCode}
 
 
-References \+\_\+\+\_\+overload, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW, Stack\+Element\+Type, and Stack\+Rigid\+Memory\+Use().
+References \+\_\+\+\_\+overload, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+O\+M\+E\+M\+O\+RY, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW, Stack\+Element\+Type, Stack\+Rigid\+Memory\+Use(), and valid\+Ptr().
 
 
 
 Referenced by Stack\+Pop(), and Stack\+Push().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -542,13 +553,12 @@ Not for the manual use! \begin{DoxyVerb}* Stack memory :  [ __stack area__ | val
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{365                                                                   \{}
-\DoxyCodeLine{366     assert(stack);}
-\DoxyCodeLine{367 }
-\DoxyCodeLine{368     stack-\/>checkSumVital = \mbox{\hyperlink{StackRigid_8h_a2a07c9f65f61c8ca3112dcfaefb4b3be}{\_\_StackGetChecksumVital}}(stack);}
-\DoxyCodeLine{369     stack-\/>checkSum = \mbox{\hyperlink{StackRigid_8h_a08de7058bae2a1e0c566024850286498}{\_\_StackGetChecksum}}(stack);}
-\DoxyCodeLine{370 }
-\DoxyCodeLine{371 \}}
+\DoxyCodeLine{375                                                                   \{}
+\DoxyCodeLine{376     assert(stack);}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378     stack-\/>checkSumVital = \mbox{\hyperlink{StackRigid_8h_a2a07c9f65f61c8ca3112dcfaefb4b3be}{\_\_StackGetChecksumVital}}(stack);}
+\DoxyCodeLine{379     stack-\/>checkSum = \mbox{\hyperlink{StackRigid_8h_a08de7058bae2a1e0c566024850286498}{\_\_StackGetChecksum}}(stack);}
+\DoxyCodeLine{380 \}}
 
 \end{DoxyCode}
 
@@ -604,39 +614,40 @@ checksum
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{51                                                                   \{}
-\DoxyCodeLine{52     uint32\_t a = 1, b = 0;}
-\DoxyCodeLine{53     \textcolor{keyword}{const} uint32\_t MOD\_ADLER = 65521;}
-\DoxyCodeLine{54     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} index = 0; index < len; ++index) \{}
-\DoxyCodeLine{55         a = (a + ((\textcolor{keywordtype}{char}*)firstBlock)[index]) \% MOD\_ADLER;}
-\DoxyCodeLine{56         b = (b + a) \% MOD\_ADLER;}
-\DoxyCodeLine{57     \}}
-\DoxyCodeLine{58     \textcolor{keywordflow}{return} (b << 16) | a;}
-\DoxyCodeLine{59 \}}
+\DoxyCodeLine{109                                                                   \{}
+\DoxyCodeLine{110     uint32\_t a = 1, b = 0;}
+\DoxyCodeLine{111     \textcolor{keyword}{const} uint32\_t MOD\_ADLER = 65521;}
+\DoxyCodeLine{112     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} index = 0; index < len; ++index) \{}
+\DoxyCodeLine{113         a = (a + ((\textcolor{keywordtype}{char}*)firstBlock)[index]) \% MOD\_ADLER;}
+\DoxyCodeLine{114         b = (b + a) \% MOD\_ADLER;}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} (b << 16) | a;}
+\DoxyCodeLine{117 \}}
 
 \end{DoxyCode}
 
 
 Referenced by \+\_\+\+\_\+\+Stack\+Get\+Checksum(), and \+\_\+\+\_\+\+Stack\+Get\+Checksum\+Vital().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{StackRigid_8h_a37faf27d6e9ab4e0a417f29efbda1cbb_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{StackRigid_8h_af56b93e9447ab919c05fdf11ac1b212b}\label{StackRigid_8h_af56b93e9447ab919c05fdf11ac1b212b}} 
+\mbox{\Hypertarget{StackRigid_8h_ac8642b0fd8e7d8880bb0a1daf266f5a2}\label{StackRigid_8h_ac8642b0fd8e7d8880bb0a1daf266f5a2}} 
 \index{StackRigid.h@{StackRigid.h}!if@{if}}
 \index{if@{if}!StackRigid.h@{StackRigid.h}}
 \doxysubsubsection{\texorpdfstring{if()}{if()}}
-{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{StackRigid_8h_aa353e5db4d253654aaf3aa7725423d79}{pointer}}}]{ = {\ttfamily =~NULL} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{!}]{valid\+Ptrpointer }\end{DoxyParamCaption})}
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{285                          \{}
-\DoxyCodeLine{286         \textcolor{keywordflow}{return} NULL;}
-\DoxyCodeLine{287     \}}
+\DoxyCodeLine{296                             \{}
+\DoxyCodeLine{297         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{298     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{StackRigid_8h_a81920cc1380e65ab9173893cb1772d86}\label{StackRigid_8h_a81920cc1380e65ab9173893cb1772d86}} 
@@ -659,31 +670,32 @@ the outcome of the operation
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{325                                                                                            \{}
-\DoxyCodeLine{326     \textcolor{keywordflow}{if} (stack == NULL)}
-\DoxyCodeLine{327         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
-\DoxyCodeLine{328     }
-\DoxyCodeLine{329     }
-\DoxyCodeLine{330     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} integrityChecks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(stack);}
-\DoxyCodeLine{331     }
-\DoxyCodeLine{332     \textcolor{keywordflow}{if} (integrityChecks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
-\DoxyCodeLine{333         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(stack);}
-\DoxyCodeLine{334         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}};}
-\DoxyCodeLine{335     \}}
-\DoxyCodeLine{336     }
-\DoxyCodeLine{337     \textcolor{keywordflow}{if}(stack-\/>size == 0)}
-\DoxyCodeLine{338         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}};}
+\DoxyCodeLine{335                                                                                            \{}
+\DoxyCodeLine{336     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(stack))}
+\DoxyCodeLine{337         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
+\DoxyCodeLine{338     }
 \DoxyCodeLine{339     }
-\DoxyCodeLine{340     *value = stack-\/>data[stack-\/>size -\/ 1];}
-\DoxyCodeLine{341     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
-\DoxyCodeLine{342 \}}
+\DoxyCodeLine{340     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} integrityChecks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(stack);}
+\DoxyCodeLine{341     }
+\DoxyCodeLine{342     \textcolor{keywordflow}{if} (integrityChecks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
+\DoxyCodeLine{343         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(stack);}
+\DoxyCodeLine{344         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}};}
+\DoxyCodeLine{345     \}}
+\DoxyCodeLine{346     }
+\DoxyCodeLine{347     \textcolor{keywordflow}{if}(stack-\/>size == 0)}
+\DoxyCodeLine{348         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}};}
+\DoxyCodeLine{349     }
+\DoxyCodeLine{350     *value = stack-\/>data[stack-\/>size -\/ 1];}
+\DoxyCodeLine{351     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
+\DoxyCodeLine{352 \}}
 
 \end{DoxyCode}
 
 
-References S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Dump(), and Stack\+Validate().
+References S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Dump(), Stack\+Validate(), and valid\+Ptr().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -710,26 +722,40 @@ the outcome of the operation
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{545                                                                         \{}
-\DoxyCodeLine{546     \textcolor{keywordflow}{if} (stack == NULL) \{}
-\DoxyCodeLine{547         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
-\DoxyCodeLine{548     \}}
-\DoxyCodeLine{549     \textcolor{keywordflow}{if} (*stack == NULL) \{}
-\DoxyCodeLine{550         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
-\DoxyCodeLine{551     \}}
-\DoxyCodeLine{552     free(*stack);}
-\DoxyCodeLine{553     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
-\DoxyCodeLine{554 \}}
+\DoxyCodeLine{561                                                                         \{}
+\DoxyCodeLine{562     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(stack)) \{}
+\DoxyCodeLine{563         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
+\DoxyCodeLine{564     \}}
+\DoxyCodeLine{565     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(*stack)) \{}
+\DoxyCodeLine{566         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
+\DoxyCodeLine{567     \}}
+\DoxyCodeLine{568     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} checks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(*stack);}
+\DoxyCodeLine{569     \textcolor{keywordflow}{if} (checks == \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}})\{}
+\DoxyCodeLine{570         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memoryNow = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(*stack);}
+\DoxyCodeLine{571         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{char}* cursor = (\textcolor{keywordtype}{char}*)(*stack); cursor < (\textcolor{keywordtype}{char}*)(*stack) + memoryNow; cursor++)}
+\DoxyCodeLine{572             *cursor = 0;}
+\DoxyCodeLine{573     \}}
+\DoxyCodeLine{574     free(*stack);}
+\DoxyCodeLine{575     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
+\DoxyCodeLine{576 \}}
 
 \end{DoxyCode}
 
 
-References S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, and S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK.
+References S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Rigid\+Memory\+Use(), Stack\+Validate(), and valid\+Ptr().
 
 
 
 Referenced by main().
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{StackRigid_8h_a3addcf7a8000baf1be4d91a779f293e8_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -754,94 +780,102 @@ Dumps debug information about the stack.
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{466                                                \{}
-\DoxyCodeLine{467     time\_t rawtime = time(NULL);}
-\DoxyCodeLine{468     \textcolor{keyword}{struct }tm *ptm = localtime(\&rawtime);}
-\DoxyCodeLine{469     }
-\DoxyCodeLine{470     FILE* output = stack-\/>logFile;}
-\DoxyCodeLine{471     \textcolor{keywordflow}{if} (output == NULL) \{}
-\DoxyCodeLine{472         output = stdout;}
-\DoxyCodeLine{473         printf(\textcolor{stringliteral}{"{}\(\backslash\)nWarning! Specified dump output is inavailbale! Selecting stdout.\(\backslash\)n"{}});}
-\DoxyCodeLine{474     \}}
-\DoxyCodeLine{475     }
-\DoxyCodeLine{476     fprintf(output, \textcolor{stringliteral}{"{}=================================\(\backslash\)n"{}});}
-\DoxyCodeLine{477     fprintf(output, \textcolor{stringliteral}{"{}Stack dump \%s"{}}, asctime(ptm));}
+\DoxyCodeLine{475                                                \{}
+\DoxyCodeLine{476     time\_t rawtime = time(NULL);}
+\DoxyCodeLine{477     \textcolor{keyword}{struct }tm *ptm = localtime(\&rawtime);}
 \DoxyCodeLine{478     }
-\DoxyCodeLine{479     \textcolor{keywordflow}{if} (stack == NULL) \{}
-\DoxyCodeLine{480         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)nStack dump is impossible: NULL pointer\(\backslash\)n"{}});}
-\DoxyCodeLine{481     \}\textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{482         fprintf(output, \textcolor{stringliteral}{"{}Stack ("{}});}
-\DoxyCodeLine{483         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *status = \textcolor{stringliteral}{"{}ok"{}};}
-\DoxyCodeLine{484         \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} checks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(stack);}
-\DoxyCodeLine{485         \textcolor{keywordflow}{switch} (checks) \{}
-\DoxyCodeLine{486             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}}:}
-\DoxyCodeLine{487                 status = \textcolor{stringliteral}{"{}INTEGRITY ERROR SPOTTED"{}};}
-\DoxyCodeLine{488                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{489             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{STACK\_ST\_UNINITIALIZED}}:}
-\DoxyCodeLine{490                 status = \textcolor{stringliteral}{"{}UNINITIALIZED"{}};}
-\DoxyCodeLine{491                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{492             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}:}
-\DoxyCodeLine{493                 status = \textcolor{stringliteral}{"{}ok"{}};}
-\DoxyCodeLine{494                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{495             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}}:}
-\DoxyCodeLine{496                 status = \textcolor{stringliteral}{"{}NULL POINTER"{}};}
+\DoxyCodeLine{479     FILE* output = stack-\/>logFile;}
+\DoxyCodeLine{480     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(output)) \{}
+\DoxyCodeLine{481         output = stdout;}
+\DoxyCodeLine{482         printf(\textcolor{stringliteral}{"{}\(\backslash\)nWarning! Specified dump output is inavailbale! Selecting stdout.\(\backslash\)n"{}});}
+\DoxyCodeLine{483     \}}
+\DoxyCodeLine{484     }
+\DoxyCodeLine{485     fprintf(output, \textcolor{stringliteral}{"{}=================================\(\backslash\)n"{}});}
+\DoxyCodeLine{486     fprintf(output, \textcolor{stringliteral}{"{}Stack dump \%s"{}}, asctime(ptm));}
+\DoxyCodeLine{487     }
+\DoxyCodeLine{488     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(stack)) \{}
+\DoxyCodeLine{489         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)nStack dump is impossible: NULL pointer\(\backslash\)n"{}});}
+\DoxyCodeLine{490     \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{491         fprintf(output, \textcolor{stringliteral}{"{}Stack ("{}});}
+\DoxyCodeLine{492         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *status = \textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{493         \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} checks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(stack);}
+\DoxyCodeLine{494         \textcolor{keywordflow}{switch} (checks) \{}
+\DoxyCodeLine{495             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}}:}
+\DoxyCodeLine{496                 status = \textcolor{stringliteral}{"{}INTEGRITY ERROR SPOTTED"{}};}
 \DoxyCodeLine{497                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{498         \}}
-\DoxyCodeLine{499         fprintf(output, \textcolor{stringliteral}{"{}\%s"{}}, status);}
-\DoxyCodeLine{500         fprintf(output, \textcolor{stringliteral}{"{})"{}});}
-\DoxyCodeLine{501         fprintf(output, \textcolor{stringliteral}{"{} [\%p]: \{\(\backslash\)n"{}}, stack);}
-\DoxyCodeLine{502         \textcolor{keywordflow}{if} (checks == \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}}) \{}
-\DoxyCodeLine{503             fprintf(output, \textcolor{stringliteral}{"{}ERROR! Stack structure was corrupted. The data below was changed from the outside.\(\backslash\)n"{}});}
-\DoxyCodeLine{504         \}}
-\DoxyCodeLine{505         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t         size : \%lu\(\backslash\)n"{}}, stack-\/>size);}
-\DoxyCodeLine{506         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t     capacity : \%lu\(\backslash\)n"{}}, stack-\/>capacity);}
-\DoxyCodeLine{507         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t     checkSum : \%x\(\backslash\)n"{}}, stack-\/>checkSumVital);}
-\DoxyCodeLine{508         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)tcheckSumVital : \%x\(\backslash\)n"{}}, stack-\/>checkSum);}
-\DoxyCodeLine{509         }
-\DoxyCodeLine{510         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)tdata [\%p]: \{\(\backslash\)n"{}}, stack-\/>data);}
-\DoxyCodeLine{511         \textcolor{keywordtype}{size\_t} i = 0;}
-\DoxyCodeLine{512         \textcolor{keywordflow}{for} (i = 0; i < stack-\/>size; i++) \{}
-\DoxyCodeLine{513             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}});}
-\DoxyCodeLine{514             fprintf(output, \textcolor{stringliteral}{"{}*[\%lu] : "{}}, i);}
-\DoxyCodeLine{515             fprintf(output, \textcolor{stringliteral}{"{}[\%p] "{}}, stack-\/>data + i);}
-\DoxyCodeLine{516             \mbox{\hyperlink{StackRigid_8h_a231d62549d9cfc45a003c319b7e1779e}{StackElementDump}}(stack-\/>logFile, stack-\/>data[i]);}
-\DoxyCodeLine{517             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
-\DoxyCodeLine{518         \}}
-\DoxyCodeLine{519         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t \_\_\_\_\_\_\_\(\backslash\)n"{}});}
-\DoxyCodeLine{520         \textcolor{keywordflow}{if} (stack-\/>size < stack-\/>capacity) \{}
-\DoxyCodeLine{521             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t [\%lu] : GARBAGE("{}}, i + 1);}
-\DoxyCodeLine{522             fprintf(output, \textcolor{stringliteral}{"{}[\%p] "{}}, stack-\/>data + i + 1);}
-\DoxyCodeLine{523             \mbox{\hyperlink{StackRigid_8h_a231d62549d9cfc45a003c319b7e1779e}{StackElementDump}}(stack-\/>logFile, stack-\/>data[i + 1]);}
-\DoxyCodeLine{524             fprintf(output, \textcolor{stringliteral}{"{})\(\backslash\)n"{}});}
-\DoxyCodeLine{525         \}}
-\DoxyCodeLine{526         \textcolor{keywordflow}{if} (stack-\/>size + 1 < stack-\/>capacity \&\& stack-\/>size + 1 > stack-\/>size) \{}
-\DoxyCodeLine{527             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t [\%lu] : GARBAGE("{}}, i + 2);}
-\DoxyCodeLine{528             fprintf(output, \textcolor{stringliteral}{"{}[\%p] "{}}, stack-\/>data + i + 2);}
-\DoxyCodeLine{529             \mbox{\hyperlink{StackRigid_8h_a231d62549d9cfc45a003c319b7e1779e}{StackElementDump}}(stack-\/>logFile, stack-\/>data[i + 2]);}
-\DoxyCodeLine{530             fprintf(output, \textcolor{stringliteral}{"{})\(\backslash\)n"{}});}
-\DoxyCodeLine{531         \}}
-\DoxyCodeLine{532         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\}\(\backslash\)n"{}});}
-\DoxyCodeLine{533         fprintf(output, \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}});}
-\DoxyCodeLine{534         }
-\DoxyCodeLine{535         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(stack);}
-\DoxyCodeLine{536         fprintf(output, \textcolor{stringliteral}{"{}Size allocated : \%lu bytes\(\backslash\)n"{}}, memory);}
-\DoxyCodeLine{537         fprintf(output, \textcolor{stringliteral}{"{}Raw Stack size : \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)));}
-\DoxyCodeLine{538         fprintf(output, \textcolor{stringliteral}{"{}  Element size : \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}}));}
-\DoxyCodeLine{539         fprintf(output, \textcolor{stringliteral}{"{}     Block end : \%p\(\backslash\)n"{}}, (\textcolor{keywordtype}{char}*)stack + memory);}
-\DoxyCodeLine{540     \}}
-\DoxyCodeLine{541     fprintf(output, \textcolor{stringliteral}{"{}=================================\(\backslash\)n"{}});}
-\DoxyCodeLine{542 \}}
+\DoxyCodeLine{498             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58}{STACK\_ST\_UNINITIALIZED}}:}
+\DoxyCodeLine{499                 status = \textcolor{stringliteral}{"{}UNINITIALIZED"{}};}
+\DoxyCodeLine{500                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{501             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}:}
+\DoxyCodeLine{502                 status = \textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{503                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{504             \textcolor{keywordflow}{case} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}}:}
+\DoxyCodeLine{505                 status = \textcolor{stringliteral}{"{}NULL POINTER"{}};}
+\DoxyCodeLine{506                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{507         \}}
+\DoxyCodeLine{508         fprintf(output, \textcolor{stringliteral}{"{}\%s"{}}, status);}
+\DoxyCodeLine{509         fprintf(output, \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{510         fprintf(output, \textcolor{stringliteral}{"{} [\%p]: \{\(\backslash\)n"{}}, stack);}
+\DoxyCodeLine{511         \textcolor{keywordflow}{if} (checks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
+\DoxyCodeLine{512             fprintf(output, \textcolor{stringliteral}{"{}ERROR! Stack structure was corrupted.\(\backslash\)nThe data below was changed from the outside.\(\backslash\)nThis can fail!\(\backslash\)n"{}});}
+\DoxyCodeLine{513         \}}
+\DoxyCodeLine{514         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t         size : \%lu\(\backslash\)n"{}}, stack-\/>size);}
+\DoxyCodeLine{515         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t     capacity : \%lu\(\backslash\)n"{}}, stack-\/>capacity);}
+\DoxyCodeLine{516         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t     checkSum : \%x\(\backslash\)n"{}}, stack-\/>checkSumVital);}
+\DoxyCodeLine{517         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)tcheckSumVital : \%x\(\backslash\)n"{}}, stack-\/>checkSum);}
+\DoxyCodeLine{518         }
+\DoxyCodeLine{519         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)tdata [\%p]: \{\(\backslash\)n"{}}, stack-\/>data);}
+\DoxyCodeLine{520         \textcolor{keywordflow}{if} (checks == \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
+\DoxyCodeLine{521         \textcolor{keywordtype}{size\_t} i = 0;}
+\DoxyCodeLine{522         \textcolor{keywordflow}{for} (i = 0; i < stack-\/>size; i++) \{}
+\DoxyCodeLine{523             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t"{}});}
+\DoxyCodeLine{524             fprintf(output, \textcolor{stringliteral}{"{}*[\%lu] : "{}}, i);}
+\DoxyCodeLine{525             fprintf(output, \textcolor{stringliteral}{"{}[\%p] "{}}, stack-\/>data + i);}
+\DoxyCodeLine{526             \mbox{\hyperlink{StackRigid_8h_a231d62549d9cfc45a003c319b7e1779e}{StackElementDump}}(stack-\/>logFile, stack-\/>data[i]);}
+\DoxyCodeLine{527             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{528         \}}
+\DoxyCodeLine{529         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t \_\_\_\_\_\_\_\(\backslash\)n"{}});}
+\DoxyCodeLine{530         \textcolor{keywordflow}{if} (stack-\/>size  < stack-\/>capacity) \{}
+\DoxyCodeLine{531             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t [\%lu] : GARBAGE("{}}, i);}
+\DoxyCodeLine{532             fprintf(output, \textcolor{stringliteral}{"{}[\%p] "{}}, stack-\/>data + i);}
+\DoxyCodeLine{533             \mbox{\hyperlink{StackRigid_8h_a231d62549d9cfc45a003c319b7e1779e}{StackElementDump}}(stack-\/>logFile, stack-\/>data[i]);}
+\DoxyCodeLine{534             fprintf(output, \textcolor{stringliteral}{"{})\(\backslash\)n"{}});}
+\DoxyCodeLine{535         \}}
+\DoxyCodeLine{536         \textcolor{keywordflow}{if} (stack-\/>size + 1< stack-\/>capacity \&\& stack-\/>size + 1 > stack-\/>size) \{}
+\DoxyCodeLine{537             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t [\%lu] : GARBAGE("{}}, i + 1);}
+\DoxyCodeLine{538             fprintf(output, \textcolor{stringliteral}{"{}[\%p] "{}}, stack-\/>data + i + 1);}
+\DoxyCodeLine{539             \mbox{\hyperlink{StackRigid_8h_a231d62549d9cfc45a003c319b7e1779e}{StackElementDump}}(stack-\/>logFile, stack-\/>data[i + 1]);}
+\DoxyCodeLine{540             fprintf(output, \textcolor{stringliteral}{"{})\(\backslash\)n"{}});}
+\DoxyCodeLine{541         \}}
+\DoxyCodeLine{542         \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{543             fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)tDATA CAN'T BE READED\(\backslash\)n"{}});}
+\DoxyCodeLine{544         \}}
+\DoxyCodeLine{545         }
+\DoxyCodeLine{546         fprintf(output, \textcolor{stringliteral}{"{}\(\backslash\)t\}\(\backslash\)n"{}});}
+\DoxyCodeLine{547         fprintf(output, \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}});}
+\DoxyCodeLine{548         }
+\DoxyCodeLine{549         \textcolor{keyword}{const} \textcolor{keywordtype}{size\_t} memory = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(stack);}
+\DoxyCodeLine{550         fprintf(output, \textcolor{stringliteral}{"{}Size allocated : \%lu bytes\(\backslash\)n"{}}, memory);}
+\DoxyCodeLine{551         fprintf(output, \textcolor{stringliteral}{"{}Raw Stack size : \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)));}
+\DoxyCodeLine{552         fprintf(output, \textcolor{stringliteral}{"{}  Element size : \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}}));}
+\DoxyCodeLine{553         fprintf(output, \textcolor{stringliteral}{"{}     Block end : \%p\(\backslash\)n"{}}, (\textcolor{keywordtype}{char}*)stack + memory);}
+\DoxyCodeLine{554     \}}
+\DoxyCodeLine{555     fprintf(output, \textcolor{stringliteral}{"{}=================================\(\backslash\)n"{}});}
+\DoxyCodeLine{556     fflush(NULL);}
+\DoxyCodeLine{557     }
+\DoxyCodeLine{558 \}}
 
 \end{DoxyCode}
 
 
-References \+\_\+\+\_\+overload, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, Stack\+Element\+Dump, Stack\+Element\+Type, Stack\+Rigid\+Memory\+Use(), and Stack\+Validate().
+References \+\_\+\+\_\+overload, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+ED, Stack\+Element\+Dump, Stack\+Element\+Type, Stack\+Rigid\+Memory\+Use(), Stack\+Validate(), and valid\+Ptr().
 
 
 
 Referenced by main(), Stack\+Back(), Stack\+Pop(), and Stack\+Push().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -877,40 +911,40 @@ the outcome of the operation
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{300                                                                                             \{}
-\DoxyCodeLine{301     \textcolor{keywordflow}{if} (stack == NULL)}
-\DoxyCodeLine{302         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
-\DoxyCodeLine{303     }
-\DoxyCodeLine{304     }
-\DoxyCodeLine{305     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} integrityChecks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(*stack);}
-\DoxyCodeLine{306     }
-\DoxyCodeLine{307     \textcolor{keywordflow}{if} (integrityChecks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
-\DoxyCodeLine{308         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(*stack);}
-\DoxyCodeLine{309         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}};}
-\DoxyCodeLine{310     \}}
-\DoxyCodeLine{311     }
-\DoxyCodeLine{312     \textcolor{keywordflow}{if}((*stack)-\/>size == 0)}
-\DoxyCodeLine{313         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}};}
+\DoxyCodeLine{311                                                                                             \{}
+\DoxyCodeLine{312     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(stack))}
+\DoxyCodeLine{313         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
 \DoxyCodeLine{314     }
-\DoxyCodeLine{315     *value = (*stack)-\/>data[(*stack)-\/>size -\/ 1];}
-\DoxyCodeLine{316     (*stack)-\/>size -\/= 1;}
-\DoxyCodeLine{317     }
-\DoxyCodeLine{318     \mbox{\hyperlink{StackRigid_8h_a5a6f1bf7c5c61246f70cfa0c349ad3fe}{\_\_StackRealocate}}(stack, -\/1);}
-\DoxyCodeLine{319     \mbox{\hyperlink{StackRigid_8h_aafaff2554f25a2dd6681bf409da8fe8e}{\_\_StackUpdateChecksum}}(*stack);}
-\DoxyCodeLine{320 }
-\DoxyCodeLine{321     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
-\DoxyCodeLine{322 \}}
+\DoxyCodeLine{315     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} integrityChecks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(*stack);}
+\DoxyCodeLine{316     }
+\DoxyCodeLine{317     \textcolor{keywordflow}{if} (integrityChecks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
+\DoxyCodeLine{318         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(*stack);}
+\DoxyCodeLine{319         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}};}
+\DoxyCodeLine{320     \}}
+\DoxyCodeLine{321     }
+\DoxyCodeLine{322     \textcolor{keywordflow}{if}((*stack)-\/>size == 0)}
+\DoxyCodeLine{323         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c}{STACK\_OP\_UNDERFLOW}};}
+\DoxyCodeLine{324     }
+\DoxyCodeLine{325     *value = (*stack)-\/>data[(*stack)-\/>size -\/ 1];}
+\DoxyCodeLine{326     (*stack)-\/>size -\/= 1;}
+\DoxyCodeLine{327     }
+\DoxyCodeLine{328     \mbox{\hyperlink{StackRigid_8h_a5a6f1bf7c5c61246f70cfa0c349ad3fe}{\_\_StackRealocate}}(stack, -\/1);}
+\DoxyCodeLine{329     \mbox{\hyperlink{StackRigid_8h_aafaff2554f25a2dd6681bf409da8fe8e}{\_\_StackUpdateChecksum}}(*stack);}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
+\DoxyCodeLine{332 \}}
 
 \end{DoxyCode}
 
 
-References \+\_\+\+\_\+\+Stack\+Realocate(), \+\_\+\+\_\+\+Stack\+Update\+Checksum(), S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Dump(), and Stack\+Validate().
+References \+\_\+\+\_\+\+Stack\+Realocate(), \+\_\+\+\_\+\+Stack\+Update\+Checksum(), S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Dump(), Stack\+Validate(), and valid\+Ptr().
 
 
 
 Referenced by main().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -946,47 +980,50 @@ the outcome of the operation
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{248                                                                                            \{}
-\DoxyCodeLine{249     \textcolor{keywordflow}{if} (stack == NULL)}
-\DoxyCodeLine{250         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e}{STACK\_OP\_NULL}};}
-\DoxyCodeLine{251     }
-\DoxyCodeLine{252     }
-\DoxyCodeLine{253     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} integrityChecks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(*stack);}
-\DoxyCodeLine{254     }
-\DoxyCodeLine{255     \textcolor{keywordflow}{if} (integrityChecks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
-\DoxyCodeLine{256         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(*stack);}
-\DoxyCodeLine{257         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}};}
-\DoxyCodeLine{258     \}}
-\DoxyCodeLine{259     }
-\DoxyCodeLine{260     }
-\DoxyCodeLine{261     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039}{StackRigidOperationCodes}} realocResult = \mbox{\hyperlink{StackRigid_8h_a5a6f1bf7c5c61246f70cfa0c349ad3fe}{\_\_StackRealocate}}(stack, 1);}
+\DoxyCodeLine{257                                                                                            \{}
+\DoxyCodeLine{258     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(stack))}
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60}{STACK\_OP\_PTRINVALID}};}
+\DoxyCodeLine{260     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(*stack))}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60}{STACK\_OP\_PTRINVALID}};}
 \DoxyCodeLine{262     }
-\DoxyCodeLine{263     \textcolor{keywordflow}{if} (realocResult != \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}}) \{}
-\DoxyCodeLine{264         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(*stack);}
-\DoxyCodeLine{265         \textcolor{keywordflow}{return} realocResult;}
-\DoxyCodeLine{266     \}}
-\DoxyCodeLine{267     }
-\DoxyCodeLine{268     (*stack)-\/>data[(*stack)-\/>size] = value;}
-\DoxyCodeLine{269     (*stack)-\/>size += 1;}
+\DoxyCodeLine{263     }
+\DoxyCodeLine{264     \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} integrityChecks = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(*stack);}
+\DoxyCodeLine{265     }
+\DoxyCodeLine{266     \textcolor{keywordflow}{if} (integrityChecks != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}}) \{}
+\DoxyCodeLine{267         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(*stack);}
+\DoxyCodeLine{268         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039afd89a4e74adda7fac95c033ffc862a33}{STACK\_OP\_INTEGRITYERR}};}
+\DoxyCodeLine{269     \}}
 \DoxyCodeLine{270     }
-\DoxyCodeLine{271     \mbox{\hyperlink{StackRigid_8h_aafaff2554f25a2dd6681bf409da8fe8e}{\_\_StackUpdateChecksum}}(*stack);}
-\DoxyCodeLine{272     }
-\DoxyCodeLine{273     \textcolor{keywordflow}{if} ((*stack)-\/>size == 0) \{}
-\DoxyCodeLine{274         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}};}
-\DoxyCodeLine{275     \}}
-\DoxyCodeLine{276     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
-\DoxyCodeLine{277 \}}
+\DoxyCodeLine{271     }
+\DoxyCodeLine{272     \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039}{StackRigidOperationCodes}} realocResult = \mbox{\hyperlink{StackRigid_8h_a5a6f1bf7c5c61246f70cfa0c349ad3fe}{\_\_StackRealocate}}(stack, 1);}
+\DoxyCodeLine{273     }
+\DoxyCodeLine{274     \textcolor{keywordflow}{if} (realocResult != \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}}) \{}
+\DoxyCodeLine{275         \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(*stack);}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} realocResult;}
+\DoxyCodeLine{277     \}}
+\DoxyCodeLine{278     }
+\DoxyCodeLine{279     (*stack)-\/>data[(*stack)-\/>size] = value;}
+\DoxyCodeLine{280     (*stack)-\/>size += 1;}
+\DoxyCodeLine{281     }
+\DoxyCodeLine{282     \mbox{\hyperlink{StackRigid_8h_aafaff2554f25a2dd6681bf409da8fe8e}{\_\_StackUpdateChecksum}}(*stack);}
+\DoxyCodeLine{283     }
+\DoxyCodeLine{284     \textcolor{keywordflow}{if} ((*stack)-\/>size == 0) \{}
+\DoxyCodeLine{285         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a3fd246337bd474e0b0be6c3db2106283}{STACK\_OP\_OVERFLOW}};}
+\DoxyCodeLine{286     \}}
+\DoxyCodeLine{287     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e}{STACK\_OP\_OK}};}
+\DoxyCodeLine{288 \}}
 
 \end{DoxyCode}
 
 
-References \+\_\+\+\_\+\+Stack\+Realocate(), \+\_\+\+\_\+\+Stack\+Update\+Checksum(), S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Dump(), and Stack\+Validate().
+References \+\_\+\+\_\+\+Stack\+Realocate(), \+\_\+\+\_\+\+Stack\+Update\+Checksum(), S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+OK, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW, S\+T\+A\+C\+K\+\_\+\+O\+P\+\_\+\+P\+T\+R\+I\+N\+V\+A\+L\+ID, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, Stack\+Dump(), Stack\+Validate(), and valid\+Ptr().
 
 
 
 Referenced by main().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1020,10 +1057,10 @@ alocated bytes
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{460                                                            \{}
-\DoxyCodeLine{461     assert(stack);}
-\DoxyCodeLine{462     \textcolor{keywordflow}{return} \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)) + (stack-\/>capacity -\/ 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
-\DoxyCodeLine{463 \}}
+\DoxyCodeLine{469                                                            \{}
+\DoxyCodeLine{470     assert(stack);}
+\DoxyCodeLine{471     \textcolor{keywordflow}{return} \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a79ea86ebacc8d0f7906790ecd93bac28}{\_\_overload}}(StackRigid)) + (stack-\/>capacity -\/ 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{StackRigid_8h_a5d5557764da222ed9bdc5f5aba30da9d}{StackElementType}});}
+\DoxyCodeLine{472 \}}
 
 \end{DoxyCode}
 
@@ -1032,9 +1069,10 @@ References \+\_\+\+\_\+overload, and Stack\+Element\+Type.
 
 
 
-Referenced by \+\_\+\+\_\+\+Stack\+Get\+Checksum(), \+\_\+\+\_\+\+Stack\+Realocate(), main(), and Stack\+Dump().
+Referenced by \+\_\+\+\_\+\+Stack\+Get\+Checksum(), \+\_\+\+\_\+\+Stack\+Realocate(), main(), Stack\+Destruct(), and Stack\+Dump().
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1061,46 +1099,73 @@ calculated state
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{345                                                               \{}
-\DoxyCodeLine{346     \textcolor{keywordflow}{if} (stack == NULL)}
-\DoxyCodeLine{347         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}};}
-\DoxyCodeLine{348     }
-\DoxyCodeLine{349     \textcolor{keywordflow}{if} (stack-\/>size > stack-\/>capacity || stack-\/>checkSum == 0 || stack-\/>checkSumVital == 0)}
-\DoxyCodeLine{350         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}};}
-\DoxyCodeLine{351     }
-\DoxyCodeLine{352     uint32\_t currentChecksumVital = \mbox{\hyperlink{StackRigid_8h_a2a07c9f65f61c8ca3112dcfaefb4b3be}{\_\_StackGetChecksumVital}}(stack);}
-\DoxyCodeLine{353     \textcolor{keywordflow}{if} (currentChecksumVital != stack-\/>checkSumVital || currentChecksumVital == 0)}
-\DoxyCodeLine{354         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}};}
-\DoxyCodeLine{355     }
-\DoxyCodeLine{356     uint32\_t currentChecksum = \mbox{\hyperlink{StackRigid_8h_a08de7058bae2a1e0c566024850286498}{\_\_StackGetChecksum}}(stack);}
-\DoxyCodeLine{357     \textcolor{keywordflow}{if} (currentChecksum != stack-\/>checkSum || currentChecksum == 0)}
-\DoxyCodeLine{358         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}};}
-\DoxyCodeLine{359     }
-\DoxyCodeLine{360 }
-\DoxyCodeLine{361     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}};}
-\DoxyCodeLine{362 \}}
+\DoxyCodeLine{355                                                               \{}
+\DoxyCodeLine{356     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}{validPtr}}(stack))}
+\DoxyCodeLine{357         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb}{STACK\_ST\_NULL}};}
+\DoxyCodeLine{358     }
+\DoxyCodeLine{359     \textcolor{keywordflow}{if} (stack-\/>size > stack-\/>capacity || stack-\/>checkSum == 0 || stack-\/>checkSumVital == 0)}
+\DoxyCodeLine{360         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}};}
+\DoxyCodeLine{361     }
+\DoxyCodeLine{362     uint32\_t currentChecksumVital = \mbox{\hyperlink{StackRigid_8h_a2a07c9f65f61c8ca3112dcfaefb4b3be}{\_\_StackGetChecksumVital}}(stack);}
+\DoxyCodeLine{363     \textcolor{keywordflow}{if} (currentChecksumVital != stack-\/>checkSumVital || currentChecksumVital == 0)}
+\DoxyCodeLine{364         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}};}
+\DoxyCodeLine{365     }
+\DoxyCodeLine{366     uint32\_t currentChecksum = \mbox{\hyperlink{StackRigid_8h_a08de7058bae2a1e0c566024850286498}{\_\_StackGetChecksum}}(stack);}
+\DoxyCodeLine{367     \textcolor{keywordflow}{if} (currentChecksum != stack-\/>checkSum || currentChecksum == 0)}
+\DoxyCodeLine{368         \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}};}
+\DoxyCodeLine{369     }
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371     \textcolor{keywordflow}{return} \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4b2b5de94a6d5cbd85ca204c433b6e74}{STACK\_ST\_OK}};}
+\DoxyCodeLine{372 \}}
 
 \end{DoxyCode}
 
 
-References \+\_\+\+\_\+\+Stack\+Get\+Checksum(), \+\_\+\+\_\+\+Stack\+Get\+Checksum\+Vital(), S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL, and S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK.
+References \+\_\+\+\_\+\+Stack\+Get\+Checksum(), \+\_\+\+\_\+\+Stack\+Get\+Checksum\+Vital(), S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+N\+U\+LL, S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+OK, and valid\+Ptr().
 
 
 
-Referenced by main(), Stack\+Back(), Stack\+Dump(), Stack\+Pop(), and Stack\+Push().
+Referenced by main(), Stack\+Back(), Stack\+Destruct(), Stack\+Dump(), Stack\+Pop(), and Stack\+Push().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}\label{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6}} 
+\index{StackRigid.h@{StackRigid.h}!validPtr@{validPtr}}
+\index{validPtr@{validPtr}!StackRigid.h@{StackRigid.h}}
+\doxysubsubsection{\texorpdfstring{validPtr()}{validPtr()}}
+{\footnotesize\ttfamily static int valid\+Ptr (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119                                \{}
+\DoxyCodeLine{120     \textcolor{keywordflow}{return} (ptr != NULL);}
+\DoxyCodeLine{121 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \+\_\+\+\_\+\+Stack\+Realocate(), Stack\+Back(), Stack\+Destruct(), Stack\+Dump(), Stack\+Pop(), Stack\+Push(), and Stack\+Validate().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{StackRigid_8h_a7d1b2013ebc1eb1ac8e6e8cd3c3430f6_icgraph}
 \end{center}
 \end{figure}
 

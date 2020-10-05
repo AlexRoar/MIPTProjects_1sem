@@ -42,24 +42,6 @@
 
 
 /**
- * @attention Not for the manual use!
- * @brief Calculates Adler-32 checksum from the firstBlock to the firstBlock + len
- * @param[in] firstBlock first block to include to the checksum
- * @param[in] len length of byte sequence
- * @return checksum
- */
-static uint32_t adlerChecksum(const void* firstBlock, size_t len) {
-    uint32_t a = 1, b = 0;
-    const uint32_t MOD_ADLER = 65521;
-    for (size_t index = 0; index < len; ++index) {
-        a = (a + ((char*)firstBlock)[index]) % MOD_ADLER;
-        b = (b + a) % MOD_ADLER;
-    }
-    return (b << 16) | a;
-}
-
-
-/**
  * Codes returned after operations on Stack
  */
 typedef enum StackRigidOperationCodes{
@@ -86,7 +68,11 @@ typedef enum StackRigidOperationCodes{
     /**
      * Found NULL pointer during the operation
      */
-    STACK_OP_NULL
+    STACK_OP_NULL,
+    /**
+     * Found invalid pointer during the operation
+     */
+    STACK_OP_PTRINVALID
 } StackRigidOperationCodes;
 
 
@@ -111,6 +97,28 @@ typedef enum StackRigidState{
      */
     STACK_ST_NULL
 } StackRigidState;
+
+
+/**
+ * @attention Not for the manual use!
+ * @brief Calculates Adler-32 checksum from the firstBlock to the firstBlock + len
+ * @param[in] firstBlock first block to include to the checksum
+ * @param[in] len length of byte sequence
+ * @return checksum
+ */
+static uint32_t adlerChecksum(const void* firstBlock, size_t len) {
+    uint32_t a = 1, b = 0;
+    const uint32_t MOD_ADLER = 65521;
+    for (size_t index = 0; index < len; ++index) {
+        a = (a + ((char*)firstBlock)[index]) % MOD_ADLER;
+        b = (b + a) % MOD_ADLER;
+    }
+    return (b << 16) | a;
+}
+
+static int validPtr(void* ptr) {
+    return (ptr != NULL);
+}
 
 
 #endif /* StackRigid_h general models */
@@ -153,6 +161,7 @@ StackRigidState StackValidate( __overload(StackRigid)* stack);
  * @return the outcome of the operation
  */
 StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElementType value);
+
 
 /**
  * Pop value from the end of the stack
@@ -246,8 +255,10 @@ static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack
 
 
 StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElementType value){
-    if (stack == NULL)
-        return STACK_OP_NULL;
+    if (!validPtr(stack))
+        return STACK_OP_PTRINVALID;
+    if (!validPtr(*stack))
+        return STACK_OP_PTRINVALID;
     
     
     StackRigidState integrityChecks = StackValidate(*stack);
@@ -282,7 +293,7 @@ StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElement
      
      __overload(StackRigid)* pointer = ( __overload(StackRigid)*)calloc(memory, 1);
      
-    if (pointer == NULL) {
+    if (!validPtr(pointer)) {
         return NULL;
     }
     
@@ -298,9 +309,8 @@ StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElement
 
 
 StackRigidOperationCodes StackPop( __overload(StackRigid)** stack, StackElementType* value) {
-    if (stack == NULL)
+    if (!validPtr(stack))
         return STACK_OP_NULL;
-    
     
     StackRigidState integrityChecks = StackValidate(*stack);
     
@@ -323,7 +333,7 @@ StackRigidOperationCodes StackPop( __overload(StackRigid)** stack, StackElementT
 
 
 StackRigidOperationCodes StackBack( __overload(StackRigid)* stack, StackElementType* value){
-    if (stack == NULL)
+    if (!validPtr(stack))
         return STACK_OP_NULL;
     
     
@@ -343,7 +353,7 @@ StackRigidOperationCodes StackBack( __overload(StackRigid)* stack, StackElementT
 
 
 StackRigidState StackValidate( __overload(StackRigid)* stack) {
-    if (stack == NULL)
+    if (!validPtr(stack))
         return STACK_ST_NULL;
     
     if (stack->size > stack->capacity || stack->checkSum == 0 || stack->checkSumVital == 0)
@@ -367,7 +377,6 @@ static void __StackUpdateChecksum( __overload(StackRigid)* stack) {
 
     stack->checkSumVital = __StackGetChecksumVital(stack);
     stack->checkSum = __StackGetChecksum(stack);
-
 }
 
 
@@ -376,7 +385,7 @@ static uint32_t __StackGetChecksumVital( __overload(StackRigid)* stack) {
     
     void* firstBlock = (char*)stack + sizeof(stack->checkSum) + sizeof(stack->checkSumVital);
     
-    const size_t memory = (char*)(stack->data) - (char*)(firstBlock);
+    const size_t memory = (char*)(stack->data) - (char*)firstBlock;
     if (stack->size > stack->capacity) {
         return 0;
     }
@@ -411,7 +420,7 @@ static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack
         const size_t memory = StackRigidMemoryUse(*stack);
         
          __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memory);
-        if (newStack == NULL)
+        if (!validPtr(newStack))
             return STACK_OP_NOMEMORY;
         
         (*stack) = newStack;
@@ -429,7 +438,7 @@ static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack
         
         if (memoryNew >= memoryNow) {
              __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memoryNew);
-            if (newStack == NULL)
+            if (!validPtr(newStack))
                 return STACK_OP_NOMEMORY;
             
             (*stack) = newStack;
@@ -446,7 +455,7 @@ static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack
         
         if (memoryNew <= memoryNow) {
              __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memoryNew);
-            if (newStack == NULL)
+            if (!validPtr(newStack))
                 return STACK_OP_NOMEMORY;
             
             (*stack) = newStack;
@@ -468,7 +477,7 @@ void StackDump( __overload(StackRigid)* stack) {
     struct tm *ptm = localtime(&rawtime);
     
     FILE* output = stack->logFile;
-    if (output == NULL) {
+    if (!validPtr(output)) {
         output = stdout;
         printf("\nWarning! Specified dump output is inavailbale! Selecting stdout.\n");
     }
@@ -476,7 +485,7 @@ void StackDump( __overload(StackRigid)* stack) {
     fprintf(output, "=================================\n");
     fprintf(output, "Stack dump %s", asctime(ptm));
     
-    if (stack == NULL) {
+    if (!validPtr(stack)) {
         fprintf(output, "\nStack dump is impossible: NULL pointer\n");
     }else{
         fprintf(output, "Stack (");
@@ -499,8 +508,8 @@ void StackDump( __overload(StackRigid)* stack) {
         fprintf(output, "%s", status);
         fprintf(output, ")");
         fprintf(output, " [%p]: {\n", stack);
-        if (checks == STACK_ST_INTEGRITYERR) {
-            fprintf(output, "ERROR! Stack structure was corrupted. The data below was changed from the outside.\n");
+        if (checks != STACK_ST_OK) {
+            fprintf(output, "ERROR! Stack structure was corrupted.\nThe data below was changed from the outside.\nThis can fail!\n");
         }
         fprintf(output, "\t         size : %lu\n", stack->size);
         fprintf(output, "\t     capacity : %lu\n", stack->capacity);
@@ -508,6 +517,7 @@ void StackDump( __overload(StackRigid)* stack) {
         fprintf(output, "\tcheckSumVital : %x\n", stack->checkSum);
         
         fprintf(output, "\tdata [%p]: {\n", stack->data);
+        if (checks == STACK_ST_OK) {
         size_t i = 0;
         for (i = 0; i < stack->size; i++) {
             fprintf(output, "\t\t");
@@ -517,18 +527,22 @@ void StackDump( __overload(StackRigid)* stack) {
             fprintf(output, "\n");
         }
         fprintf(output, "\t\t _______\n");
-        if (stack->size < stack->capacity) {
+        if (stack->size  < stack->capacity) {
+            fprintf(output, "\t\t [%lu] : GARBAGE(", i);
+            fprintf(output, "[%p] ", stack->data + i);
+            StackElementDump(stack->logFile, stack->data[i]);
+            fprintf(output, ")\n");
+        }
+        if (stack->size + 1< stack->capacity && stack->size + 1 > stack->size) {
             fprintf(output, "\t\t [%lu] : GARBAGE(", i + 1);
             fprintf(output, "[%p] ", stack->data + i + 1);
             StackElementDump(stack->logFile, stack->data[i + 1]);
             fprintf(output, ")\n");
         }
-        if (stack->size + 1 < stack->capacity && stack->size + 1 > stack->size) {
-            fprintf(output, "\t\t [%lu] : GARBAGE(", i + 2);
-            fprintf(output, "[%p] ", stack->data + i + 2);
-            StackElementDump(stack->logFile, stack->data[i + 2]);
-            fprintf(output, ")\n");
+        } else{
+            fprintf(output, "\t\tDATA CAN'T BE READED\n");
         }
+        
         fprintf(output, "\t}\n");
         fprintf(output, "}\n");
         
@@ -539,16 +553,25 @@ void StackDump( __overload(StackRigid)* stack) {
         fprintf(output, "     Block end : %p\n", (char*)stack + memory);
     }
     fprintf(output, "=================================\n");
+    fflush(NULL);
+    
 }
 
 
 StackRigidOperationCodes StackDestruct( __overload(StackRigid)** stack) {
-    if (stack == NULL) {
+    if (!validPtr(stack)) {
         return STACK_OP_NULL;
     }
-    if (*stack == NULL) {
+    if (!validPtr(*stack)) {
         return STACK_OP_NULL;
+    }
+    StackRigidState checks = StackValidate(*stack);
+    if (checks == STACK_ST_OK){
+        const size_t memoryNow = StackRigidMemoryUse(*stack);
+        for(char* cursor = (char*)(*stack); cursor < (char*)(*stack) + memoryNow; cursor++)
+            *cursor = 0;
     }
     free(*stack);
     return STACK_OP_OK;
 }
+

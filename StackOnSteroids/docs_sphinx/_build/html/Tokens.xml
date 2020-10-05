@@ -130,6 +130,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>validPtr</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>StackRigid_8h.html</Path>
+    <Anchor>a7d1b2013ebc1eb1ac8e6e8cd3c3430f6</Anchor>
+    <DeclaredIn>StackRigid.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>__overload</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
@@ -267,7 +277,7 @@
       <Type>func</Type>
     </TokenIdentifier>
     <Path>StackRigid_8h.html</Path>
-    <Anchor>af56b93e9447ab919c05fdf11ac1b212b</Anchor>
+    <Anchor>ac8642b0fd8e7d8880bb0a1daf266f5a2</Anchor>
     <DeclaredIn>StackRigid.h</DeclaredIn>
   </Token>
   <Token>
@@ -404,6 +414,17 @@
     <Path>StackRigid_8h.html</Path>
     <Anchor>afa660da841608914d20d9819a7efe039ab949780f05a1efd2092dc9057bcf2b4e</Anchor>
     <Abstract>Found NULL pointer during the operation.</Abstract>
+    <DeclaredIn>StackRigid.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>STACK_OP_PTRINVALID</Name>
+      <APILanguage>c</APILanguage>
+      <Type>econst</Type>
+    </TokenIdentifier>
+    <Path>StackRigid_8h.html</Path>
+    <Anchor>afa660da841608914d20d9819a7efe039afd3730a577045e9e7d8e5ccc91b4ad60</Anchor>
+    <Abstract>Found invalid pointer during the operation.</Abstract>
     <DeclaredIn>StackRigid.h</DeclaredIn>
   </Token>
   <Token>

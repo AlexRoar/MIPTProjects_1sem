@@ -94,7 +94,7 @@ Definition at line 23 of file main.\+cpp.
 \DoxyCodeLine{32         \mbox{\hyperlink{StackRigid_8h_a3da847c6aaf3f472d56d528de1a0f6f7}{StackPop}}(\&newStack, \&tmpVal);}
 \DoxyCodeLine{33 \textcolor{comment}{//        printf("{}Popped \%d\(\backslash\)n"{}, tmpVal);}}
 \DoxyCodeLine{34     \}}
-\DoxyCodeLine{35     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 100; i++)\{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 15; i++)\{}
 \DoxyCodeLine{36         \mbox{\hyperlink{StackRigid_8h_a72e1abcd508a113d2731a622322f0624}{StackPush}}(\&newStack, (\textcolor{keywordtype}{int})i + 1);}
 \DoxyCodeLine{37     \}}
 \DoxyCodeLine{38     }
@@ -107,37 +107,43 @@ Definition at line 23 of file main.\+cpp.
 \DoxyCodeLine{45         \mbox{\hyperlink{StackRigid_8h_a3da847c6aaf3f472d56d528de1a0f6f7}{StackPop}}(\&newStackDouble, \&tmpVal);}
 \DoxyCodeLine{46 \textcolor{comment}{//        printf("{}Popped \%d\(\backslash\)n"{}, tmpVal);}}
 \DoxyCodeLine{47     \}}
-\DoxyCodeLine{48     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 100; i++)\{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 15; i++)\{}
 \DoxyCodeLine{49         \mbox{\hyperlink{StackRigid_8h_a72e1abcd508a113d2731a622322f0624}{StackPush}}(\&newStackDouble, (\textcolor{keywordtype}{double})i + 0.5);}
 \DoxyCodeLine{50     \}}
 \DoxyCodeLine{51     }
-\DoxyCodeLine{52     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(newStack); i++)\{}
-\DoxyCodeLine{53         \textcolor{keywordtype}{char} previousValue = *((\textcolor{keywordtype}{char}*)newStack + i);}
-\DoxyCodeLine{54         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} bullet = -\/128; bullet < 127; bullet++)\{}
-\DoxyCodeLine{55             \textcolor{keywordflow}{if} (bullet == previousValue)}
-\DoxyCodeLine{56                 \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{57             *((\textcolor{keywordtype}{char}*)newStack + i) = bullet;}
-\DoxyCodeLine{58             \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} state = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(newStack);}
-\DoxyCodeLine{59             \textcolor{keywordflow}{if} (state != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}})\{}
-\DoxyCodeLine{60                 printf(\textcolor{stringliteral}{"{}Did not spot intervention at position \%zu, byte \%x\(\backslash\)n"{}}, i, bullet);}
-\DoxyCodeLine{61                 \textcolor{keywordflow}{break};}
-\DoxyCodeLine{62             \}}
-\DoxyCodeLine{63             *((\textcolor{keywordtype}{char}*)newStack + i) = previousValue;}
-\DoxyCodeLine{64         \}}
-\DoxyCodeLine{65     \}}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStack);}
-\DoxyCodeLine{68     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStackDouble);}
-\DoxyCodeLine{69     \mbox{\hyperlink{StackRigid_8h_a3addcf7a8000baf1be4d91a779f293e8}{StackDestruct}}(\&newStack);}
-\DoxyCodeLine{70     \textcolor{keywordflow}{return} 0;}
-\DoxyCodeLine{71 \}}
+\DoxyCodeLine{52     \textcolor{keywordtype}{size\_t} memoryUse = \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(newStack);}
+\DoxyCodeLine{53     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < memoryUse; i++)\{}
+\DoxyCodeLine{54         \textcolor{keywordtype}{char} previousValue = *((\textcolor{keywordtype}{char}*)newStack + i);}
+\DoxyCodeLine{55         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} bullet = -\/128; bullet < 127; bullet++)\{}
+\DoxyCodeLine{56             \textcolor{keywordflow}{if} (bullet == previousValue)}
+\DoxyCodeLine{57                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{58             *((\textcolor{keywordtype}{char}*)newStack + i) = bullet;}
+\DoxyCodeLine{59             \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} state = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(newStack);}
+\DoxyCodeLine{60             \textcolor{keywordflow}{if} (state != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}}) \{}
+\DoxyCodeLine{61                 printf(\textcolor{stringliteral}{"{}Did not spot intervention at position \%zu, byte \%x\(\backslash\)n"{}}, i, bullet);}
+\DoxyCodeLine{62                 state = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(newStack);}
+\DoxyCodeLine{63                 \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStack);}
+\DoxyCodeLine{64                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{65             \}}
+\DoxyCodeLine{66         \}}
+\DoxyCodeLine{67         *((\textcolor{keywordtype}{char}*)newStack + i) = previousValue;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStack);}
+\DoxyCodeLine{71     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStackDouble);}
+\DoxyCodeLine{72     *((\textcolor{keywordtype}{char}*)newStackDouble + 10) = 0xFF;}
+\DoxyCodeLine{73     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStackDouble);}
+\DoxyCodeLine{74     \mbox{\hyperlink{StackRigid_8h_a3addcf7a8000baf1be4d91a779f293e8}{StackDestruct}}(\&newStack);}
+\DoxyCodeLine{75     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{76 \}}
 
 \end{DoxyCode}
 
 
 References S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, Stack\+Destruct(), Stack\+Dump(), Stack\+Pop(), Stack\+Push(), Stack\+Rigid\+Memory\+Use(), and Stack\+Validate().
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

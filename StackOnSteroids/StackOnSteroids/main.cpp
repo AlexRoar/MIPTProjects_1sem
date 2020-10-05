@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
         StackPop(&newStack, &tmpVal);
 //        printf("Popped %d\n", tmpVal);
     }
-    for(size_t i = 0; i < 100; i++){
+    for(size_t i = 0; i < 15; i++){
         StackPush(&newStack, (int)i + 1);
     }
     
@@ -45,26 +45,31 @@ int main(int argc, const char * argv[]) {
         StackPop(&newStackDouble, &tmpVal);
 //        printf("Popped %d\n", tmpVal);
     }
-    for(size_t i = 0; i < 100; i++){
+    for(size_t i = 0; i < 15; i++){
         StackPush(&newStackDouble, (double)i + 0.5);
     }
     
-    for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){
+    size_t memoryUse = StackRigidMemoryUse(newStack);
+    for(size_t i = 0; i < memoryUse; i++){
         char previousValue = *((char*)newStack + i);
         for (char bullet = -128; bullet < 127; bullet++){
             if (bullet == previousValue)
                 continue;
             *((char*)newStack + i) = bullet;
             StackRigidState state = StackValidate(newStack);
-            if (state != STACK_ST_INTEGRITYERR){
+            if (state != STACK_ST_INTEGRITYERR) {
                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
+                state = StackValidate(newStack);
+                StackDump(newStack);
                 break;
             }
-            *((char*)newStack + i) = previousValue;
         }
+        *((char*)newStack + i) = previousValue;
     }
 
     StackDump(newStack);
+    StackDump(newStackDouble);
+    *((char*)newStackDouble + 10) = 0xFF;
     StackDump(newStackDouble);
     StackDestruct(&newStack);
     return 0;
