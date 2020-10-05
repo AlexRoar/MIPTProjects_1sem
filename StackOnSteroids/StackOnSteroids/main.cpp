@@ -8,13 +8,13 @@
 /**
  * Element type to be used in Stack
  */
-#define StackElementType int
+#define  StackElementType int
 #include "StackRigid.h"
-#undef StackElementType
+#undef   StackElementType
 
-#undef StackElementDump
-#define StackElementDump(FILE, VALUE) {fprintf(FILE, "%g", VALUE);}
-#define StackElementType double
+#undef   StackElementDump
+#define  StackElementDump(FILE, VALUE) {fprintf(FILE, "%g", VALUE);}
+#define  StackElementType double
 #include "StackRigid.h"
 
 /**
@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
 //        printf("Popped %d\n", tmpVal);
     }
     for(size_t i = 0; i < 100; i++){
-        StackPush(&newStackDouble, (double)rand());
+        StackPush(&newStackDouble, (double)i + 0.5);
     }
     
     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){

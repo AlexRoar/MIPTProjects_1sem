@@ -1040,7 +1040,7 @@
                <Node>
                 <Name>__overload</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a2cbee6c5dd610768a24ea755d3db8ed9</Anchor>
+                <Anchor>a79ea86ebacc8d0f7906790ecd93bac28</Anchor>
                </Node>
                <Node>
                 <Name>EVALUATOR</Name>
@@ -1056,6 +1056,11 @@
                 <Name>StackElementDump</Name>
                 <Path>StackRigid_8h.html</Path>
                 <Anchor>a231d62549d9cfc45a003c319b7e1779e</Anchor>
+               </Node>
+               <Node>
+                <Name>StackElementType</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a5d5557764da222ed9bdc5f5aba30da9d</Anchor>
                </Node>
                <Node>
                 <Name>StackRigidOperationCodes</Name>
@@ -1134,27 +1139,32 @@
                <Node>
                 <Name>__overload</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a94083fea0de2aea65e4fb9440048f757</Anchor>
+                <Anchor>ad190054fe2653472b68ffe86d6f5dff3</Anchor>
                </Node>
                <Node>
                 <Name>__StackGetChecksum</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>aec5b9f98f7a764952e21338bdb33d657</Anchor>
+                <Anchor>a08de7058bae2a1e0c566024850286498</Anchor>
                </Node>
                <Node>
                 <Name>__StackGetChecksumVital</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>adc53f4c04137400ffb8b2b16dd7f0766</Anchor>
+                <Anchor>a2a07c9f65f61c8ca3112dcfaefb4b3be</Anchor>
                </Node>
                <Node>
                 <Name>__StackRealocate</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>abebf4fe4d74c00e6c77133e0cc6aff7c</Anchor>
+                <Anchor>a5a6f1bf7c5c61246f70cfa0c349ad3fe</Anchor>
                </Node>
                <Node>
                 <Name>__StackUpdateChecksum</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a1c658f9883a1c527daca9053c4270cc3</Anchor>
+                <Anchor>aafaff2554f25a2dd6681bf409da8fe8e</Anchor>
+               </Node>
+               <Node>
+                <Name>__StackUpdateChecksum</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>aced2adff6d60187031434138a012a119</Anchor>
                </Node>
                <Node>
                 <Name>adlerChecksum</Name>
@@ -1162,44 +1172,74 @@
                 <Anchor>a37faf27d6e9ab4e0a417f29efbda1cbb</Anchor>
                </Node>
                <Node>
+                <Name>if</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>af56b93e9447ab919c05fdf11ac1b212b</Anchor>
+               </Node>
+               <Node>
                 <Name>StackBack</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a5a14ed95132af097042c940751e1087a</Anchor>
+                <Anchor>a81920cc1380e65ab9173893cb1772d86</Anchor>
                </Node>
                <Node>
                 <Name>StackDestruct</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a53fd24cced8a15cd9b5eba14c46be8bf</Anchor>
+                <Anchor>a3addcf7a8000baf1be4d91a779f293e8</Anchor>
                </Node>
                <Node>
                 <Name>StackDump</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a3cda48db0043a1f64ec157f2c0235f15</Anchor>
-               </Node>
-               <Node>
-                <Name>StackElementType</Name>
-                <Path>StackRigid_8h.html</Path>
-                <Anchor>af8b6893750f868193aa85e4bdc86b200</Anchor>
+                <Anchor>a0f626d8e2d3a2416a7cd0d9f9c18f0e3</Anchor>
                </Node>
                <Node>
                 <Name>StackPop</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a984cb1d53f4129fda870b57ade0d6c51</Anchor>
+                <Anchor>a3da847c6aaf3f472d56d528de1a0f6f7</Anchor>
                </Node>
                <Node>
                 <Name>StackPush</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>aa9a346debdba44a4d6d8a6d165aecba7</Anchor>
+                <Anchor>a72e1abcd508a113d2731a622322f0624</Anchor>
                </Node>
                <Node>
                 <Name>StackRigidMemoryUse</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a127c18498567a23b96117f7d368c19cf</Anchor>
+                <Anchor>a269040ce2ab02e681254d1e9f20aff35</Anchor>
                </Node>
                <Node>
                 <Name>StackValidate</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>aff7c80cd72a6cbde2bde1b740148b688</Anchor>
+                <Anchor>a8ffebb1dd3f306eca52e8b34ad325f1c</Anchor>
+               </Node>
+               <Node>
+                <Name>capacity</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>abc869d0afb33fc960e297465165cd334</Anchor>
+               </Node>
+               <Node>
+                <Name>checkSum</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a8a32205e08c87c56f05f432202831329</Anchor>
+               </Node>
+               <Node>
+                <Name>checkSumVital</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>abada3e312a622648ad335f352a42fb77</Anchor>
+               </Node>
+               <Node>
+                <Name>logFile</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a0fd979660380e3adb438912bd62e4a41</Anchor>
+               </Node>
+               <Node>
+                <Name>pointer</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>aa353e5db4d253654aaf3aa7725423d79</Anchor>
+               </Node>
+               <Node>
+                <Name>size</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>aa778f833989c5b73d0fbe86e9b6ef977</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -1218,6 +1258,10 @@
            <Node>
             <Name>Functions</Name>
             <Path>globals_func.html</Path>
+           </Node>
+           <Node>
+            <Name>Constants</Name>
+            <Path>globals_vars.html</Path>
            </Node>
            <Node>
             <Name>Typedefs</Name>

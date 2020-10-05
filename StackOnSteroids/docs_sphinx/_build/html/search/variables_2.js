@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['else_66',['else',['../StackRigid_8h.html#a0544c3fe466e421738dae463968b70ba',1,'StackRigid.h']]]
+  ['pointer_60',['pointer',['../StackRigid_8h.html#aa353e5db4d253654aaf3aa7725423d79',1,'StackRigid.h']]]
 ];

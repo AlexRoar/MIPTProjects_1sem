@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['firstblock_67',['firstBlock',['../StackRigid_8h.html#a95d3254ef28c50444625b7eb7a0005e3',1,'StackRigid.h']]]
+  ['size_61',['size',['../StackRigid_8h.html#aa778f833989c5b73d0fbe86e9b6ef977',1,'StackRigid.h']]]
 ];

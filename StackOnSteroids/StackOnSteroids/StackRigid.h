@@ -9,12 +9,20 @@
  * @copyright Aleksandr Dremov, MIPT 2020
  */
 
+
+/**
+ * Default element dump instruction
+ */
 #ifndef StackElementDump
-#define StackElementDump(FILE, VALUE) {fprintf(FILE, "%d", VALUE);}
+    #define StackElementDump(FILE, VALUE) {fprintf(FILE, "%d", VALUE);}
 #endif
 
+
+/**
+ * By default, it would be stack of ints
+ */
 #ifndef StackElementType
-#define StackElementType int
+    #define StackElementType int
 #endif
 
 #undef __overload
@@ -97,7 +105,7 @@ typedef enum StackRigidState{
 } StackRigidState;
 
 
-#endif /* StackRigid_h */
+#endif /* StackRigid_h general models */
 
 
 struct __overload(StackRigid) {
@@ -127,7 +135,10 @@ static void __StackUpdateChecksum( __overload(StackRigid)* stack);
  * @brief Claculates big Stack checksum. Uses Adler-32 method
  * @verbatim
  * Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
+ * Release:
  * ________________from here ^__________________________________________________________^to here
+ * Debug:
+ * ________________from here ^______________________________________________________________________________^to here
  * @endverbatim
  * @param[in] stack Stack that checksums are needed to be updated
  */
@@ -169,11 +180,12 @@ static uint32_t adlerChecksum(const void* firstBlock, size_t len);
 
 /**
  * Create new stack with pre-defined capacity
- * @param[in] capacity initial stack capacity. Set to 0 if yo want the stack to adopt automaticaly.
+ * @param[in] capacity initial stack capacity. Set to 0 if you want the stack to adopt automaticaly.
  * @param[in,out] logFile file for logging
  * @return new stack pointer
  */
  __overload(StackRigid)* __overload(NewStackRigid)(const size_t capacity, FILE* logFile);
+
 
 /**
  * Perform all stack checks: checksums, general constrains.
@@ -237,13 +249,17 @@ StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElement
     if (stack == NULL)
         return STACK_OP_NULL;
     
+    
     StackRigidState integrityChecks = StackValidate(*stack);
+    
     if (integrityChecks != STACK_ST_OK) {
         StackDump(*stack);
         return STACK_OP_INTEGRITYERR;
     }
     
+    
     StackRigidOperationCodes realocResult = __StackRealocate(stack, 1);
+    
     if (realocResult != STACK_OP_OK) {
         StackDump(*stack);
         return realocResult;
@@ -263,7 +279,9 @@ StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElement
 
  __overload(StackRigid)* __overload(NewStackRigid)(const size_t capacity, FILE* logFile){
     const size_t memory = sizeof( __overload(StackRigid)) + (capacity - 1) * sizeof(StackElementType);
+     
      __overload(StackRigid)* pointer = ( __overload(StackRigid)*)calloc(memory, 1);
+     
     if (pointer == NULL) {
         return NULL;
     }
@@ -273,17 +291,19 @@ StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElement
     pointer->logFile = logFile;
     pointer->checkSum = 0;
     pointer->checkSumVital = 0;
+     
     __StackUpdateChecksum(pointer);
     return pointer;
 }
 
 
 StackRigidOperationCodes StackPop( __overload(StackRigid)** stack, StackElementType* value) {
-    
     if (stack == NULL)
         return STACK_OP_NULL;
     
+    
     StackRigidState integrityChecks = StackValidate(*stack);
+    
     if (integrityChecks != STACK_ST_OK) {
         StackDump(*stack);
         return STACK_OP_INTEGRITYERR;
@@ -306,7 +326,9 @@ StackRigidOperationCodes StackBack( __overload(StackRigid)* stack, StackElementT
     if (stack == NULL)
         return STACK_OP_NULL;
     
+    
     StackRigidState integrityChecks = StackValidate(stack);
+    
     if (integrityChecks != STACK_ST_OK) {
         StackDump(stack);
         return STACK_OP_INTEGRITYERR;
@@ -321,7 +343,6 @@ StackRigidOperationCodes StackBack( __overload(StackRigid)* stack, StackElementT
 
 
 StackRigidState StackValidate( __overload(StackRigid)* stack) {
- 
     if (stack == NULL)
         return STACK_ST_NULL;
     

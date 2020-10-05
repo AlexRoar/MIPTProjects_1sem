@@ -1,4 +1,4 @@
-.TH "StackOnSteroids/main.cpp" 3 "Sat Oct 3 2020" "StackRigid" \" -*- nroff -*-
+.TH "StackOnSteroids/main.cpp" 3 "Mon Oct 5 2020" "StackRigid" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -65,7 +65,7 @@ Here, I try somehow to break the Stack\&.
 33 //        printf("Popped %d\n", tmpVal);
 34     }
 35     for(size_t i = 0; i < 100; i++){
-36         StackPush(&newStack, (int)i);
+36         StackPush(&newStack, (int)i + 1);
 37     }
 38     
 39     StackRigid_double* newStackDouble = NewStackRigid_double(1000, stdout);
@@ -78,7 +78,7 @@ Here, I try somehow to break the Stack\&.
 46 //        printf("Popped %d\n", tmpVal);
 47     }
 48     for(size_t i = 0; i < 100; i++){
-49         StackPush(&newStackDouble, (double)i/(double)rand());
+49         StackPush(&newStackDouble, (double)i + 0\&.5);
 50     }
 51     
 52     for(size_t i = 0; i < StackRigidMemoryUse(newStack); i++){

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main_17',['main',['../main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c',1,'main.cpp']]],
-  ['main_2ecpp_18',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['memory_19',['memory',['../StackRigid_8h.html#aac6e07c71f4eb8265c1ba1efda2dd8ed',1,'StackRigid.h']]]
+  ['paster_14',['PASTER',['../StackRigid_8h.html#a96e0bc8f204dbef33b6e6a664c5b5663',1,'StackRigid.h']]],
+  ['pointer_15',['pointer',['../StackRigid_8h.html#aa353e5db4d253654aaf3aa7725423d79',1,'StackRigid.h']]]
 ];

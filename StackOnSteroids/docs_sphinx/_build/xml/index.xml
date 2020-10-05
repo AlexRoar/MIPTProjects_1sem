@@ -9,10 +9,11 @@
     <member refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" kind="function"><name>main</name></member>
   </compound>
   <compound refid="StackRigid_8h" kind="file"><name>StackRigid.h</name>
+    <member refid="StackRigid_8h_1a231d62549d9cfc45a003c319b7e1779e" kind="define"><name>StackElementDump</name></member>
+    <member refid="StackRigid_8h_1a5d5557764da222ed9bdc5f5aba30da9d" kind="define"><name>StackElementType</name></member>
     <member refid="StackRigid_8h_1a96e0bc8f204dbef33b6e6a664c5b5663" kind="define"><name>PASTER</name></member>
     <member refid="StackRigid_8h_1a90ce550ff78fd420b633c5d88dfd2883" kind="define"><name>EVALUATOR</name></member>
-    <member refid="StackRigid_8h_1a2cbee6c5dd610768a24ea755d3db8ed9" kind="define"><name>__overload</name></member>
-    <member refid="StackRigid_8h_1a231d62549d9cfc45a003c319b7e1779e" kind="define"><name>StackElementDump</name></member>
+    <member refid="StackRigid_8h_1a79ea86ebacc8d0f7906790ecd93bac28" kind="define"><name>__overload</name></member>
     <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039" kind="enum"><name>StackRigidOperationCodes</name></member>
     <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039a049b8238cb27892165351846886d6a2e" kind="enumvalue"><name>STACK_OP_OK</name></member>
     <member refid="StackRigid_8h_1afa660da841608914d20d9819a7efe039aba36d99a3bcd8766e93ebb89f7e2f18c" kind="enumvalue"><name>STACK_OP_UNDERFLOW</name></member>
@@ -27,20 +28,27 @@
     <member refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb" kind="enumvalue"><name>STACK_ST_NULL</name></member>
     <member refid="StackRigid_8h_1a2b23b57ad918293ba96140fc43194967" kind="typedef"><name>StackRigidOperationCodes</name></member>
     <member refid="StackRigid_8h_1acc74b48b41d3ec38cb05184b602c7508" kind="typedef"><name>StackRigidState</name></member>
+    <member refid="StackRigid_8h_1a0fd979660380e3adb438912bd62e4a41" kind="variable"><name>logFile</name></member>
+    <member refid="StackRigid_8h_1abc869d0afb33fc960e297465165cd334" kind="variable"><name>capacity</name></member>
+    <member refid="StackRigid_8h_1aa778f833989c5b73d0fbe86e9b6ef977" kind="variable"><name>size</name></member>
+    <member refid="StackRigid_8h_1a8a32205e08c87c56f05f432202831329" kind="variable"><name>checkSum</name></member>
+    <member refid="StackRigid_8h_1abada3e312a622648ad335f352a42fb77" kind="variable"><name>checkSumVital</name></member>
+    <member refid="StackRigid_8h_1aa353e5db4d253654aaf3aa7725423d79" kind="variable"><name>pointer</name></member>
     <member refid="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb" kind="function"><name>adlerChecksum</name></member>
-    <member refid="StackRigid_8h_1a94083fea0de2aea65e4fb9440048f757" kind="function"><name>__overload</name></member>
-    <member refid="StackRigid_8h_1a1c658f9883a1c527daca9053c4270cc3" kind="function"><name>__StackUpdateChecksum</name></member>
-    <member refid="StackRigid_8h_1aec5b9f98f7a764952e21338bdb33d657" kind="function"><name>__StackGetChecksum</name></member>
-    <member refid="StackRigid_8h_1adc53f4c04137400ffb8b2b16dd7f0766" kind="function"><name>__StackGetChecksumVital</name></member>
-    <member refid="StackRigid_8h_1abebf4fe4d74c00e6c77133e0cc6aff7c" kind="function"><name>__StackRealocate</name></member>
-    <member refid="StackRigid_8h_1af8b6893750f868193aa85e4bdc86b200" kind="function"><name>StackElementType</name></member>
-    <member refid="StackRigid_8h_1aff7c80cd72a6cbde2bde1b740148b688" kind="function"><name>StackValidate</name></member>
-    <member refid="StackRigid_8h_1aa9a346debdba44a4d6d8a6d165aecba7" kind="function"><name>StackPush</name></member>
-    <member refid="StackRigid_8h_1a984cb1d53f4129fda870b57ade0d6c51" kind="function"><name>StackPop</name></member>
-    <member refid="StackRigid_8h_1a53fd24cced8a15cd9b5eba14c46be8bf" kind="function"><name>StackDestruct</name></member>
-    <member refid="StackRigid_8h_1a5a14ed95132af097042c940751e1087a" kind="function"><name>StackBack</name></member>
-    <member refid="StackRigid_8h_1a3cda48db0043a1f64ec157f2c0235f15" kind="function"><name>StackDump</name></member>
-    <member refid="StackRigid_8h_1a127c18498567a23b96117f7d368c19cf" kind="function"><name>StackRigidMemoryUse</name></member>
+    <member refid="StackRigid_8h_1ad190054fe2653472b68ffe86d6f5dff3" kind="function"><name>__overload</name></member>
+    <member refid="StackRigid_8h_1aafaff2554f25a2dd6681bf409da8fe8e" kind="function"><name>__StackUpdateChecksum</name></member>
+    <member refid="StackRigid_8h_1a08de7058bae2a1e0c566024850286498" kind="function"><name>__StackGetChecksum</name></member>
+    <member refid="StackRigid_8h_1a2a07c9f65f61c8ca3112dcfaefb4b3be" kind="function"><name>__StackGetChecksumVital</name></member>
+    <member refid="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe" kind="function"><name>__StackRealocate</name></member>
+    <member refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" kind="function"><name>StackValidate</name></member>
+    <member refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" kind="function"><name>StackPush</name></member>
+    <member refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" kind="function"><name>StackPop</name></member>
+    <member refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" kind="function"><name>StackDestruct</name></member>
+    <member refid="StackRigid_8h_1a81920cc1380e65ab9173893cb1772d86" kind="function"><name>StackBack</name></member>
+    <member refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kind="function"><name>StackDump</name></member>
+    <member refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" kind="function"><name>StackRigidMemoryUse</name></member>
+    <member refid="StackRigid_8h_1af56b93e9447ab919c05fdf11ac1b212b" kind="function"><name>if</name></member>
+    <member refid="StackRigid_8h_1aced2adff6d60187031434138a012a119" kind="function"><name>__StackUpdateChecksum</name></member>
   </compound>
   <compound refid="dir_4e3ae2e762345715af2f2d5c98f3d38a" kind="dir"><name>/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids</name>
   </compound>

@@ -71,37 +71,37 @@ Here, I try somehow to break the Stack.
 \DoxyCodeLine{25     printf(\textcolor{stringliteral}{"{}  size\_t volume: \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{size\_t}));}
 \DoxyCodeLine{26     printf(\textcolor{stringliteral}{"{}checksum volume: \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(uint32\_t));}
 \DoxyCodeLine{27     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i< 1000; i++)\{}
-\DoxyCodeLine{28         \mbox{\hyperlink{StackRigid_8h_aa9a346debdba44a4d6d8a6d165aecba7}{StackPush}}(\&newStack, (\textcolor{keywordtype}{int})i);}
+\DoxyCodeLine{28         \mbox{\hyperlink{StackRigid_8h_a72e1abcd508a113d2731a622322f0624}{StackPush}}(\&newStack, (\textcolor{keywordtype}{int})i);}
 \DoxyCodeLine{29     \}}
 \DoxyCodeLine{30     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 1000; i++)\{}
 \DoxyCodeLine{31         \textcolor{keywordtype}{int} tmpVal;}
-\DoxyCodeLine{32         \mbox{\hyperlink{StackRigid_8h_a984cb1d53f4129fda870b57ade0d6c51}{StackPop}}(\&newStack, \&tmpVal);}
+\DoxyCodeLine{32         \mbox{\hyperlink{StackRigid_8h_a3da847c6aaf3f472d56d528de1a0f6f7}{StackPop}}(\&newStack, \&tmpVal);}
 \DoxyCodeLine{33 \textcolor{comment}{//        printf("{}Popped \%d\(\backslash\)n"{}, tmpVal);}}
 \DoxyCodeLine{34     \}}
 \DoxyCodeLine{35     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 100; i++)\{}
-\DoxyCodeLine{36         \mbox{\hyperlink{StackRigid_8h_aa9a346debdba44a4d6d8a6d165aecba7}{StackPush}}(\&newStack, (\textcolor{keywordtype}{int})i);}
+\DoxyCodeLine{36         \mbox{\hyperlink{StackRigid_8h_a72e1abcd508a113d2731a622322f0624}{StackPush}}(\&newStack, (\textcolor{keywordtype}{int})i + 1);}
 \DoxyCodeLine{37     \}}
 \DoxyCodeLine{38     }
 \DoxyCodeLine{39     StackRigid\_double* newStackDouble = NewStackRigid\_double(1000, stdout);}
 \DoxyCodeLine{40     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i< 1000; i++)\{}
-\DoxyCodeLine{41         \mbox{\hyperlink{StackRigid_8h_aa9a346debdba44a4d6d8a6d165aecba7}{StackPush}}(\&newStackDouble, (\textcolor{keywordtype}{double})(i));}
+\DoxyCodeLine{41         \mbox{\hyperlink{StackRigid_8h_a72e1abcd508a113d2731a622322f0624}{StackPush}}(\&newStackDouble, (\textcolor{keywordtype}{double})(i));}
 \DoxyCodeLine{42     \}}
 \DoxyCodeLine{43     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 1000; i++)\{}
 \DoxyCodeLine{44         \textcolor{keywordtype}{double} tmpVal;}
-\DoxyCodeLine{45         \mbox{\hyperlink{StackRigid_8h_a984cb1d53f4129fda870b57ade0d6c51}{StackPop}}(\&newStackDouble, \&tmpVal);}
+\DoxyCodeLine{45         \mbox{\hyperlink{StackRigid_8h_a3da847c6aaf3f472d56d528de1a0f6f7}{StackPop}}(\&newStackDouble, \&tmpVal);}
 \DoxyCodeLine{46 \textcolor{comment}{//        printf("{}Popped \%d\(\backslash\)n"{}, tmpVal);}}
 \DoxyCodeLine{47     \}}
 \DoxyCodeLine{48     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < 100; i++)\{}
-\DoxyCodeLine{49         \mbox{\hyperlink{StackRigid_8h_aa9a346debdba44a4d6d8a6d165aecba7}{StackPush}}(\&newStackDouble, (\textcolor{keywordtype}{double})i/(\textcolor{keywordtype}{double})rand());}
+\DoxyCodeLine{49         \mbox{\hyperlink{StackRigid_8h_a72e1abcd508a113d2731a622322f0624}{StackPush}}(\&newStackDouble, (\textcolor{keywordtype}{double})i + 0.5);}
 \DoxyCodeLine{50     \}}
 \DoxyCodeLine{51     }
-\DoxyCodeLine{52     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{StackRigid_8h_a127c18498567a23b96117f7d368c19cf}{StackRigidMemoryUse}}(newStack); i++)\{}
+\DoxyCodeLine{52     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < \mbox{\hyperlink{StackRigid_8h_a269040ce2ab02e681254d1e9f20aff35}{StackRigidMemoryUse}}(newStack); i++)\{}
 \DoxyCodeLine{53         \textcolor{keywordtype}{char} previousValue = *((\textcolor{keywordtype}{char}*)newStack + i);}
 \DoxyCodeLine{54         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} bullet = -\/128; bullet < 127; bullet++)\{}
 \DoxyCodeLine{55             \textcolor{keywordflow}{if} (bullet == previousValue)}
 \DoxyCodeLine{56                 \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{57             *((\textcolor{keywordtype}{char}*)newStack + i) = bullet;}
-\DoxyCodeLine{58             \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} state = \mbox{\hyperlink{StackRigid_8h_aff7c80cd72a6cbde2bde1b740148b688}{StackValidate}}(newStack);}
+\DoxyCodeLine{58             \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5f}{StackRigidState}} state = \mbox{\hyperlink{StackRigid_8h_a8ffebb1dd3f306eca52e8b34ad325f1c}{StackValidate}}(newStack);}
 \DoxyCodeLine{59             \textcolor{keywordflow}{if} (state != \mbox{\hyperlink{StackRigid_8h_a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0}{STACK\_ST\_INTEGRITYERR}})\{}
 \DoxyCodeLine{60                 printf(\textcolor{stringliteral}{"{}Did not spot intervention at position \%zu, byte \%x\(\backslash\)n"{}}, i, bullet);}
 \DoxyCodeLine{61                 \textcolor{keywordflow}{break};}
@@ -110,9 +110,9 @@ Here, I try somehow to break the Stack.
 \DoxyCodeLine{64         \}}
 \DoxyCodeLine{65     \}}
 \DoxyCodeLine{66 }
-\DoxyCodeLine{67     \mbox{\hyperlink{StackRigid_8h_a3cda48db0043a1f64ec157f2c0235f15}{StackDump}}(newStack);}
-\DoxyCodeLine{68     \mbox{\hyperlink{StackRigid_8h_a3cda48db0043a1f64ec157f2c0235f15}{StackDump}}(newStackDouble);}
-\DoxyCodeLine{69     \mbox{\hyperlink{StackRigid_8h_a53fd24cced8a15cd9b5eba14c46be8bf}{StackDestruct}}(\&newStack);}
+\DoxyCodeLine{67     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStack);}
+\DoxyCodeLine{68     \mbox{\hyperlink{StackRigid_8h_a0f626d8e2d3a2416a7cd0d9f9c18f0e3}{StackDump}}(newStackDouble);}
+\DoxyCodeLine{69     \mbox{\hyperlink{StackRigid_8h_a3addcf7a8000baf1be4d91a779f293e8}{StackDestruct}}(\&newStack);}
 \DoxyCodeLine{70     \textcolor{keywordflow}{return} 0;}
 \DoxyCodeLine{71 \}}
 

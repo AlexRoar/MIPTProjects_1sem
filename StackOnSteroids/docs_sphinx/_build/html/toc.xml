@@ -265,10 +265,11 @@
           <topic label="main" href="main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c"/>
         </topic>
         <topic label="StackRigid.h" href="StackRigid_8h.html">
-          <topic label="__overload" href="StackRigid_8h.html#a2cbee6c5dd610768a24ea755d3db8ed9"/>
+          <topic label="__overload" href="StackRigid_8h.html#a79ea86ebacc8d0f7906790ecd93bac28"/>
           <topic label="EVALUATOR" href="StackRigid_8h.html#a90ce550ff78fd420b633c5d88dfd2883"/>
           <topic label="PASTER" href="StackRigid_8h.html#a96e0bc8f204dbef33b6e6a664c5b5663"/>
           <topic label="StackElementDump" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e"/>
+          <topic label="StackElementType" href="StackRigid_8h.html#a5d5557764da222ed9bdc5f5aba30da9d"/>
           <topic label="StackRigidOperationCodes" href="StackRigid_8h.html#a2b23b57ad918293ba96140fc43194967"/>
           <topic label="StackRigidState" href="StackRigid_8h.html#acc74b48b41d3ec38cb05184b602c7508"/>
           <topic label="StackRigidOperationCodes" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039">
@@ -285,26 +286,34 @@
             <topic label="STACK_ST_UNINITIALIZED" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fa61adf5622b3c4fa9e8bb422932e3ed58"/>
             <topic label="STACK_ST_NULL" href="StackRigid_8h.html#a3afb87b043e438be2a48ba69fe4deb5fae8a01dc716200146f1c2488155a40ecb"/>
           </topic>
-          <topic label="__overload" href="StackRigid_8h.html#a94083fea0de2aea65e4fb9440048f757"/>
-          <topic label="__StackGetChecksum" href="StackRigid_8h.html#aec5b9f98f7a764952e21338bdb33d657"/>
-          <topic label="__StackGetChecksumVital" href="StackRigid_8h.html#adc53f4c04137400ffb8b2b16dd7f0766"/>
-          <topic label="__StackRealocate" href="StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c"/>
-          <topic label="__StackUpdateChecksum" href="StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3"/>
+          <topic label="__overload" href="StackRigid_8h.html#ad190054fe2653472b68ffe86d6f5dff3"/>
+          <topic label="__StackGetChecksum" href="StackRigid_8h.html#a08de7058bae2a1e0c566024850286498"/>
+          <topic label="__StackGetChecksumVital" href="StackRigid_8h.html#a2a07c9f65f61c8ca3112dcfaefb4b3be"/>
+          <topic label="__StackRealocate" href="StackRigid_8h.html#a5a6f1bf7c5c61246f70cfa0c349ad3fe"/>
+          <topic label="__StackUpdateChecksum" href="StackRigid_8h.html#aafaff2554f25a2dd6681bf409da8fe8e"/>
+          <topic label="__StackUpdateChecksum" href="StackRigid_8h.html#aced2adff6d60187031434138a012a119"/>
           <topic label="adlerChecksum" href="StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb"/>
-          <topic label="StackBack" href="StackRigid_8h.html#a5a14ed95132af097042c940751e1087a"/>
-          <topic label="StackDestruct" href="StackRigid_8h.html#a53fd24cced8a15cd9b5eba14c46be8bf"/>
-          <topic label="StackDump" href="StackRigid_8h.html#a3cda48db0043a1f64ec157f2c0235f15"/>
-          <topic label="StackElementType" href="StackRigid_8h.html#af8b6893750f868193aa85e4bdc86b200"/>
-          <topic label="StackPop" href="StackRigid_8h.html#a984cb1d53f4129fda870b57ade0d6c51"/>
-          <topic label="StackPush" href="StackRigid_8h.html#aa9a346debdba44a4d6d8a6d165aecba7"/>
-          <topic label="StackRigidMemoryUse" href="StackRigid_8h.html#a127c18498567a23b96117f7d368c19cf"/>
-          <topic label="StackValidate" href="StackRigid_8h.html#aff7c80cd72a6cbde2bde1b740148b688"/>
+          <topic label="if" href="StackRigid_8h.html#af56b93e9447ab919c05fdf11ac1b212b"/>
+          <topic label="StackBack" href="StackRigid_8h.html#a81920cc1380e65ab9173893cb1772d86"/>
+          <topic label="StackDestruct" href="StackRigid_8h.html#a3addcf7a8000baf1be4d91a779f293e8"/>
+          <topic label="StackDump" href="StackRigid_8h.html#a0f626d8e2d3a2416a7cd0d9f9c18f0e3"/>
+          <topic label="StackPop" href="StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7"/>
+          <topic label="StackPush" href="StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624"/>
+          <topic label="StackRigidMemoryUse" href="StackRigid_8h.html#a269040ce2ab02e681254d1e9f20aff35"/>
+          <topic label="StackValidate" href="StackRigid_8h.html#a8ffebb1dd3f306eca52e8b34ad325f1c"/>
+          <topic label="capacity" href="StackRigid_8h.html#abc869d0afb33fc960e297465165cd334"/>
+          <topic label="checkSum" href="StackRigid_8h.html#a8a32205e08c87c56f05f432202831329"/>
+          <topic label="checkSumVital" href="StackRigid_8h.html#abada3e312a622648ad335f352a42fb77"/>
+          <topic label="logFile" href="StackRigid_8h.html#a0fd979660380e3adb438912bd62e4a41"/>
+          <topic label="pointer" href="StackRigid_8h.html#aa353e5db4d253654aaf3aa7725423d79"/>
+          <topic label="size" href="StackRigid_8h.html#aa778f833989c5b73d0fbe86e9b6ef977"/>
         </topic>
       </topic>
     </topic>
     <topic label="Globals" href="globals.html">
       <topic label="All" href="globals.html"/>
       <topic label="Functions" href="globals_func.html"/>
+      <topic label="Constants" href="globals_vars.html"/>
       <topic label="Typedefs" href="globals_type.html"/>
       <topic label="Enumerations" href="globals_enum.html"/>
       <topic label="Enumerator" href="globals_eval.html"/>

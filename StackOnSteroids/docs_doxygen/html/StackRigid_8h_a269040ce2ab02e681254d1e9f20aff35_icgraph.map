@@ -1,0 +1,12 @@
+<map id="StackRigidMemoryUse" name="StackRigidMemoryUse">
+<area shape="rect" id="node1" title="Memory alocated for the Stack." alt="" coords="815,93,972,120"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#a08de7058bae2a1e0c566024850286498" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="612,144,767,171"/>
+<area shape="rect" id="node5" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,195,56,221"/>
+<area shape="rect" id="node9" href="$StackRigid_8h.html#a0f626d8e2d3a2416a7cd0d9f9c18f0e3" title="Dumps debug information about the stack." alt="" coords="281,245,371,272"/>
+<area shape="rect" id="node10" href="$StackRigid_8h.html#a5a6f1bf7c5c61246f70cfa0c349ad3fe" title="Realocates Stack if needed." alt="" coords="261,43,391,69"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#aafaff2554f25a2dd6681bf409da8fe8e" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="239,144,413,171"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#a8ffebb1dd3f306eca52e8b34ad325f1c" title="Perform all stack checks: checksums, general constrains." alt="" coords="461,195,564,221"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,195,187,221"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,144,191,171"/>
+<area shape="rect" id="node8" href="$StackRigid_8h.html#a81920cc1380e65ab9173893cb1772d86" title="Free stack memory." alt="" coords="104,296,191,323"/>
+</map>

@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "_aemps",
+  0: "_aceilmps",
   1: "ms",
-  2: "_ams",
-  3: "s",
+  2: "_aims",
+  3: "clps",
   4: "s",
   5: "s",
-  6: "_eps"
+  6: "s",
+  7: "_eps"
 };
 
 var indexSectionNames =
@@ -14,10 +15,11 @@ var indexSectionNames =
   0: "all",
   1: "files",
   2: "functions",
-  3: "typedefs",
-  4: "enums",
-  5: "enumvalues",
-  6: "defines"
+  3: "variables",
+  4: "typedefs",
+  5: "enums",
+  6: "enumvalues",
+  7: "defines"
 };
 
 var indexSectionLabels =
@@ -25,9 +27,10 @@ var indexSectionLabels =
   0: "All",
   1: "Files",
   2: "Functions",
-  3: "Typedefs",
-  4: "Enumerations",
-  5: "Enumerator",
-  6: "Macros"
+  3: "Variables",
+  4: "Typedefs",
+  5: "Enumerations",
+  6: "Enumerator",
+  7: "Macros"
 };
 

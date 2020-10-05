@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['_5f_5foverload_0',['__overload',['../StackRigid_8h.html#a2cbee6c5dd610768a24ea755d3db8ed9',1,'__overload():&#160;StackRigid.h'],['../StackRigid_8h.html#a94083fea0de2aea65e4fb9440048f757',1,'__overload(StackRigid, StackElementType) __overload(StackRigid:&#160;StackRigid.h']]],
-  ['_5f_5fstackgetchecksum_1',['__StackGetChecksum',['../StackRigid_8h.html#aec5b9f98f7a764952e21338bdb33d657',1,'StackRigid.h']]],
-  ['_5f_5fstackgetchecksumvital_2',['__StackGetChecksumVital',['../StackRigid_8h.html#adc53f4c04137400ffb8b2b16dd7f0766',1,'StackRigid.h']]],
-  ['_5f_5fstackrealocate_3',['__StackRealocate',['../StackRigid_8h.html#abebf4fe4d74c00e6c77133e0cc6aff7c',1,'StackRigid.h']]],
-  ['_5f_5fstackupdatechecksum_4',['__StackUpdateChecksum',['../StackRigid_8h.html#a1c658f9883a1c527daca9053c4270cc3',1,'StackRigid.h']]]
+  ['_5f_5foverload_0',['__overload',['../StackRigid_8h.html#a79ea86ebacc8d0f7906790ecd93bac28',1,'__overload():&#160;StackRigid.h'],['../StackRigid_8h.html#ad190054fe2653472b68ffe86d6f5dff3',1,'__overload(StackRigid) *__overload(NewStackRigid)(const size_t capacity:&#160;StackRigid.h']]],
+  ['_5f_5fstackgetchecksum_1',['__StackGetChecksum',['../StackRigid_8h.html#a08de7058bae2a1e0c566024850286498',1,'StackRigid.h']]],
+  ['_5f_5fstackgetchecksumvital_2',['__StackGetChecksumVital',['../StackRigid_8h.html#a2a07c9f65f61c8ca3112dcfaefb4b3be',1,'StackRigid.h']]],
+  ['_5f_5fstackrealocate_3',['__StackRealocate',['../StackRigid_8h.html#a5a6f1bf7c5c61246f70cfa0c349ad3fe',1,'StackRigid.h']]],
+  ['_5f_5fstackupdatechecksum_4',['__StackUpdateChecksum',['../StackRigid_8h.html#aafaff2554f25a2dd6681bf409da8fe8e',1,'__StackUpdateChecksum(__overload(StackRigid) *stack):&#160;StackRigid.h'],['../StackRigid_8h.html#aced2adff6d60187031434138a012a119',1,'__StackUpdateChecksum(pointer):&#160;StackRigid.h']]]
 ];
