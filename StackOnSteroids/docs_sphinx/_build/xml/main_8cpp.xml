@@ -97,12 +97,12 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" line="23" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" bodystart="23" bodyend="71"/>
-        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="96">STACK_ST_INTEGRITYERR</references>
-        <references refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" compoundref="StackRigid_8h" startline="547" endline="556">StackDestruct</references>
-        <references refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" compoundref="StackRigid_8h" startline="468" endline="544">StackDump</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="104">STACK_ST_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" compoundref="StackRigid_8h" startline="545" endline="554">StackDestruct</references>
+        <references refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" compoundref="StackRigid_8h" startline="466" endline="542">StackDump</references>
         <references refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" compoundref="StackRigid_8h" startline="300" endline="322">StackPop</references>
         <references refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" compoundref="StackRigid_8h" startline="248" endline="277">StackPush</references>
-        <references refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" compoundref="StackRigid_8h" startline="462" endline="465">StackRigidMemoryUse</references>
+        <references refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" compoundref="StackRigid_8h" startline="460" endline="463">StackRigidMemoryUse</references>
         <references refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" compoundref="StackRigid_8h" startline="345" endline="362">StackValidate</references>
       </memberdef>
       </sectiondef>

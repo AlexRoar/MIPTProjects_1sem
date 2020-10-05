@@ -40,6 +40,14 @@
 #include <assert.h>
 #include <time.h>
 
+
+/**
+ * @attention Not for the manual use!
+ * @brief Calculates Adler-32 checksum from the firstBlock to the firstBlock + len
+ * @param[in] firstBlock first block to include to the checksum
+ * @param[in] len length of byte sequence
+ * @return checksum
+ */
 static uint32_t adlerChecksum(const void* firstBlock, size_t len) {
     uint32_t a = 1, b = 0;
     const uint32_t MOD_ADLER = 65521;
@@ -107,7 +115,9 @@ typedef enum StackRigidState{
 
 #endif /* StackRigid_h general models */
 
-
+/**
+ * The main StackRigid struct
+ */
 struct __overload(StackRigid) {
     int32_t checkSum;
     uint32_t checkSumVital;
@@ -116,66 +126,6 @@ struct __overload(StackRigid) {
     FILE* logFile;
     StackElementType data[1];
 };
-
-
-/**
- * @attention Not for the manual use!
- * @brief Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element.
- * @verbatim
- * Stack memory :  [ __stack area__ | value 1, value 2, ..., value n || ___garbage area___]
- * ____________________________________________________________________^ alterations in this area are not checked
- * @endverbatim
- * @param[in,out] stack Stack that checksums are needed to be updated
- */
-static void __StackUpdateChecksum( __overload(StackRigid)* stack);
-
-
-/**
- * @attention Not for the manual use!
- * @brief Claculates big Stack checksum. Uses Adler-32 method
- * @verbatim
- * Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
- * Release:
- * ________________from here ^__________________________________________________________^to here
- * Debug:
- * ________________from here ^______________________________________________________________________________^to here
- * @endverbatim
- * @param[in] stack Stack that checksums are needed to be updated
- */
-static uint32_t __StackGetChecksum( __overload(StackRigid)* stack);
-
-
-/**
- * @attention Not for the manual use!
- * @brief Uses Adler-32 method. Calculates Stack checksum only for the vital parameters.
- * This is necessary because __StackGetChecksum() relies on capacity and size. If they were changed, behaviour is undefined
- *
- * @verbatim
- * Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
- * ______________________________from here ^__________________^to here
- * @endverbatim
- * @param[in] stack Stack that checksums are needed to be updated
- */
-static uint32_t __StackGetChecksumVital( __overload(StackRigid)* stack);
-
-
-/**
- * @attention Not for the manual use!
- * @brief Realocates Stack if needed
- * @param[in,out] stack Stack to be realocated
- * @param[in] direction which direction realocations are available.  > 0 -> expand space if needed, < 0 -> shrink space if needed
- */
-static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack, short int direction);
-
-
-/**
- * @attention Not for the manual use!
- * @brief Calculates Adler-32 checksum from the firstBlock to the firstBlock + len
- * @param[in] firstBlock first block to include to the checksum
- * @param[in] len length of byte sequence
- * @return checksum
- */
-static uint32_t adlerChecksum(const void* firstBlock, size_t len);
 
 
 /**
@@ -243,6 +193,56 @@ void StackDump( __overload(StackRigid)* stack);
  * @return alocated bytes
  */
 size_t StackRigidMemoryUse( __overload(StackRigid)* stack);
+
+
+/**
+ * @attention Not for the manual use!
+ * @brief Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element.
+ * @verbatim
+ * Stack memory :  [ __stack area__ | value 1, value 2, ..., value n || ___garbage area___]
+ * ____________________________________________________________________^ alterations in this area are not checked
+ * @endverbatim
+ * @param[in,out] stack Stack that checksums are needed to be updated
+ */
+static void __StackUpdateChecksum( __overload(StackRigid)* stack);
+
+
+/**
+ * @attention Not for the manual use!
+ * @brief Claculates big Stack checksum. Uses Adler-32 method
+ * @verbatim
+ * Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
+ * Release:
+ * ________________from here ^__________________________________________________________^to here
+ * Debug:
+ * ________________from here ^______________________________________________________________________________^to here
+ * @endverbatim
+ * @param[in] stack Stack that checksums are needed to be updated
+ */
+static uint32_t __StackGetChecksum( __overload(StackRigid)* stack);
+
+
+/**
+ * @attention Not for the manual use!
+ * @brief Uses Adler-32 method. Calculates Stack checksum only for the vital parameters.
+ * This is necessary because __StackGetChecksum() relies on capacity and size. If they were changed, behaviour is undefined
+ *
+ * @verbatim
+ * Stack memory : [ checkSum checkSumVital capacity size logFile | value 1, value 2, ..., value n || ___garbage area___]
+ * ______________________________from here ^__________________^to here
+ * @endverbatim
+ * @param[in] stack Stack that checksums are needed to be updated
+ */
+static uint32_t __StackGetChecksumVital( __overload(StackRigid)* stack);
+
+
+/**
+ * @attention Not for the manual use!
+ * @brief Realocates Stack if needed
+ * @param[in,out] stack Stack to be realocated
+ * @param[in] direction which direction realocations are available.  > 0 -> expand space if needed, < 0 -> shrink space if needed
+ */
+static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack, short int direction);
 
 
 StackRigidOperationCodes StackPush( __overload(StackRigid)** stack, StackElementType value){
@@ -406,7 +406,7 @@ static uint32_t __StackGetChecksum( __overload(StackRigid)* stack) {
 
 static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack, short int direction) {
     if ((*stack)->capacity == 0) {
-        (*stack)->capacity = 16;
+        (*stack)->capacity = 16; // capacity if was 0
         
         const size_t memory = StackRigidMemoryUse(*stack);
         
@@ -415,8 +415,7 @@ static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack
             return STACK_OP_NOMEMORY;
         
         (*stack) = newStack;
-    }else if(((*stack)->capacity <= (*stack)->size) && direction > 0) {
-        // Up realocation
+    }else if(((*stack)->capacity <= (*stack)->size) && direction > 0) { // Up realocation
         size_t newCapacity = (*stack)->size * 2;
         
         if (newCapacity <= (*stack)->size) { //   If we exceeded size_t range
@@ -439,8 +438,7 @@ static StackRigidOperationCodes __StackRealocate( __overload(StackRigid)** stack
         }
         (*stack)->capacity = newCapacity;
         
-    }else if (((*stack)->capacity / 2.2 > (*stack)->size) && direction < 0) {
-        // Down realocation
+    }else if (((*stack)->capacity / 2.2 > (*stack)->size) && direction < 0) { // Down realocation
         size_t newCapacity = (*stack)->capacity / 2.2;
         
         const size_t memoryNow = StackRigidMemoryUse(*stack);

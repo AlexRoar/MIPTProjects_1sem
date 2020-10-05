@@ -135,52 +135,8 @@
       <Type>func</Type>
     </TokenIdentifier>
     <Path>StackRigid_8h.html</Path>
-    <Anchor>ad190054fe2653472b68ffe86d6f5dff3</Anchor>
-    <Abstract>Create new stack with pre-defined capacity.</Abstract>
-    <DeclaredIn>StackRigid.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>__StackUpdateChecksum</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>StackRigid_8h.html</Path>
-    <Anchor>aafaff2554f25a2dd6681bf409da8fe8e</Anchor>
-    <Abstract>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el...</Abstract>
-    <DeclaredIn>StackRigid.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>__StackGetChecksum</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>StackRigid_8h.html</Path>
-    <Anchor>a08de7058bae2a1e0c566024850286498</Anchor>
-    <Abstract>Claculates big Stack checksum. Uses Adler-32 method.</Abstract>
-    <DeclaredIn>StackRigid.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>__StackGetChecksumVital</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>StackRigid_8h.html</Path>
-    <Anchor>a2a07c9f65f61c8ca3112dcfaefb4b3be</Anchor>
-    <Abstract>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca...</Abstract>
-    <DeclaredIn>StackRigid.h</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>__StackRealocate</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>StackRigid_8h.html</Path>
-    <Anchor>a5a6f1bf7c5c61246f70cfa0c349ad3fe</Anchor>
-    <Abstract>Realocates Stack if needed.</Abstract>
+    <Anchor>a69f8836a95e570d00f92d7140ef23dab</Anchor>
+    <Abstract>The main StackRigid struct.</Abstract>
     <DeclaredIn>StackRigid.h</DeclaredIn>
   </Token>
   <Token>
@@ -258,6 +214,50 @@
     <Path>StackRigid_8h.html</Path>
     <Anchor>a269040ce2ab02e681254d1e9f20aff35</Anchor>
     <Abstract>Memory alocated for the Stack.</Abstract>
+    <DeclaredIn>StackRigid.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>__StackUpdateChecksum</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>StackRigid_8h.html</Path>
+    <Anchor>aafaff2554f25a2dd6681bf409da8fe8e</Anchor>
+    <Abstract>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el...</Abstract>
+    <DeclaredIn>StackRigid.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>__StackGetChecksum</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>StackRigid_8h.html</Path>
+    <Anchor>a08de7058bae2a1e0c566024850286498</Anchor>
+    <Abstract>Claculates big Stack checksum. Uses Adler-32 method.</Abstract>
+    <DeclaredIn>StackRigid.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>__StackGetChecksumVital</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>StackRigid_8h.html</Path>
+    <Anchor>a2a07c9f65f61c8ca3112dcfaefb4b3be</Anchor>
+    <Abstract>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca...</Abstract>
+    <DeclaredIn>StackRigid.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>__StackRealocate</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>StackRigid_8h.html</Path>
+    <Anchor>a5a6f1bf7c5c61246f70cfa0c349ad3fe</Anchor>
+    <Abstract>Realocates Stack if needed.</Abstract>
     <DeclaredIn>StackRigid.h</DeclaredIn>
   </Token>
   <Token>

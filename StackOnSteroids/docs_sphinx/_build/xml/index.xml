@@ -35,11 +35,7 @@
     <member refid="StackRigid_8h_1abada3e312a622648ad335f352a42fb77" kind="variable"><name>checkSumVital</name></member>
     <member refid="StackRigid_8h_1aa353e5db4d253654aaf3aa7725423d79" kind="variable"><name>pointer</name></member>
     <member refid="StackRigid_8h_1a37faf27d6e9ab4e0a417f29efbda1cbb" kind="function"><name>adlerChecksum</name></member>
-    <member refid="StackRigid_8h_1ad190054fe2653472b68ffe86d6f5dff3" kind="function"><name>__overload</name></member>
-    <member refid="StackRigid_8h_1aafaff2554f25a2dd6681bf409da8fe8e" kind="function"><name>__StackUpdateChecksum</name></member>
-    <member refid="StackRigid_8h_1a08de7058bae2a1e0c566024850286498" kind="function"><name>__StackGetChecksum</name></member>
-    <member refid="StackRigid_8h_1a2a07c9f65f61c8ca3112dcfaefb4b3be" kind="function"><name>__StackGetChecksumVital</name></member>
-    <member refid="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe" kind="function"><name>__StackRealocate</name></member>
+    <member refid="StackRigid_8h_1a69f8836a95e570d00f92d7140ef23dab" kind="function"><name>__overload</name></member>
     <member refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" kind="function"><name>StackValidate</name></member>
     <member refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" kind="function"><name>StackPush</name></member>
     <member refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" kind="function"><name>StackPop</name></member>
@@ -47,6 +43,10 @@
     <member refid="StackRigid_8h_1a81920cc1380e65ab9173893cb1772d86" kind="function"><name>StackBack</name></member>
     <member refid="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3" kind="function"><name>StackDump</name></member>
     <member refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" kind="function"><name>StackRigidMemoryUse</name></member>
+    <member refid="StackRigid_8h_1aafaff2554f25a2dd6681bf409da8fe8e" kind="function"><name>__StackUpdateChecksum</name></member>
+    <member refid="StackRigid_8h_1a08de7058bae2a1e0c566024850286498" kind="function"><name>__StackGetChecksum</name></member>
+    <member refid="StackRigid_8h_1a2a07c9f65f61c8ca3112dcfaefb4b3be" kind="function"><name>__StackGetChecksumVital</name></member>
+    <member refid="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe" kind="function"><name>__StackRealocate</name></member>
     <member refid="StackRigid_8h_1af56b93e9447ab919c05fdf11ac1b212b" kind="function"><name>if</name></member>
     <member refid="StackRigid_8h_1aced2adff6d60187031434138a012a119" kind="function"><name>__StackUpdateChecksum</name></member>
   </compound>

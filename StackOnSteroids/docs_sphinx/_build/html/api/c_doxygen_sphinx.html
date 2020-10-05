@@ -295,93 +295,15 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1ad190054fe2653472b68ffe86d6f5dff3"></span><code class="sig-name descname">struct __overload (StackRigid) *__overload(NewStackRigid)(const size_t capacity</code></dt>
-<dd><p>Create new stack with pre-defined capacity. </p>
+<span class="target" id="StackRigid_8h_1a69f8836a95e570d00f92d7140ef23dab"></span><code class="sig-name descname">struct __overload (StackRigid)</code></dt>
+<dd><p>The main StackRigid struct. </p>
+<p>Create new stack with pre-defined capacity.</p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>new stack pointer </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">capacity</span></code>: initial stack capacity. Set to 0 if you want the stack to adopt automaticaly. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">logFile</span></code>: file for logging </p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1aafaff2554f25a2dd6681bf409da8fe8e"></span><code class="sig-name descname">void __StackUpdateChecksum (__overload(StackRigid) *stack)</code></dt>
-<dd><p>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element. </p>
-<p><dl class="simple">
-<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">__stack</span> <span class="n">area__</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
-<span class="o">*</span> <span class="n">____________________________________________________________________</span><span class="o">^</span> <span class="n">alterations</span> <span class="n">in</span> <span class="n">this</span> <span class="n">area</span> <span class="n">are</span> <span class="n">not</span> <span class="n">checked</span>
-<span class="o">*</span>
-</pre></div>
-</div>
- </p>
-</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a08de7058bae2a1e0c566024850286498"></span><code class="sig-name descname">uint32_t __StackGetChecksum (__overload(StackRigid) *stack)</code></dt>
-<dd><p>Claculates big Stack checksum. Uses Adler-32 method. </p>
-<p><dl class="simple">
-<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
-<span class="o">*</span> <span class="nl">Release</span><span class="p">:</span>
-<span class="o">*</span> <span class="n">________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________________________________________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
-<span class="o">*</span> <span class="nl">Debug</span><span class="p">:</span>
-<span class="o">*</span> <span class="n">________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">______________________________________________________________________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
-<span class="o">*</span>
-</pre></div>
-</div>
- </p>
-</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a2a07c9f65f61c8ca3112dcfaefb4b3be"></span><code class="sig-name descname">uint32_t __StackGetChecksumVital (__overload(StackRigid) *stack)</code></dt>
-<dd><p>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary because <a class="reference internal" href="#StackRigid_8h_1a08de7058bae2a1e0c566024850286498"><span class="std std-ref">__StackGetChecksum()</span></a> relies on capacity and size. If they were changed, behaviour is undefined. </p>
-<p><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
-<span class="o">*</span> <span class="n">______________________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
-<span class="o">*</span>
-</pre></div>
-</div>
- <dl class="simple">
-<dt><strong>Attention</strong></dt><dd><p>Not for the manual use!</p>
-</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="c function">
-<dt>
-<span class="target" id="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe"></span><code class="sig-name descname">StackRigidOperationCodes __StackRealocate (__overload(StackRigid) **stack, short int direction)</code></dt>
-<dd><p>Realocates Stack if needed. </p>
-<p><dl class="simple">
-<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! </p>
-</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be realocated </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: which direction realocations are available. &gt; 0 -&gt; expand space if needed, &lt; 0 -&gt; shrink space if needed </p></li>
 </ul>
 </dd>
 </dl>
@@ -487,6 +409,85 @@
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack to be checked </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt>
+<span class="target" id="StackRigid_8h_1aafaff2554f25a2dd6681bf409da8fe8e"></span><code class="sig-name descname">void __StackUpdateChecksum (__overload(StackRigid) *stack)</code></dt>
+<dd><p>Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last element. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span>  <span class="p">[</span> <span class="n">__stack</span> <span class="n">area__</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">____________________________________________________________________</span><span class="o">^</span> <span class="n">alterations</span> <span class="n">in</span> <span class="n">this</span> <span class="n">area</span> <span class="n">are</span> <span class="n">not</span> <span class="n">checked</span>
+<span class="o">*</span>
+</pre></div>
+</div>
+ </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt>
+<span class="target" id="StackRigid_8h_1a08de7058bae2a1e0c566024850286498"></span><code class="sig-name descname">uint32_t __StackGetChecksum (__overload(StackRigid) *stack)</code></dt>
+<dd><p>Claculates big Stack checksum. Uses Adler-32 method. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
+<span class="o">*</span> <span class="nl">Release</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________________________________________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
+<span class="o">*</span> <span class="nl">Debug</span><span class="p">:</span>
+<span class="o">*</span> <span class="n">________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">______________________________________________________________________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
+<span class="o">*</span>
+</pre></div>
+</div>
+ </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt>
+<span class="target" id="StackRigid_8h_1a2a07c9f65f61c8ca3112dcfaefb4b3be"></span><code class="sig-name descname">uint32_t __StackGetChecksumVital (__overload(StackRigid) *stack)</code></dt>
+<dd><p>Uses Adler-32 method. Calculates Stack checksum only for the vital parameters. This is necessary because <a class="reference internal" href="#StackRigid_8h_1a08de7058bae2a1e0c566024850286498"><span class="std std-ref">__StackGetChecksum()</span></a> relies on capacity and size. If they were changed, behaviour is undefined. </p>
+<p><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Stack</span> <span class="nl">memory</span> <span class="p">:</span> <span class="p">[</span> <span class="n">checkSum</span> <span class="n">checkSumVital</span> <span class="n">capacity</span> <span class="n">size</span> <span class="n">logFile</span> <span class="o">|</span> <span class="n">value</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span> <span class="mi">2</span><span class="p">,</span> <span class="p">...,</span> <span class="n">value</span> <span class="n">n</span> <span class="o">||</span> <span class="n">___garbage</span> <span class="n">area___</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">______________________________from</span> <span class="n">here</span> <span class="o">^</span><span class="n">__________________</span><span class="o">^</span><span class="n">to</span> <span class="n">here</span>
+<span class="o">*</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use!</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stack</span></code>: Stack that checksums are needed to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt>
+<span class="target" id="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe"></span><code class="sig-name descname">StackRigidOperationCodes __StackRealocate (__overload(StackRigid) **stack, short int direction)</code></dt>
+<dd><p>Realocates Stack if needed. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>Not for the manual use! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be realocated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: which direction realocations are available. &gt; 0 -&gt; expand space if needed, &lt; 0 -&gt; shrink space if needed </p></li>
 </ul>
 </dd>
 </dl>
