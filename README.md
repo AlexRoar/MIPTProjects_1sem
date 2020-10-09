@@ -18,11 +18,11 @@
 
 Более того, если отсортировать строки с конца, строки будут выстраиваться в порядке рифмы.
 
-Сортировка методом поддержки верного порядка в контейнере на моменте считывания
+### Сортировка методом поддержки верного порядка в контейнере на моменте считывания
 - [Сортировщик Онегин](OneginSort/OneginSort/main.c) [insertion sort]
   - [Сортировщик Онегин docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSort/docs/html/main_8c.html)
   
-Сортировка методом быстрой сортировки, с умным компаратором, учитывающим пробелы, пунктуацию, кириллицу.
+### Сортировка методом быстрой сортировки, с умным компаратором, учитывающим пробелы, пунктуацию, кириллицу.
 - [Сортировщик Онегин v2](OneginSortv2/OneginSortv2/main.c) [quick sort + single line storage]
   - [Сортировщик Онегин v2 docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs_sphinx/_build/html/api/c_doxygen_sphinx.html#program-documentation)
   - [Сортировщик Онегин v2 docs - raw Doxygen](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs_doxygen/html/main_8c.html)
