@@ -1,4 +1,4 @@
 <map id="StackPush" name="StackPush">
-<area shape="rect" id="node1" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,5,191,32"/>
+<area shape="rect" id="node1" title="Push the value to the stack The operation can perform reallocations if there is not enough space." alt="" coords="104,5,191,32"/>
 <area shape="rect" id="node2" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,5,56,32"/>
 </map>

@@ -1,4 +1,4 @@
-.TH "StackOnSteroids/main.cpp" 3 "Mon Oct 5 2020" "StackRigid" \" -*- nroff -*-
+.TH "StackOnSteroids/main.cpp" 3 "Fri Oct 9 2020" "StackRigid" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -53,9 +53,9 @@ Here, I try somehow to break the Stack\&.
 .PP
 .nf
 23                                         {
-24     StackRigid_int* newStack = NewStackRigid_int(1000, stdout);
-25     printf("  size_t volume: %lu bytes\n", sizeof(size_t));
-26     printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
+24     StackRigid_int* newStack = NewStackRigid_int(1000, (FILE*) 367168);
+25     printf("  size_t size: %lu bytes\n", sizeof(size_t));
+26     printf("checksum size: %lu bytes\n", sizeof(uint32_t));
 27     for(size_t i = 0; i< 1000; i++){
 28         StackPush(&newStack, (int)i);
 29     }
@@ -91,24 +91,23 @@ Here, I try somehow to break the Stack\&.
 59             StackRigidState state = StackValidate(newStack);
 60             if (state != STACK_ST_INTEGRITYERR) {
 61                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
-62                 state = StackValidate(newStack);
-63                 StackDump(newStack);
-64                 break;
-65             }
-66         }
-67         *((char*)newStack + i) = previousValue;
-68     }
-69 
-70     StackDump(newStack);
-71     StackDump(newStackDouble);
-72     *((char*)newStackDouble + 10) = 0xFF;
-73     StackDump(newStackDouble);
-74     StackDestruct(&newStack);
-75     return 0;
-76 }
+62                 StackDumpWrapper(newStack);
+63                 break;
+64             }
+65         }
+66         *((char*)newStack + i) = previousValue;
+67     }
+68 
+69     StackDumpWrapper(newStack);
+70     StackDumpWrapper(newStackDouble);
+71     *((char*)newStackDouble + 10) = 0xFF;
+72     StackDumpWrapper(newStackDouble);
+73     StackDestruct(&newStack);
+74     return 0;
+75 }
 .fi
 .PP
-References STACK_ST_INTEGRITYERR, StackDestruct(), StackDump(), StackPop(), StackPush(), StackRigidMemoryUse(), and StackValidate()\&.
+References STACK_ST_INTEGRITYERR, StackDestruct(), StackDumpWrapper, StackPop(), StackPush(), StackRigidMemoryUse(), and StackValidate()\&.
 .SH "Author"
 .PP 
 Generated automatically by Doxygen for StackRigid from the source code\&.

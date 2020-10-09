@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memory_70',['memory',['../StackRigid_8h.html#aac6e07c71f4eb8265c1ba1efda2dd8ed',1,'StackRigid.h']]]
+  ['size_69',['size',['../StackRigid_8h.html#aa778f833989c5b73d0fbe86e9b6ef977',1,'StackRigid.h']]]
 ];

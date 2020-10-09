@@ -14,8 +14,8 @@
             filePath = "StackOnSteroids/main.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "StackOnSteroids/main.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "StackOnSteroids/StackRigid.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
             landmarkName = "__StackGetChecksumVital(stack)"
             landmarkType = "9">
             <Locations>
@@ -126,9 +126,169 @@
             filePath = "StackOnSteroids/StackRigid.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "adlerChecksum(firstBlock, len)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C106DB65-1D7B-40DC-9796-05A50173D229"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackOnSteroids/StackRigid.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "C106DB65-1D7B-40DC-9796-05A50173D229 - 8d57dae0ad3cc700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewStackRigid_int(unsigned long, __sFILE*)"
+                  moduleName = "StackOnSteroids"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksandrdremov/Desktop/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/%D0%9C%D0%A4%D0%A2%D0%98/%D0%A4%D0%9F%D0%9C%D0%98/%D0%9F%D1%80%D0%BE%D0%B3%D0%B0_1%20%D1%81%D0%B5%D0%BC/StackOnSteroids/StackOnSteroids/StackRigid.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "C106DB65-1D7B-40DC-9796-05A50173D229 - 70af0895422c0073"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewStackRigid_double(unsigned long, __sFILE*)"
+                  moduleName = "StackOnSteroids"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksandrdremov/Desktop/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/%D0%9C%D0%A4%D0%A2%D0%98/%D0%A4%D0%9F%D0%9C%D0%98/%D0%9F%D1%80%D0%BE%D0%B3%D0%B0_1%20%D1%81%D0%B5%D0%BC/StackOnSteroids/StackOnSteroids/StackRigid.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E61B9D9F-EA2F-4B87-8EDF-63A8B68BCB8D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackOnSteroids/StackRigid.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "E61B9D9F-EA2F-4B87-8EDF-63A8B68BCB8D - 8d57dae0ad3cc008"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewStackRigid_int(unsigned long, __sFILE*)"
+                  moduleName = "StackOnSteroids"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksandrdremov/Desktop/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/%D0%9C%D0%A4%D0%A2%D0%98/%D0%A4%D0%9F%D0%9C%D0%98/%D0%9F%D1%80%D0%BE%D0%B3%D0%B0_1%20%D1%81%D0%B5%D0%BC/StackOnSteroids/StackOnSteroids/StackRigid.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "1210">
+               </Location>
+               <Location
+                  uuid = "E61B9D9F-EA2F-4B87-8EDF-63A8B68BCB8D - 70af0895422c077b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewStackRigid_double(unsigned long, __sFILE*)"
+                  moduleName = "StackOnSteroids"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksandrdremov/Desktop/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/%D0%9C%D0%A4%D0%A2%D0%98/%D0%A4%D0%9F%D0%9C%D0%98/%D0%9F%D1%80%D0%BE%D0%B3%D0%B0_1%20%D1%81%D0%B5%D0%BC/StackOnSteroids/StackOnSteroids/StackRigid.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "1210">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99651734-339C-40AA-B009-62085577BB83"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackOnSteroids/StackRigid.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "99651734-339C-40AA-B009-62085577BB83 - 8d57dae0ad3cc700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewStackRigid_int(unsigned long, __sFILE*)"
+                  moduleName = "StackOnSteroids"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksandrdremov/Desktop/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/%D0%9C%D0%A4%D0%A2%D0%98/%D0%A4%D0%9F%D0%9C%D0%98/%D0%9F%D1%80%D0%BE%D0%B3%D0%B0_1%20%D1%81%D0%B5%D0%BC/StackOnSteroids/StackOnSteroids/StackRigid.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "99651734-339C-40AA-B009-62085577BB83 - 70af0895422c0073"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NewStackRigid_double(unsigned long, __sFILE*)"
+                  moduleName = "StackOnSteroids"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aleksandrdremov/Desktop/%D0%9E%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/%D0%9C%D0%A4%D0%A2%D0%98/%D0%A4%D0%9F%D0%9C%D0%98/%D0%9F%D1%80%D0%BE%D0%B3%D0%B0_1%20%D1%81%D0%B5%D0%BC/StackOnSteroids/StackOnSteroids/StackRigid.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "312"
+                  endingLineNumber = "312"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "793E7308-BC27-4287-A016-CAA3BF5CE43E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StackOnSteroids/main.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

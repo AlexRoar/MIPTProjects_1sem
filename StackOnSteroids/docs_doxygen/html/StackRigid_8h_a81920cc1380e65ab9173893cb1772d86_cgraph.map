@@ -1,10 +1,8 @@
 <map id="StackBack" name="StackBack">
-<area shape="rect" id="node1" title="Free stack memory." alt="" coords="5,56,92,83"/>
-<area shape="rect" id="node2" href="$StackRigid_8h.html#a0f626d8e2d3a2416a7cd0d9f9c18f0e3" title="Dumps debug information about the stack." alt="" coords="140,5,231,32"/>
-<area shape="rect" id="node4" href="$StackRigid_8h.html#a8ffebb1dd3f306eca52e8b34ad325f1c" title="Perform all stack checks: checksums, general constrains." alt="" coords="279,107,381,133"/>
-<area shape="rect" id="node8" href="$StackRigid_8h.html#a7d1b2013ebc1eb1ac8e6e8cd3c3430f6" title=" " alt="" coords="486,31,553,57"/>
-<area shape="rect" id="node3" href="$StackRigid_8h.html#a269040ce2ab02e681254d1e9f20aff35" title="Memory alocated for the Stack." alt="" coords="657,19,815,45"/>
-<area shape="rect" id="node5" href="$StackRigid_8h.html#a08de7058bae2a1e0c566024850286498" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="442,81,597,108"/>
-<area shape="rect" id="node7" href="$StackRigid_8h.html#a2a07c9f65f61c8ca3112dcfaefb4b3be" title="Uses Adler&#45;32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca..." alt="" coords="429,132,609,159"/>
-<area shape="rect" id="node6" href="$StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb" title="Calculates Adler&#45;32 checksum from the firstBlock to the firstBlock + len." alt="" coords="679,107,793,133"/>
+<area shape="rect" id="node1" title="Free stack memory." alt="" coords="5,31,92,57"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#a8ffebb1dd3f306eca52e8b34ad325f1c" title="Perform all stack checks: checksums, general constrains." alt="" coords="140,31,243,57"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#a08de7058bae2a1e0c566024850286498" title="Claculates big Stack checksum. Uses Adler&#45;32 method." alt="" coords="303,56,458,83"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#a2a07c9f65f61c8ca3112dcfaefb4b3be" title="Uses Adler&#45;32 method. Calculates Stack checksum only for the vital parameters. This is necessary beca..." alt="" coords="291,5,471,32"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb" title="Calculates Adler&#45;32 checksum from the firstBlock to the firstBlock + len." alt="" coords="541,5,654,32"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#a269040ce2ab02e681254d1e9f20aff35" title="Memory alocated for the Stack." alt="" coords="519,56,676,83"/>
 </map>

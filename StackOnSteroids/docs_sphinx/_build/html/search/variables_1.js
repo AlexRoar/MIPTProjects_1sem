@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['logfile_62',['logFile',['../StackRigid_8h.html#a0fd979660380e3adb438912bd62e4a41',1,'StackRigid.h']]]
+  ['capacity_63',['capacity',['../StackRigid_8h.html#abc869d0afb33fc960e297465165cd334',1,'StackRigid.h']]],
+  ['checksum_64',['checkSum',['../StackRigid_8h.html#a8a32205e08c87c56f05f432202831329',1,'StackRigid.h']]],
+  ['checksumvital_65',['checkSumVital',['../StackRigid_8h.html#abada3e312a622648ad335f352a42fb77',1,'StackRigid.h']]]
 ];

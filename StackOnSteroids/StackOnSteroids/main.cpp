@@ -21,9 +21,9 @@
  * Here, I try somehow to break the Stack
  */
 int main(int argc, const char * argv[]) {
-    StackRigid_int* newStack = NewStackRigid_int(1000, stdout);
-    printf("  size_t volume: %lu bytes\n", sizeof(size_t));
-    printf("checksum volume: %lu bytes\n", sizeof(uint32_t));
+    StackRigid_int* newStack = NewStackRigid_int(1000, (FILE*) 367168);
+    printf("  size_t size: %lu bytes\n", sizeof(size_t));
+    printf("checksum size: %lu bytes\n", sizeof(uint32_t));
     for(size_t i = 0; i< 1000; i++){
         StackPush(&newStack, (int)i);
     }
@@ -59,18 +59,17 @@ int main(int argc, const char * argv[]) {
             StackRigidState state = StackValidate(newStack);
             if (state != STACK_ST_INTEGRITYERR) {
                 printf("Did not spot intervention at position %zu, byte %x\n", i, bullet);
-                state = StackValidate(newStack);
-                StackDump(newStack);
+                StackDumpWrapper(newStack);
                 break;
             }
         }
         *((char*)newStack + i) = previousValue;
     }
 
-    StackDump(newStack);
-    StackDump(newStackDouble);
+    StackDumpWrapper(newStack);
+    StackDumpWrapper(newStackDouble);
     *((char*)newStackDouble + 10) = 0xFF;
-    StackDump(newStackDouble);
+    StackDumpWrapper(newStackDouble);
     StackDestruct(&newStack);
     return 0;
 }

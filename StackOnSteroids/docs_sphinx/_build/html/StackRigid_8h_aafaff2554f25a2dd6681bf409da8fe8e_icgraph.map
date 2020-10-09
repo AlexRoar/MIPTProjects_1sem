@@ -1,6 +1,6 @@
 <map id="__StackUpdateChecksum" name="__StackUpdateChecksum">
 <area shape="rect" id="node1" title="Updates Stack checksums. Does not take into account bytes inside the stack but outside of its last el..." alt="" coords="239,31,413,57"/>
-<area shape="rect" id="node2" href="$StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,5,187,32"/>
-<area shape="rect" id="node4" href="$StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,56,191,83"/>
+<area shape="rect" id="node2" href="$StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7" title="Pop value from the end of the stack The operation can perform reallocations if there is too much spac..." alt="" coords="108,5,187,32"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624" title="Push the value to the stack The operation can perform reallocations if there is not enough space." alt="" coords="104,56,191,83"/>
 <area shape="rect" id="node3" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,31,56,57"/>
 </map>

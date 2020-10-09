@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointer_63',['pointer',['../StackRigid_8h.html#aa353e5db4d253654aaf3aa7725423d79',1,'StackRigid.h']]]
+  ['logfile_66',['logFile',['../StackRigid_8h.html#a0fd979660380e3adb438912bd62e4a41',1,'StackRigid.h']]]
 ];

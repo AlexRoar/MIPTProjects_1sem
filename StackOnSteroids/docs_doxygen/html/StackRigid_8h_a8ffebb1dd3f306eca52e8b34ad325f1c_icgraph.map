@@ -1,9 +1,9 @@
 <map id="StackValidate" name="StackValidate">
-<area shape="rect" id="node1" title="Perform all stack checks: checksums, general constrains." alt="" coords="393,115,496,142"/>
-<area shape="rect" id="node2" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,90,56,116"/>
-<area shape="rect" id="node3" href="$StackRigid_8h.html#a81920cc1380e65ab9173893cb1772d86" title="Free stack memory." alt="" coords="104,242,191,268"/>
-<area shape="rect" id="node4" href="$StackRigid_8h.html#a3addcf7a8000baf1be4d91a779f293e8" title="Free stack memory." alt="" coords="239,39,345,66"/>
-<area shape="rect" id="node5" href="$StackRigid_8h.html#a0f626d8e2d3a2416a7cd0d9f9c18f0e3" title="Dumps debug information about the stack." alt="" coords="247,191,337,218"/>
-<area shape="rect" id="node6" href="$StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7" title="Pop value from the end of the stack The operation can perform realocations if there is too much space..." alt="" coords="108,90,187,116"/>
-<area shape="rect" id="node7" href="$StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624" title="Push the value to the stack The operation can perform realocations if there is not enough space." alt="" coords="104,140,191,167"/>
+<area shape="rect" id="node1" title="Perform all stack checks: checksums, general constrains." alt="" coords="259,110,361,136"/>
+<area shape="rect" id="node2" href="$main_8cpp.html#ac0f2228420376f4db7e1274f2b41667c" title="Here, I try somehow to break the Stack." alt="" coords="5,135,56,162"/>
+<area shape="rect" id="node3" href="$StackRigid_8h.html#a81920cc1380e65ab9173893cb1772d86" title="Free stack memory." alt="" coords="114,34,201,60"/>
+<area shape="rect" id="node4" href="$StackRigid_8h.html#a3addcf7a8000baf1be4d91a779f293e8" title="Free stack memory." alt="" coords="104,84,211,111"/>
+<area shape="rect" id="node5" href="$StackRigid_8h.html#a34ed05fb570dfd9ade77d3c0bd664591" title="Dumps debug information about the stack." alt="" coords="112,135,203,162"/>
+<area shape="rect" id="node6" href="$StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7" title="Pop value from the end of the stack The operation can perform reallocations if there is too much spac..." alt="" coords="118,186,197,212"/>
+<area shape="rect" id="node7" href="$StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624" title="Push the value to the stack The operation can perform reallocations if there is not enough space." alt="" coords="114,236,201,263"/>
 </map>

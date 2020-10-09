@@ -9,11 +9,15 @@
     <detaileddescription>
 <para>This Stack is almost impossible to kill and fool. All undefined behaviour memory accesses will be spoted and reported. <simplesect kind="author"><para>Aleksandr Dremov </para>
 </simplesect>
-<simplesect kind="attention"><para>Before including .h file, you need to define <ref refid="StackRigid_8h_1a231d62549d9cfc45a003c319b7e1779e" kindref="member">StackElementDump(FILE, VALUE)</ref> and StackElementType <linebreak/>
+<simplesect kind="attention"><para>Prerequisites.<linebreak/>
+ Before including .h file, you need to define <ref refid="StackRigid_8h_1a231d62549d9cfc45a003c319b7e1779e" kindref="member">StackElementDump(FILE, VALUE)</ref> and StackElementType. <linebreak/>
 Example:<linebreak/>
 #define <ref refid="StackRigid_8h_1a231d62549d9cfc45a003c319b7e1779e" kindref="member">StackElementDump(FILE, VALUE)</ref> {fprintf(FILE, &quot;%g&quot;, VALUE);}<linebreak/>
 #define StackElementType double<linebreak/>
+The system must have uint32_t type available<linebreak/>
 </para>
+</simplesect>
+<simplesect kind="warning"><para>Stack can be fully moved in memory during reallocations </para>
 </simplesect>
 <simplesect kind="copyright"><para>Aleksandr Dremov, MIPT 2020 </para>
 </simplesect>

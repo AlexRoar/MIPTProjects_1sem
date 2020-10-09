@@ -162,7 +162,7 @@
 <dl class="c macro">
 <dt id="c.StackElementType">
 <span class="target" id="StackRigid_8h_1a5d5557764da222ed9bdc5f5aba30da9d"></span><code class="sig-name descname">StackElementType</code><a class="headerlink" href="#c.StackElementType" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>By default, it would be stack of ints. </p>
+<dd><p>By default, it will be stack of ints. </p>
 </dd></dl>
 
 <dl class="c macro">
@@ -178,6 +178,21 @@
 <dl class="c macro">
 <dt id="c.__overload">
 <span class="target" id="StackRigid_8h_1a79ea86ebacc8d0f7906790ecd93bac28"></span><code class="sig-name descname">__overload</code><span class="sig-paren">(</span><em>FUNC</em><span class="sig-paren">)</span><a class="headerlink" href="#c.__overload" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c macro">
+<dt id="c.StackRigid_h">
+<span class="target" id="StackRigid_8h_1a1ca59cdde73826c9f67b7644f2b89392"></span><code class="sig-name descname">StackRigid_h</code><a class="headerlink" href="#c.StackRigid_h" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c macro">
+<dt id="c.StackDumpWrapper">
+<span class="target" id="StackRigid_8h_1a8b856f31dd10f1a46ec113d807a576e4"></span><code class="sig-name descname">StackDumpWrapper</code><span class="sig-paren">(</span><em>stack</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackDumpWrapper" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c macro">
+<dt id="c.StackDumpWrapperWhy">
+<span class="target" id="StackRigid_8h_1aa64cd9f38c32e77d367e6d5e79913bb9"></span><code class="sig-name descname">StackDumpWrapperWhy</code><span class="sig-paren">(</span><em>stack</em>, <em>why</em><span class="sig-paren">)</span><a class="headerlink" href="#c.StackDumpWrapperWhy" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>
@@ -300,17 +315,12 @@
 </dd></dl>
 
 <dl class="c function">
-<dt id="c.validPtr">
-<span class="target" id="StackRigid_8h_1a7d1b2013ebc1eb1ac8e6e8cd3c3430f6"></span>int <code class="sig-name descname">validPtr</code><span class="sig-paren">(</span>void *<em>ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#c.validPtr" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="c function">
 <dt>
 <span class="target" id="StackRigid_8h_1a69f8836a95e570d00f92d7140ef23dab"></span><code class="sig-name descname">struct __overload (StackRigid)</code></dt>
 <dd><p>The main StackRigid struct. </p>
 <p>Create new stack with pre-defined capacity.</p>
 <p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>new stack pointer </p>
+<dt><strong>Return</strong></dt><dd><p>new stack pointer or NULL if impossible </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">capacity</span></code>: initial stack capacity. Set to 0 if you want the stack to adopt automaticaly. </p></li>
@@ -339,7 +349,7 @@
 <dl class="c function">
 <dt>
 <span class="target" id="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624"></span><code class="sig-name descname">StackRigidOperationCodes StackPush (__overload(StackRigid) **stack, StackElementType value)</code></dt>
-<dd><p>Push the value to the stack The operation can perform realocations if there is not enough space. </p>
+<dd><p>Push the value to the stack The operation can perform reallocations if there is not enough space. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
 </dd>
@@ -355,7 +365,7 @@
 <dl class="c function">
 <dt>
 <span class="target" id="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7"></span><code class="sig-name descname">StackRigidOperationCodes StackPop (__overload(StackRigid) **stack, StackElementType *value)</code></dt>
-<dd><p>Pop value from the end of the stack The operation can perform realocations if there is too much space. </p>
+<dd><p>Pop value from the end of the stack The operation can perform reallocations if there is too much space. </p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>the outcome of the operation </p>
 </dd>
@@ -400,7 +410,7 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a0f626d8e2d3a2416a7cd0d9f9c18f0e3"></span><code class="sig-name descname">void StackDump (__overload(StackRigid) *stack)</code></dt>
+<span class="target" id="StackRigid_8h_1a34ed05fb570dfd9ade77d3c0bd664591"></span><code class="sig-name descname">void StackDump (__overload(StackRigid) *stack, const int line, const char *file, const char *why)</code></dt>
 <dd><p>Dumps debug information about the stack. </p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
@@ -491,14 +501,14 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1a5a6f1bf7c5c61246f70cfa0c349ad3fe"></span><code class="sig-name descname">StackRigidOperationCodes __StackRealocate (__overload(StackRigid) **stack, short int direction)</code></dt>
-<dd><p>Realocates Stack if needed. </p>
+<span class="target" id="StackRigid_8h_1a20779cbd888e42054835b58a527bc0e8"></span><code class="sig-name descname">StackRigidOperationCodes __StackReallocate (__overload(StackRigid) **stack, short int direction)</code></dt>
+<dd><p>Reallocates Stack if needed. </p>
 <p><dl class="simple">
 <dt><strong>Attention</strong></dt><dd><p>Not for the manual use! </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be realocated </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: which direction realocations are available. &gt; 0 -&gt; expand space if needed, &lt; 0 -&gt; shrink space if needed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">stack</span></code>: Stack to be reallocated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: which direction reallocations are available. &gt; 0 -&gt; expand space if needed, &lt; 0 -&gt; shrink space if needed </p></li>
 </ul>
 </dd>
 </dl>
@@ -507,7 +517,17 @@
 
 <dl class="c function">
 <dt>
-<span class="target" id="StackRigid_8h_1ac8642b0fd8e7d8880bb0a1daf266f5a2"></span><code class="sig-name descname">if (!validPtr(pointer))</code></dt>
+<span class="target" id="StackRigid_8h_1abaeb1439c4195bba2f50864c768d76c1"></span><code class="sig-name descname">if (added&lt; memory)</code></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt>
+<span class="target" id="StackRigid_8h_1a5af2775bcd740886ec307998837d87a6"></span><code class="sig-name descname">if (!istack_pointer_valid(logFile, sizeof(logFile)))</code></dt>
+<dd></dd></dl>
+
+<dl class="c function">
+<dt>
+<span class="target" id="StackRigid_8h_1a91b7dbe1417e55c20b6fb91b478a103c"></span><code class="sig-name descname">if (!istack_pointer_valid(pointer, sizeof(pointer)))</code></dt>
 <dd></dd></dl>
 
 <dl class="c function">
@@ -520,7 +540,17 @@
 <p class="breathe-sectiondef-title rubric">Variables</p>
 <dl class="c var">
 <dt>
-<span class="target" id="StackRigid_8h_1a0fd979660380e3adb438912bd62e4a41"></span><code class="sig-name descname">FILE * logFile  {    const size_t memory = sizeof( __overload(StackRigid)) + (capacity - 1) * sizeof(StackElementType)</code></dt>
+<span class="target" id="StackRigid_8h_1a0fd979660380e3adb438912bd62e4a41"></span><code class="sig-name descname">FILE * logFile  {if (capacity == 0)capacity = 1</code></dt>
+<dd></dd></dl>
+
+<dl class="c var">
+<dt id="c.memory">
+<span class="target" id="StackRigid_8h_1a61a963e6e2f81b884bc6d17c72777b42"></span>size_t <code class="sig-name descname">memory</code> = sizeof(<a class="reference internal" href="#c.__overload" title="__overload">__overload</a><span class="sig-paren">(</span>StackRigid<span class="sig-paren">)</span>)<a class="headerlink" href="#c.memory" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c var">
+<dt id="c.added">
+<span class="target" id="StackRigid_8h_1abc72ff9c357136a52ae7f00fbaf9a645"></span>size_t <code class="sig-name descname">added</code> = <a class="reference internal" href="#c.memory" title="memory">memory</a> + (<a class="reference internal" href="#c.capacity" title="capacity">capacity</a> - 1) * sizeof(<a class="reference internal" href="#c.StackElementType" title="StackElementType">StackElementType</a>)<a class="headerlink" href="#c.added" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="c var">

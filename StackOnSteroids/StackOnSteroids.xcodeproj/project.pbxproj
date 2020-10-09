@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		A013D478252350130071D2F2 /* StackRigid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackRigid.h; sourceTree = "<group>"; };
 		A071A76C2527C023008711EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		A071A841252E3995008711EF /* PointerChecks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PointerChecks.h; path = ../../Private/ArtemStack/ArtemStack/istack/singletons/PointerChecks.h; sourceTree = "<group>"; };
 		A0C6E2752523360800FB1304 /* StackOnSteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StackOnSteroids; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -58,6 +59,7 @@
 		A0C6E2772523360800FB1304 /* StackOnSteroids */ = {
 			isa = PBXGroup;
 			children = (
+				A071A841252E3995008711EF /* PointerChecks.h */,
 				A013D478252350130071D2F2 /* StackRigid.h */,
 				A071A76C2527C023008711EF /* main.cpp */,
 			);
@@ -241,9 +243,19 @@
 		A0C6E27D2523360900FB1304 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7D49J2XMDA;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,9 +263,19 @@
 		A0C6E27E2523360900FB1304 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_ASSIGN_ENUM = YES;
+				CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7D49J2XMDA;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_SHADOW = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

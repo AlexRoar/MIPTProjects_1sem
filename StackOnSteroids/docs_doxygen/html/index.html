@@ -67,11 +67,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This Stack is almost impossible to kill and fool. All undefined behaviour memory accesses will be spoted and reported. </p><dl class="section author"><dt>Author</dt><dd>Aleksandr Dremov </dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd>Before including .h file, you need to define <a class="el" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e" title="Default element dump instruction.">StackElementDump(FILE, VALUE)</a> and StackElementType <br  />
+<dl class="section attention"><dt>Attention</dt><dd>Prerequisites.<br  />
+ Before including .h file, you need to define <a class="el" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e" title="Default element dump instruction.">StackElementDump(FILE, VALUE)</a> and StackElementType. <br  />
 Example:<br  />
 #define <a class="el" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e" title="Default element dump instruction.">StackElementDump(FILE, VALUE)</a> {fprintf(FILE, "%g", VALUE);}<br  />
 #define StackElementType double<br  />
+The system must have uint32_t type available<br  />
 </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Stack can be fully moved in memory during reallocations </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Aleksandr Dremov, MIPT 2020 </dd></dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

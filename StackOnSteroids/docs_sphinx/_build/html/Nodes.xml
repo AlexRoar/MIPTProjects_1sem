@@ -1053,6 +1053,16 @@
                 <Anchor>a96e0bc8f204dbef33b6e6a664c5b5663</Anchor>
                </Node>
                <Node>
+                <Name>StackDumpWrapper</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a8b856f31dd10f1a46ec113d807a576e4</Anchor>
+               </Node>
+               <Node>
+                <Name>StackDumpWrapperWhy</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>aa64cd9f38c32e77d367e6d5e79913bb9</Anchor>
+               </Node>
+               <Node>
                 <Name>StackElementDump</Name>
                 <Path>StackRigid_8h.html</Path>
                 <Anchor>a231d62549d9cfc45a003c319b7e1779e</Anchor>
@@ -1061,6 +1071,11 @@
                 <Name>StackElementType</Name>
                 <Path>StackRigid_8h.html</Path>
                 <Anchor>a5d5557764da222ed9bdc5f5aba30da9d</Anchor>
+               </Node>
+               <Node>
+                <Name>StackRigid_h</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a1ca59cdde73826c9f67b7644f2b89392</Anchor>
                </Node>
                <Node>
                 <Name>StackRigidOperationCodes</Name>
@@ -1157,9 +1172,9 @@
                 <Anchor>a2a07c9f65f61c8ca3112dcfaefb4b3be</Anchor>
                </Node>
                <Node>
-                <Name>__StackRealocate</Name>
+                <Name>__StackReallocate</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a5a6f1bf7c5c61246f70cfa0c349ad3fe</Anchor>
+                <Anchor>a20779cbd888e42054835b58a527bc0e8</Anchor>
                </Node>
                <Node>
                 <Name>__StackUpdateChecksum</Name>
@@ -1179,7 +1194,17 @@
                <Node>
                 <Name>if</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>ac8642b0fd8e7d8880bb0a1daf266f5a2</Anchor>
+                <Anchor>a5af2775bcd740886ec307998837d87a6</Anchor>
+               </Node>
+               <Node>
+                <Name>if</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a91b7dbe1417e55c20b6fb91b478a103c</Anchor>
+               </Node>
+               <Node>
+                <Name>if</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>abaeb1439c4195bba2f50864c768d76c1</Anchor>
                </Node>
                <Node>
                 <Name>StackBack</Name>
@@ -1194,7 +1219,7 @@
                <Node>
                 <Name>StackDump</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a0f626d8e2d3a2416a7cd0d9f9c18f0e3</Anchor>
+                <Anchor>a34ed05fb570dfd9ade77d3c0bd664591</Anchor>
                </Node>
                <Node>
                 <Name>StackPop</Name>
@@ -1217,9 +1242,9 @@
                 <Anchor>a8ffebb1dd3f306eca52e8b34ad325f1c</Anchor>
                </Node>
                <Node>
-                <Name>validPtr</Name>
+                <Name>added</Name>
                 <Path>StackRigid_8h.html</Path>
-                <Anchor>a7d1b2013ebc1eb1ac8e6e8cd3c3430f6</Anchor>
+                <Anchor>abc72ff9c357136a52ae7f00fbaf9a645</Anchor>
                </Node>
                <Node>
                 <Name>capacity</Name>
@@ -1240,6 +1265,11 @@
                 <Name>logFile</Name>
                 <Path>StackRigid_8h.html</Path>
                 <Anchor>a0fd979660380e3adb438912bd62e4a41</Anchor>
+               </Node>
+               <Node>
+                <Name>memory</Name>
+                <Path>StackRigid_8h.html</Path>
+                <Anchor>a61a963e6e2f81b884bc6d17c72777b42</Anchor>
                </Node>
                <Node>
                 <Name>pointer</Name>

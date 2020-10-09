@@ -268,8 +268,11 @@
           <topic label="__overload" href="StackRigid_8h.html#a79ea86ebacc8d0f7906790ecd93bac28"/>
           <topic label="EVALUATOR" href="StackRigid_8h.html#a90ce550ff78fd420b633c5d88dfd2883"/>
           <topic label="PASTER" href="StackRigid_8h.html#a96e0bc8f204dbef33b6e6a664c5b5663"/>
+          <topic label="StackDumpWrapper" href="StackRigid_8h.html#a8b856f31dd10f1a46ec113d807a576e4"/>
+          <topic label="StackDumpWrapperWhy" href="StackRigid_8h.html#aa64cd9f38c32e77d367e6d5e79913bb9"/>
           <topic label="StackElementDump" href="StackRigid_8h.html#a231d62549d9cfc45a003c319b7e1779e"/>
           <topic label="StackElementType" href="StackRigid_8h.html#a5d5557764da222ed9bdc5f5aba30da9d"/>
+          <topic label="StackRigid_h" href="StackRigid_8h.html#a1ca59cdde73826c9f67b7644f2b89392"/>
           <topic label="StackRigidOperationCodes" href="StackRigid_8h.html#a2b23b57ad918293ba96140fc43194967"/>
           <topic label="StackRigidState" href="StackRigid_8h.html#acc74b48b41d3ec38cb05184b602c7508"/>
           <topic label="StackRigidOperationCodes" href="StackRigid_8h.html#afa660da841608914d20d9819a7efe039">
@@ -290,23 +293,26 @@
           <topic label="__overload" href="StackRigid_8h.html#a69f8836a95e570d00f92d7140ef23dab"/>
           <topic label="__StackGetChecksum" href="StackRigid_8h.html#a08de7058bae2a1e0c566024850286498"/>
           <topic label="__StackGetChecksumVital" href="StackRigid_8h.html#a2a07c9f65f61c8ca3112dcfaefb4b3be"/>
-          <topic label="__StackRealocate" href="StackRigid_8h.html#a5a6f1bf7c5c61246f70cfa0c349ad3fe"/>
+          <topic label="__StackReallocate" href="StackRigid_8h.html#a20779cbd888e42054835b58a527bc0e8"/>
           <topic label="__StackUpdateChecksum" href="StackRigid_8h.html#aafaff2554f25a2dd6681bf409da8fe8e"/>
           <topic label="__StackUpdateChecksum" href="StackRigid_8h.html#aced2adff6d60187031434138a012a119"/>
           <topic label="adlerChecksum" href="StackRigid_8h.html#a37faf27d6e9ab4e0a417f29efbda1cbb"/>
-          <topic label="if" href="StackRigid_8h.html#ac8642b0fd8e7d8880bb0a1daf266f5a2"/>
+          <topic label="if" href="StackRigid_8h.html#a5af2775bcd740886ec307998837d87a6"/>
+          <topic label="if" href="StackRigid_8h.html#a91b7dbe1417e55c20b6fb91b478a103c"/>
+          <topic label="if" href="StackRigid_8h.html#abaeb1439c4195bba2f50864c768d76c1"/>
           <topic label="StackBack" href="StackRigid_8h.html#a81920cc1380e65ab9173893cb1772d86"/>
           <topic label="StackDestruct" href="StackRigid_8h.html#a3addcf7a8000baf1be4d91a779f293e8"/>
-          <topic label="StackDump" href="StackRigid_8h.html#a0f626d8e2d3a2416a7cd0d9f9c18f0e3"/>
+          <topic label="StackDump" href="StackRigid_8h.html#a34ed05fb570dfd9ade77d3c0bd664591"/>
           <topic label="StackPop" href="StackRigid_8h.html#a3da847c6aaf3f472d56d528de1a0f6f7"/>
           <topic label="StackPush" href="StackRigid_8h.html#a72e1abcd508a113d2731a622322f0624"/>
           <topic label="StackRigidMemoryUse" href="StackRigid_8h.html#a269040ce2ab02e681254d1e9f20aff35"/>
           <topic label="StackValidate" href="StackRigid_8h.html#a8ffebb1dd3f306eca52e8b34ad325f1c"/>
-          <topic label="validPtr" href="StackRigid_8h.html#a7d1b2013ebc1eb1ac8e6e8cd3c3430f6"/>
+          <topic label="added" href="StackRigid_8h.html#abc72ff9c357136a52ae7f00fbaf9a645"/>
           <topic label="capacity" href="StackRigid_8h.html#abc869d0afb33fc960e297465165cd334"/>
           <topic label="checkSum" href="StackRigid_8h.html#a8a32205e08c87c56f05f432202831329"/>
           <topic label="checkSumVital" href="StackRigid_8h.html#abada3e312a622648ad335f352a42fb77"/>
           <topic label="logFile" href="StackRigid_8h.html#a0fd979660380e3adb438912bd62e4a41"/>
+          <topic label="memory" href="StackRigid_8h.html#a61a963e6e2f81b884bc6d17c72777b42"/>
           <topic label="pointer" href="StackRigid_8h.html#aa353e5db4d253654aaf3aa7725423d79"/>
           <topic label="size" href="StackRigid_8h.html#aa778f833989c5b73d0fbe86e9b6ef977"/>
         </topic>
