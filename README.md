@@ -4,11 +4,11 @@
 
 ## Нерушимый стек
 
-Стэк который *почти* невозможно взломать. Хэш-суммы, проверки, валидации - тут. Отчеты о взломе моего стэка и мой взлом товарища так же тут.
-- [Стэк на стероидах](StackOnSteroids/StackOnSteroids/StackRigid.h)
-  - [Стэк на стероидах docs](https://alexroar.github.io/MIPTProjects_1sem/StackOnSteroids/docs_doxygen/html/index.html)
+Стек который *почти* невозможно взломать. Хэш-суммы, проверки, валидации - тут. Отчеты о взломе моего стека и мой взлом товарища так же тут.
+- [Стек на стероидах](StackOnSteroids/StackOnSteroids/StackRigid.h)
+  - [Стек на стероидах docs](https://alexroar.github.io/MIPTProjects_1sem/StackOnSteroids/docs_doxygen/html/index.html)
   - [PDF взлома моего стека (от напарника)](StackOnSteroids/Vzlom_Alexandra_Dremova.pdf)
-  - [PDF взлома стэка напарника](StackOnSteroids/Взлом%20Артема.pdf)
+  - [PDF взлома стека напарника](StackOnSteroids/Взлом%20Артема.pdf)
   - [Проект напарника](https://github.com/JakMobius/MIPT-Tasks/tree/master/invulnerable-stack)
   
 
