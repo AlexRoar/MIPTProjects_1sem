@@ -11,6 +11,6 @@
   - [Сортировщик Онегин v2 docs](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs_sphinx/_build/html/api/c_doxygen_sphinx.html#program-documentation)
   - [Сортировщик Онегин v2 docs - raw Doxygen](https://alexroar.github.io/MIPTProjects_1sem/OneginSortv2/docs_doxygen/html/main_8c.html)
 - [Стэк на стероидах](StackOnSteroids/StackOnSteroids/StackRigid.h)
-  - [PDF взлом напарника] (StackOnSteroids/Взлом Артема.pdf)
+  - [PDF взлом напарника](StackOnSteroids/Взлом Артема.pdf)
   - [Стэк на стероидах docs](https://alexroar.github.io/MIPTProjects_1sem/StackOnSteroids/docs_doxygen/html/index.html)
   
