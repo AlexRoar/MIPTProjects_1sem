@@ -17,13 +17,15 @@
 #define  StackElementType double
 #include "StackRigid.h"
 
+
 /**
  * Here, I try somehow to break the Stack
  */
 int main(int argc, const char * argv[]) {
-    StackRigid_int* newStack = NewStackRigid_int(1000, (FILE*) 367168);
-    printf("  size_t size: %lu bytes\n", sizeof(size_t));
-    printf("checksum size: %lu bytes\n", sizeof(uint32_t));
+    FILE* logfile = fopen("logfile.txt", "w");
+    StackRigid_int* newStack = NewStackRigid_int(1000, logfile);
+    fprintf(logfile, "  size_t size: %lu bytes\n", sizeof(size_t));
+    fprintf(logfile, "checksum size: %lu bytes\n", sizeof(uint32_t));
     for(size_t i = 0; i< 1000; i++){
         StackPush(&newStack, (int)i);
     }
@@ -36,7 +38,7 @@ int main(int argc, const char * argv[]) {
         StackPush(&newStack, (int)i + 1);
     }
     
-    StackRigid_double* newStackDouble = NewStackRigid_double(1000, stdout);
+    StackRigid_double* newStackDouble = NewStackRigid_double(1000, logfile);
     for(size_t i = 0; i< 1000; i++){
         StackPush(&newStackDouble, (double)(i));
     }
@@ -68,8 +70,9 @@ int main(int argc, const char * argv[]) {
 
     StackDumpWrapper(newStack);
     StackDumpWrapper(newStackDouble);
-    *((char*)newStackDouble + 10) = 0xFF;
+    *((char*)newStackDouble + 15) = (char)0xFF;
     StackDumpWrapper(newStackDouble);
     StackDestruct(&newStack);
+    fclose(logfile);
     return 0;
 }

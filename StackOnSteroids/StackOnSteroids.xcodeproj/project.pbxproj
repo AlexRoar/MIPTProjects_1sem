@@ -26,6 +26,7 @@
 		A013D478252350130071D2F2 /* StackRigid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackRigid.h; sourceTree = "<group>"; };
 		A071A76C2527C023008711EF /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A071A841252E3995008711EF /* PointerChecks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PointerChecks.h; path = ../../Private/ArtemStack/ArtemStack/istack/singletons/PointerChecks.h; sourceTree = "<group>"; };
+		A071A85C25304678008711EF /* logfile.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = logfile.txt; sourceTree = "<group>"; };
 		A0C6E2752523360800FB1304 /* StackOnSteroids */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StackOnSteroids; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -62,6 +63,7 @@
 				A071A841252E3995008711EF /* PointerChecks.h */,
 				A013D478252350130071D2F2 /* StackRigid.h */,
 				A071A76C2527C023008711EF /* main.cpp */,
+				A071A85C25304678008711EF /* logfile.txt */,
 			);
 			path = StackOnSteroids;
 			sourceTree = "<group>";

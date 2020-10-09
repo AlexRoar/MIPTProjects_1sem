@@ -53,7 +53,7 @@ Here, I try somehow to break the Stack\&.
 .PP
 .nf
 23                                         {
-24     StackRigid_int* newStack = NewStackRigid_int(1000, (FILE*) 367168);
+24     StackRigid_int* newStack = NewStackRigid_int(1000, stdout);
 25     printf("  size_t size: %lu bytes\n", sizeof(size_t));
 26     printf("checksum size: %lu bytes\n", sizeof(uint32_t));
 27     for(size_t i = 0; i< 1000; i++){
@@ -100,7 +100,7 @@ Here, I try somehow to break the Stack\&.
 68 
 69     StackDumpWrapper(newStack);
 70     StackDumpWrapper(newStackDouble);
-71     *((char*)newStackDouble + 10) = 0xFF;
+71     *((char*)newStackDouble + 15) = 0xFF;
 72     StackDumpWrapper(newStackDouble);
 73     StackDestruct(&newStack);
 74     return 0;

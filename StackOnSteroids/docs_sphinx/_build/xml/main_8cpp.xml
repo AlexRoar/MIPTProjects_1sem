@@ -102,13 +102,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" line="23" column="5" bodyfile="/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp" bodystart="23" bodyend="75"/>
-        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="111">STACK_ST_INTEGRITYERR</references>
-        <references refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" compoundref="StackRigid_8h" startline="597" endline="612">StackDestruct</references>
+        <references refid="StackRigid_8h_1a3afb87b043e438be2a48ba69fe4deb5fa4efc249e686cc284db2f5c3c694c94d0" compoundref="StackRigid_8h" startline="99">STACK_ST_INTEGRITYERR</references>
+        <references refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" compoundref="StackRigid_8h" startline="583" endline="598">StackDestruct</references>
         <references refid="StackRigid_8h_1a8b856f31dd10f1a46ec113d807a576e4" compoundref="StackRigid_8h" startline="55">StackDumpWrapper</references>
-        <references refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" compoundref="StackRigid_8h" startline="339" endline="360">StackPop</references>
-        <references refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" compoundref="StackRigid_8h" startline="274" endline="305">StackPush</references>
-        <references refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" compoundref="StackRigid_8h" startline="499" endline="502">StackRigidMemoryUse</references>
-        <references refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" compoundref="StackRigid_8h" startline="383" endline="401">StackValidate</references>
+        <references refid="StackRigid_8h_1a3da847c6aaf3f472d56d528de1a0f6f7" compoundref="StackRigid_8h" startline="325" endline="346">StackPop</references>
+        <references refid="StackRigid_8h_1a72e1abcd508a113d2731a622322f0624" compoundref="StackRigid_8h" startline="260" endline="291">StackPush</references>
+        <references refid="StackRigid_8h_1a269040ce2ab02e681254d1e9f20aff35" compoundref="StackRigid_8h" startline="485" endline="488">StackRigidMemoryUse</references>
+        <references refid="StackRigid_8h_1a8ffebb1dd3f306eca52e8b34ad325f1c" compoundref="StackRigid_8h" startline="369" endline="387">StackValidate</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -133,7 +133,7 @@
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="StackRigid_8h" kindref="compound">StackRigid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
 <codeline lineno="23" refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" refkind="member"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" kindref="member">main</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[])<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>StackRigid_int*<sp/>newStack<sp/>=<sp/>NewStackRigid_int(1000,<sp/>(FILE*)<sp/>367168);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>StackRigid_int*<sp/>newStack<sp/>=<sp/>NewStackRigid_int(1000,<sp/>stdout);</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;<sp/><sp/>size_t<sp/>size:<sp/>%lu<sp/>bytes\n&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">));</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;checksum<sp/>size:<sp/>%lu<sp/>bytes\n&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(uint32_t));</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<sp/>1000;<sp/>i++){</highlight></codeline>
@@ -180,7 +180,7 @@
 <codeline lineno="68"><highlight class="normal"></highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a8b856f31dd10f1a46ec113d807a576e4" kindref="member">StackDumpWrapper</ref>(newStack);</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a8b856f31dd10f1a46ec113d807a576e4" kindref="member">StackDumpWrapper</ref>(newStackDouble);</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStackDouble<sp/>+<sp/>10)<sp/>=<sp/>0xFF;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>*((</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*)newStackDouble<sp/>+<sp/>15)<sp/>=<sp/>0xFF;</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a8b856f31dd10f1a46ec113d807a576e4" kindref="member">StackDumpWrapper</ref>(newStackDouble);</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="StackRigid_8h_1a3addcf7a8000baf1be4d91a779f293e8" kindref="member">StackDestruct</ref>(&amp;newStack);</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>

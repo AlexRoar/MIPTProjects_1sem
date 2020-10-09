@@ -1,8 +1,7 @@
 \hypertarget{main_8cpp}{}\doxysection{/\+Users/aleksandrdremov/\+Desktop/Обучение/МФТИ/ФПМИ/Прога\+\_\+1 сем/\+Stack\+On\+Steroids/\+Stack\+On\+Steroids/main.cpp File Reference}
 \label{main_8cpp}\index{/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога\_1 сем/StackOnSteroids/StackOnSteroids/main.cpp@{/Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога\_1 сем/StackOnSteroids/StackOnSteroids/main.cpp}}
 {\ttfamily \#include \char`\"{}Stack\+Rigid.\+h\char`\"{}}\newline
-Include dependency graph for main.\+cpp\+:
-\nopagebreak
+Include dependency graph for main.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -84,7 +83,7 @@ Definition at line 23 of file main.\+cpp.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{23                                         \{}
-\DoxyCodeLine{24     StackRigid\_int* newStack = NewStackRigid\_int(1000, (FILE*) 367168);}
+\DoxyCodeLine{24     StackRigid\_int* newStack = NewStackRigid\_int(1000, stdout);}
 \DoxyCodeLine{25     printf(\textcolor{stringliteral}{"{}  size\_t size: \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{size\_t}));}
 \DoxyCodeLine{26     printf(\textcolor{stringliteral}{"{}checksum size: \%lu bytes\(\backslash\)n"{}}, \textcolor{keyword}{sizeof}(uint32\_t));}
 \DoxyCodeLine{27     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i< 1000; i++)\{}
@@ -131,7 +130,7 @@ Definition at line 23 of file main.\+cpp.
 \DoxyCodeLine{68 }
 \DoxyCodeLine{69     \mbox{\hyperlink{StackRigid_8h_a8b856f31dd10f1a46ec113d807a576e4}{StackDumpWrapper}}(newStack);}
 \DoxyCodeLine{70     \mbox{\hyperlink{StackRigid_8h_a8b856f31dd10f1a46ec113d807a576e4}{StackDumpWrapper}}(newStackDouble);}
-\DoxyCodeLine{71     *((\textcolor{keywordtype}{char}*)newStackDouble + 10) = 0xFF;}
+\DoxyCodeLine{71     *((\textcolor{keywordtype}{char}*)newStackDouble + 15) = 0xFF;}
 \DoxyCodeLine{72     \mbox{\hyperlink{StackRigid_8h_a8b856f31dd10f1a46ec113d807a576e4}{StackDumpWrapper}}(newStackDouble);}
 \DoxyCodeLine{73     \mbox{\hyperlink{StackRigid_8h_a3addcf7a8000baf1be4d91a779f293e8}{StackDestruct}}(\&newStack);}
 \DoxyCodeLine{74     \textcolor{keywordflow}{return} 0;}
@@ -142,8 +141,7 @@ Definition at line 23 of file main.\+cpp.
 
 References S\+T\+A\+C\+K\+\_\+\+S\+T\+\_\+\+I\+N\+T\+E\+G\+R\+I\+T\+Y\+E\+RR, Stack\+Destruct(), Stack\+Dump\+Wrapper, Stack\+Pop(), Stack\+Push(), Stack\+Rigid\+Memory\+Use(), and Stack\+Validate().
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

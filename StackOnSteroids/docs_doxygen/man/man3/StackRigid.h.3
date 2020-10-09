@@ -231,15 +231,21 @@ Found NULL pointer during the operation\&.
 Found invalid pointer during the operation\&. 
 .PP
 .nf
-68                                      {
-72     STACK_OP_OK,
-76     STACK_OP_UNDERFLOW,
-80     STACK_OP_OVERFLOW,
-84     STACK_OP_NOMEMORY,
-88     STACK_OP_INTEGRITYERR,
-92     STACK_OP_NULL,
-96     STACK_OP_PTRINVALID
-97 } StackRigidOperationCodes;
+67                                      {
+69     STACK_OP_OK,
+70 
+72     STACK_OP_UNDERFLOW,
+73 
+75     STACK_OP_OVERFLOW,
+76 
+78     STACK_OP_NOMEMORY,
+79 
+81     STACK_OP_INTEGRITYERR,
+82 
+84     STACK_OP_NULL,
+85 
+87     STACK_OP_PTRINVALID
+88 } StackRigidOperationCodes;
 .fi
 .SS "enum \fBStackRigidState\fP"
 
@@ -262,12 +268,15 @@ Stack is uninitialized\&.
 Found NULL pointer during the operation\&. 
 .PP
 .nf
-103                             {
-107     STACK_ST_OK,
-111     STACK_ST_INTEGRITYERR,
-115     STACK_ST_UNINITIALIZED,
-119     STACK_ST_NULL
-120 } StackRigidState;
+94                             {
+96     STACK_ST_OK,
+97 
+99     STACK_ST_INTEGRITYERR,
+100 
+102     STACK_ST_UNINITIALIZED,
+103 
+105     STACK_ST_NULL
+106 } StackRigidState;
 .fi
 .SH "Function Documentation"
 .PP 
@@ -291,14 +300,14 @@ new stack pointer or NULL if impossible
 
 .PP
 .nf
-146                               {
-147     uint32_t checkSum;
-148     uint32_t checkSumVital;
-149     size_t capacity;
-150     size_t size;
-151     FILE* logFile;
-152     StackElementType data[1];
-153 };
+132                               {
+133     uint32_t checkSum;
+134     uint32_t checkSumVital;
+135     size_t capacity;
+136     size_t size;
+137     FILE* logFile;
+138     StackElementType data[1];
+139 };
 .fi
 .SS "static uint32_t __StackGetChecksum (\fB__overload\fP(StackRigid) * stack)\fC [static]\fP"
 
@@ -329,24 +338,24 @@ Not for the manual use!
 
 .PP
 .nf
-426                                                                    {
-427     assert(stack);
-428     
-429     void* firstBlock = (char*)stack + sizeof(stack->checkSum);
-430     
-431     // Memory used by Stack excluding checkSum and free space
-432     #ifndef DEBUG
-433         const size_t memory = StackRigidMemoryUse(stack) - sizeof(stack->checkSum) - (stack->capacity - stack->size) * sizeof(StackElementType);
-434     #endif
-435     #ifdef DEBUG
-436         const size_t memory = StackRigidMemoryUse(stack) - sizeof(stack->checkSum);
-437     #endif
-438     
-439     if (stack->size > stack->capacity) {
-440         return 0;
-441     }
-442     return adlerChecksum(firstBlock, memory);
-443 }
+412                                                                    {
+413     assert(stack);
+414     
+415     void* firstBlock = (char*)stack + sizeof(stack->checkSum);
+416     
+417     // Memory used by Stack excluding checkSum and free space
+418     #ifndef DEBUG
+419         const size_t memory = StackRigidMemoryUse(stack) - sizeof(stack->checkSum) - (stack->capacity - stack->size) * sizeof(StackElementType);
+420     #endif
+421     #ifdef DEBUG
+422         const size_t memory = StackRigidMemoryUse(stack) - sizeof(stack->checkSum);
+423     #endif
+424     
+425     if (stack->size > stack->capacity) {
+426         return 0;
+427     }
+428     return adlerChecksum(firstBlock, memory);
+429 }
 .fi
 .PP
 References adlerChecksum(), memory, StackElementType, and StackRigidMemoryUse()\&.
@@ -378,17 +387,17 @@ Not for the manual use!
 
 .PP
 .nf
-413                                                                         {
-414     assert(stack);
-415     
-416     void* firstBlock = (char*)stack + sizeof(stack->checkSum) + sizeof(stack->checkSumVital);
-417     
-418     const size_t memory = (size_t)((char*)(stack->data) - (char*)firstBlock);
-419     if (stack->size > stack->capacity) {
-420         return 0;
-421     }
-422     return adlerChecksum(firstBlock, memory);
-423 }
+399                                                                         {
+400     assert(stack);
+401     
+402     void* firstBlock = (char*)stack + sizeof(stack->checkSum) + sizeof(stack->checkSumVital);
+403     
+404     const size_t memory = (size_t)((char*)(stack->data) - (char*)firstBlock);
+405     if (stack->size > stack->capacity) {
+406         return 0;
+407     }
+408     return adlerChecksum(firstBlock, memory);
+409 }
 .fi
 .PP
 References adlerChecksum(), and memory\&.
@@ -414,58 +423,58 @@ Not for the manual use!
 
 .PP
 .nf
-446                                                                                                         {
-447     if ((*stack)->capacity == 0) {
-448         (*stack)->capacity = 16; // capacity if was 0
-449         
-450         const size_t memory = StackRigidMemoryUse(*stack);
+432                                                                                                         {
+433     if ((*stack)->capacity == 0) {
+434         (*stack)->capacity = 16; // capacity if was 0
+435         
+436         const size_t memory = StackRigidMemoryUse(*stack);
+437         
+438          __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memory);
+439         if (!istack_pointer_valid(newStack, sizeof(newStack)))
+440             return STACK_OP_NOMEMORY;
+441         
+442         (*stack) = newStack;
+443     }else if(((*stack)->capacity <= (*stack)->size) && direction > 0) { // Up reallocation
+444         size_t newCapacity = (*stack)->size * 2;
+445         
+446         if (newCapacity <= (*stack)->size) { //   If we exceeded size_t range
+447             newCapacity = (*stack)->size + 16; // Try to add 16 free spaces
+448             if (newCapacity < (*stack)->size) //  Even if in this case we still exceed size_t
+449                 return STACK_OP_OVERFLOW;
+450         }
 451         
-452          __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memory);
-453         if (!istack_pointer_valid(newStack, sizeof(newStack)))
-454             return STACK_OP_NOMEMORY;
-455         
-456         (*stack) = newStack;
-457     }else if(((*stack)->capacity <= (*stack)->size) && direction > 0) { // Up reallocation
-458         size_t newCapacity = (*stack)->size * 2;
-459         
-460         if (newCapacity <= (*stack)->size) { //   If we exceeded size_t range
-461             newCapacity = (*stack)->size + 16; // Try to add 16 free spaces
-462             if (newCapacity < (*stack)->size) //  Even if in this case we still exceed size_t
-463                 return STACK_OP_OVERFLOW;
-464         }
+452         const size_t memoryNow = StackRigidMemoryUse(*stack);
+453         const size_t memoryNew = sizeof(__overload(StackRigid)) + (newCapacity - 1) * sizeof(StackElementType);
+454         
+455         if (memoryNew >= memoryNow) {
+456              __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memoryNew);
+457             if (!istack_pointer_valid(newStack, sizeof(newStack)))
+458                 return STACK_OP_NOMEMORY;
+459             
+460             (*stack) = newStack;
+461         }else{
+462             return STACK_OP_OVERFLOW; // Exceded size_t memory
+463         }
+464         (*stack)->capacity = newCapacity;
 465         
-466         const size_t memoryNow = StackRigidMemoryUse(*stack);
-467         const size_t memoryNew = sizeof(__overload(StackRigid)) + (newCapacity - 1) * sizeof(StackElementType);
+466     }else if (((*stack)->capacity / 2\&.2 > (*stack)->size) && direction < 0) { // Down reallocation
+467         size_t newCapacity = (*stack)->capacity / 2\&.2;
 468         
-469         if (memoryNew >= memoryNow) {
-470              __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memoryNew);
-471             if (!istack_pointer_valid(newStack, sizeof(newStack)))
-472                 return STACK_OP_NOMEMORY;
-473             
-474             (*stack) = newStack;
-475         }else{
-476             return STACK_OP_OVERFLOW; // Exceded size_t memory
-477         }
-478         (*stack)->capacity = newCapacity;
-479         
-480     }else if (((*stack)->capacity / 2\&.2 > (*stack)->size) && direction < 0) { // Down reallocation
-481         size_t newCapacity = (*stack)->capacity / 2\&.2;
-482         
-483         const size_t memoryNow = StackRigidMemoryUse(*stack);
-484         const size_t memoryNew = sizeof(__overload(StackRigid)) + (newCapacity - 1) * sizeof(StackElementType);
-485         
-486         if (memoryNew <= memoryNow) {
-487              __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memoryNew);
-488             if (!istack_pointer_valid(newStack, sizeof(newStack)))
-489                 return STACK_OP_NOMEMORY;
-490             
-491             (*stack) = newStack;
-492             (*stack)->capacity = newCapacity;
-493         }else
-494             return STACK_OP_OVERFLOW; // Exceded size_t memory
-495     }
-496     return STACK_OP_OK;
-497 }
+469         const size_t memoryNow = StackRigidMemoryUse(*stack);
+470         const size_t memoryNew = sizeof(__overload(StackRigid)) + (newCapacity - 1) * sizeof(StackElementType);
+471         
+472         if (memoryNew <= memoryNow) {
+473              __overload(StackRigid)* newStack = ( __overload(StackRigid)*) realloc((*stack), memoryNew);
+474             if (!istack_pointer_valid(newStack, sizeof(newStack)))
+475                 return STACK_OP_NOMEMORY;
+476             
+477             (*stack) = newStack;
+478             (*stack)->capacity = newCapacity;
+479         }else
+480             return STACK_OP_OVERFLOW; // Exceded size_t memory
+481     }
+482     return STACK_OP_OK;
+483 }
 .fi
 .PP
 References __overload, memory, STACK_OP_NOMEMORY, STACK_OP_OK, STACK_OP_OVERFLOW, StackElementType, and StackRigidMemoryUse()\&.
@@ -497,13 +506,13 @@ Not for the manual use!
 
 .PP
 .nf
-404                                                                   {
-405     assert(stack);
-406     #ifndef IGNORE_VALIDITY
-407         stack->checkSumVital = __StackGetChecksumVital(stack);
-408         stack->checkSum      = __StackGetChecksum(stack);
-409     #endif
-410 }
+390                                                                   {
+391     assert(stack);
+392     #ifndef IGNORE_VALIDITY
+393         stack->checkSumVital = __StackGetChecksumVital(stack);
+394         stack->checkSum      = __StackGetChecksum(stack);
+395     #endif
+396 }
 .fi
 .PP
 References __StackGetChecksum(), and __StackGetChecksumVital()\&.
@@ -536,15 +545,15 @@ checksum
 
 .PP
 .nf
-130                                                                   {
-131     uint32_t a = 1, b = 0;
-132     const uint32_t MOD_ADLER = 65521;
-133     for (size_t index = 0; index < len; ++index) {
-134         a = (a + ((unsigned char*)firstBlock)[index]) % MOD_ADLER;
-135         b = (b + a) % MOD_ADLER;
-136     }
-137     return (b << 16) | a;
-138 }
+116                                                                   {
+117     uint32_t a = 1, b = 0;
+118     const uint32_t MOD_ADLER = 65521;
+119     for (size_t index = 0; index < len; ++index) {
+120         a = (a + ((unsigned char*)firstBlock)[index]) % MOD_ADLER;
+121         b = (b + a) % MOD_ADLER;
+122     }
+123     return (b << 16) | a;
+124 }
 .fi
 .PP
 Referenced by __StackGetChecksum(), and __StackGetChecksumVital()\&.
@@ -552,25 +561,25 @@ Referenced by __StackGetChecksum(), and __StackGetChecksumVital()\&.
 
 .PP
 .nf
-316                                                           {
-317          return NULL;
-318      }
+302                                                           {
+303          return NULL;
+304      }
 .fi
 .SS "if (! istack_pointer_validpointer, sizeof(pointer))"
 
 .PP
 .nf
-323                                                          {
-324         return NULL;
-325     }
+309                                                          {
+310         return NULL;
+311     }
 .fi
 .SS "if ()"
 
 .PP
 .nf
-313                          {
-314          return NULL;
-315      }
+299                          {
+300          return NULL;
+301      }
 .fi
 .SS "\fBStackRigidOperationCodes\fP StackBack (\fB__overload\fP(StackRigid) * stack, \fBStackElementType\fP * value)"
 
@@ -590,24 +599,24 @@ the outcome of the operation
 
 .PP
 .nf
-363                                                                                            {
-364     if (!istack_pointer_valid(stack, sizeof(stack)))
-365         return STACK_OP_NULL;
-366     
-367     
-368     StackRigidState integrityChecks = StackValidate(stack);
-369     
-370     if (integrityChecks != STACK_ST_OK) {
-371         StackDumpWrapperWhy(stack, "StackBack operation spotted integrity error");
-372         return STACK_OP_INTEGRITYERR;
-373     }
-374     
-375     if(stack->size == 0)
-376         return STACK_OP_UNDERFLOW;
-377     
-378     *value = stack->data[stack->size - 1];
-379     return STACK_OP_OK;
-380 }
+349                                                                                            {
+350     if (!istack_pointer_valid(stack, sizeof(stack)))
+351         return STACK_OP_NULL;
+352     
+353     
+354     StackRigidState integrityChecks = StackValidate(stack);
+355     
+356     if (integrityChecks != STACK_ST_OK) {
+357         StackDumpWrapperWhy(stack, "StackBack operation spotted integrity error");
+358         return STACK_OP_INTEGRITYERR;
+359     }
+360     
+361     if(stack->size == 0)
+362         return STACK_OP_UNDERFLOW;
+363     
+364     *value = stack->data[stack->size - 1];
+365     return STACK_OP_OK;
+366 }
 .fi
 .PP
 References STACK_OP_INTEGRITYERR, STACK_OP_NULL, STACK_OP_OK, STACK_OP_UNDERFLOW, STACK_ST_OK, StackDumpWrapperWhy, and StackValidate()\&.
@@ -629,22 +638,22 @@ the outcome of the operation
 
 .PP
 .nf
-597                                                                         {
-598     if (!istack_pointer_valid(stack, sizeof(stack))) {
-599         return STACK_OP_NULL;
-600     }
-601     if (!istack_pointer_valid(*stack, sizeof(*stack))) {
-602         return STACK_OP_NULL;
-603     }
-604     StackRigidState checks = StackValidate(*stack);
-605     if (checks == STACK_ST_OK){
-606         const size_t memoryNow = StackRigidMemoryUse(*stack);
-607         for(char* cursor = (char*)(*stack); cursor < (char*)(*stack) + memoryNow; cursor++)
-608             *cursor = 0;
-609     }
-610     free(*stack);
-611     return STACK_OP_OK;
-612 }
+583                                                                         {
+584     if (!istack_pointer_valid(stack, sizeof(stack))) {
+585         return STACK_OP_NULL;
+586     }
+587     if (!istack_pointer_valid(*stack, sizeof(*stack))) {
+588         return STACK_OP_NULL;
+589     }
+590     StackRigidState checks = StackValidate(*stack);
+591     if (checks == STACK_ST_OK){
+592         const size_t memoryNow = StackRigidMemoryUse(*stack);
+593         for(char* cursor = (char*)(*stack); cursor < (char*)(*stack) + memoryNow; cursor++)
+594             *cursor = 0;
+595     }
+596     free(*stack);
+597     return STACK_OP_OK;
+598 }
 .fi
 .PP
 References STACK_OP_NULL, STACK_OP_OK, STACK_ST_OK, StackRigidMemoryUse(), and StackValidate()\&.
@@ -663,96 +672,96 @@ Dumps debug information about the stack\&.
 
 .PP
 .nf
-505                                                                                                   {
-506     time_t rawtime = time(NULL);
-507     struct tm *ptm = localtime(&rawtime);
-508     
-509     if (!istack_pointer_valid(stack, sizeof(stack))){
-510         fprintf(stdin, "\nStack dump is impossible: NULL pointer\n");
-511         return;
-512     }
-513     
-514     FILE* output = stack->logFile;
-515     if (!istack_pointer_valid(output, sizeof(output))) {
-516         output = stdout;
-517         printf("\nWarning! Specified dump output is inavailbale! Selecting stdout\&.\n");
-518     }
-519     
-520     fprintf(output, "=================================\n");
-521     fprintf(output, "Stack dump %s", asctime(ptm));
-522     fprintf(output, "Line: %d\nFile: %s\n", line, file);
-523     if (why[0] != '\0')
-524     fprintf(output, "Problem: %s\n", why);
-525     
-526     if (istack_pointer_valid(stack, sizeof(stack))) {
-527         fprintf(output, "Stack (");
-528         const char *status = "ok";
-529         StackRigidState checks = StackValidate(stack);
-530         switch (checks) {
-531             case STACK_ST_INTEGRITYERR:
-532                 status = "INTEGRITY ERROR SPOTTED";
-533                 break;
-534             case STACK_ST_UNINITIALIZED:
-535                 status = "UNINITIALIZED";
-536                 break;
-537             case STACK_ST_OK:
-538                 status = "ok";
-539                 break;
-540             case STACK_ST_NULL:
-541                 status = "NULL POINTER";
-542                 break;
-543         }
-544         fprintf(output, "%s", status);
-545         fprintf(output, ")");
-546         fprintf(output, " [%p]: {\n", stack);
-547         if (checks != STACK_ST_OK) {
-548             fprintf(output, "ERROR! Stack structure was corrupted\&.\nThe data below was changed from the outside\&.\nThis can fail!\n");
-549         }
-550         fprintf(output, "\t         size : %lu\n", stack->size);
-551         fprintf(output, "\t     capacity : %lu\n", stack->capacity);
-552         fprintf(output, "\t     checkSum : %x\n", stack->checkSumVital);
-553         fprintf(output, "\tcheckSumVital : %x\n", stack->checkSum);
-554         
-555         fprintf(output, "\tdata [%p]: {\n", stack->data);
-556         if (checks == STACK_ST_OK) {
-557         size_t i = 0;
-558         for (i = 0; i < stack->size; i++) {
-559             fprintf(output, "\t\t");
-560             fprintf(output, "*[%lu] : ", i);
-561             fprintf(output, "[%p] ", stack->data + i);
-562             StackElementDump(stack->logFile, stack->data[i]);
-563             fprintf(output, "\n");
-564         }
-565         fprintf(output, "\t\t _______\n");
-566         if (stack->size  < stack->capacity) {
-567             fprintf(output, "\t\t [%lu] : GARBAGE(", i);
-568             fprintf(output, "[%p] ", stack->data + i);
-569             StackElementDump(stack->logFile, stack->data[i]);
-570             fprintf(output, ")\n");
-571         }
-572         if (stack->size + 1< stack->capacity && stack->size + 1 > stack->size) {
-573             fprintf(output, "\t\t [%lu] : GARBAGE(", i + 1);
-574             fprintf(output, "[%p] ", stack->data + i + 1);
-575             StackElementDump(stack->logFile, stack->data[i + 1]);
-576             fprintf(output, ")\n");
-577         }
-578         } else{
-579             fprintf(output, "\t\tDATA CAN'T BE READED\n");
-580         }
-581         
-582         fprintf(output, "\t}\n");
-583         fprintf(output, "}\n");
-584         
-585         const size_t memory = StackRigidMemoryUse(stack);
-586         fprintf(output, "Size allocated : %lu bytes\n", memory);
-587         fprintf(output, "Raw Stack size : %lu bytes\n", sizeof(__overload(StackRigid)));
-588         fprintf(output, "  Element size : %lu bytes\n", sizeof(StackElementType));
-589         fprintf(output, "     Block end : %p\n", (char*)stack + memory);
-590     }
-591     fprintf(output, "=================================\n");
-592     fflush(NULL);
-593     
-594 }
+491                                                                                                   {
+492     time_t rawtime = time(NULL);
+493     struct tm *ptm = localtime(&rawtime);
+494     
+495     if (!istack_pointer_valid(stack, sizeof(stack))){
+496         fprintf(stdin, "\nStack dump is impossible: NULL pointer\n");
+497         return;
+498     }
+499     
+500     FILE* output = stack->logFile;
+501     if (!istack_pointer_valid(output, sizeof(output))) {
+502         output = stdout;
+503         printf("\nWarning! Specified dump output is inavailbale! Selecting stdout\&.\n");
+504     }
+505     
+506     fprintf(output, "=================================\n");
+507     fprintf(output, "Stack dump %s", asctime(ptm));
+508     fprintf(output, "Line: %d\nFile: %s\n", line, file);
+509     if (why[0] != '\0')
+510     fprintf(output, "Problem: %s\n", why);
+511     
+512     if (istack_pointer_valid(stack, sizeof(stack))) {
+513         fprintf(output, "Stack (");
+514         const char *status = "ok";
+515         StackRigidState checks = StackValidate(stack);
+516         switch (checks) {
+517             case STACK_ST_INTEGRITYERR:
+518                 status = "INTEGRITY ERROR SPOTTED";
+519                 break;
+520             case STACK_ST_UNINITIALIZED:
+521                 status = "UNINITIALIZED";
+522                 break;
+523             case STACK_ST_OK:
+524                 status = "ok";
+525                 break;
+526             case STACK_ST_NULL:
+527                 status = "NULL POINTER";
+528                 break;
+529         }
+530         fprintf(output, "%s", status);
+531         fprintf(output, ")");
+532         fprintf(output, " [%p]: {\n", stack);
+533         if (checks != STACK_ST_OK) {
+534             fprintf(output, "ERROR! Stack structure was corrupted\&.\nThe data below was changed from the outside\&.\nThis can fail!\n");
+535         }
+536         fprintf(output, "\t         size : %lu\n", stack->size);
+537         fprintf(output, "\t     capacity : %lu\n", stack->capacity);
+538         fprintf(output, "\t     checkSum : %x\n", stack->checkSumVital);
+539         fprintf(output, "\tcheckSumVital : %x\n", stack->checkSum);
+540         
+541         fprintf(output, "\tdata [%p]: {\n", stack->data);
+542         if (checks == STACK_ST_OK) {
+543         size_t i = 0;
+544         for (i = 0; i < stack->size; i++) {
+545             fprintf(output, "\t\t");
+546             fprintf(output, "*[%lu] : ", i);
+547             fprintf(output, "[%p] ", stack->data + i);
+548             StackElementDump(stack->logFile, stack->data[i]);
+549             fprintf(output, "\n");
+550         }
+551         fprintf(output, "\t\t _______\n");
+552         if (stack->size  < stack->capacity) {
+553             fprintf(output, "\t\t [%lu] : GARBAGE(", i);
+554             fprintf(output, "[%p] ", stack->data + i);
+555             StackElementDump(stack->logFile, stack->data[i]);
+556             fprintf(output, ")\n");
+557         }
+558         if (stack->size + 1< stack->capacity && stack->size + 1 > stack->size) {
+559             fprintf(output, "\t\t [%lu] : GARBAGE(", i + 1);
+560             fprintf(output, "[%p] ", stack->data + i + 1);
+561             StackElementDump(stack->logFile, stack->data[i + 1]);
+562             fprintf(output, ")\n");
+563         }
+564         } else{
+565             fprintf(output, "\t\tDATA CAN'T BE READED\n");
+566         }
+567         
+568         fprintf(output, "\t}\n");
+569         fprintf(output, "}\n");
+570         
+571         const size_t memory = StackRigidMemoryUse(stack);
+572         fprintf(output, "Size allocated : %lu bytes\n", memory);
+573         fprintf(output, "Raw Stack size : %lu bytes\n", sizeof(__overload(StackRigid)));
+574         fprintf(output, "  Element size : %lu bytes\n", sizeof(StackElementType));
+575         fprintf(output, "     Block end : %p\n", (char*)stack + memory);
+576     }
+577     fprintf(output, "=================================\n");
+578     fflush(NULL);
+579     
+580 }
 .fi
 .PP
 References __overload, memory, STACK_ST_INTEGRITYERR, STACK_ST_NULL, STACK_ST_OK, STACK_ST_UNINITIALIZED, StackElementDump, StackElementType, StackRigidMemoryUse(), and StackValidate()\&.
@@ -776,28 +785,28 @@ the outcome of the operation
 
 .PP
 .nf
-339                                                                                             {
-340     if (!istack_pointer_valid(stack, sizeof(stack)))
-341         return STACK_OP_NULL;
-342     
-343     StackRigidState integrityChecks = StackValidate(*stack);
-344     
-345     if (integrityChecks != STACK_ST_OK) {
-346         StackDumpWrapperWhy(*stack, "StackPop operation spotted integrity error");
-347         return STACK_OP_INTEGRITYERR;
-348     }
-349     
-350     if((*stack)->size == 0)
-351         return STACK_OP_UNDERFLOW;
-352     
-353     *value = (*stack)->data[(*stack)->size - 1];
-354     (*stack)->size -= 1;
-355     
-356     __StackReallocate(stack, -1);
-357     __StackUpdateChecksum(*stack);
-358 
-359     return STACK_OP_OK;
-360 }
+325                                                                                             {
+326     if (!istack_pointer_valid(stack, sizeof(stack)))
+327         return STACK_OP_NULL;
+328     
+329     StackRigidState integrityChecks = StackValidate(*stack);
+330     
+331     if (integrityChecks != STACK_ST_OK) {
+332         StackDumpWrapperWhy(*stack, "StackPop operation spotted integrity error");
+333         return STACK_OP_INTEGRITYERR;
+334     }
+335     
+336     if((*stack)->size == 0)
+337         return STACK_OP_UNDERFLOW;
+338     
+339     *value = (*stack)->data[(*stack)->size - 1];
+340     (*stack)->size -= 1;
+341     
+342     __StackReallocate(stack, -1);
+343     __StackUpdateChecksum(*stack);
+344 
+345     return STACK_OP_OK;
+346 }
 .fi
 .PP
 References __StackReallocate(), __StackUpdateChecksum(), STACK_OP_INTEGRITYERR, STACK_OP_NULL, STACK_OP_OK, STACK_OP_UNDERFLOW, STACK_ST_OK, StackDumpWrapperWhy, and StackValidate()\&.
@@ -823,38 +832,38 @@ the outcome of the operation
 
 .PP
 .nf
-274                                                                                            {
-275     if (!istack_pointer_valid(stack, sizeof(stack)))
-276         return STACK_OP_PTRINVALID;
-277     if (!istack_pointer_valid(*stack, sizeof(*stack)))
-278         return STACK_OP_PTRINVALID;
-279     
-280     
-281     StackRigidState integrityChecks = StackValidate(*stack);
-282     
-283     if (integrityChecks != STACK_ST_OK) {
-284         StackDumpWrapperWhy(*stack, "StackPush operation spotted integrity error");
-285         return STACK_OP_INTEGRITYERR;
-286     }
-287     
-288     
-289     StackRigidOperationCodes reallocResult = __StackReallocate(stack, 1);
-290     
-291     if (reallocResult != STACK_OP_OK) {
-292         StackDumpWrapperWhy(*stack, "StackPop operation spotted integrity error during the reallocation");
-293         return reallocResult;
-294     }
-295     
-296     (*stack)->data[(*stack)->size] = value;
-297     (*stack)->size += 1;
-298     
-299     __StackUpdateChecksum(*stack);
-300     
-301     if ((*stack)->size == 0) {
-302         return STACK_OP_OVERFLOW;
-303     }
-304     return STACK_OP_OK;
-305 }
+260                                                                                            {
+261     if (!istack_pointer_valid(stack, sizeof(stack)))
+262         return STACK_OP_PTRINVALID;
+263     if (!istack_pointer_valid(*stack, sizeof(*stack)))
+264         return STACK_OP_PTRINVALID;
+265     
+266     
+267     StackRigidState integrityChecks = StackValidate(*stack);
+268     
+269     if (integrityChecks != STACK_ST_OK) {
+270         StackDumpWrapperWhy(*stack, "StackPush operation spotted integrity error");
+271         return STACK_OP_INTEGRITYERR;
+272     }
+273     
+274     
+275     StackRigidOperationCodes reallocResult = __StackReallocate(stack, 1);
+276     
+277     if (reallocResult != STACK_OP_OK) {
+278         StackDumpWrapperWhy(*stack, "StackPop operation spotted integrity error during the reallocation");
+279         return reallocResult;
+280     }
+281     
+282     (*stack)->data[(*stack)->size] = value;
+283     (*stack)->size += 1;
+284     
+285     __StackUpdateChecksum(*stack);
+286     
+287     if ((*stack)->size == 0) {
+288         return STACK_OP_OVERFLOW;
+289     }
+290     return STACK_OP_OK;
+291 }
 .fi
 .PP
 References __StackReallocate(), __StackUpdateChecksum(), STACK_OP_INTEGRITYERR, STACK_OP_OK, STACK_OP_OVERFLOW, STACK_OP_PTRINVALID, STACK_ST_OK, StackDumpWrapperWhy, and StackValidate()\&.
@@ -878,10 +887,10 @@ alocated bytes
 
 .PP
 .nf
-499                                                            {
-500     assert(stack);
-501     return sizeof(__overload(StackRigid)) + (stack->capacity - 1) * sizeof(StackElementType);
-502 }
+485                                                            {
+486     assert(stack);
+487     return sizeof(__overload(StackRigid)) + (stack->capacity - 1) * sizeof(StackElementType);
+488 }
 .fi
 .PP
 References __overload, and StackElementType\&.
@@ -905,25 +914,25 @@ calculated state
 
 .PP
 .nf
-383                                                               {
-384     if (!istack_pointer_valid(stack, sizeof(stack)))
-385         return STACK_ST_NULL;
-386     
-387     if (stack->size > stack->capacity || stack->checkSum == 0 || stack->checkSumVital == 0)
-388         return STACK_ST_INTEGRITYERR;
-389     
-390     #ifndef IGNORE_VALIDITY
-391         uint32_t currentChecksumVital = __StackGetChecksumVital(stack);
-392         if (currentChecksumVital != stack->checkSumVital || currentChecksumVital == 0)
-393             return STACK_ST_INTEGRITYERR;
-394         
-395         uint32_t currentChecksum = __StackGetChecksum(stack);
-396         if (currentChecksum != stack->checkSum || currentChecksum == 0)
-397             return STACK_ST_INTEGRITYERR;
-398     #endif
-399 
-400     return STACK_ST_OK;
-401 }
+369                                                               {
+370     if (!istack_pointer_valid(stack, sizeof(stack)))
+371         return STACK_ST_NULL;
+372     
+373     if (stack->size > stack->capacity || stack->checkSum == 0 || stack->checkSumVital == 0)
+374         return STACK_ST_INTEGRITYERR;
+375     
+376     #ifndef IGNORE_VALIDITY
+377         uint32_t currentChecksumVital = __StackGetChecksumVital(stack);
+378         if (currentChecksumVital != stack->checkSumVital || currentChecksumVital == 0)
+379             return STACK_ST_INTEGRITYERR;
+380         
+381         uint32_t currentChecksum = __StackGetChecksum(stack);
+382         if (currentChecksum != stack->checkSum || currentChecksum == 0)
+383             return STACK_ST_INTEGRITYERR;
+384     #endif
+385 
+386     return STACK_ST_OK;
+387 }
 .fi
 .PP
 References __StackGetChecksum(), __StackGetChecksumVital(), STACK_ST_INTEGRITYERR, STACK_ST_NULL, and STACK_ST_OK\&.

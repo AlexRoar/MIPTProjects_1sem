@@ -60,39 +60,30 @@
 #define StackDumpWrapperWhy(stack, why) { StackDump(stack, __LINE__, __FILE__, why); }
 
 
-//#define IGNORE_VALIDITY
 
 /**
  * Codes returned after operations on Stack
  */
 typedef enum StackRigidOperationCodes{
-    /**
-     * Succesful operation
-     */
+    //! Succesful operation
     STACK_OP_OK,
-    /**
-     * Tried to get value from the empty stack
-     */
+
+    //! Tried to get value from the empty stack
     STACK_OP_UNDERFLOW,
-    /**
-     * Stack overflow and new memory allocation failed
-     */
+
+    //! Stack overflow and new memory allocation failed
     STACK_OP_OVERFLOW,
-    /**
-     * No memory for stack alocations
-     */
+
+    //! No memory for stack alocations
     STACK_OP_NOMEMORY,
-    /**
-     * Stack memory was altered by some outer access
-     */
+
+    //! Stack memory was altered by some outer access
     STACK_OP_INTEGRITYERR,
-    /**
-     * Found NULL pointer during the operation
-     */
+
+    //! Found NULL pointer during the operation
     STACK_OP_NULL,
-    /**
-     * Found invalid pointer during the operation
-     */
+
+    //!  Found invalid pointer during the operation
     STACK_OP_PTRINVALID
 } StackRigidOperationCodes;
 
@@ -101,21 +92,16 @@ typedef enum StackRigidOperationCodes{
  * Codes characterizing Stack state
  */
 typedef enum StackRigidState{
-    /**
-     * Stack is running as expected
-     */
+    //! Stack is running as expected
     STACK_ST_OK,
-    /**
-     * Stack was altered by some outer access
-     */
+
+    //! Stack was altered by some outer access
     STACK_ST_INTEGRITYERR,
-    /**
-     * Stack is uninitialized
-     */
+
+    //! Stack is uninitialized
     STACK_ST_UNINITIALIZED,
-    /**
-     * Found NULL pointer during the operation
-     */
+
+    //! Found NULL pointer during the operation
     STACK_ST_NULL
 } StackRigidState;
 
@@ -138,6 +124,19 @@ static uint32_t adlerChecksum(const void* firstBlock, size_t len) {
 }
 
 
+/**
+ * @attention Adjust this for your OS to increase security!
+ * @brief Checks for pointer validity
+ * @param[in] addr address to be checked
+ * @param[in] size of the address
+ * @return checksum
+ */
+static bool istack_pointer_valid(void* addr, int size) {
+    if ((uint64_t)addr < 4096 || (uint64_t)addr % (uint64_t)size != 0) {
+        return false;
+    }
+    return true;
+}
 #endif /* StackRigid_h general models */
 
 /**

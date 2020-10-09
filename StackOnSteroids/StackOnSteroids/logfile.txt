@@ -1,0 +1,91 @@
+  size_t size: 8 bytes
+checksum size: 4 bytes
+=================================
+Stack dump Fri Oct  9 10:19:25 2020
+Line: 71
+File: /Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp
+Stack (ok) [0x60b000008a70]: {
+	         size : 15
+	     capacity : 16
+	     checkSum : 11f2033d
+	checkSumVital : 8e570ae8
+	data [0x60b000008a90]: {
+		*[0] : [0x60b000008a90] 1
+		*[1] : [0x60b000008a94] 2
+		*[2] : [0x60b000008a98] 3
+		*[3] : [0x60b000008a9c] 4
+		*[4] : [0x60b000008aa0] 5
+		*[5] : [0x60b000008aa4] 6
+		*[6] : [0x60b000008aa8] 7
+		*[7] : [0x60b000008aac] 8
+		*[8] : [0x60b000008ab0] 9
+		*[9] : [0x60b000008ab4] 10
+		*[10] : [0x60b000008ab8] 11
+		*[11] : [0x60b000008abc] 12
+		*[12] : [0x60b000008ac0] 13
+		*[13] : [0x60b000008ac4] 14
+		*[14] : [0x60b000008ac8] 15
+		 _______
+		 [15] : GARBAGE([0x60b000008acc] -1094795586)
+	}
+}
+Size allocated : 100 bytes
+Raw Stack size : 40 bytes
+  Element size : 4 bytes
+     Block end : 0x60b000008ad4
+=================================
+=================================
+Stack dump Fri Oct  9 10:19:25 2020
+Line: 72
+File: /Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp
+Stack (ok) [0x60e000006240]: {
+	         size : 15
+	     capacity : 16
+	     checkSum : 11f2033d
+	checkSumVital : 9f8c1187
+	data [0x60e000006260]: {
+		*[0] : [0x60e000006260] 0.5
+		*[1] : [0x60e000006268] 1.5
+		*[2] : [0x60e000006270] 2.5
+		*[3] : [0x60e000006278] 3.5
+		*[4] : [0x60e000006280] 4.5
+		*[5] : [0x60e000006288] 5.5
+		*[6] : [0x60e000006290] 6.5
+		*[7] : [0x60e000006298] 7.5
+		*[8] : [0x60e0000062a0] 8.5
+		*[9] : [0x60e0000062a8] 9.5
+		*[10] : [0x60e0000062b0] 10.5
+		*[11] : [0x60e0000062b8] 11.5
+		*[12] : [0x60e0000062c0] 12.5
+		*[13] : [0x60e0000062c8] 13.5
+		*[14] : [0x60e0000062d0] 14.5
+		 _______
+		 [15] : GARBAGE([0x60e0000062d8] -1.83255e-06)
+	}
+}
+Size allocated : 160 bytes
+Raw Stack size : 40 bytes
+  Element size : 8 bytes
+     Block end : 0x60e0000062e0
+=================================
+=================================
+Stack dump Fri Oct  9 10:19:25 2020
+Line: 74
+File: /Users/aleksandrdremov/Desktop/Обучение/МФТИ/ФПМИ/Прога_1 сем/StackOnSteroids/StackOnSteroids/main.cpp
+Stack (INTEGRITY ERROR SPOTTED) [0x60e000006240]: {
+ERROR! Stack structure was corrupted.
+The data below was changed from the outside.
+This can fail!
+	         size : 15
+	     capacity : 18374686479671623696
+	     checkSum : 11f2033d
+	checkSumVital : 9f8c1187
+	data [0x60e000006260]: {
+		DATA CAN'T BE READED
+	}
+}
+Size allocated : 17870283321406128288 bytes
+Raw Stack size : 40 bytes
+  Element size : 8 bytes
+     Block end : 0xf80060e0000062e0
+=================================
