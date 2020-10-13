@@ -5,12 +5,13 @@
 //  Created by Александр Дремов on 12.10.2020.
 //
 
-#include "CommandsParser.hpp"
-#include "AssemblyHelpers.hpp"
-#include "Syntax.hpp"
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
+#include "CommandsParser.hpp"
+#include "AssemblyHelpers.hpp"
+#include "Syntax.hpp"
+#include "CommandsDTypes.hpp"
 
 
 char* getSourceFileData(FILE* inputFile, size_t* length) {
@@ -30,14 +31,37 @@ char* getSourceFileData(FILE* inputFile, size_t* length) {
 }
 
 void preprocessSource(char* code, size_t* length) {
+    for (int i = 0; i + 1 < *length; ) {
+        if(code[i] == ' ' && (code[i+1] == ' ' || code[i-1] == ' ')) {
+            for(int j = i; j < *length; j++) {
+                code[j]=code[j + 1];
+            }
+            (*length)--;
+        } else {
+            i++;
+        }
+    }
+    
     char* commentPos = strchr(code, ';');
     while (commentPos != NULL) {
-        *commentPos = '\0';
+        char* commentPosNext = strchr(commentPos, '\n');
+        if (commentPosNext == NULL){
+            commentPosNext = code + *length - 1;
+        }
+        size_t emptyLength = 0;
+        char* mover = commentPosNext;
+        char* commentPosTmp = commentPos;
+        while (mover != code + *length) {
+            emptyLength++;
+            *(commentPosTmp++) = *(mover++);
+        }
+        *(commentPosTmp) = '\0';
+        *length = strlen(code);
         commentPos = strchr(commentPos + 1, ';');
     }
     
     for (int i = 0; i + 1 < *length; ) {
-        if(code[i] == ' ' && (code[i+1] == ' ' || code[i-1] == ' ')) {
+        if(code[i] == '\n' && (code[i+1] == '\n' || code[i-1] == '\n')) {
             for(int j = i; j < *length; j++) {
                 code[j]=code[j + 1];
             }
@@ -67,26 +91,35 @@ const SyntaxEntity* fetchCommand(const SyntaxMapping* mapping, char* codeBlock) 
     return foundCommand;
 }
 
-int isValidArgumentsNumber(const SyntaxEntity* mapping, char* codeBlock, int* hasArguments) {
+const char** getArgList(char* codeBlock, int* argc) {
+    *argc = 1;
+    char** args = (char**) calloc(SPU_CMD_MAXARGS, sizeof(char*));
     char* firstWhitespace = strchr(codeBlock, ' ');
-    if(firstWhitespace == NULL && strlen(mapping->format) == 0)
-        return 1;
+    args[0] = codeBlock;
+    if(firstWhitespace == NULL)
+        return (const char**)args;
     
-    int argumentsAvailable = 0;
+    int argumentsAvailable = 1;
     if (firstWhitespace != NULL) {
         firstWhitespace = strchr(firstWhitespace, ' ');
         while (firstWhitespace != NULL) {
-            if (!codeBlockEmpty(firstWhitespace))
+            if (!codeBlockEmpty(firstWhitespace)){
+                args[argumentsAvailable] = firstWhitespace + 1;
                 argumentsAvailable++;
+            }
             firstWhitespace = strchr(firstWhitespace + 1, ' ');
         }
     }
-    
+    *argc = argumentsAvailable;
+    return (const char**)args;
+}
+
+int isValidArgumentsNumber(const SyntaxEntity* mapping, int argc) {
     const char* formatPtr = mapping->format;
     
     int maxPossible = 0;
-    int argumentsTotal = argumentsAvailable;
-    *hasArguments = argumentsTotal;
+    int argumentsTotal = argc;
+    int argumentsAvailable = argc;
     while (*formatPtr != '\0') {
         if (*formatPtr == '*' && argumentsAvailable <= 0)
             return 0;
@@ -108,6 +141,7 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
     }
     
     const SyntaxEntity* foundEntity = fetchCommand(mapping, codeBlock);
+    
     if (foundEntity == NULL){
         if (compileParams->verbose) {
             printf("assembly: unknown instruction '%s' found\n", codeBlock);
@@ -116,8 +150,11 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
         return SPU_UNKNOWN_COMMAND;
     }
     
-    int hasArguments = 0;
-    int validArguments = isValidArgumentsNumber(foundEntity, codeBlock, &hasArguments);
+    int argc = 0;
+    const char** argv = getArgList( codeBlock, &argc);
+    
+    int validArguments = isValidArgumentsNumber(foundEntity, argc - 1);
+    
     if (validArguments == 0){
         if (compileParams->verbose) {
             printf("assembly: wrong instruction '%s' found. "
@@ -130,12 +167,43 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
         return SPU_CMD_WRONG_ARGUMENTS;
     }
     
+    CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, compileParams, binary, argc, argv);
+    
+    /**
+     SPU_CTB_OK,
+     SPU_CTB_ERROR,
+     SPU_CTB_UNKNOWN_REGISTER,
+     SPU_CTB_INVALID_NUMBER
+     */
+    switch (parseRes) {
+        case SPU_CTB_ERROR:{
+            printf("assembly: general syntax error\n");
+            fprintf(compileParams->lstFile, "assembly: general syntax error\n");
+            break;
+        }
+        case SPU_CTB_UNKNOWN_REGISTER:{
+            printf("assembly: unknown register\n");
+            fprintf(compileParams->lstFile, "assembly: unknown register\n");
+            break;
+        }
+        case SPU_CTB_INVALID_NUMBER:{
+            printf("assembly: invalid number of arguments\n");
+            fprintf(compileParams->lstFile, "assembly: invalid number of arguments\n");
+            break;
+        }
+        case SPU_CTB_OK:{
+            break;
+        }
+    }
 
+    if (parseRes != SPU_CTB_OK) {
+        return SPU_FINALPARSE_ERROR;
+    }
     
     if (newlinePos != NULL){
         *newlinePos = '\n';
     }
-    
+    free(argv);
     return SPU_PARSE_OK;
 }
 
@@ -159,14 +227,60 @@ CommandParseResult parseCode(AssemblyParams* compileParams, const SyntaxMapping*
                 if (compileParams->verbose) {
                     printf("assembly: failed to parse instruction no. %zu '%s'\n", instrUct, lastBlockPos);
                 }
-                fprintf(compileParams->lstFile, "assembly: foiled to parse instruction no. %zu '%s'\n", instrUct, lastBlockPos);
+                fprintf(compileParams->lstFile, "assembly: failed to parse instruction no. %zu '%s'\n", instrUct, lastBlockPos);
                 return res;
             }
             instrUct++;
         }
+        
         lastBlockPos = ((char*)memchr(lastBlockPos, '\n', length - (lastBlockPos - code))) + 1;
     }
     
     
     return SPU_PARSE_OK;
+}
+
+int registerNoFromName(char* name) {
+    if (strcmp("rax", name) == 0) {
+        return 0;
+    }
+    if (strcmp("rbx", name) == 0) {
+        return 1;
+    }
+    if (strcmp("rcx", name) == 0) {
+        return 2;
+    }
+    if (strcmp("rdx", name) == 0) {
+        return 3;
+    }
+    return -1;
+}
+
+const char* registerNameFromNo(int no) {
+    switch (no) {
+        case 0:
+            return "rax";
+            break;
+        case 1:
+            return "rbx";
+            break;
+        case 2:
+            return "rcx";
+            break;
+        case 3:
+            return "rdx";
+            break;
+    }
+    return "<UNKNOWN REGISTER>";
+}
+
+
+void codeEstimations(BinaryFile* binary, char* code){
+    size_t stackInitSize = 0;
+    char* p = strstr(code, "push");
+    while(p != NULL){
+        stackInitSize++;
+        p = strstr(p + 1, "push");
+    }
+    binary->stackSize = stackInitSize;
 }

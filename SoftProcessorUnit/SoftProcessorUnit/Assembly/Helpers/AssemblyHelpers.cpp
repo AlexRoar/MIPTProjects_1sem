@@ -8,13 +8,14 @@
 #include <string.h>
 #include <assert.h>
 #include "AssemblyHelpers.hpp"
+#include "CommandsParser.hpp"
+#include "AssemblyDTypes.hpp"
 #include "SPUVersion.hpp"
 
 int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
-    AssemblyParams newParams = {0, 0, 0, 0};
-    
+    AssemblyParams newParams = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     if (argc <= 1){
-        printHelpData();
+        printAssemblyHelpData();
     }
 
     for(int i = 1; i < argc; i++) {
@@ -25,6 +26,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
             }
             FILE* inputFile = fopen(argv[i + 1], "rb");
             newParams.inputFile = inputFile;
+            newParams.inputFileName = *(argv + i + 1);
             if (newParams.inputFile == NULL){
                 printf("assembly: Can't open input file\n");
                 return EXIT_FAILURE;
@@ -37,11 +39,12 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
             }
             FILE* outputFile = fopen(argv[i + 1], "wb");
             newParams.outputFile = outputFile;
+            newParams.outputFileName = *(argv + i + 1);
             i++;
         }else if (strcmp(argv[i], "--verbose") == 0) {
             newParams.verbose = 1;
         }else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) {
-            printHelpData();
+            printAssemblyHelpData();
         }else if (strcmp(argv[i], "--lstfile") == 0) {
             if (i + 1 > argc){
                 printf("assembly: No lstfile file specified after --lstfile\n");
@@ -49,28 +52,47 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
             }
             FILE* lstFile = fopen(argv[i + 1], "wb");
             newParams.lstFile = lstFile;
+            newParams.lstFileName = *(argv + i + 1);
             i++;
+        }else if (strcmp(argv[i], "-E") == 0) {
+            newParams.prepFile = (FILE*) 1;
         }
     }
-    if (newParams.inputFile == NULL){
+    
+    if (newParams.inputFile == NULL) {
         printf("assembly: No input file specified\n");
         return EXIT_FAILURE;
     }
-    if (newParams.outputFile == NULL){
+    
+    if (newParams.outputFile == NULL) {
         newParams.outputFile = fopen("output.spub", "wb");
+        newParams.outputFileName = "output.spub";
         if (newParams.outputFile == NULL){
             printf("assembly: No output file specified\n");
             return EXIT_FAILURE;
         }
     }
-    if (newParams.lstFile == NULL){
+    
+    if (newParams.lstFile == NULL) {
         newParams.lstFile = fopen("assembly.lst", "wb");
+        newParams.lstFileName = "assembly.lst";
         if (newParams.lstFile == NULL){
             printf("assembly: No lstFile file specified\n");
             return EXIT_FAILURE;
         }
     }
+    
+    if (newParams.prepFile != NULL) {
+        newParams.prepFile = fopen("assembly.spuprep", "wb");
+        newParams.prepFileName = "assembly.spuprep";
+        if (newParams.prepFileName == NULL) {
+            printf("assembly: Can't open assembly.spuprep\n");
+            return EXIT_FAILURE;
+        }
+    }
+    
     *params = newParams;
+    
     return EXIT_SUCCESS;
 }
 
@@ -95,9 +117,25 @@ int appendToBinFile(BinaryFile* binFile, void* block, size_t size) {
     
     memcpy(binFile->code + binFile->currentSize, block, size);
     
+    binFile->currentSize += size;
+    
     return EXIT_SUCCESS;
 }
 
+int appendToBinFile(BinaryFile* binFile, char block) {
+    int resizeResult = resizeBinFile(binFile, 2);
+    if (resizeResult != EXIT_SUCCESS)
+        return resizeResult;
+    
+    binFile->code[binFile->currentSize] = block;
+    binFile->currentSize += 1;
+    
+    return EXIT_SUCCESS;
+}
+
+int appendToBinFile(BinaryFile* binFile, double block) {
+    return appendToBinFile(binFile, (void*) &block, sizeof(double));
+}
 
 int resizeBinFile(BinaryFile* binFile, size_t spaceNeeded){
     if (binFile->currentSize + spaceNeeded >= binFile->maxSize){
@@ -111,7 +149,7 @@ int resizeBinFile(BinaryFile* binFile, size_t spaceNeeded){
 }
 
 
-void printHelpData(void) {
+void printAssemblyHelpData(void) {
     int SPUAssemblyVersion = SPU_VERSION;
     char* SPUAssemblyVersion_chars = (char*)&SPUAssemblyVersion;
     printf("SPUAssembly v%c.%c.%c%c help\n"
@@ -120,6 +158,7 @@ void printHelpData(void) {
            "-h, --help  show this help message\n"
            "--verbose   output assembly debug information to the console\n"
            "--lstfile   <.lst file> file to output .lst assembly data assembly.lst by default\n"
+           "-E          generate preprocessed file assembly.spuprep\n"
            "\n",
            SPUAssemblyVersion_chars[0],
            SPUAssemblyVersion_chars[1],
@@ -138,4 +177,67 @@ void DestructAssemblyParams(AssemblyParams* params) {
     fclose(params->inputFile);
     fclose(params->lstFile);
     fclose(params->outputFile);
+    if (params->prepFile != NULL)
+        fclose(params->prepFile);
+}
+
+int flushBinFile(BinaryFile* binFile, FILE* output) {
+    size_t size = binFile->currentSize;
+    
+    fwrite((char*)&binFile->prepend, 1, sizeof(binFile->prepend), output);
+    fwrite((char*)&binFile->signature, 1, sizeof(binFile->signature), output);
+    fwrite((char*)&binFile->version, 1, sizeof(binFile->version), output);
+    fwrite((char*)&binFile->stackSize, 1, sizeof(binFile->stackSize), output);
+    fwrite((char*)&binFile->currentSize, 1, sizeof(binFile->currentSize), output);
+    
+    fwrite(binFile->code, 1, size, output);
+    
+    return EXIT_SUCCESS;
+}
+
+BinFileLoadResult loadBinFile(BinaryFile* binFile, FILE* inputFile) {
+    size_t size = 0;
+    char* data = getSourceFileData(inputFile, &size);
+    
+    int currentVersion       = SPU_VERSION;
+    int currentSignature     = SPU_SIGNATURE;
+    short int currentPrepend = SPU_BIN_PREPEND;
+    
+    if (size < sizeof(binFile->prepend) + sizeof(binFile->signature)
+                                         + sizeof(binFile->version)) {
+        return SPU_BINLOAD_WRONG_SIGNATURE;
+    }
+    
+    char* curPos = data;
+    binFile->prepend    = *((short int*) curPos);
+    curPos += sizeof(binFile->prepend);
+    
+    binFile->signature  = *((int*) curPos);
+    curPos += sizeof(binFile->signature);
+    
+    binFile->version    = *((int*) curPos);
+    curPos += sizeof(binFile->version);
+    
+    if (binFile->prepend != currentPrepend) {
+        return SPU_BINLOAD_WRONG_SIGNATURE;
+    }
+    
+    if (binFile->signature != currentSignature) {
+        return SPU_BINLOAD_WRONG_SIGNATURE;
+    }
+    
+    if (binFile->version != currentVersion) {
+        return SPU_BINLOAD_WRONG_VERSION;
+    }
+    
+    binFile->stackSize    = *((size_t*) curPos);
+    curPos += sizeof(binFile->stackSize);
+    
+    binFile->currentSize    = *((size_t*) curPos);
+    curPos += sizeof(binFile->currentSize);
+    
+    resizeBinFile(binFile, binFile->currentSize + 20);
+    memcpy(binFile->code, (char*) curPos, binFile->currentSize);
+    
+    return SPU_BINLOAD_OK;
 }

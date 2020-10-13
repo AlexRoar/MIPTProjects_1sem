@@ -9,22 +9,7 @@
 #define AssemblyHelpers_hpp
 #include <stdlib.h>
 #include <stdio.h>
-
-typedef struct {
-    FILE* inputFile;
-    FILE* outputFile;
-    FILE* lstFile;
-    int   verbose;
-} AssemblyParams;
-
-typedef struct {
-    short int  prepend;
-    int        signature;
-    int        version;
-    char*      code;
-    size_t     maxSize;
-    size_t     currentSize;
-} BinaryFile;
+#include "AssemblyDTypes.hpp"
 
 int parseArgs(int argc, const char* argv[], AssemblyParams* params);
 
@@ -32,7 +17,15 @@ BinaryFile* NewBinaryFile();
 
 int appendToBinFile(BinaryFile* binFile, void* block, size_t size);
 
+int appendToBinFile(BinaryFile* binFile, char block);
+
+int appendToBinFile(BinaryFile* binFile, double block);
+
+int flushBinFile(BinaryFile* binFile, FILE* output);
+
 int resizeBinFile(BinaryFile* binFile, size_t spaceNeeded);
+
+BinFileLoadResult loadBinFile(BinaryFile* binFile, FILE* inputFile);
 
 int commandParse (BinaryFile* binFile, char* command);
 
@@ -40,6 +33,6 @@ void DestructBinaryFile(BinaryFile* binFile);
 
 void DestructAssemblyParams(AssemblyParams* params);
 
-void printHelpData(void);
+void printAssemblyHelpData(void);
 
 #endif /* AssemblyHelpers_hpp */

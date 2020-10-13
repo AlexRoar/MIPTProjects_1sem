@@ -7,19 +7,36 @@
 
 #ifndef Syntax_h
 #define Syntax_h
+
 #include <stdlib.h>
+#include "TranslationDTypes.hpp"
+#include "AssemblyHelpers.hpp"
+#include "CommandToBytecode.hpp"
+#include "BytecodeToCommand.hpp"
 
-typedef struct {
-    const char*  naming;
-    const char   code;
-    const char*  format;
-    const char   flagBytes;
-} SyntaxEntity;
+#define SPU_CMD_MAXARGS 5
 
-typedef struct {
+struct SyntaxEntity {
+    const char*             naming;
+    const char              code;
+    const char*             format;
+    const char              flagBytes;
+    CommandToBytesResult    (*cProcessor) (const struct SyntaxEntity* thou,
+                                           AssemblyParams* compileParams,
+                                           BinaryFile* binary,
+                                           int argc,
+                                           const char** argv);
+    
+    DisassemblyParseResult  (*bProcessor) (const struct SyntaxEntity* thou,
+                                           DisassemblyParams* params,
+                                           BinaryFile* binary,
+                                           char** SPI);
+};
+
+struct SyntaxMapping{
     const SyntaxEntity* entities;
     const size_t        number;
-} SyntaxMapping;
+};
 
 SyntaxMapping getSyntaxMapping(void);
 

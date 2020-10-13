@@ -42,6 +42,10 @@ int main(int argc, const char* argv[]){
     char* code = getSourceFileData(compileParams.inputFile, &codeLen);
     preprocessSource(code, &codeLen);
     
+    if (compileParams.prepFile != NULL) {
+        fwrite(code, 1, codeLen,compileParams.prepFile);
+    }
+    
     BinaryFile* binary = NewBinaryFile();
     
     CommandParseResult parseRes = parseCode(&compileParams, (const SyntaxMapping*) &syntax, binary, code, codeLen);
@@ -50,6 +54,18 @@ int main(int argc, const char* argv[]){
         printf("assembly: process finished with EXIT_FAILURE code\n");
         return EXIT_FAILURE;
     }
+    
+    if (compileParams.verbose){
+        printf("Generated code: \n");
+        for (size_t i = 0; i < binary->currentSize; i++) {
+            printf("%d ", binary->code[i]);
+        }
+        printf("\n");
+    }
+    
+    codeEstimations(binary, code);
+    
+    flushBinFile(binary, compileParams.outputFile);
     
     free(code);
     DestructBinaryFile(binary);
