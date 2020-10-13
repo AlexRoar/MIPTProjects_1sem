@@ -16,17 +16,19 @@
 
 #define OPTRANSLATE_FUNC(name) CommandToBytesResult name (const struct SyntaxEntity* thou, AssemblyParams* compileParams, BinaryFile* binary, int argc, const char** argv)
 
-#define DUMPCODEBLOCK for (;starting < ending; starting++) { fprintf(compileParams->lstFile, "%d ", binary->code[starting]); }
+#define DUMPCODEBLOCK for (;starting < ending; starting++) { fprintf(compileParams->lstFile, "%-3d ", (unsigned char)binary->code[starting]); }
+
+#define DUMPCODEBLOCKHEX for (;starting < ending; starting++) { fprintf(compileParams->lstFile, "%2x ", (unsigned char)binary->code[starting]); }
 
 #define LSTDUMPED(code) { \
     size_t starting = binary->currentSize; \
     { code } \
     \
     size_t ending = binary->currentSize;\
-    fprintf(compileParams->lstFile, "%-5zu -> %5zu | ", starting, ending);\
+    fprintf(compileParams->lstFile, "%-5zu -> %5zu | ", starting + binary->codeOffset, ending + binary->codeOffset - 1);\
     fprintf(compileParams->lstFile, "%-2zu | ", ending - starting);\
     fprintf(compileParams->lstFile, "%-20s | ", argv[0]);\
-    DUMPCODEBLOCK \
+    DUMPCODEBLOCKHEX\
     fprintf(compileParams->lstFile, "\n");\
 }
 

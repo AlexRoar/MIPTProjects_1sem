@@ -200,9 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				A071A97A25351D8C008711EF /* output.spub */,
-				A071A97E2535C9E5008711EF /* assembly.spuprep */,
 				A071A9522534E616008711EF /* prog.spus */,
 				A071A95A2534E886008711EF /* assembly.lst */,
+				A071A97E2535C9E5008711EF /* assembly.spuprep */,
 				A071A99E253606BA008711EF /* disasm.spus */,
 			);
 			path = WorkingDirectory;

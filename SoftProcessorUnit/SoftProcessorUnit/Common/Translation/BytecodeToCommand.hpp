@@ -26,6 +26,8 @@ fprintf(params->outputFile, "\n"); }
 
 int checkBytesEnough(const SyntaxEntity* thou, BinaryFile* binary, char* SPI);
 
+int checkBytesEnoughNumber(BinaryFile* binary, char* SPI, size_t bytes);
+
 OPBACKTRANSLATE_FUNC(bPush) ;
 OPBACKTRANSLATE_FUNC(bPop)  ;
 OPBACKTRANSLATE_FUNC(bIn)   ;

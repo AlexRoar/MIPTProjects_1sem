@@ -51,7 +51,7 @@ int main(int argc, const char **argv) {
             
             printf("Scanned code:\n");
             for (size_t i = 0; i < binary->currentSize; i++) {
-                printf("%d ", binary->code[i]);
+                printf("%d ", (unsigned char)binary->code[i]);
             }
             printf("\n");
         }
@@ -59,7 +59,27 @@ int main(int argc, const char **argv) {
     
     SyntaxMapping syntax = getSyntaxMapping();
     
-    disAssamblyCode(&parameters, &syntax, binary);
+    DisassemblyParseResult res = disAssamblyCode(&parameters, &syntax, binary);
+    if (res != SPU_DISASM_OK){
+        printf("disassembly: disassambly terminated with code ");
+        switch (res) {
+            case SPU_DISASM_OK:
+                printf("SPU_DISASM_OK\n");
+                break;
+            case SPU_DISASM_UNKNOWN_CMD:
+                printf("SPU_DISASM_UNKNOWN_CMD\n");
+                break;
+            case SPU_DISASM_WRONG_CMDFORMAT:
+                printf("SPU_DISASM_WRONG_CMDFORMAT\n");
+                break;
+            case SPU_DISASM_NOTENOUGHARGS:
+                printf("SPU_DISASM_NOTENOUGHARGS\n");
+                break;
+        }
+        DestructBinaryFile(binary);
+        DestructDisAssemblyParams(&parameters);
+        return EXIT_FAILURE;
+    }
 
     DestructBinaryFile(binary);
     DestructDisAssemblyParams(&parameters);

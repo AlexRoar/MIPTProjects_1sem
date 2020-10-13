@@ -58,7 +58,7 @@ int main(int argc, const char* argv[]){
     if (compileParams.verbose){
         printf("Generated code: \n");
         for (size_t i = 0; i < binary->currentSize; i++) {
-            printf("%d ", binary->code[i]);
+            printf("%d ", (unsigned char)binary->code[i]);
         }
         printf("\n");
     }

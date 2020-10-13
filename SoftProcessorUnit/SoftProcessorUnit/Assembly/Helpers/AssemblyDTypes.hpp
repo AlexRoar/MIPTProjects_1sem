@@ -26,14 +26,17 @@ struct AssemblyParams{
 
 struct BinaryFile{
     short int  prepend;
-    int        signature;
     int        version;
+    int        signature;
     size_t     stackSize;
     size_t     currentSize;
+    
+    // code
     char*      code;
     
     // unrecorded
     size_t     maxSize;
+    size_t     codeOffset;
 };
 
 enum BinFileLoadResult{

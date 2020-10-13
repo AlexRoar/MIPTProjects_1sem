@@ -106,6 +106,12 @@ BinaryFile* NewBinaryFile(){
     newBin->prepend     = SPU_BIN_PREPEND;
     newBin->version     = SPU_VERSION;
     newBin->signature   = SPU_SIGNATURE;
+    newBin->codeOffset  = sizeof(newBin->prepend) +
+                          sizeof(newBin->version) +
+                          sizeof(newBin->signature) +
+                          sizeof(newBin->stackSize) +
+                          sizeof(newBin->currentSize);
+    
     return newBin;
 }
 
@@ -185,8 +191,8 @@ int flushBinFile(BinaryFile* binFile, FILE* output) {
     size_t size = binFile->currentSize;
     
     fwrite((char*)&binFile->prepend, 1, sizeof(binFile->prepend), output);
-    fwrite((char*)&binFile->signature, 1, sizeof(binFile->signature), output);
     fwrite((char*)&binFile->version, 1, sizeof(binFile->version), output);
+    fwrite((char*)&binFile->signature, 1, sizeof(binFile->signature), output);
     fwrite((char*)&binFile->stackSize, 1, sizeof(binFile->stackSize), output);
     fwrite((char*)&binFile->currentSize, 1, sizeof(binFile->currentSize), output);
     
@@ -212,11 +218,11 @@ BinFileLoadResult loadBinFile(BinaryFile* binFile, FILE* inputFile) {
     binFile->prepend    = *((short int*) curPos);
     curPos += sizeof(binFile->prepend);
     
-    binFile->signature  = *((int*) curPos);
-    curPos += sizeof(binFile->signature);
-    
     binFile->version    = *((int*) curPos);
     curPos += sizeof(binFile->version);
+    
+    binFile->signature  = *((int*) curPos);
+    curPos += sizeof(binFile->signature);
     
     if (binFile->prepend != currentPrepend) {
         return SPU_BINLOAD_WRONG_SIGNATURE;

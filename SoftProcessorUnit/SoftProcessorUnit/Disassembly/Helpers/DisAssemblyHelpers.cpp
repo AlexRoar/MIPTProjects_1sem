@@ -115,12 +115,20 @@ DisassemblyParseResult disAssamblyInstruction(DisassemblyParams* params,
     const SyntaxEntity* entity = getSyntaxEntityByCode(mapping, instructionId);
     
     if (entity == NULL) {
+        printf("disassembly: found unknown command (%d) or invalid sequence formation\n", instructionId);
         return SPU_DISASM_UNKNOWN_CMD;
+    }
+    
+    if (params->verbose){
+        printf("disassembly: processing %s command...\n", entity->naming);
     }
     
     DisassemblyParseResult parseRes = entity->bProcessor(entity, params, binary, instruction);
     
-    if (parseRes != SPU_DISASM_OK)
+    if (parseRes != SPU_DISASM_OK){
+        printf("disassembly: error while processing %s\n", entity->naming);
         return parseRes;
+    }
+        
     return SPU_DISASM_OK;
 }

@@ -14,3 +14,9 @@ cos
 sqrt
 het
 out
+push rax
+push rbx
+push rcx
+push rdx
+push 0 
+push 1

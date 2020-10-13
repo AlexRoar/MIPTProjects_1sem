@@ -22,16 +22,24 @@ int checkBytesEnough(const SyntaxEntity* thou, BinaryFile* binary, char* SPI) {
             neededBytes++;
     }
     
-    if (SPI + neededBytes > binary->code + binary->currentSize)
+    return checkBytesEnoughNumber(binary, SPI, neededBytes);
+}
+
+int checkBytesEnoughNumber(BinaryFile* binary, char* SPI, size_t bytes) {
+    if (SPI + bytes > binary->code + binary->currentSize)
         return 0;
     return 1;
 }
+
 
 OPBACKTRANSLATE_FUNC(bPush) {
     OPBACKGENERAL(
     char* localSPI = *SPI;
     char flagByte = *(localSPI + 1);
     if (flagByte == 0) {
+        if (!checkBytesEnoughNumber( binary, *SPI, 10)){
+            return SPU_DISASM_NOTENOUGHARGS;
+        }
         double value = *((double*)(localSPI + 2));
         fprintf(params->outputFile, "%lg", value);
         (*SPI) += sizeof(double) + 2;
