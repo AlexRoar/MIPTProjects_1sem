@@ -22,7 +22,7 @@ int checkBytesEnough(const SyntaxEntity* thou, BinaryFile* binary, char* SPI) {
             neededBytes++;
     }
     
-    if (SPI + neededBytes >= binary->code + binary->currentSize)
+    if (SPI + neededBytes > binary->code + binary->currentSize)
         return 0;
     return 1;
 }
@@ -34,26 +34,42 @@ OPBACKTRANSLATE_FUNC(bPush) {
     if (flagByte == 0) {
         double value = *((double*)(localSPI + 2));
         fprintf(params->outputFile, "%lg", value);
-        *SPI += sizeof(double) + 2;
+        (*SPI) += sizeof(double) + 2;
     } else {
         const char* reg = registerNameFromNo(*(localSPI + 2));
-        printf("%s", reg);
-        *SPI += 2;
+        fprintf(params->outputFile, "%s", reg);
+        (*SPI) += 3;
     }
     )
     return SPU_DISASM_OK;
 }
 
-OPBACKTRANSLATE_FUNC(bPop) {
+OPBACKTRANSLATE_FUNC(bIn)  {
     OPBACKGENERAL(
-                  (*SPI)++;
+                  char* localSPI = *SPI;
+                  char flagByte = *(localSPI + 1);
+                  if (flagByte == 0) {
+                      (*SPI) += 2;
+                  } else {
+                      const char* reg = registerNameFromNo(*(localSPI + 2));
+                      fprintf(params->outputFile, "%s", reg);
+                      (*SPI) += 3;
+                  }
                   )
     return SPU_DISASM_OK;
 }
 
-OPBACKTRANSLATE_FUNC(bIn)  {
+OPBACKTRANSLATE_FUNC(bPop) {
     OPBACKGENERAL(
-                  (*SPI)++;
+                  char* localSPI = *SPI;
+                  char flagByte = *(localSPI + 1);
+                  if (flagByte == 0) {
+                      (*SPI) += 2;
+                  } else {
+                      const char* reg = registerNameFromNo(*(localSPI + 2));
+                      fprintf(params->outputFile, "%s", reg);
+                      (*SPI) += 3;
+                  }
                   )
     return SPU_DISASM_OK;
 }

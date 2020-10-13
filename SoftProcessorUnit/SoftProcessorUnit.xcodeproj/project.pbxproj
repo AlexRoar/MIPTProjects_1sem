@@ -15,6 +15,14 @@
 		A071A93C2534DDB1008711EF /* Syntax.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A8FB2534D1C9008711EF /* Syntax.cpp */; };
 		A071A9422534DE1B008711EF /* AssemblyHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9402534DE1B008711EF /* AssemblyHelpers.cpp */; };
 		A071A9642534FA51008711EF /* CommandsParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9622534FA51008711EF /* CommandsParser.cpp */; };
+		A071A96D25351576008711EF /* CommandToBytecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A96B25351576008711EF /* CommandToBytecode.cpp */; };
+		A071A96E25351576008711EF /* CommandToBytecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A96B25351576008711EF /* CommandToBytecode.cpp */; };
+		A071A96F25351576008711EF /* CommandToBytecode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A96B25351576008711EF /* CommandToBytecode.cpp */; };
+		A071A98B2535F6D2008711EF /* AssemblyHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9402534DE1B008711EF /* AssemblyHelpers.cpp */; };
+		A071A98F2535F6D5008711EF /* CommandsParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9622534FA51008711EF /* CommandsParser.cpp */; };
+		A071A9962535FACD008711EF /* DisAssemblyHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9942535FACD008711EF /* DisAssemblyHelpers.cpp */; };
+		A071A9A425360AA5008711EF /* BytecodeToCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */; };
+		A071A9BF2536159B008711EF /* BytecodeToCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,9 +70,21 @@
 		A071A94A2534E28C008711EF /* SPUVersion.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SPUVersion.hpp; sourceTree = "<group>"; };
 		A071A9522534E616008711EF /* prog.spus */ = {isa = PBXFileReference; lastKnownFileType = text; path = prog.spus; sourceTree = "<group>"; };
 		A071A95A2534E886008711EF /* assembly.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = assembly.lst; sourceTree = "<group>"; };
-		A071A95B2534E88D008711EF /* output.spub */ = {isa = PBXFileReference; lastKnownFileType = text; path = output.spub; sourceTree = "<group>"; };
 		A071A9622534FA51008711EF /* CommandsParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandsParser.cpp; sourceTree = "<group>"; };
 		A071A9632534FA51008711EF /* CommandsParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandsParser.hpp; sourceTree = "<group>"; };
+		A071A96B25351576008711EF /* CommandToBytecode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommandToBytecode.cpp; sourceTree = "<group>"; };
+		A071A96C25351576008711EF /* CommandToBytecode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandToBytecode.hpp; sourceTree = "<group>"; };
+		A071A97A25351D8C008711EF /* output.spub */ = {isa = PBXFileReference; lastKnownFileType = file; path = output.spub; sourceTree = "<group>"; };
+		A071A97E2535C9E5008711EF /* assembly.spuprep */ = {isa = PBXFileReference; lastKnownFileType = text; path = assembly.spuprep; sourceTree = "<group>"; };
+		A071A9942535FACD008711EF /* DisAssemblyHelpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DisAssemblyHelpers.cpp; sourceTree = "<group>"; };
+		A071A9952535FACD008711EF /* DisAssemblyHelpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisAssemblyHelpers.hpp; sourceTree = "<group>"; };
+		A071A99E253606BA008711EF /* disasm.spus */ = {isa = PBXFileReference; lastKnownFileType = text; path = disasm.spus; sourceTree = "<group>"; };
+		A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BytecodeToCommand.cpp; sourceTree = "<group>"; };
+		A071A9A325360AA5008711EF /* BytecodeToCommand.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BytecodeToCommand.hpp; sourceTree = "<group>"; };
+		A071A9A825360E57008711EF /* TranslationDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TranslationDTypes.hpp; sourceTree = "<group>"; };
+		A071A9AC25361015008711EF /* AssemblyDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssemblyDTypes.hpp; sourceTree = "<group>"; };
+		A071A9AD25361032008711EF /* CommandsDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandsDTypes.hpp; sourceTree = "<group>"; };
+		A071A9BB253613AC008711EF /* DisAssemblyDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisAssemblyDTypes.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +179,7 @@
 		A071A92D2534DD5A008711EF /* Disassembly */ = {
 			isa = PBXGroup;
 			children = (
+				A071A9932535FAA8008711EF /* Helpers */,
 				A071A92E2534DD5A008711EF /* SPUDisAssembly.cpp */,
 			);
 			path = Disassembly;
@@ -167,6 +188,7 @@
 		A071A9492534E258008711EF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A071A97325351581008711EF /* Translation */,
 				A071A8F92534D1C9008711EF /* Syntax */,
 				A071A8FD2534D1C9008711EF /* Stack */,
 				A071A94A2534E28C008711EF /* SPUVersion.hpp */,
@@ -177,9 +199,11 @@
 		A071A94E2534E4F7008711EF /* WorkingDirectory */ = {
 			isa = PBXGroup;
 			children = (
-				A071A95B2534E88D008711EF /* output.spub */,
-				A071A95A2534E886008711EF /* assembly.lst */,
+				A071A97A25351D8C008711EF /* output.spub */,
+				A071A97E2535C9E5008711EF /* assembly.spuprep */,
 				A071A9522534E616008711EF /* prog.spus */,
+				A071A95A2534E886008711EF /* assembly.lst */,
+				A071A99E253606BA008711EF /* disasm.spus */,
 			);
 			path = WorkingDirectory;
 			sourceTree = "<group>";
@@ -187,10 +211,34 @@
 		A071A9562534E65B008711EF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A071A9AC25361015008711EF /* AssemblyDTypes.hpp */,
 				A071A9412534DE1B008711EF /* AssemblyHelpers.hpp */,
 				A071A9402534DE1B008711EF /* AssemblyHelpers.cpp */,
+				A071A9AD25361032008711EF /* CommandsDTypes.hpp */,
 				A071A9632534FA51008711EF /* CommandsParser.hpp */,
 				A071A9622534FA51008711EF /* CommandsParser.cpp */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A071A97325351581008711EF /* Translation */ = {
+			isa = PBXGroup;
+			children = (
+				A071A9A825360E57008711EF /* TranslationDTypes.hpp */,
+				A071A96C25351576008711EF /* CommandToBytecode.hpp */,
+				A071A96B25351576008711EF /* CommandToBytecode.cpp */,
+				A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */,
+				A071A9A325360AA5008711EF /* BytecodeToCommand.hpp */,
+			);
+			path = Translation;
+			sourceTree = "<group>";
+		};
+		A071A9932535FAA8008711EF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A071A9BB253613AC008711EF /* DisAssemblyDTypes.hpp */,
+				A071A9942535FACD008711EF /* DisAssemblyHelpers.cpp */,
+				A071A9952535FACD008711EF /* DisAssemblyHelpers.hpp */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -294,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A071A8FF2534D1C9008711EF /* SPU.cpp in Sources */,
+				A071A96D25351576008711EF /* CommandToBytecode.cpp in Sources */,
 				A071A8FE2534D1C9008711EF /* Syntax.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +353,8 @@
 			files = (
 				A071A9172534DC2D008711EF /* Syntax.cpp in Sources */,
 				A071A9422534DE1B008711EF /* AssemblyHelpers.cpp in Sources */,
+				A071A96E25351576008711EF /* CommandToBytecode.cpp in Sources */,
+				A071A9BF2536159B008711EF /* BytecodeToCommand.cpp in Sources */,
 				A071A9642534FA51008711EF /* CommandsParser.cpp in Sources */,
 				A071A91B2534DC4E008711EF /* SPUAssembly.cpp in Sources */,
 			);
@@ -313,8 +364,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A071A98F2535F6D5008711EF /* CommandsParser.cpp in Sources */,
+				A071A9A425360AA5008711EF /* BytecodeToCommand.cpp in Sources */,
 				A071A93C2534DDB1008711EF /* Syntax.cpp in Sources */,
+				A071A9962535FACD008711EF /* DisAssemblyHelpers.cpp in Sources */,
+				A071A96F25351576008711EF /* CommandToBytecode.cpp in Sources */,
 				A071A92F2534DD5A008711EF /* SPUDisAssembly.cpp in Sources */,
+				A071A98B2535F6D2008711EF /* AssemblyHelpers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

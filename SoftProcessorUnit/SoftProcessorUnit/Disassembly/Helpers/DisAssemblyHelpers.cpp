@@ -113,14 +113,14 @@ DisassemblyParseResult disAssamblyInstruction(DisassemblyParams* params,
     char instructionId = **instruction;
     
     const SyntaxEntity* entity = getSyntaxEntityByCode(mapping, instructionId);
+    
     if (entity == NULL) {
         return SPU_DISASM_UNKNOWN_CMD;
     }
     
-    entity->bProcessor(entity,
-                       params,
-                       binary,
-                       instruction);
+    DisassemblyParseResult parseRes = entity->bProcessor(entity, params, binary, instruction);
     
+    if (parseRes != SPU_DISASM_OK)
+        return parseRes;
     return SPU_DISASM_OK;
 }

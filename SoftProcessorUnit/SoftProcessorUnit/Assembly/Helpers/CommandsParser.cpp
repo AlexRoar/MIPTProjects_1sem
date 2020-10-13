@@ -61,7 +61,7 @@ void preprocessSource(char* code, size_t* length) {
     }
     
     for (int i = 0; i + 1 < *length; ) {
-        if(code[i] == '\n' && (code[i+1] == '\n' || code[i-1] == '\n')) {
+        if(code[i] == '\n' && (code[i+1] == '\n' || code[(i > 0) ? i - 1 : i] == '\n')) {
             for(int j = i; j < *length; j++) {
                 code[j]=code[j + 1];
             }

@@ -20,8 +20,8 @@
 
 #define OPBACKGENERAL(code) { \
 fprintf(params->outputFile, "%s ", thou->naming);\
-if (!checkBytesEnough(thou, binary, *SPI)) {return SPU_DISASM_NOTENOUGHARGS;}\
-{code}\
+if (checkBytesEnough(thou, binary, *SPI) == 0) {return SPU_DISASM_NOTENOUGHARGS;}\
+code \
 fprintf(params->outputFile, "\n"); }
 
 int checkBytesEnough(const SyntaxEntity* thou, BinaryFile* binary, char* SPI);

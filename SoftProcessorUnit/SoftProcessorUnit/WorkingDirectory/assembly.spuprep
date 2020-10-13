@@ -1,3 +1,16 @@
 push 2
+push rbx
 pop
+pop rdx
+in
+in rcx
+dump
+add
 mul
+sub
+div
+sin
+cos
+sqrt
+het
+out
