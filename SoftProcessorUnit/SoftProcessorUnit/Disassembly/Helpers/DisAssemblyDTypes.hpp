@@ -19,10 +19,10 @@ struct DisassemblyParams{
 };
 
 enum DisassemblyParseResult{
-    SPU_DISASM_OK,
-    SPU_DISASM_UNKNOWN_CMD,
-    SPU_DISASM_WRONG_CMDFORMAT,
-    SPU_DISASM_NOTENOUGHARGS
+    SPU_DISASM_OK               = 700,
+    SPU_DISASM_UNKNOWN_CMD      = 701,
+    SPU_DISASM_WRONG_CMDFORMAT  = 702,
+    SPU_DISASM_NOTENOUGHARGS    = 703
 };
 
 #endif /* DisAssemblyDTypes_h */

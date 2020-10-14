@@ -9,34 +9,34 @@
 #include "AssemblyHelpers.hpp"
 #include "string.h"
 
-static SyntaxEntity makeEntity(const char* name, const char* format, const char flagBytes,
+static SyntaxEntity makeEntity(const char* name, const char code, const char* format, const char flagBytes,
                                OPTRANSLATE_FUNC((*cProcessor)),
                                OPBACKTRANSLATE_FUNC((*bProcessor))){
-    static char code = 0;
-    SyntaxEntity newEntity = {name, code++, format, flagBytes, cProcessor, bProcessor};
+    SyntaxEntity newEntity = {name, code, format, flagBytes, cProcessor, bProcessor};
     return newEntity;
 }
 
 
 SyntaxMapping getSyntaxMapping(void) {
     static SyntaxEntity operations[] = {
-        makeEntity("push", "*", 1, &cPush, &bPush),
-        makeEntity("pop" , "?", 1, &cPop , &bPop ),
-        makeEntity("in"  , "?", 1, &cIn  , &bIn  ),
-        makeEntity("dump", "" , 0, &cDump, &bDump),
+        makeEntity("push",  0 , "*", 1, &cPush, &bPush),
+        makeEntity("pop" ,  1 , "?", 1, &cPop , &bPop ),
+        makeEntity("in"  ,  2 , "?", 1, &cIn  , &bIn  ),
+        makeEntity("dump",  3 , "" , 0, &cDump, &bDump),
+        makeEntity("clear", 4 , "" , 0, &cClear,&bClear),
         
-        makeEntity("add" , "" , 0, &cAdd , &bAdd ),
-        makeEntity("sub" , "" , 0, &cSub , &bSub ),
-        makeEntity("mul" , "" , 0, &cMul , &bMul ),
-        makeEntity("div" , "" , 0, &cDiv , &bDiv ),
+        makeEntity("add" ,  5, "" , 0, &cAdd , &bAdd ),
+        makeEntity("sub" ,  6 , "" , 0, &cSub , &bSub ),
+        makeEntity("mul" ,  7 , "" , 0, &cMul , &bMul ),
+        makeEntity("div" ,  8 , "" , 0, &cDiv , &bDiv ),
         
-        makeEntity("sin" , "" , 0, &cSin , &bSin  ),
-        makeEntity("cos" , "" , 0, &cCos , &bCos  ),
-        makeEntity("sqrt", "" , 0, &cSqrt, &bSqrt ),
-        makeEntity("pow" , "" , 0, &cPow , &bPow  ),
+        makeEntity("sin" ,  9 , "" , 0, &cSin , &bSin  ),
+        makeEntity("cos" ,  10 , "" , 0, &cCos , &bCos  ),
+        makeEntity("sqrt",  11 , "" , 0, &cSqrt, &bSqrt ),
+        makeEntity("pow" ,  12 , "" , 0, &cPow , &bPow  ),
         
-        makeEntity("het" , "" , 0, &cHet , &bHet  ),
-        makeEntity("out" , "" , 0, &cOut , &bOut  ),
+        makeEntity("het" ,  13 , "" , 0, &cHet , &bHet  ),
+        makeEntity("out" ,  14 , "?", 1, &cOut , &bOut  ),
     };
     static SyntaxMapping mapping = {operations, sizeof(operations) / sizeof(SyntaxEntity)};
     

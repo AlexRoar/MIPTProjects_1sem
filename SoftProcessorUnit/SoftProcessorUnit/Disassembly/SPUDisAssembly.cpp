@@ -18,7 +18,7 @@ int main(int argc, const char **argv) {
     int parsingResult = parseArgs(argc, argv, &parameters);
     
     if (parsingResult != EXIT_SUCCESS) {
-        printf("disassembly: process finished with EXIT_FAILURE code\n");
+        printf("error: disassembly: process finished with EXIT_FAILURE code\n");
         return EXIT_FAILURE;
     }
     
@@ -27,29 +27,32 @@ int main(int argc, const char **argv) {
     if (result != SPU_BINLOAD_OK) {
         switch (result) {
             case SPU_BINLOAD_WRONG_VERSION:
-                printf("disassembly: binary version is not aligned with current build\n");
+                printf("error: disassembly: binary version is not aligned with current build\n");
                 break;
                 
             case SPU_BINLOAD_CORRUPTED:
-                printf("disassembly: file structure corrupted\n");
+                printf("error: disassembly: file structure corrupted\n");
                 break;
             case SPU_BINLOAD_WRONG_SIGNATURE:
-                printf("disassembly: file signature is wrong\n");
+                printf("error: disassembly: file signature is wrong\n");
                 break;
             case SPU_BINLOAD_OK:
                 break;
         }
+        DestructBinaryFile(binary);
+        DestructDisAssemblyParams(&parameters);
+        return EXIT_FAILURE;
     } else {
         if (parameters.verbose) {
             char* SPUAssemblyVersion_chars = (char*)&(binary->version);
-            printf("disassembly: successfully loaded file\n");
-            printf("disassembly: specified version v%c.%c.%c%c\n",
+            printf("info: disassembly: successfully loaded file\n");
+            printf("info: disassembly: specified version v%c.%c.%c%c\n",
                    SPUAssemblyVersion_chars[0],
                    SPUAssemblyVersion_chars[1],
                    SPUAssemblyVersion_chars[2],
                    SPUAssemblyVersion_chars[3]);
             
-            printf("Scanned code:\n");
+            printf("info: Scanned code:\n");
             for (size_t i = 0; i < binary->currentSize; i++) {
                 printf("%d ", (unsigned char)binary->code[i]);
             }
@@ -61,7 +64,7 @@ int main(int argc, const char **argv) {
     
     DisassemblyParseResult res = disAssamblyCode(&parameters, &syntax, binary);
     if (res != SPU_DISASM_OK){
-        printf("disassembly: disassambly terminated with code ");
+        printf("error: disassembly: disassambly terminated with code ");
         switch (res) {
             case SPU_DISASM_OK:
                 printf("SPU_DISASM_OK\n");

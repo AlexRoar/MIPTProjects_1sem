@@ -143,10 +143,10 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
     const SyntaxEntity* foundEntity = fetchCommand(mapping, codeBlock);
     
     if (foundEntity == NULL){
-        if (compileParams->verbose) {
-            printf("assembly: unknown instruction '%s' found\n", codeBlock);
-        }
-        fprintf(compileParams->lstFile, "assembly: unknown instruction '%s' found\n", codeBlock);
+        printf("%s: error: assembly: unknown instruction '%s' found\n", compileParams->inputFileName,
+                   codeBlock);
+        
+        fprintf(compileParams->lstFile, "error: assembly: unknown instruction '%s' found\n", codeBlock);
         return SPU_UNKNOWN_COMMAND;
     }
     
@@ -157,11 +157,11 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
     
     if (validArguments == 0){
         if (compileParams->verbose) {
-            printf("assembly: wrong instruction '%s' found. "
+            printf("%s: error: assembly: wrong instruction '%s' found. "
                    "Arguments number is not valid. "
-                   "Valid format: '%s'\n", codeBlock, foundEntity->format);
+                   "Valid format: '%s'\n", compileParams->inputFileName, codeBlock, foundEntity->format);
         }
-        fprintf(compileParams->lstFile, "assembly: wrong instruction '%s' found. "
+        fprintf(compileParams->lstFile, "error: assembly: wrong instruction '%s' found. "
                "Arguments number is not valid. "
                "Valid format: '%s'\n", codeBlock, foundEntity->format);
         return SPU_CMD_WRONG_ARGUMENTS;
@@ -177,18 +177,18 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
      */
     switch (parseRes) {
         case SPU_CTB_ERROR:{
-            printf("assembly: general syntax error\n");
-            fprintf(compileParams->lstFile, "assembly: general syntax error\n");
+            printf("%s: error: assembly: general syntax error\n", compileParams->inputFileName);
+            fprintf(compileParams->lstFile, "error: assembly: general syntax error\n");
             break;
         }
         case SPU_CTB_UNKNOWN_REGISTER:{
-            printf("assembly: unknown register\n");
-            fprintf(compileParams->lstFile, "assembly: unknown register\n");
+            printf("%s: error: assembly: unknown register\n", compileParams->inputFileName);
+            fprintf(compileParams->lstFile, "error: assembly: unknown register\n");
             break;
         }
         case SPU_CTB_INVALID_NUMBER:{
-            printf("assembly: invalid number of arguments\n");
-            fprintf(compileParams->lstFile, "assembly: invalid number of arguments\n");
+            printf("%s error: assembly: invalid number of arguments\n", compileParams->inputFileName);
+            fprintf(compileParams->lstFile, "error: assembly: invalid number of arguments\n");
             break;
         }
         case SPU_CTB_OK:{
@@ -225,9 +225,9 @@ CommandParseResult parseCode(AssemblyParams* compileParams, const SyntaxMapping*
             CommandParseResult res = parseCommand(compileParams, mapping, binary, lastBlockPos);
             if (res != SPU_PARSE_OK){
                 if (compileParams->verbose) {
-                    printf("assembly: failed to parse instruction no. %zu '%s'\n", instrUct, lastBlockPos);
+                    printf("%s: error: assembly: failed to parse instruction no. %zu '%s'\n", compileParams->inputFileName, instrUct, lastBlockPos);
                 }
-                fprintf(compileParams->lstFile, "assembly: failed to parse instruction no. %zu '%s'\n", instrUct, lastBlockPos);
+                fprintf(compileParams->lstFile, "error: assembly: failed to parse instruction no. %zu '%s'\n", instrUct, lastBlockPos);
                 return res;
             }
             instrUct++;

@@ -21,20 +21,20 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
     for(int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--input") == 0) {
             if (i + 1 > argc){
-                printf("assembly: No input file specified after --input\n");
+                printf("error: assembly: No input file specified after --input\n");
                 return EXIT_FAILURE;
             }
             FILE* inputFile = fopen(argv[i + 1], "rb");
             newParams.inputFile = inputFile;
             newParams.inputFileName = *(argv + i + 1);
             if (newParams.inputFile == NULL){
-                printf("assembly: Can't open input file\n");
+                printf("error: assembly: Can't open input file %s\n", newParams.inputFileName);
                 return EXIT_FAILURE;
             }
             i++;
         }else if (strcmp(argv[i], "--output") == 0) {
             if (i + 1 > argc){
-                printf("assembly: No output file specified after --output\n");
+                printf("error: assembly: No output file specified after --output\n");
                 return EXIT_FAILURE;
             }
             FILE* outputFile = fopen(argv[i + 1], "wb");
@@ -47,7 +47,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
             printAssemblyHelpData();
         }else if (strcmp(argv[i], "--lstfile") == 0) {
             if (i + 1 > argc){
-                printf("assembly: No lstfile file specified after --lstfile\n");
+                printf("error: assembly: No lstfile file specified after --lstfile\n");
                 return EXIT_FAILURE;
             }
             FILE* lstFile = fopen(argv[i + 1], "wb");
@@ -56,11 +56,21 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
             i++;
         }else if (strcmp(argv[i], "-E") == 0) {
             newParams.prepFile = (FILE*) 1;
+        } else {
+            if (newParams.inputFile == NULL){
+                FILE* inputFile = fopen(argv[i], "rb");
+                newParams.inputFile = inputFile;
+                newParams.inputFileName = *(argv + i);
+                if (newParams.inputFile == NULL){
+                    printf("error: assembly: Can't open input file %s\n", argv[i]);
+                    return EXIT_FAILURE;
+                }
+            }
         }
     }
     
     if (newParams.inputFile == NULL) {
-        printf("assembly: No input file specified\n");
+        printf("error: assembly: No input file specified\n");
         return EXIT_FAILURE;
     }
     
@@ -68,7 +78,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
         newParams.outputFile = fopen("output.spub", "wb");
         newParams.outputFileName = "output.spub";
         if (newParams.outputFile == NULL){
-            printf("assembly: No output file specified\n");
+            printf("error: assembly: No output file specified\n");
             return EXIT_FAILURE;
         }
     }
@@ -77,7 +87,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
         newParams.lstFile = fopen("assembly.lst", "wb");
         newParams.lstFileName = "assembly.lst";
         if (newParams.lstFile == NULL){
-            printf("assembly: No lstFile file specified\n");
+            printf("error: assembly: No lstFile file specified\n");
             return EXIT_FAILURE;
         }
     }
@@ -86,7 +96,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
         newParams.prepFile = fopen("assembly.spuprep", "wb");
         newParams.prepFileName = "assembly.spuprep";
         if (newParams.prepFileName == NULL) {
-            printf("assembly: Can't open assembly.spuprep\n");
+            printf("error: assembly: Can't open assembly.spuprep\n");
             return EXIT_FAILURE;
         }
     }

@@ -33,128 +33,143 @@ int checkBytesEnoughNumber(BinaryFile* binary, char* SPI, size_t bytes) {
 
 
 OPBACKTRANSLATE_FUNC(bPush) {
-    OPBACKGENERAL(
-    char* localSPI = *SPI;
-    char flagByte = *(localSPI + 1);
-    if (flagByte == 0) {
-        if (!checkBytesEnoughNumber( binary, *SPI, 10)){
-            return SPU_DISASM_NOTENOUGHARGS;
+    OPBACKGENERAL({
+        char* localSPI = *SPI;
+        char flagByte = *(localSPI + 1);
+        if (flagByte == 0) {
+            if (!checkBytesEnoughNumber( binary, *SPI, 10)){
+                return SPU_DISASM_NOTENOUGHARGS;
+            }
+            double value = *((double*)(localSPI + 2));
+            fprintf(params->outputFile, "%lg", value);
+            (*SPI) += sizeof(double) + 2;
+        } else {
+            const char* reg = registerNameFromNo(*(localSPI + 2));
+            fprintf(params->outputFile, "%s", reg);
+            (*SPI) += 3;
         }
-        double value = *((double*)(localSPI + 2));
-        fprintf(params->outputFile, "%lg", value);
-        (*SPI) += sizeof(double) + 2;
-    } else {
-        const char* reg = registerNameFromNo(*(localSPI + 2));
-        fprintf(params->outputFile, "%s", reg);
-        (*SPI) += 3;
-    }
-    )
-    return SPU_DISASM_OK;
-}
-
-OPBACKTRANSLATE_FUNC(bIn)  {
-    OPBACKGENERAL(
-                  char* localSPI = *SPI;
-                  char flagByte = *(localSPI + 1);
-                  if (flagByte == 0) {
-                      (*SPI) += 2;
-                  } else {
-                      const char* reg = registerNameFromNo(*(localSPI + 2));
-                      fprintf(params->outputFile, "%s", reg);
-                      (*SPI) += 3;
-                  }
-                  )
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bPop) {
-    OPBACKGENERAL(
-                  char* localSPI = *SPI;
-                  char flagByte = *(localSPI + 1);
-                  if (flagByte == 0) {
-                      (*SPI) += 2;
-                  } else {
-                      const char* reg = registerNameFromNo(*(localSPI + 2));
-                      fprintf(params->outputFile, "%s", reg);
-                      (*SPI) += 3;
-                  }
-                  )
+    OPBACKGENERAL({
+        char* localSPI = *SPI;
+        char flagByte = *(localSPI + 1);
+        if (flagByte == 0) {
+            (*SPI) += 2;
+        } else {
+            const char* reg = registerNameFromNo(*(localSPI + 2));
+            fprintf(params->outputFile, "%s", reg);
+            (*SPI) += 3;
+        }
+    })
+    return SPU_DISASM_OK;
+}
+
+OPBACKTRANSLATE_FUNC(bIn)  {
+    OPBACKGENERAL({
+        char* localSPI = *SPI;
+        char flagByte = *(localSPI + 1);
+        if (flagByte == 0) {
+            (*SPI) += 2;
+        } else {
+            const char* reg = registerNameFromNo(*(localSPI + 2));
+            fprintf(params->outputFile, "%s", reg);
+            (*SPI) += 3;
+        }
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bDump) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
+    return SPU_DISASM_OK;
+}
+
+OPBACKTRANSLATE_FUNC(bClear) {
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bAdd) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bSub) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bMul) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bDiv) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bSin) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bCos) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bSqrt) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bPow) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bHet) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        (*SPI)++;
+    })
     return SPU_DISASM_OK;
 }
 
 OPBACKTRANSLATE_FUNC(bOut) {
-    OPBACKGENERAL(
-                  (*SPI)++;
-                  )
+    OPBACKGENERAL({
+        char* localSPI = *SPI;
+        char flagByte = *(localSPI + 1);
+        if (flagByte == 0) {
+            (*SPI) += 2;
+        } else {
+            const char* reg = registerNameFromNo(*(localSPI + 2));
+            fprintf(params->outputFile, "%s", reg);
+            (*SPI) += 3;
+        }
+    })
     return SPU_DISASM_OK;
 }

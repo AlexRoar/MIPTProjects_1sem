@@ -10,10 +10,10 @@
 
 
 enum CommandParseResult {
-    SPU_PARSE_OK,
-    SPU_CMD_WRONG_ARGUMENTS,
-    SPU_UNKNOWN_COMMAND,
-    SPU_FINALPARSE_ERROR
+    SPU_PARSE_OK             = 600,
+    SPU_CMD_WRONG_ARGUMENTS  = 601,
+    SPU_UNKNOWN_COMMAND      = 602,
+    SPU_FINALPARSE_ERROR     = 603
 };
 
 #endif /* CommandsDTypes_h */

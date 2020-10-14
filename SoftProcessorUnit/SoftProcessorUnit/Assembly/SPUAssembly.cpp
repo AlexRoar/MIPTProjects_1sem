@@ -19,23 +19,28 @@ int main(int argc, const char* argv[]){
     
     int parsingResult = parseArgs(argc, argv, &compileParams);
     if (parsingResult != EXIT_SUCCESS) {
-        printf("assembly: process finished with EXIT_FAILURE code\n");
+        printf("error: assembly: process finished with EXIT_FAILURE code\n");
         return EXIT_FAILURE;
     }
     
+    char* SPUAssemblyVersion_chars = (char*)&SPUAssemblyVersion;
     if (compileParams.verbose) {
-        char* SPUAssemblyVersion_chars = (char*)&SPUAssemblyVersion;
+        
         printf("SPUAssembly v%c.%c.%c%c\n",
                SPUAssemblyVersion_chars[0],
                SPUAssemblyVersion_chars[1],
                SPUAssemblyVersion_chars[2],
                SPUAssemblyVersion_chars[3]);
+    }
+    
+    if (compileParams.lstFile != NULL) {
         fprintf(compileParams.lstFile,
-                "SPUAssembly v%c.%c.%c%c\n",
+                "SPUAssembly v%c.%c.%c%c ",
                 SPUAssemblyVersion_chars[0],
                 SPUAssemblyVersion_chars[1],
                 SPUAssemblyVersion_chars[2],
                 SPUAssemblyVersion_chars[3]);
+        fprintf(compileParams.lstFile, "%s -> %s\n", compileParams.inputFileName , compileParams.outputFileName);
     }
 
     size_t codeLen = 0;
@@ -50,8 +55,8 @@ int main(int argc, const char* argv[]){
     
     CommandParseResult parseRes = parseCode(&compileParams, (const SyntaxMapping*) &syntax, binary, code, codeLen);
     if (parseRes != SPU_PARSE_OK){
-        printf("assembly: syntax error\n");
-        printf("assembly: process finished with EXIT_FAILURE code\n");
+        printf("%s: error: assembly: syntax error\n", compileParams.inputFileName);
+        printf("%s: error: assembly: process finished with EXIT_FAILURE code\n", compileParams.inputFileName);
         return EXIT_FAILURE;
     }
     
