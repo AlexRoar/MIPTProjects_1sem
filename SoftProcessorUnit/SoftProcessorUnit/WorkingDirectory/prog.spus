@@ -1,41 +1,61 @@
-; push test
-push 2
-push rbx
-
-; pop test
-pop
-pop rdx
-
-; in test
-in
+;
+; Data input (a, b, c)
+;
+in rax
+in rbx
 in rcx
 
-; dump test
-dump
 
-; math test
-add
+;
+; D calculation
+;
+
+push rbx
+push 2
+pow
+
+push 4
+push rax
+mul
+push rcx
 mul
 sub
-div
-sin
-cos
 sqrt
+pop rdx
 
-; sys test
-het
-out
 
-; registers test
-push rax
+;
+; First x
+;
+clear
+push -1
 push rbx
-push rcx
+mul
 push rdx
+sub
+push 2
+div
+push rax
+div
+pop rcx
 
-; comments test
-push 0 ; here is some comment
+;
+; Second x
+;
+clear
+push -1
+push rbx
+mul
+push rdx
+add
+push 2
+div
+push rax
+div
+pop rax
 
-; They can
-; be
-; big
-push 1
+;
+; Output
+;
+out rax
+out rcx

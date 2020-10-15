@@ -10,6 +10,7 @@
 #include "AssemblyHelpers.hpp"
 #include "CommandsParser.hpp"
 #include "SPUVersion.hpp"
+#include "CodeAnalysis.hpp"
 
 
 int main(int argc, const char* argv[]){
@@ -45,6 +46,15 @@ int main(int argc, const char* argv[]){
 
     size_t codeLen = 0;
     char* code = getSourceFileData(compileParams.inputFile, &codeLen);
+    
+    removeDoubleWhitespaces(code, &codeLen);
+    int errorsFound = generateErrors(&syntax, &compileParams, code);
+    if (errorsFound == 0){
+        free(code);
+        DestructAssemblyParams(&compileParams);
+        return EXIT_FAILURE;
+    }
+    
     preprocessSource(code, &codeLen);
     
     if (compileParams.prepFile != NULL) {
@@ -69,7 +79,6 @@ int main(int argc, const char* argv[]){
     }
     
     codeEstimations(binary, code);
-    
     flushBinFile(binary, compileParams.outputFile);
     
     free(code);

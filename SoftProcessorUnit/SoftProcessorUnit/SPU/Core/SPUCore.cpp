@@ -24,7 +24,7 @@ InstructionExeResult runCode(SPUCore* core, RunParameters* params, BinaryFile* b
         InstructionExeResult cmdResult = executeInstruction(core, params, binary, &SPI);
         if (cmdResult != SPU_EXE_OK){
             core->terminated = 1;
-            fprintf(stderr, "spu: terminated at offset: %d reached: %d\n",
+            fprintf(stderr, "error: spu: terminated at offset: %d reached: %d\n",
                     (int)(prevOffset - binary->code + binary->codeOffset), (int)(SPI - binary->code + binary->codeOffset));
             return cmdResult;
         }

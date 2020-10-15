@@ -12,11 +12,15 @@
 #include "AssemblyDTypes.hpp"
 #include "SPUVersion.hpp"
 
+#define MAXPATHLEN 512
+
 int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
     AssemblyParams newParams = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     if (argc <= 1){
         printAssemblyHelpData();
     }
+    
+    newParams.inputFileRealName = (char*)calloc(MAXPATHLEN, 1);
 
     for(int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--input") == 0) {
@@ -27,6 +31,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
             FILE* inputFile = fopen(argv[i + 1], "rb");
             newParams.inputFile = inputFile;
             newParams.inputFileName = *(argv + i + 1);
+            realpath((const char*)newParams.inputFileName, newParams.inputFileRealName);
             if (newParams.inputFile == NULL){
                 printf("error: assembly: Can't open input file %s\n", newParams.inputFileName);
                 return EXIT_FAILURE;
@@ -61,6 +66,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
                 FILE* inputFile = fopen(argv[i], "rb");
                 newParams.inputFile = inputFile;
                 newParams.inputFileName = *(argv + i);
+                realpath((const char*)newParams.inputFileName, newParams.inputFileRealName);
                 if (newParams.inputFile == NULL){
                     printf("error: assembly: Can't open input file %s\n", argv[i]);
                     return EXIT_FAILURE;
@@ -193,6 +199,7 @@ void DestructAssemblyParams(AssemblyParams* params) {
     fclose(params->inputFile);
     fclose(params->lstFile);
     fclose(params->outputFile);
+    free(params->inputFileRealName);
     if (params->prepFile != NULL)
         fclose(params->prepFile);
 }

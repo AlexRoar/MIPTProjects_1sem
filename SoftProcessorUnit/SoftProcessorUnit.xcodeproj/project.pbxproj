@@ -30,6 +30,7 @@
 		A0DD8C0025372E2300CD405B /* SPUCoreHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8BFE25372E2300CD405B /* SPUCoreHelpers.cpp */; };
 		A0DD8C102537343200CD405B /* StackRigid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8C0F2537343200CD405B /* StackRigid.cpp */; };
 		A0DD8C1A2537412900CD405B /* InstrExecutors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8C182537412900CD405B /* InstrExecutors.cpp */; };
+		A0DD8C862538889900CD405B /* CodeAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8C842538889900CD405B /* CodeAnalysis.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +101,8 @@
 		A0DD8C0F2537343200CD405B /* StackRigid.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StackRigid.cpp; sourceTree = "<group>"; };
 		A0DD8C182537412900CD405B /* InstrExecutors.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InstrExecutors.cpp; sourceTree = "<group>"; };
 		A0DD8C192537412900CD405B /* InstrExecutors.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstrExecutors.hpp; sourceTree = "<group>"; };
+		A0DD8C842538889900CD405B /* CodeAnalysis.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CodeAnalysis.cpp; sourceTree = "<group>"; };
+		A0DD8C852538889900CD405B /* CodeAnalysis.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CodeAnalysis.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +237,8 @@
 				A071A9AD25361032008711EF /* CommandsDTypes.hpp */,
 				A071A9632534FA51008711EF /* CommandsParser.hpp */,
 				A071A9622534FA51008711EF /* CommandsParser.cpp */,
+				A0DD8C842538889900CD405B /* CodeAnalysis.cpp */,
+				A0DD8C852538889900CD405B /* CodeAnalysis.hpp */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				A071A96E25351576008711EF /* CommandToBytecode.cpp in Sources */,
 				A071A9BF2536159B008711EF /* BytecodeToCommand.cpp in Sources */,
 				A071A9642534FA51008711EF /* CommandsParser.cpp in Sources */,
+				A0DD8C862538889900CD405B /* CodeAnalysis.cpp in Sources */,
 				A071A91B2534DC4E008711EF /* SPUAssembly.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

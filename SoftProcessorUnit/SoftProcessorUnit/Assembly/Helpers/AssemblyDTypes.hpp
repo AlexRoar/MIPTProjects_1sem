@@ -11,6 +11,7 @@
 struct AssemblyParams{
     FILE* inputFile;
     const char* inputFileName;
+    char* inputFileRealName;
     
     FILE* outputFile;
     const char* outputFileName;

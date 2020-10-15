@@ -30,7 +30,7 @@ char* getSourceFileData(FILE* inputFile, size_t* length) {
     return buffer;
 }
 
-void preprocessSource(char* code, size_t* length) {
+void removeDoubleWhitespaces(char* code, size_t* length) {
     for (int i = 0; i + 1 < *length; ) {
         if(code[i] == ' ' && (code[i+1] == ' ' || code[i-1] == ' ')) {
             for(int j = i; j < *length; j++) {
@@ -41,6 +41,10 @@ void preprocessSource(char* code, size_t* length) {
             i++;
         }
     }
+}
+
+void preprocessSource(char* code, size_t* length) {
+    removeDoubleWhitespaces(code, length);
     
     char* commentPos = strchr(code, ';');
     while (commentPos != NULL) {
@@ -92,10 +96,26 @@ const SyntaxEntity* fetchCommand(const SyntaxMapping* mapping, char* codeBlock) 
 }
 
 const char** getArgList(char* codeBlock, int* argc) {
+    return (const char**)getArgList(codeBlock, argc, NULL);
+}
+
+const char** getArgList(char* codeBlock, int* argc, int* argLens){
     *argc = 1;
     char** args = (char**) calloc(SPU_CMD_MAXARGS, sizeof(char*));
     char* firstWhitespace = strchr(codeBlock, ' ');
     args[0] = codeBlock;
+    
+    if (argLens != NULL) {
+        int curArg = 0;
+        for (int i = 0; i < strlen(codeBlock); i++){
+            if (codeBlock[i] == ' '){
+                curArg++;
+                continue;
+            }
+            argLens[curArg]++;
+        }
+    }
+    
     if(firstWhitespace == NULL)
         return (const char**)args;
     
@@ -111,6 +131,7 @@ const char** getArgList(char* codeBlock, int* argc) {
         }
     }
     *argc = argumentsAvailable;
+    
     return (const char**)args;
 }
 
@@ -164,6 +185,7 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
         fprintf(compileParams->lstFile, "error: assembly: wrong instruction '%s' found. "
                "Arguments number is not valid. "
                "Valid format: '%s'\n", codeBlock, foundEntity->format);
+        free(argv);
         return SPU_CMD_WRONG_ARGUMENTS;
     }
     

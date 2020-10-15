@@ -1,10 +1,10 @@
 ;
 ; Data input (a, b, c)
 ;
+
 in rax
 in rbx
 in rcx
-
 
 ;
 ; D calculation
@@ -54,6 +54,8 @@ push rax
 div
 pop rax
 
+;
 ; Output
+;
 out rax
 out rcx

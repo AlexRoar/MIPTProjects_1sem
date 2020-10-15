@@ -3,36 +3,36 @@ in rbx
 in rcx
 push rbx
 push 2
-pow
+pow 
 push 4
 push rax
-mul
+mul 
 push rcx
-mul
-sub
-sqrt
+mul 
+sub 
+sqrt 
 pop rdx
-clear
+clear 
 push -1
 push rbx
-mul
+mul 
 push rdx
-sub
+sub 
 push 2
-div
+div 
 push rax
-div
+div 
 pop rcx
-clear
+clear 
 push -1
 push rbx
-mul
+mul 
 push rdx
-add
+add 
 push 2
-div
+div 
 push rax
-div
+div 
 pop rax
 out rax
 out rcx

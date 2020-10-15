@@ -46,8 +46,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "parseCommand(compileParams, mapping, binary, codeBlock)"
             landmarkType = "9">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "isValidArgumentsNumber(mapping, argc)"
             landmarkType = "9">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "parseCommand(compileParams, mapping, binary, codeBlock)"
             landmarkType = "9">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "parseCommand(compileParams, mapping, binary, codeBlock)"
             landmarkType = "9">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "parseCode(compileParams, mapping, binary, code, length)"
             landmarkType = "9">
          </BreakpointContent>
@@ -206,8 +206,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "parseCommand(compileParams, mapping, binary, codeBlock)"
             landmarkType = "9">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/CommandsParser.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "parseCommand(compileParams, mapping, binary, codeBlock)"
             landmarkType = "9">
          </BreakpointContent>
@@ -238,8 +238,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -254,8 +254,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/AssemblyHelpers.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "parseArgs(argc, argv, params)"
             landmarkType = "9">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -286,24 +286,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "main(argc, argv)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4881333C-2136-4353-8565-F5732EF7EF3B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -318,8 +302,8 @@
             filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "main(argc, argv)"
             landmarkType = "9">
          </BreakpointContent>
@@ -334,8 +318,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/AssemblyHelpers.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "loadBinFile(binFile, inputFile)"
             landmarkType = "9">
          </BreakpointContent>
@@ -494,8 +478,8 @@
             filePath = "SoftProcessorUnit/Assembly/Helpers/AssemblyHelpers.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "NewBinaryFile()"
             landmarkType = "9">
          </BreakpointContent>
@@ -513,6 +497,150 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "OPEXE_FUNC()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8443BB0B-B49E-496D-B247-29C449F07B11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/SPUAssembly.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "main(argc, argv)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FF26EC6-6CD0-4443-BB08-5A6E7E1CEA17"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69A8BD09-908B-4444-8475-28209E1F156B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "generateErrors(mapping, params, code)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3EAE0903-038F-4AB1-9309-279E5DBB091B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6CC7797-74FD-4C46-81BA-A877552D4F44"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D836721-1D2D-430E-A0AE-D8D5665A1AA3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9056574E-18E9-47E6-9689-6A199F7FB6CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1931D62-91FB-4B61-93E1-4087869469A4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DB02DD9-EC79-4DA0-B359-CB1828F92FCB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SoftProcessorUnit/Assembly/Helpers/CodeAnalysis.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "analyzeInstructionErrors(mapping, params, line, lineNo)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

@@ -17,6 +17,8 @@ char* getSourceFileData(FILE* inputFile, size_t* length);
 
 void preprocessSource(char* code, size_t* length);
 
+void removeDoubleWhitespaces(char* code, size_t* length);
+
 int codeBlockEmpty(char* codeBlock);
 
 CommandParseResult parseCommand(AssemblyParams* compileParams, const struct SyntaxMapping* mapping, BinaryFile* binary, char* codeBlock);
@@ -26,6 +28,7 @@ CommandParseResult parseCode(AssemblyParams* compileParams, const struct SyntaxM
 const struct SyntaxEntity* fetchCommand(const struct SyntaxMapping* mapping, char* codeBlock);
 
 const char** getArgList(char* codeBlock, int* argc);
+const char** getArgList(char* codeBlock, int* argc, int* argLens);
 
 int isValidArgumentsNumber(const struct SyntaxEntity* mapping, int argc);
 

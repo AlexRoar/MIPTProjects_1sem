@@ -21,20 +21,20 @@ int parseSPUArgs(RunParameters* parameters, int argc, const char * argv[]) {
     for(int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--input") == 0) {
             if (i + 1 > argc){
-                printf("spu: No input file specified after --input\n");
+                printf("error: spu: No input file specified after --input\n");
                 return EXIT_FAILURE;
             }
             FILE* inputFile = fopen(argv[i + 1], "rb");
             newParams.inputFile = inputFile;
             newParams.inputFileName = *(argv + i + 1);
             if (newParams.inputFile == NULL){
-                printf("spu: Can't open input file\n");
+                printf("error: spu: Can't open input file\n");
                 return EXIT_FAILURE;
             }
             i++;
         }else if (strcmp(argv[i], "--output") == 0) {
             if (i + 1 > argc){
-                printf("spu: No output file specified after --output\n");
+                printf("error: spu: No output file specified after --output\n");
                 return EXIT_FAILURE;
             }
             FILE* outputFile = fopen(argv[i + 1], "wb");
@@ -51,7 +51,7 @@ int parseSPUArgs(RunParameters* parameters, int argc, const char * argv[]) {
                 newParams.inputFile = inputFile;
                 newParams.inputFileName = *(argv + i);
                 if (newParams.inputFile == NULL){
-                    printf("spu: Can't open input file %s\n", argv[i]);
+                    printf("error: spu: Can't open input file %s\n", argv[i]);
                     return EXIT_FAILURE;
                 }
             }
@@ -59,7 +59,7 @@ int parseSPUArgs(RunParameters* parameters, int argc, const char * argv[]) {
     }
     
     if (newParams.inputFile == NULL) {
-        printf("spu: No input file specified\n");
+        printf("error: spu: No input file specified\n");
         return EXIT_FAILURE;
     }
     

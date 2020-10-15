@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     
     int parseRes = parseSPUArgs(&params, argc, argv);
     if (parseRes != EXIT_SUCCESS) {
-        fprintf(stderr, "spu: execution args parse terminated\n");
+        fprintf(stderr, "error: spu: execution args parse terminated\n");
         return EXIT_FAILURE;
     }
     
@@ -27,14 +27,14 @@ int main(int argc, const char * argv[]) {
     if (loadResult != SPU_BINLOAD_OK){
         switch (loadResult) {
             case SPU_BINLOAD_WRONG_VERSION:
-                printf("spu: binary version is not aligned with current build\n");
+                printf("error: spu: binary version is not aligned with current build\n");
                 break;
                 
             case SPU_BINLOAD_CORRUPTED:
-                printf("spu: file structure corrupted\n");
+                printf("error: spu: file structure corrupted\n");
                 break;
             case SPU_BINLOAD_WRONG_SIGNATURE:
-                printf("spu: file signature is wrong\n");
+                printf("error: spu: file signature is wrong\n");
                 break;
             case SPU_BINLOAD_OK:
                 break;
@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
     }
     
     if (params.verbose) {
-        printf("spu: loaded %s\n", params.inputFileName);
+        printf("info: spu: loaded %s\n", params.inputFileName);
     }
     
     
@@ -60,34 +60,45 @@ int main(int argc, const char * argv[]) {
             case SPU_EXE_OK:
                 break;
             case SPU_EXE_STACK_UNDERFLOW:
-                printf("spu: stack underflow detected\n");
+                printf("error: spu: stack underflow detected\n");
                 break;
             case SPU_EXE_STACK_OVERFLOW:
-                printf("spu: stack owerflow detected\n");
+                printf("error: spu: stack owerflow detected\n");
                 break;
             case SPU_EXE_CORRUPTED:
-                printf("spu: binary structure invalid\n");
+                printf("error: spu: binary structure invalid\n");
                 break;
             case SPU_EXE_ZERODIV:
-                printf("spu: division by zero\n");
+                printf("error: spu: division by zero\n");
                 break;
             case SPU_EXE_UNKNOWN:
-                printf("spu: unknown command\n");
+                printf("error: spu: unknown command\n");
                 break;
             case SPU_EXE_NOARGS:
-                printf("spu: corrupted file, wrong instruction args\n");
+                printf("error: spu: corrupted file, wrong instruction args\n");
                 break;
             case SPU_EXE_NOMEMORY:
-                printf("spu: run out of memory\n");
+                printf("error: spu: run out of memory\n");
                 break;
             case SPU_EXE_INVALIDINPUT:
-                printf("spu: invalid input\n");
+                printf("error: spu: invalid input\n");
                 break;
         }
+        if (params.verbose){
+            StackDump(core.stack, -1, params.inputFileName, "ERROR");
+            printf("REGs: ");
+            for (int i = 0; i < sizeof(core.REG) / sizeof(core.REG[0]); i++){
+                printf("%lg ", core.REG[i]);
+            }
+            printf("\n");
+        }
+        DestructSPUArgs(&params);
+        DestructBinaryFile(binary);
+        return EXIT_FAILURE;
     }
     
     if (params.verbose) {
-        printf("spu: output finished to %s\n", params.outputFileName);
+        printf("info: spu: output finished to %s\n", params.outputFileName);
     }
     
     DestructSPUArgs(&params);
