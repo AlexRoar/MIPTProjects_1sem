@@ -191,12 +191,7 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
     
     CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, compileParams, binary, argc, argv);
     
-    /**
-     SPU_CTB_OK,
-     SPU_CTB_ERROR,
-     SPU_CTB_UNKNOWN_REGISTER,
-     SPU_CTB_INVALID_NUMBER
-     */
+
     switch (parseRes) {
         case SPU_CTB_ERROR:{
             printf("%s: error: assembly: general syntax error\n", compileParams->inputFileName);

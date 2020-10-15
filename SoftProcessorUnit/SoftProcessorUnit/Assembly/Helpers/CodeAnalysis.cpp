@@ -6,7 +6,9 @@
 //
 
 #include "CodeAnalysis.hpp"
+#include "CommandToBytecode.hpp"
 #include <string.h>
+#include "StringDistance.hpp"
 
 static int isspace(unsigned char a){
     return a == ' ';
@@ -85,14 +87,19 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
     const char** argv = getArgList(trimmed, &argc, argsLen);
     
     if (foundEntity == NULL) {
-        fprintf(stderr, "%s:%d:1: error: unknown instruction found\n%s\n",params->inputFileRealName, lineNo, trimmed);
-        for (int i = 0; i < len; i++) {
+        const SyntaxEntity* best = bestMatchCommand(mapping, trimmed);
+        fprintf(stderr, "%s:%d:1: error: unknown instruction found maybe you ment '%s'?\n%s\n",params->inputFileRealName, lineNo, best->naming, trimmed);
+        for (int i = 1; i < len; i++) {
             if (trimmed[i] == ' ') {
                 fprintf(stderr, "^\n");
                 break;
             }
             fprintf(stderr, "~");
         }
+        
+        
+        fprintf(stderr, "%s\n", best->naming);
+        
         free(trimmed);
         free(argv);
         return 0;
@@ -117,7 +124,52 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
         return 0;
     }
     
+    BinaryFile* binary = NewBinaryFile();
+    CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, params, binary, argc, argv);
+    DestructBinaryFile(binary);
+    
+    switch (parseRes) {
+        case SPU_CTB_ERROR:{
+            fprintf(stderr, "%s:%d:1: error: assembly: general syntax error\n", params->inputFileRealName, lineNo);
+            break;
+        }
+        case SPU_CTB_UNKNOWN_REGISTER:{
+            fprintf(stderr, "%s:%d:1: error: assembly: unknown register\n", params->inputFileRealName, lineNo);
+            break;
+        }
+        case SPU_CTB_INVALID_NUMBER:{
+            fprintf(stderr, "%s:%d:1: error: assembly: invalid number of arguments\n", params->inputFileRealName, lineNo);
+            break;
+        }
+        case SPU_CTB_OK:{
+            break;
+        }
+    }
+    
     free(trimmed);
     free(argv);
     return 1;
+}
+
+const SyntaxEntity* bestMatchCommand(SyntaxMapping* mapping, char* command) {
+    char* nextInstr = strchr(command, ' ');
+    if (nextInstr != NULL){
+        *nextInstr = '\0';
+    }
+    
+    int minValue = 0;
+    int index = -1;
+    for (int i = 0; i < mapping->number; i++) {
+        edit *script;
+        size_t distance = levenshtein_distance(mapping->entities[i].naming, command, &script);
+        if (index == -1 || minValue > distance){
+            minValue = (int)distance;
+            index = i;
+        }
+    }
+    if (nextInstr != NULL){
+        *nextInstr = ' ';
+    }
+    
+    return mapping->entities + index;
 }

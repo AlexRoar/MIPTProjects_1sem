@@ -48,6 +48,7 @@ int main(int argc, const char* argv[]){
     char* code = getSourceFileData(compileParams.inputFile, &codeLen);
     
     removeDoubleWhitespaces(code, &codeLen);
+    
     int errorsFound = generateErrors(&syntax, &compileParams, code);
     if (errorsFound == 0){
         free(code);
