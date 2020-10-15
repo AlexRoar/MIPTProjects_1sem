@@ -2,8 +2,17 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/75c9791e4ced4d66a24029409c69f22a)](https://app.codacy.com/manual/dremov.me/MIPTProjects_1sem?utm_source=github.com&utm_medium=referral&utm_content=AlexRoar/MIPTProjects_1sem&utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/badge/master)](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/overview/master)
 
-## Нерушимый стек
+## Транслятор assembly-подобного кода и SPU-исполнитель
+В данном проекте реализован транслятор кода в неравномерный байткод, дизассемблер для байткода, исполнитель байткода (Soft Processor Unit).
 
+В дополнение, присутствует анализатор кода, проверяющий синтаксические ошибки и выбрасывающий отчет в clang формате. Поэтому, XCode и другие IDE поддерживающие clang подсвечивают неверные выражения, отображают комментарии.
+
+- [Основной код транслятора](https://github.com/AlexRoar/MIPTProjects_1sem/blob/master/SoftProcessorUnit/SoftProcessorUnit/Assembly/SPUAssembly.cpp)
+- [Основной код дизассемблера](https://github.com/AlexRoar/MIPTProjects_1sem/blob/master/SoftProcessorUnit/SoftProcessorUnit/Disassembly/SPUDisAssembly.cpp)
+- [Основной код SPU](https://github.com/AlexRoar/MIPTProjects_1sem/blob/master/SoftProcessorUnit/SoftProcessorUnit/SPU/SPU.cpp)
+- [Примеры](https://github.com/AlexRoar/MIPTProjects_1sem/tree/master/SPUAsm/SPUAsm)
+
+## Нерушимый стек
 Стек который *почти* невозможно взломать. Хэш-суммы, проверки, валидации - тут. Отчеты о взломе моего стека и мой взлом товарища так же тут.
 - [Стек на стероидах](StackOnSteroids/StackOnSteroids/StackRigid.h)
   - [Стек на стероидах docs](https://alexroar.github.io/MIPTProjects_1sem/StackOnSteroids/docs_doxygen/html/index.html)
