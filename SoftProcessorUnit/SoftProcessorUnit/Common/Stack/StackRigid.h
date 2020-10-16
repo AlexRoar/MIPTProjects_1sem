@@ -187,6 +187,8 @@ void StackDump( __overload(StackRigid)* stack, const int line, const char* file,
  */
 size_t StackRigidMemoryUse( __overload(StackRigid)* stack);
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-function"
 
 /**
  * @attention Not for the manual use!
@@ -236,6 +238,6 @@ static uint32_t __StackGetChecksumVital( __overload(StackRigid)* stack);
  * @param[in] direction which direction reallocations are available.  > 0 -> expand space if needed, < 0 -> shrink space if needed
  */
 static StackRigidOperationCodes __StackReallocate( __overload(StackRigid)** stack, short int direction);
-
+#pragma clang diagnostic pop
 
 #endif /* StackRigid_h general models */

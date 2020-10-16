@@ -302,6 +302,9 @@ StackRigidOperationCodes StackClear( __overload(StackRigid)* stack){
     return STACK_OP_OK;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-function"
+
 
 StackRigidState StackValidate( __overload(StackRigid)* stack) {
     if (!istack_pointer_valid(stack, sizeof(stack)))
@@ -368,6 +371,8 @@ static uint32_t __StackGetChecksum( __overload(StackRigid)* stack) {
     }
     return adlerChecksum(firstBlock, memory);
 }
+
+#pragma clang diagnostic push
 
 
 static StackRigidOperationCodes __StackReallocate( __overload(StackRigid)** stack, short int direction) {

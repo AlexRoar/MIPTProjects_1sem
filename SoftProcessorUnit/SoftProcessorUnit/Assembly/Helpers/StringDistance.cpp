@@ -108,10 +108,10 @@ unsigned int levenshtein_distance(const char *str1, const char *str2, edit **scr
     
     /* If either string is empty, the distance is the other string's length */
     if (len1 == 0) {
-        return len2;
+        return (unsigned int)len2;
     }
     if (len2 == 0) {
-        return len1;
+        return (unsigned int)len1;
     }
     /* Initialise the matrix */
     mat = levenshtein_matrix_create(str1, len1, str2, len2);

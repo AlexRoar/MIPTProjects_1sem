@@ -2,9 +2,9 @@
 ; Data input
 ; (a, b, c)
 ;
-inr rax
-in rvx
-posh rcx
+in rax
+in rbx
+in rcx
 
 ;
 ; D calculation

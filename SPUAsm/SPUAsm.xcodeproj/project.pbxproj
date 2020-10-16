@@ -22,7 +22,7 @@
 		A0DD8BB725364DBC00CD405B /* AllCommands.spus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AllCommands.spus; sourceTree = "<group>"; };
 		A0DD8BBC25364F6500CD405B /* AllCommandsDis.spus */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllCommandsDis.spus; sourceTree = "<group>"; };
 		A0DD8BC12536525400CD405B /* AllCommands.spub */ = {isa = PBXFileReference; explicitFileType = compiled; path = AllCommands.spub; sourceTree = "<group>"; };
-		A0DD8BEC25370C6300CD405B /* squareroots.spus */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = squareroots.spus; sourceTree = "<group>"; };
+		A0DD8BEC25370C6300CD405B /* squareroots.spus */ = {isa = PBXFileReference; explicitFileType = sourcecode.asm; path = squareroots.spus; sourceTree = "<group>"; };
 		A0DD8BF125370D1300CD405B /* assembly.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = assembly.lst; sourceTree = "<group>"; };
 		A0DD8BF225370D1300CD405B /* sr.spub */ = {isa = PBXFileReference; lastKnownFileType = file; path = sr.spub; sourceTree = "<group>"; };
 		A0DD8BF325370D1300CD405B /* assembly.spuprep */ = {isa = PBXFileReference; lastKnownFileType = text; path = assembly.spuprep; sourceTree = "<group>"; };

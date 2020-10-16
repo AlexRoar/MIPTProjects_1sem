@@ -27,6 +27,9 @@ struct edit {
 };
 typedef struct edit edit;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-function"
+
 
 static int min3(int a, int b, int c);
 
@@ -37,5 +40,7 @@ static edit **levenshtein_matrix_create(const char *str1, size_t len1, const cha
                                         size_t len2);
 
 unsigned int levenshtein_distance(const char *str1, const char *str2, edit **script);
+
+#pragma clang diagnostic pop
 #endif /* StringDistance_hpp */
 
