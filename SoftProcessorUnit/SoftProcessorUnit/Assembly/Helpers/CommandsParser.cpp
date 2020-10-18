@@ -190,7 +190,6 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
     }
     
     CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, compileParams, binary, argc, argv);
-    
 
     switch (parseRes) {
         case SPU_CTB_ERROR:{
@@ -226,7 +225,7 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
 
 int codeBlockEmpty(char* codeBlock) {
     while (*codeBlock != '\0' && *codeBlock != '\n') {
-        if (isprint(*codeBlock) && *codeBlock != ' ')
+        if (*codeBlock != ' ' && *codeBlock != '\n' && *codeBlock != '\t' && *codeBlock != '\r' && *codeBlock != '\e')
             return 0;
         codeBlock++;
     }

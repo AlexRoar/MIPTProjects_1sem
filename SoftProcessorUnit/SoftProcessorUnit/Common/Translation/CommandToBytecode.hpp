@@ -25,11 +25,12 @@
     { code } \
     \
     size_t ending = binary->currentSize;\
+    if (compileParams->lstFile != NULL){\
     fprintf(compileParams->lstFile, "%-5zu -> %5zu | ", starting + binary->codeOffset, ending + binary->codeOffset - 1);\
     fprintf(compileParams->lstFile, "%-2zu | ", ending - starting);\
     fprintf(compileParams->lstFile, "%-20s | ", argv[0]);\
     DUMPCODEBLOCKHEX\
-    fprintf(compileParams->lstFile, "\n");\
+    fprintf(compileParams->lstFile, "\n");}\
 }
 
 OPTRANSLATE_FUNC(cPush);

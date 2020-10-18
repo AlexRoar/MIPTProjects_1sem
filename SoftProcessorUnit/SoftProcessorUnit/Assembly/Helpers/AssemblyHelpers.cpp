@@ -15,7 +15,7 @@
 #define MAXPATHLEN 512
 
 int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
-    AssemblyParams newParams = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    AssemblyParams newParams = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     if (argc <= 1){
         printAssemblyHelpData();
     }
@@ -139,7 +139,7 @@ int appendToBinFile(BinaryFile* binFile, void* block, size_t size) {
     
     memcpy(binFile->code + binFile->currentSize, block, size);
     
-    binFile->currentSize += size;
+    (binFile->currentSize) += size;
     
     return EXIT_SUCCESS;
 }

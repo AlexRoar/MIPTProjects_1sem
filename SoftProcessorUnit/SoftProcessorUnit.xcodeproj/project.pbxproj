@@ -32,6 +32,7 @@
 		A0DD8C1A2537412900CD405B /* InstrExecutors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8C182537412900CD405B /* InstrExecutors.cpp */; };
 		A0DD8C862538889900CD405B /* CodeAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8C842538889900CD405B /* CodeAnalysis.cpp */; };
 		A0DD8C8C2538DC8A00CD405B /* StringDistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8C8A2538DC8A00CD405B /* StringDistance.cpp */; };
+		A0DD8CBE2539F09500CD405B /* LabelsStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8CBC2539F09500CD405B /* LabelsStore.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +107,8 @@
 		A0DD8C852538889900CD405B /* CodeAnalysis.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CodeAnalysis.hpp; sourceTree = "<group>"; };
 		A0DD8C8A2538DC8A00CD405B /* StringDistance.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringDistance.cpp; sourceTree = "<group>"; };
 		A0DD8C8B2538DC8A00CD405B /* StringDistance.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringDistance.hpp; sourceTree = "<group>"; };
+		A0DD8CBC2539F09500CD405B /* LabelsStore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LabelsStore.cpp; sourceTree = "<group>"; };
+		A0DD8CBD2539F09500CD405B /* LabelsStore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LabelsStore.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 				A0DD8C852538889900CD405B /* CodeAnalysis.hpp */,
 				A0DD8C8A2538DC8A00CD405B /* StringDistance.cpp */,
 				A0DD8C8B2538DC8A00CD405B /* StringDistance.hpp */,
+				A0DD8CBC2539F09500CD405B /* LabelsStore.cpp */,
+				A0DD8CBD2539F09500CD405B /* LabelsStore.hpp */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 			files = (
 				A071A9172534DC2D008711EF /* Syntax.cpp in Sources */,
 				A071A9422534DE1B008711EF /* AssemblyHelpers.cpp in Sources */,
+				A0DD8CBE2539F09500CD405B /* LabelsStore.cpp in Sources */,
 				A071A96E25351576008711EF /* CommandToBytecode.cpp in Sources */,
 				A071A9BF2536159B008711EF /* BytecodeToCommand.cpp in Sources */,
 				A071A9642534FA51008711EF /* CommandsParser.cpp in Sources */,
@@ -607,6 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7D49J2XMDA;
 				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

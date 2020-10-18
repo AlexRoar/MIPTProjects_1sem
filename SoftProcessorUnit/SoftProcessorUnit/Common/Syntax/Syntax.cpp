@@ -25,12 +25,12 @@ SyntaxMapping getSyntaxMapping(void) {
         makeEntity("dump",  3 , "" , 0, &cDump, &bDump),
         makeEntity("clear", 4 , "" , 0, &cClear,&bClear),
         
-        makeEntity("add" ,  5, "" , 0, &cAdd , &bAdd ),
+        makeEntity("add" ,  5,  "" , 0, &cAdd , &bAdd ),
         makeEntity("sub" ,  6 , "" , 0, &cSub , &bSub ),
         makeEntity("mul" ,  7 , "" , 0, &cMul , &bMul ),
         makeEntity("div" ,  8 , "" , 0, &cDiv , &bDiv ),
         
-        makeEntity("sin" ,  9 , "" , 0, &cSin , &bSin  ),
+        makeEntity("sin" ,  9 ,  "" , 0, &cSin , &bSin  ),
         makeEntity("cos" ,  10 , "" , 0, &cCos , &bCos  ),
         makeEntity("sqrt",  11 , "" , 0, &cSqrt, &bSqrt ),
         makeEntity("pow" ,  12 , "" , 0, &cPow , &bPow  ),

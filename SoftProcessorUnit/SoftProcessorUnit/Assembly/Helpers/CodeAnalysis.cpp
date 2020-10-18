@@ -88,15 +88,17 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
     
     if (foundEntity == NULL) {
         const SyntaxEntity* best = bestMatchCommand(mapping, trimmed);
-        fprintf(stderr, "%s:%d:1: error: unknown instruction found maybe you ment '%s'?\n%s\n",params->inputFileRealName, lineNo, best->naming, trimmed);
+        fprintf(stderr, "%s:%d:1: error: unknown instruction found; maybe you ment '%s'?\n%s\n",params->inputFileRealName, lineNo, best->naming, trimmed);
+        fprintf(stderr, "^");
+//        fprintf(stderr, "\e[1;34m");
         for (int i = 1; i < len; i++) {
             if (trimmed[i] == ' ') {
-                fprintf(stderr, "^\n");
+                fprintf(stderr, "\033[0m\n");
                 break;
             }
             fprintf(stderr, "~");
         }
-        
+//        fprintf(stderr, "\e[0m");
         
         fprintf(stderr, "%s\n", best->naming);
         
@@ -108,7 +110,7 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
     int validArguments = isValidArgumentsNumber(foundEntity, argc - 1);
     
     if (validArguments != 1) {
-        fprintf(stderr, "%s:%d:1: error: invalid arguments, expected: %s\n%s\n", params->inputFileRealName, lineNo, foundEntity->format, trimmed);
+        fprintf(stderr, "%s:%d:1: error: invalid arguments; expected: '%s'\n%s\n", params->inputFileRealName, lineNo, foundEntity->format, trimmed);
         for (int i = 0; i < argsLen[0]; i++) {
             fprintf(stderr, " ");
         }
@@ -125,7 +127,8 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
     }
     
     BinaryFile* binary = NewBinaryFile();
-    CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, params, binary, argc, argv);
+    AssemblyParams paramsTmp = {};
+    CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, &paramsTmp, binary, argc, argv);
     DestructBinaryFile(binary);
     
     switch (parseRes) {

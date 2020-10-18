@@ -22,9 +22,9 @@
 		A0DD8BB725364DBC00CD405B /* AllCommands.spus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AllCommands.spus; sourceTree = "<group>"; };
 		A0DD8BBC25364F6500CD405B /* AllCommandsDis.spus */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllCommandsDis.spus; sourceTree = "<group>"; };
 		A0DD8BC12536525400CD405B /* AllCommands.spub */ = {isa = PBXFileReference; explicitFileType = compiled; path = AllCommands.spub; sourceTree = "<group>"; };
-		A0DD8BEC25370C6300CD405B /* squareroots.spus */ = {isa = PBXFileReference; explicitFileType = sourcecode.asm; path = squareroots.spus; sourceTree = "<group>"; };
+		A0DD8BEC25370C6300CD405B /* squareroots.spus */ = {isa = PBXFileReference; explicitFileType = sourcecode.asm; path = squareroots.spus; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.asm.arm; };
 		A0DD8BF125370D1300CD405B /* assembly.lst */ = {isa = PBXFileReference; lastKnownFileType = text; path = assembly.lst; sourceTree = "<group>"; };
-		A0DD8BF225370D1300CD405B /* sr.spub */ = {isa = PBXFileReference; lastKnownFileType = file; path = sr.spub; sourceTree = "<group>"; };
+		A0DD8BF225370D1300CD405B /* sr.spub */ = {isa = PBXFileReference; lastKnownFileType = text; path = sr.spub; sourceTree = "<group>"; };
 		A0DD8BF325370D1300CD405B /* assembly.spuprep */ = {isa = PBXFileReference; lastKnownFileType = text; path = assembly.spuprep; sourceTree = "<group>"; };
 		A0DD8C4A2537ABBD00CD405B /* srDis.spus */ = {isa = PBXFileReference; lastKnownFileType = text; path = srDis.spus; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -34,7 +34,6 @@
 			isa = PBXGroup;
 			children = (
 				A0DD8B91253644FF00CD405B /* SPUAsm */,
-				A0DD8C262537984700CD405B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,13 +68,6 @@
 				A0DD8C4A2537ABBD00CD405B /* srDis.spus */,
 			);
 			path = SquareRoots;
-			sourceTree = "<group>";
-		};
-		A0DD8C262537984700CD405B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +118,7 @@
 		};
 		A0DD8BED25370C7A00CD405B /* SPUAsmSR */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "--input $(INPUT_FILE) --output $(OUTPUT_FILE) $(VERBOSE) $(PREPROCESSINGOUT)";
+			buildArgumentsString = "--input $(INPUT_FILE) --output $(OUTPUT_FILE) $(VERBOSE) $(PREPROCESSINGOUT) --lstfile";
 			buildConfigurationList = A0DD8BEE25370C7A00CD405B /* Build configuration list for PBXLegacyTarget "SPUAsmSR" */;
 			buildPhases = (
 			);
@@ -159,6 +151,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					A0DD8B8B253644AA00CD405B = {
@@ -178,7 +171,7 @@
 				Base,
 			);
 			mainGroup = A0DD8B86253644AA00CD405B;
-			productRefGroup = A0DD8C262537984700CD405B /* Products */;
+			productRefGroup = A0DD8B86253644AA00CD405B;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

@@ -46,10 +46,11 @@ int main(int argc, const char* argv[]){
 
     size_t codeLen = 0;
     char* code = getSourceFileData(compileParams.inputFile, &codeLen);
+    compileParams.codeText = code;
     
-    removeDoubleWhitespaces(code, &codeLen);
+    removeDoubleWhitespaces(compileParams.codeText, &codeLen);
     
-    int errorsFound = generateErrors(&syntax, &compileParams, code);
+    int errorsFound = generateErrors(&syntax, &compileParams, compileParams.codeText);
     if (errorsFound == 0){
         free(code);
         DestructAssemblyParams(&compileParams);
@@ -64,7 +65,7 @@ int main(int argc, const char* argv[]){
     
     BinaryFile* binary = NewBinaryFile();
     
-    CommandParseResult parseRes = parseCode(&compileParams, (const SyntaxMapping*) &syntax, binary, code, codeLen);
+    CommandParseResult parseRes = parseCode(&compileParams, (const SyntaxMapping*) &syntax, binary, compileParams.codeText, codeLen);
     if (parseRes != SPU_PARSE_OK){
         printf("%s: error: assembly: syntax error\n", compileParams.inputFileName);
         printf("%s: error: assembly: process finished with EXIT_FAILURE code\n", compileParams.inputFileName);

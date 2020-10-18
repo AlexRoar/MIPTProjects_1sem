@@ -8,7 +8,7 @@
 #ifndef AssemblyDTypes_h
 #define AssemblyDTypes_h
 
-struct AssemblyParams{
+struct AssemblyParams {
     FILE* inputFile;
     const char* inputFileName;
     char* inputFileRealName;
@@ -22,10 +22,12 @@ struct AssemblyParams{
     FILE* prepFile;
     const char* prepFileName;
     
+    char* codeText;
+    
     int   verbose;
 };
 
-struct BinaryFile{
+struct BinaryFile {
     short int  prepend;
     int        version;
     int        signature;

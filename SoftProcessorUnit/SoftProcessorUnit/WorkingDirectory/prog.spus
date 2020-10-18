@@ -1,18 +1,17 @@
 ;
-; Data input (a, b, c)
+; Data input
+; (a, b, c)
 ;
 in rax
 in rbx
 in rcx
 
-
 ;
 ; D calculation
 ;
-
 push rbx
 push 2
-pow
+pow фыв
 
 push 4
 push rax
