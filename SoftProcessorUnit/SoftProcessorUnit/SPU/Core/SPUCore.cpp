@@ -8,6 +8,7 @@
 #include "SPUCore.hpp"
 
 #define CALLEXE(name) return name (core,  params, binary, SPI)
+#define EVALUATE(a) a
 
 void ConstructSPUCore(SPUCore* core, size_t initStackSize) {
     core->stack = NewStackRigid_double(initStackSize, stderr);
@@ -38,38 +39,14 @@ InstructionExeResult executeInstruction(SPUCore* core,
                                         RunParameters* params,
                                         BinaryFile* binary,
                                         char** SPI) {
-    
+//    printf("NOW: %d\n", binary->codeOffset + (int)(*SPI - binary->code));
     switch (**SPI) {
-        case 0:
-            CALLEXE(ePush);
-        case 1:
-            CALLEXE(ePop);
-        case 2:
-            CALLEXE(eIn);
-        case 3:
-            CALLEXE(eDump);
-        case 4:
-            CALLEXE(eClear);
-        case 5:
-            CALLEXE(eAdd);
-        case 6:
-            CALLEXE(eSub);
-        case 7:
-            CALLEXE(eMul);
-        case 8:
-            CALLEXE(eDiv);
-        case 9:
-            CALLEXE(eSin);
-        case 10:
-            CALLEXE(eCos);
-        case 11:
-            CALLEXE(eSqrt);
-        case 12:
-            CALLEXE(ePow);
-        case 13:
-            CALLEXE(eHet);
-        case 14:
-            CALLEXE(eOut);
+        #define COMMAND_INFO(name, code, args, flags) case code : EVALUATE(CALLEXE(EVALUATE(CMDEXE_ ## name)));
+            
+        #include "INFO.h"
+            
+        #undef COMMAND_INFO
+            
         default:
             return SPU_EXE_UNKNOWN;
     }

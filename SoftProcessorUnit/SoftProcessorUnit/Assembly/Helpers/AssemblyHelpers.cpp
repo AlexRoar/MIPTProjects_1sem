@@ -15,7 +15,7 @@
 #define MAXPATHLEN 512
 
 int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
-    AssemblyParams newParams = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    AssemblyParams newParams = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     if (argc <= 1){
         printAssemblyHelpData();
     }
@@ -107,6 +107,7 @@ int parseArgs(int argc, const char* argv[], AssemblyParams* params) {
         }
     }
     
+    newParams.labelsStore = new JMPLabelsStore();
     *params = newParams;
     
     return EXIT_SUCCESS;
@@ -202,6 +203,8 @@ void DestructAssemblyParams(AssemblyParams* params) {
     free(params->inputFileRealName);
     if (params->prepFile != NULL)
         fclose(params->prepFile);
+    if (params->labelsStore != NULL)
+        delete params->labelsStore;
 }
 
 int flushBinFile(BinaryFile* binFile, FILE* output) {

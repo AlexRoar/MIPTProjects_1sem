@@ -23,6 +23,8 @@
 		A071A9962535FACD008711EF /* DisAssemblyHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9942535FACD008711EF /* DisAssemblyHelpers.cpp */; };
 		A071A9A425360AA5008711EF /* BytecodeToCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */; };
 		A071A9BF2536159B008711EF /* BytecodeToCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */; };
+		A090F0B2253DD39000342FA0 /* LabelsStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8CBC2539F09500CD405B /* LabelsStore.cpp */; };
+		A090F0B6253DD39400342FA0 /* LabelsStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A0DD8CBC2539F09500CD405B /* LabelsStore.cpp */; };
 		A0DD8BC2253653B400CD405B /* AssemblyHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9402534DE1B008711EF /* AssemblyHelpers.cpp */; };
 		A0DD8BC6253653B600CD405B /* CommandsParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9622534FA51008711EF /* CommandsParser.cpp */; };
 		A0DD8BCA253653C000CD405B /* BytecodeToCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */; };
@@ -95,6 +97,14 @@
 		A071A9AC25361015008711EF /* AssemblyDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AssemblyDTypes.hpp; sourceTree = "<group>"; };
 		A071A9AD25361032008711EF /* CommandsDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommandsDTypes.hpp; sourceTree = "<group>"; };
 		A071A9BB253613AC008711EF /* DisAssemblyDTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisAssemblyDTypes.hpp; sourceTree = "<group>"; };
+		A090F0C7253E18F200342FA0 /* CTBDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTBDefs.h; sourceTree = "<group>"; };
+		A090F0CC253E25C500342FA0 /* CTB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTB.h; sourceTree = "<group>"; };
+		A090F0D0253E26C700342FA0 /* BTC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTC.h; sourceTree = "<group>"; };
+		A090F0D1253E26D800342FA0 /* BTCDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTCDefs.h; sourceTree = "<group>"; };
+		A090F0D5253E290D00342FA0 /* EXE.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXE.h; sourceTree = "<group>"; };
+		A090F0D6253E298800342FA0 /* EXEDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXEDefs.h; sourceTree = "<group>"; };
+		A090F0DA253E2CF300342FA0 /* INFO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INFO.h; sourceTree = "<group>"; };
+		A090F0DB253E2F1800342FA0 /* INFODefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INFODefs.h; sourceTree = "<group>"; };
 		A0DD8BF525370E0D00CD405B /* SPUCore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SPUCore.cpp; sourceTree = "<group>"; };
 		A0DD8BF625370E0D00CD405B /* SPUCore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SPUCore.hpp; sourceTree = "<group>"; };
 		A0DD8BFE25372E2300CD405B /* SPUCoreHelpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SPUCoreHelpers.cpp; sourceTree = "<group>"; };
@@ -159,6 +169,7 @@
 			children = (
 				A071A94E2534E4F7008711EF /* WorkingDirectory */,
 				A071A9492534E258008711EF /* Common */,
+				A071A8F92534D1C9008711EF /* Syntax */,
 				A071A9082534DBB9008711EF /* Assembly */,
 				A071A92D2534DD5A008711EF /* Disassembly */,
 				A071A9072534DBA7008711EF /* SPU */,
@@ -169,8 +180,11 @@
 		A071A8F92534D1C9008711EF /* Syntax */ = {
 			isa = PBXGroup;
 			children = (
-				A071A8FA2534D1C9008711EF /* Syntax.hpp */,
-				A071A8FB2534D1C9008711EF /* Syntax.cpp */,
+				A071A97325351581008711EF /* Translation */,
+				A090F0CC253E25C500342FA0 /* CTB.h */,
+				A090F0D0253E26C700342FA0 /* BTC.h */,
+				A090F0D5253E290D00342FA0 /* EXE.h */,
+				A090F0DA253E2CF300342FA0 /* INFO.h */,
 			);
 			path = Syntax;
 			sourceTree = "<group>";
@@ -214,8 +228,6 @@
 		A071A9492534E258008711EF /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A071A97325351581008711EF /* Translation */,
-				A071A8F92534D1C9008711EF /* Syntax */,
 				A071A8FD2534D1C9008711EF /* Stack */,
 				A071A94A2534E28C008711EF /* SPUVersion.hpp */,
 			);
@@ -225,8 +237,8 @@
 		A071A94E2534E4F7008711EF /* WorkingDirectory */ = {
 			isa = PBXGroup;
 			children = (
-				A071A97A25351D8C008711EF /* output.spub */,
 				A071A9522534E616008711EF /* prog.spus */,
+				A071A97A25351D8C008711EF /* output.spub */,
 				A071A95A2534E886008711EF /* assembly.lst */,
 				A071A97E2535C9E5008711EF /* assembly.spuprep */,
 				A071A99E253606BA008711EF /* disasm.spus */,
@@ -256,11 +268,10 @@
 		A071A97325351581008711EF /* Translation */ = {
 			isa = PBXGroup;
 			children = (
-				A071A9A825360E57008711EF /* TranslationDTypes.hpp */,
-				A071A96C25351576008711EF /* CommandToBytecode.hpp */,
-				A071A96B25351576008711EF /* CommandToBytecode.cpp */,
-				A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */,
-				A071A9A325360AA5008711EF /* BytecodeToCommand.hpp */,
+				A090F0C6253E189800342FA0 /* Helpers */,
+				A090F0C8253E190000342FA0 /* MacroSyntax */,
+				A071A8FA2534D1C9008711EF /* Syntax.hpp */,
+				A071A8FB2534D1C9008711EF /* Syntax.cpp */,
 			);
 			path = Translation;
 			sourceTree = "<group>";
@@ -275,10 +286,34 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		A090F0C6253E189800342FA0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A071A9A825360E57008711EF /* TranslationDTypes.hpp */,
+				A071A96B25351576008711EF /* CommandToBytecode.cpp */,
+				A071A9A225360AA5008711EF /* BytecodeToCommand.cpp */,
+				A0DD8C182537412900CD405B /* InstrExecutors.cpp */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A090F0C8253E190000342FA0 /* MacroSyntax */ = {
+			isa = PBXGroup;
+			children = (
+				A071A9A325360AA5008711EF /* BytecodeToCommand.hpp */,
+				A071A96C25351576008711EF /* CommandToBytecode.hpp */,
+				A0DD8C192537412900CD405B /* InstrExecutors.hpp */,
+				A090F0C7253E18F200342FA0 /* CTBDefs.h */,
+				A090F0D1253E26D800342FA0 /* BTCDefs.h */,
+				A090F0D6253E298800342FA0 /* EXEDefs.h */,
+				A090F0DB253E2F1800342FA0 /* INFODefs.h */,
+			);
+			path = MacroSyntax;
+			sourceTree = "<group>";
+		};
 		A0DD8BF425370DFB00CD405B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A0DD8C172537410C00CD405B /* ExeInstruction */,
 				A0DD8C08253732F900CD405B /* SPUDtypes.hpp */,
 				A0DD8BF525370E0D00CD405B /* SPUCore.cpp */,
 				A0DD8BF625370E0D00CD405B /* SPUCore.hpp */,
@@ -286,15 +321,6 @@
 				A0DD8BFF25372E2300CD405B /* SPUCoreHelpers.hpp */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		A0DD8C172537410C00CD405B /* ExeInstruction */ = {
-			isa = PBXGroup;
-			children = (
-				A0DD8C182537412900CD405B /* InstrExecutors.cpp */,
-				A0DD8C192537412900CD405B /* InstrExecutors.hpp */,
-			);
-			path = ExeInstruction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +426,7 @@
 				A0DD8C1A2537412900CD405B /* InstrExecutors.cpp in Sources */,
 				A071A8FF2534D1C9008711EF /* SPU.cpp in Sources */,
 				A071A96D25351576008711EF /* CommandToBytecode.cpp in Sources */,
+				A090F0B6253DD39400342FA0 /* LabelsStore.cpp in Sources */,
 				A0DD8BCA253653C000CD405B /* BytecodeToCommand.cpp in Sources */,
 				A071A8FE2534D1C9008711EF /* Syntax.cpp in Sources */,
 				A0DD8BF725370E0D00CD405B /* SPUCore.cpp in Sources */,
@@ -429,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A090F0B2253DD39000342FA0 /* LabelsStore.cpp in Sources */,
 				A071A98F2535F6D5008711EF /* CommandsParser.cpp in Sources */,
 				A071A9A425360AA5008711EF /* BytecodeToCommand.cpp in Sources */,
 				A071A93C2534DDB1008711EF /* Syntax.cpp in Sources */,

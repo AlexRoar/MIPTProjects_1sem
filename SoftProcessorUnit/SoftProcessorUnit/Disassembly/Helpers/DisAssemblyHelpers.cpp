@@ -67,8 +67,8 @@ int parseArgs(int argc, const char* argv[], DisassemblyParams* params) {
     }
     
     if (newParams.outputFile == NULL) {
-        newParams.outputFile = fopen("disasm.spus", "wb");
-        newParams.outputFileName = "disasm.spus";
+        newParams.outputFile = stdout;
+        newParams.outputFileName = "stdout";
         if (newParams.outputFile == NULL){
             printf("error: disassembly: No output file specified\n");
             return EXIT_FAILURE;
@@ -86,7 +86,7 @@ void printDisAssemblyHelpData(void) {
     char* SPUAssemblyVersion_chars = (char*)&SPUAssemblyVersion;
     printf("SPUDisAssembly v%c.%c.%c%c help\n"
            "--input     <input file> input file to be assembled .spub format (spu binary)\n"
-           "--output    <output file> output file. disasm.spus by default (spu source)\n"
+           "--output    <output file> output file. stdout by default (spu source)\n"
            "-h, --help  show this help message\n"
            "--verbose   output disassembly debug information to the console\n"
            "\n",

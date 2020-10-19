@@ -20,9 +20,12 @@ int generateErrors(SyntaxMapping* mapping, AssemblyParams* params, char* code);
 
 int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, char* line, int lineNo);
 
+void analyzeLabelsErrors(AssemblyParams* params);
 
 int analyzeInstructionWarnings(SyntaxMapping* mapping, AssemblyParams* params, char* line);
 
 const SyntaxEntity* bestMatchCommand(SyntaxMapping* mapping, char* command);
+
+int findLineWithSubstrung(char* code, char* substr);
 
 #endif /* CodeAnalysis_hpp */

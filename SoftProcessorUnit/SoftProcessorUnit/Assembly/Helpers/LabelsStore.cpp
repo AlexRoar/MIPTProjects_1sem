@@ -15,6 +15,11 @@ JMPLabel::JMPLabel(JMPLabel* previous, char* name) {
         previous->next = this;
     this->nameLen = strlen(name);
     this->name = (char*)calloc(this->nameLen + 1, sizeof(char));
+    this->next = NULL;
+    this->used = 0;
+    this->positionTo = -1;
+    this->positionFrom = -1;
+    strcpy(this->name, name);
 }
 
 JMPLabel::~JMPLabel(){
@@ -40,8 +45,10 @@ void JMPLabelsStore::newLabel(char* label) {
     
     JMPLabel* current = this->first;
     while (current != NULL && current != this->last) {
-        if (strcmp(current->name, newLabel->name) == 0)
+        if (strcmp(current->name, newLabel->name) == 0){
+            delete newLabel;
             throw "Label exists";
+        }
         
         current = current->next;
     }
@@ -74,7 +81,7 @@ void JMPLabelsStore::setLabelFromPosition(char* label, unsigned int position) {
 
 JMPLabel* JMPLabelsStore::getLabel(char* label) {
     JMPLabel* current = this->first;
-    while (current != NULL && current != this->last) {
+    while (current != NULL) {
         if (strcmp(current->name, label) == 0) {
             return current;
         }
@@ -83,3 +90,15 @@ JMPLabel* JMPLabelsStore::getLabel(char* label) {
     
     return NULL;
 }
+
+JMPLabelsStore::~JMPLabelsStore() {
+    JMPLabel* current = this->first;
+    
+    while (current != NULL) {
+        JMPLabel* next = current->next;
+        delete current;
+        current = next;
+    }
+}
+
+JMPLabelsStore::JMPLabelsStore() {}

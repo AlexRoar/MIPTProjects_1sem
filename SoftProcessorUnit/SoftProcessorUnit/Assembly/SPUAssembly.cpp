@@ -64,9 +64,13 @@ int main(int argc, const char* argv[]){
     }
     
     BinaryFile* binary = NewBinaryFile();
-    
+//    delete compileParams.labelsStore;
+//    compileParams.labelsStore = new La
     CommandParseResult parseRes = parseCode(&compileParams, (const SyntaxMapping*) &syntax, binary, compileParams.codeText, codeLen);
-    if (parseRes != SPU_PARSE_OK){
+    
+    LabelParse labelsRes = evaluateLabels(&compileParams, binary);
+    
+    if (parseRes != SPU_PARSE_OK || labelsRes != SPU_LABEL_OK){
         printf("%s: error: assembly: syntax error\n", compileParams.inputFileName);
         printf("%s: error: assembly: process finished with EXIT_FAILURE code\n", compileParams.inputFileName);
         return EXIT_FAILURE;

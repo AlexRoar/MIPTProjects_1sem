@@ -8,6 +8,8 @@
 #ifndef AssemblyDTypes_h
 #define AssemblyDTypes_h
 
+#include "LabelsStore.hpp"
+
 struct AssemblyParams {
     FILE* inputFile;
     const char* inputFileName;
@@ -23,6 +25,8 @@ struct AssemblyParams {
     const char* prepFileName;
     
     char* codeText;
+    
+    JMPLabelsStore* labelsStore;
     
     int   verbose;
 };
@@ -47,6 +51,13 @@ enum BinFileLoadResult{
     SPU_BINLOAD_WRONG_VERSION   = 501,
     SPU_BINLOAD_WRONG_SIGNATURE = 502,
     SPU_BINLOAD_CORRUPTED       = 503
+};
+
+enum LabelParse {
+    SPU_LABEL_DUBLICATE         = 900,
+    SPU_LABEL_OK                = 901,
+    SPU_LABEL_NOTFOUND          = 902,
+    SPU_LABEL_INVALID           = 903
 };
 
 

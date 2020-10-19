@@ -2,59 +2,59 @@
 ; Data input
 ; (a, b, c)
 ;
-in rax
-in rbx
-in rcx
+in      rax
+in      rbx
+in      rcx
 
 ;
 ; D calculation
 ;
-push rbx
-push 2
+push    rbx
+push    2
 pow
 
-push 4
-push rax
+push    4
+push    rax
 mul
-push rcx
+push    rcx
 mul
 sub
 sqrt
-pop rdx
+pop     rdx
 
 
 ;
 ; First x
 ;
 clear
-push -1
-push rbx
+push    -1
+push    rbx
 mul
-push rdx
+push    rdx
 sub
-push 2
+push    2
 div
-push rax
+push    rax
 div
-pop rcx
+pop     rcx
 
 ;
 ; Second x
 ;
 clear
-push -1
-push rbx
+push    -1
+push    rbx
 mul
-push rdx
+push    rdx
 add
-push 2
+push    2
 div
-push rax
+push    rax
 div
-pop rax
+pop     rax
 
 ;
 ; Output
 ;
-out rax
-out rcx
+out     rax
+out     rcx

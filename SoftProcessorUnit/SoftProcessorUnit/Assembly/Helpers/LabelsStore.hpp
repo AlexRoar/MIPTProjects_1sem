@@ -14,8 +14,8 @@ struct JMPLabel {
     char*  name                  = NULL;
     size_t nameLen               = 0;
     unsigned int    used         = 0;
-    unsigned int    positionTo   = 0;
-    unsigned int    positionFrom = 0;
+    long int    positionTo       = -1;
+    long int    positionFrom     = -1;
     JMPLabel* next               = NULL;
                 
     
@@ -39,6 +39,10 @@ struct JMPLabelsStore {
     void setLabelFromPosition(char* label, unsigned int position);
     
     JMPLabel* getLabel(char* label);
+    
+    JMPLabelsStore();
+    
+    ~JMPLabelsStore();
 };
 
 

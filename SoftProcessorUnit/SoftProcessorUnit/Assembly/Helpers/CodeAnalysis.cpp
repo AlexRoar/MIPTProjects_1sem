@@ -54,19 +54,54 @@ int generateErrors(SyntaxMapping* mapping, AssemblyParams* params, char* code) {
     char* newInstruction = code;
     int result = 1;
     int lineNo = 0;
-    while (newInstruction != NULL) {
-        char* newlinePos = strchr(newInstruction + 1, '\n');
+    
+    AssemblyParams localParams = {};
+    localParams.labelsStore = new JMPLabelsStore();
+    localParams.verbose = 0;
+    localParams.codeText = code;
+    localParams.inputFileName = params->inputFileName;
+    localParams.inputFileRealName = params->inputFileRealName;
+    localParams.outputFileName = params->outputFileName;
+    
+    while (newInstruction > (char*)(1)) {
+        char* newlinePos = strchr(newInstruction, '\n');
         if (newlinePos != NULL){
             *newlinePos = '\0';
         }
-        result &= analyzeInstructionErrors(mapping, params, newInstruction + 1, ++lineNo);
+        
+        char* commPos = strchr(newInstruction, ';');
+        if (commPos == newInstruction) {
+            if (newlinePos != NULL){
+                *newlinePos = '\n';
+            }
+            newInstruction = strchr(newInstruction + 1, '\n');
+            continue;
+        }
+        if (commPos != NULL){
+            *commPos = '\0';
+        }
+        
+        result &= analyzeInstructionErrors(mapping, &localParams, newInstruction, ++lineNo);
+        
+        if (commPos != NULL){
+            *commPos = ';';
+        }
         
         if (newlinePos != NULL){
             *newlinePos = '\n';
         }
-        newInstruction = strchr(newInstruction + 1, '\n');
+        newInstruction = strchr(newInstruction, '\n') + 1;
     }
     
+    LabelParse completeTable = labelsTableComplete(&localParams, 1);
+    
+    if (completeTable != SPU_LABEL_OK) {
+        analyzeLabelsErrors(&localParams);
+        labelsTableComplete(&localParams, 0);
+        delete localParams.labelsStore;
+        return 0;
+    }
+    delete localParams.labelsStore;
     return result;
 }
 
@@ -87,24 +122,30 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
     const char** argv = getArgList(trimmed, &argc, argsLen);
     
     if (foundEntity == NULL) {
-        const SyntaxEntity* best = bestMatchCommand(mapping, trimmed);
-        fprintf(stderr, "%s:%d:1: error: unknown instruction found; maybe you ment '%s'?\n%s\n",params->inputFileRealName, lineNo, best->naming, trimmed);
-        fprintf(stderr, "^");
-//        fprintf(stderr, "\e[1;34m");
-        for (int i = 1; i < len; i++) {
-            if (trimmed[i] == ' ') {
-                fprintf(stderr, "\033[0m\n");
-                break;
+        LabelParse resLabel = parseLabel(params, line);
+        if (resLabel == SPU_LABEL_NOTFOUND) {
+            const SyntaxEntity* best = bestMatchCommand(mapping, trimmed);
+            fprintf(stderr, "%s:%d:1: error: unknown instruction found; maybe you ment '%s'?\n%s\n",params->inputFileRealName, lineNo, best->naming, trimmed);
+            fprintf(stderr, "^");
+            for (int i = 1; i < len; i++) {
+                if (trimmed[i] == ' ') {
+                    fprintf(stderr, "\n");
+                    break;
+                }
+                fprintf(stderr, "~");
             }
-            fprintf(stderr, "~");
+            
+            fprintf(stderr, "\n%s\n", best->naming);
+            
+            free(trimmed);
+            freeArgList((char**)argv, argc);
+            return 0;
+        } else {
+            setLabelPos(params, trimmed, 0);
+            freeArgList((char**)argv, argc);
+            free(trimmed);
+            return 1;
         }
-//        fprintf(stderr, "\e[0m");
-        
-        fprintf(stderr, "%s\n", best->naming);
-        
-        free(trimmed);
-        free(argv);
-        return 0;
     }
     
     int validArguments = isValidArgumentsNumber(foundEntity, argc - 1);
@@ -122,13 +163,12 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
         }
         fprintf(stderr, "\n");
         free(trimmed);
-        free(argv);
+        freeArgList((char**)argv, argc);
         return 0;
     }
     
     BinaryFile* binary = NewBinaryFile();
-    AssemblyParams paramsTmp = {};
-    CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, &paramsTmp, binary, argc, argv);
+    CommandToBytesResult parseRes = foundEntity->cProcessor(foundEntity, params, binary, argc, argv);
     DestructBinaryFile(binary);
     
     switch (parseRes) {
@@ -150,7 +190,7 @@ int analyzeInstructionErrors(SyntaxMapping* mapping, AssemblyParams* params, cha
     }
     
     free(trimmed);
-    free(argv);
+    freeArgList((char**)argv, argc);
     return 1;
 }
 
@@ -175,4 +215,68 @@ const SyntaxEntity* bestMatchCommand(SyntaxMapping* mapping, char* command) {
     }
     
     return mapping->entities + index;
+}
+
+void analyzeLabelsErrors(AssemblyParams* params){
+    JMPLabel* current = params->labelsStore->first;
+    
+    while(current != NULL ) {
+        if (current->name == NULL)
+            break;
+        if (current->positionTo == -1) {
+            int lineNo = findLineWithSubstrung(params->codeText, current->name);
+            printf("%s:%d:1: error: assembly: no label specified for '%s' jump\n", params->inputFileRealName, lineNo, current->name);
+        }
+        
+        if (current->positionFrom == -1) {
+            int lineNo = findLineWithSubstrung(params->codeText, current->name);
+            printf("%s:%d:1: error: assembly: label '%s' has no jump instructions\n",  params->inputFileRealName,lineNo, current->name);
+        }
+        
+        if (current->used > 1) {
+            int lineNo = findLineWithSubstrung(params->codeText, current->name);
+            printf("%s:%d:1: error: assembly: label '%s' has several definitions instructions\n", params->inputFileRealName,lineNo, current->name);
+        }
+        
+        current = current->next;
+    }
+}
+
+int findLineWithSubstrung(char* code, char* substr){
+    char* newInstruction = code;
+    int lineNo = 0;
+    
+    while (newInstruction > (char*)(1)) {
+        char* newlinePos = strchr(newInstruction, '\n');
+        if (newlinePos != NULL){
+            *newlinePos = '\0';
+        }
+        
+        char* commPos = strchr(newInstruction, ';');
+        if (commPos == newInstruction) {
+            if (newlinePos != NULL){
+                *newlinePos = '\n';
+            }
+            newInstruction = strchr(newInstruction + 1, '\n');
+            continue;
+        }
+        if (commPos != NULL){
+            *commPos = '\0';
+        }
+        ++lineNo;
+        if(strstr(newInstruction, substr) != NULL) {
+            return lineNo;
+        }
+       
+        if (commPos != NULL){
+            *commPos = ';';
+        }
+        
+        if (newlinePos != NULL){
+            *newlinePos = '\n';
+        }
+        newInstruction = strchr(newInstruction, '\n') + 1;
+    }
+    
+    return -1;
 }

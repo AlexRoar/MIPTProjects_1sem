@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "AssemblyDTypes.hpp"
+#include "LabelsStore.hpp"
 
 int parseArgs(int argc, const char* argv[], AssemblyParams* params);
 
