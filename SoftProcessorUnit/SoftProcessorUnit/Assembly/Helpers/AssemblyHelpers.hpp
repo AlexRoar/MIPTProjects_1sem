@@ -36,4 +36,6 @@ void DestructAssemblyParams(AssemblyParams* params);
 
 void printAssemblyHelpData(void);
 
+void printAssemblyVersion(AssemblyParams* params);
+
 #endif /* AssemblyHelpers_hpp */

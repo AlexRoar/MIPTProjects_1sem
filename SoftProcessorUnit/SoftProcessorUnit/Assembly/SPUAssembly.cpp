@@ -14,7 +14,6 @@
 
 
 int main(int argc, const char* argv[]){
-    int SPUAssemblyVersion = SPU_VERSION;
     SyntaxMapping syntax = getSyntaxMapping();
     AssemblyParams compileParams = {};
     
@@ -24,25 +23,7 @@ int main(int argc, const char* argv[]){
         return EXIT_FAILURE;
     }
     
-    char* SPUAssemblyVersion_chars = (char*)&SPUAssemblyVersion;
-    if (compileParams.verbose) {
-        
-        printf("SPUAssembly v%c.%c.%c%c\n",
-               SPUAssemblyVersion_chars[0],
-               SPUAssemblyVersion_chars[1],
-               SPUAssemblyVersion_chars[2],
-               SPUAssemblyVersion_chars[3]);
-    }
-    
-    if (compileParams.lstFile != NULL) {
-        fprintf(compileParams.lstFile,
-                "SPUAssembly v%c.%c.%c%c ",
-                SPUAssemblyVersion_chars[0],
-                SPUAssemblyVersion_chars[1],
-                SPUAssemblyVersion_chars[2],
-                SPUAssemblyVersion_chars[3]);
-        fprintf(compileParams.lstFile, "%s -> %s\n", compileParams.inputFileName , compileParams.outputFileName);
-    }
+    printAssemblyVersion(&compileParams);
 
     size_t codeLen = 0;
     char* code = getSourceFileData(compileParams.inputFile, &codeLen);
@@ -51,6 +32,7 @@ int main(int argc, const char* argv[]){
     removeDoubleWhitespaces(compileParams.codeText, &codeLen);
     
     int errorsFound = generateErrors(&syntax, &compileParams, compileParams.codeText);
+    
     if (errorsFound == 0){
         free(code);
         DestructAssemblyParams(&compileParams);
@@ -64,13 +46,13 @@ int main(int argc, const char* argv[]){
     }
     
     BinaryFile* binary = NewBinaryFile();
-//    delete compileParams.labelsStore;
-//    compileParams.labelsStore = new La
-    CommandParseResult parseRes = parseCode(&compileParams, (const SyntaxMapping*) &syntax, binary, compileParams.codeText, codeLen);
     
-    LabelParse labelsRes = evaluateLabels(&compileParams, binary);
+    CommandParseResult parseRes = parseCode(&compileParams,
+                                            (const SyntaxMapping*) &syntax,
+                                            binary, compileParams.codeText,
+                                            codeLen);
     
-    if (parseRes != SPU_PARSE_OK || labelsRes != SPU_LABEL_OK){
+    if (parseRes != SPU_PARSE_OK){
         printf("%s: error: assembly: syntax error\n", compileParams.inputFileName);
         printf("%s: error: assembly: process finished with EXIT_FAILURE code\n", compileParams.inputFileName);
         return EXIT_FAILURE;

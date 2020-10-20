@@ -8,6 +8,8 @@
 
 #include "BTCDefs.h"
 
+// (const SyntaxEntity* thou, DisassemblyParams* params, BinaryFile* binary, char** SPI)
+
 OPBACKTRANSLATE_FUNC(push, {
     OPBACKGENERAL({
         char* localSPI = *SPI;
@@ -226,6 +228,36 @@ OPBACKTRANSLATE_FUNC(jm, {
         int* val = (int*)(localSPI + 1);
         fprintf(params->outputFile, "%d", *val);
         ADDSPI(5);
+    })
+    return SPU_DISASM_OK;
+})
+
+OPBACKTRANSLATE_FUNC(inc, {
+    OPBACKGENERAL({
+        char* localSPI = *SPI;
+        char flagByte = *(localSPI + 1);
+        if (flagByte == 0) {
+            ADDSPI(2);
+        } else {
+            const char* reg = registerNameFromNo(*(localSPI + 2));
+            fprintf(params->outputFile, "%s", reg);
+            ADDSPI(3);
+        }
+    })
+    return SPU_DISASM_OK;
+})
+
+OPBACKTRANSLATE_FUNC(dec, {
+    OPBACKGENERAL({
+        char* localSPI = *SPI;
+        char flagByte = *(localSPI + 1);
+        if (flagByte == 0) {
+            ADDSPI(2);
+        } else {
+            const char* reg = registerNameFromNo(*(localSPI + 2));
+            fprintf(params->outputFile, "%s", reg);
+            ADDSPI(3);
+        }
     })
     return SPU_DISASM_OK;
 })

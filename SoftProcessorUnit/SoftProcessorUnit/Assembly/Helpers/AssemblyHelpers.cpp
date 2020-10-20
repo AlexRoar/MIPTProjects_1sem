@@ -267,3 +267,27 @@ BinFileLoadResult loadBinFile(BinaryFile* binFile, FILE* inputFile) {
     
     return SPU_BINLOAD_OK;
 }
+
+
+void printAssemblyVersion(AssemblyParams* params) {
+    int SPUAssemblyVersion = SPU_VERSION;
+    char* SPUAssemblyVersion_chars = (char*)&SPUAssemblyVersion;
+    if (params->verbose) {
+        
+        printf("SPUAssembly v%c.%c.%c%c\n",
+               SPUAssemblyVersion_chars[0],
+               SPUAssemblyVersion_chars[1],
+               SPUAssemblyVersion_chars[2],
+               SPUAssemblyVersion_chars[3]);
+    }
+    
+    if (params->lstFile != NULL) {
+        fprintf(params->lstFile,
+                "SPUAssembly v%c.%c.%c%c ",
+                SPUAssemblyVersion_chars[0],
+                SPUAssemblyVersion_chars[1],
+                SPUAssemblyVersion_chars[2],
+                SPUAssemblyVersion_chars[3]);
+        fprintf(params->lstFile, "%s -> %s\n", params->inputFileName , params->outputFileName);
+    }
+}

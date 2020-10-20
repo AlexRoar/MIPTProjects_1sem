@@ -7,6 +7,8 @@
 
 #include "CTBDefs.h"
 
+// (const struct SyntaxEntity* thou, AssemblyParams* compileParams, BinaryFile* binary, int argc, const char** argv)
+
 OPTRANSLATE_FUNC(push, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
@@ -33,43 +35,11 @@ OPTRANSLATE_FUNC(push, {
 });
 
 OPTRANSLATE_FUNC(pop, {
-    LSTDUMPED({
-        APPENDCHAR(thou->code);
-        if (argc == 1) {
-            APPENDCHAR(0);
-        } else {
-            const char* firstArgument = argv[1];
-            APPENDCHAR(1);
-            
-            int registerNo = registerNoFromName((char*)firstArgument);
-            if (registerNo == -1)
-                return SPU_CTB_UNKNOWN_REGISTER;
-            
-            char registerNoCh = (char)registerNo;
-            APPENDDATA(&registerNoCh, sizeof(registerNoCh));
-        }
-    })
-    return SPU_CTB_OK;
+    ZEROORREGISTERNO;
 }) ;
 
 OPTRANSLATE_FUNC(in, {
-    LSTDUMPED({
-        APPENDCHAR(thou->code);
-        if (argc == 1) {
-            APPENDCHAR(0);
-        } else {
-            const char* firstArgument = argv[1];
-            APPENDCHAR(1);
-            
-            int registerNo = registerNoFromName((char*)firstArgument);
-            if (registerNo == -1)
-                return SPU_CTB_UNKNOWN_REGISTER;
-            
-            char registerNoCh = (char)registerNo;
-            APPENDDATA(&registerNoCh, sizeof(registerNoCh));
-        }
-    })
-    return SPU_CTB_OK;
+    ZEROORREGISTERNO;
 });
 
 OPTRANSLATE_FUNC(dump, {
@@ -117,31 +87,15 @@ OPTRANSLATE_FUNC(het, {
 });
 
 OPTRANSLATE_FUNC(out, {
-    LSTDUMPED({
-        APPENDCHAR(thou->code);
-        if (argc > 1){
-            const char* firstArgument = argv[1];
-            APPENDCHAR(1);
-            
-            int registerNo = registerNoFromName((char*)firstArgument);
-            if (registerNo == -1)
-                return SPU_CTB_UNKNOWN_REGISTER;
-            
-            char registerNoCh = (char)registerNo;
-            APPENDDATA(&registerNoCh, sizeof(registerNoCh));
-        }else{
-            APPENDCHAR(0);
-        }
-    })
-    return SPU_CTB_OK;
+    ZEROORREGISTERNO;
 });
 
 OPTRANSLATE_FUNC(jmp, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -150,8 +104,8 @@ OPTRANSLATE_FUNC(jb, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -160,8 +114,8 @@ OPTRANSLATE_FUNC(jbe, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -170,8 +124,8 @@ OPTRANSLATE_FUNC(je, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -180,8 +134,8 @@ OPTRANSLATE_FUNC(jne, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -190,8 +144,8 @@ OPTRANSLATE_FUNC(ja, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -200,8 +154,8 @@ OPTRANSLATE_FUNC(jae, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
 });
@@ -210,8 +164,16 @@ OPTRANSLATE_FUNC(jm, {
     LSTDUMPED({
         APPENDCHAR(thou->code);
         SETLABELPOS;
-        int placeholder = 0;
-        APPENDDATA(&placeholder, sizeof(placeholder));
+        int jumpOffset = (int)( GETLABELPOS );
+        APPENDDATA(&jumpOffset, sizeof(jumpOffset));
     })
     return SPU_CTB_OK;
+});
+
+OPTRANSLATE_FUNC(inc, {
+    ZEROORREGISTERNO;
+});
+
+OPTRANSLATE_FUNC(dec, {
+    ZEROORREGISTERNO;
 });

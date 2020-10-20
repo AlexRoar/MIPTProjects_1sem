@@ -167,3 +167,17 @@ COMMAND_INFO(
              CMD_ARGRULES "*",
              CMD_FLAGBYTES 0
              )
+
+COMMAND_INFO(
+             inc,
+             CMD_CODE 23,
+             CMD_ARGRULES "?",
+             CMD_FLAGBYTES 1
+             )
+
+COMMAND_INFO(
+             dec,
+             CMD_CODE 24,
+             CMD_ARGRULES "?",
+             CMD_FLAGBYTES 1
+             )

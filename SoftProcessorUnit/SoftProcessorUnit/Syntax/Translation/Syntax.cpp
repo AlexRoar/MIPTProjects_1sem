@@ -42,7 +42,7 @@ SyntaxMapping getSyntaxMapping(void) {
 
 
 int getSyntaxCode(const SyntaxMapping* mapping, const char* name) {
-    for(int i = 0; i < mapping->number; i++){
+    for(size_t i = 0; i < mapping->number; i++){
         if (strcmp(mapping->entities[i].naming, name) == 0){
             return mapping->entities[i].code;
         }
@@ -52,7 +52,7 @@ int getSyntaxCode(const SyntaxMapping* mapping, const char* name) {
 
 
 const char* getSyntaxName(const SyntaxMapping* mapping, const char code) {
-    for(int i = 0; i < mapping->number; i++){
+    for(size_t i = 0; i < mapping->number; i++){
         if (code == mapping->entities[i].code){
             return mapping->entities[i].naming;
         }
@@ -61,7 +61,7 @@ const char* getSyntaxName(const SyntaxMapping* mapping, const char code) {
 }
 
 const SyntaxEntity* getSyntaxEntityByCode(const SyntaxMapping* mapping, const char code) {
-    for(int i = 0; i < mapping->number; i++){
+    for(size_t i = 0; i < mapping->number; i++){
         if (code == mapping->entities[i].code){
             return &mapping->entities[i];
         }
@@ -70,7 +70,7 @@ const SyntaxEntity* getSyntaxEntityByCode(const SyntaxMapping* mapping, const ch
 }
 
 const SyntaxEntity* getSyntaxEntityByName(const SyntaxMapping* mapping, const char* name) {
-    for(int i = 0; i < mapping->number; i++){
+    for(size_t i = 0; i < mapping->number; i++){
         if (strcmp(mapping->entities[i].naming, name) == 0){
             return &mapping->entities[i];
         }

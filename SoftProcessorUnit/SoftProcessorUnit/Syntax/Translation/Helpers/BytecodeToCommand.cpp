@@ -16,8 +16,8 @@
 int checkBytesEnough(const SyntaxEntity* thou, BinaryFile* binary, char* SPI) {
     size_t neededBytes = 1;
     
-    neededBytes += thou->flagBytes;
-    for (int i = 0; i < strlen(thou->format); i++) {
+    neededBytes += (size_t)(thou->flagBytes);
+    for (size_t i = 0; i < strlen(thou->format); i++) {
         if (thou->format[i] == '*')
             neededBytes++;
     }

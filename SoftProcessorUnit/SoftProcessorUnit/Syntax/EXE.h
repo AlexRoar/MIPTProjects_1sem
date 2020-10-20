@@ -5,6 +5,10 @@
 //  Created by Александр Дремов on 19.10.2020.
 //
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+
+// (SPUCore* core, RunParameters* params, BinaryFile* binary, char** SPI)
 
 OPEXE_FUNC(push,  {
     if (!HASBYTES(3))
@@ -339,3 +343,55 @@ OPEXE_FUNC(jm,  {
     (*SPI) += *((int*)(localSPI + 1));
     return SPU_EXE_OK;
 })
+
+OPEXE_FUNC(inc,  {
+    if (!HASBYTES(2))
+        return SPU_EXE_NOARGS;
+    char* localSPI = *SPI;
+    char flagByte = *(localSPI + 1);
+    
+    if (flagByte == 0) {
+        double value = 0;
+        StackRigidOperationCodes result = StackBack(core->stack, &value);
+        
+        STACKRESULT
+        
+        result = StackPush(&(core->stack), value + 1);
+        
+        STACKRESULT
+
+        (*SPI) += 2;
+    } else {
+        char reg = *(localSPI + 2);
+        core->REG[reg] += 1;
+        (*SPI) += 3;
+    }
+    return SPU_EXE_OK;
+})
+
+OPEXE_FUNC(dec,  {
+    if (!HASBYTES(2))
+        return SPU_EXE_NOARGS;
+    char* localSPI = *SPI;
+    char flagByte = *(localSPI + 1);
+    
+    if (flagByte == 0) {
+        double value = 0;
+        StackRigidOperationCodes result = StackBack(core->stack, &value);
+        
+        STACKRESULT
+        
+        result = StackPush(&(core->stack), value - 1);
+        
+        STACKRESULT
+
+        (*SPI) += 2;
+    } else {
+        char reg = *(localSPI + 2);
+        core->REG[reg] -= 1;
+        (*SPI) += 3;
+    }
+    return SPU_EXE_OK;
+})
+
+#pragma clang diagnostic pop

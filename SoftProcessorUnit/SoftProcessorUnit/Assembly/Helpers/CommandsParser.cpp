@@ -31,9 +31,9 @@ char* getSourceFileData(FILE* inputFile, size_t* length) {
 }
 
 void removeDoubleWhitespaces(char* code, size_t* length) {
-    for (int i = 0; i + 1 < *length; ) {
+    for (size_t i = 0; i + 1 < *length; ) {
         if(code[i] == ' ' && (code[i+1] == ' ' || code[i-1] == ' ')) {
-            for(int j = i; j < *length; j++) {
+            for(size_t j = i; j < *length; j++) {
                 code[j]=code[j + 1];
             }
             (*length)--;
@@ -64,9 +64,9 @@ void preprocessSource(char* code, size_t* length) {
         commentPos = strchr(commentPos + 1, ';');
     }
     
-    for (int i = 0; i + 1 < *length; ) {
+    for (size_t i = 0; i + 1 < *length; ) {
         if(code[i] == '\n' && (code[i+1] == '\n' || code[(i > 0) ? i - 1 : i] == '\n')) {
-            for(int j = i; j < *length; j++) {
+            for(size_t j = i; j < *length; j++) {
                 code[j]=code[j + 1];
             }
             (*length)--;
@@ -187,11 +187,8 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
             return SPU_UNKNOWN_COMMAND;
         } else {
             switch (resLabel) {
-                case SPU_LABEL_DUBLICATE:{
-                    printf("%s: error: assembly: dublicate label '%s' found\n", compileParams->inputFileName,
-                           codeBlock);
-                    fprintf(compileParams->lstFile, "error: assembly: dublicate label '%s' found\n", codeBlock);
-                    return SPU_PARSE_LABEL_DUBLICATE;
+                case SPU_LABEL_DUBLICATE: {
+                    break;
                 }
                 case SPU_LABEL_OK: {
                     break;
@@ -205,6 +202,12 @@ CommandParseResult parseCommand(AssemblyParams* compileParams, const SyntaxMappi
                     fprintf(compileParams->lstFile, "error: assembly: invalid label name '%s' found\n", codeBlock);
                     return SPU_PARSE_LABEL_INVALID;
                 }
+            }
+            if (compileParams->lstFile != NULL){
+                fprintf(compileParams->lstFile, "%-5s -> %5s | ", "x", "x" );
+                fprintf(compileParams->lstFile, "%-3d | ", 0);
+                fprintf(compileParams->lstFile, "%-25s | ", codeBlock);
+                fprintf(compileParams->lstFile, "\n");
             }
         }
     } else {
@@ -270,7 +273,7 @@ int codeBlockEmpty(char* codeBlock) {
     if (*codeBlock == ';' || *(codeBlock + 1) == ';')
         return 1;
     while (*codeBlock != '\0' && *codeBlock != '\n') {
-        if (*codeBlock != ' ' && *codeBlock != '\n' && *codeBlock != '\t' && *codeBlock != '\r' && *codeBlock != '\e')
+        if (*codeBlock != ' ' && *codeBlock != '\n' && *codeBlock != '\t' && *codeBlock != '\r')
             return 0;
         codeBlock++;
     }
@@ -294,7 +297,7 @@ CommandParseResult parseCode(AssemblyParams* compileParams, const SyntaxMapping*
             }
         }
         
-        lastBlockPos = ((char*)memchr(lastBlockPos, '\n', length - (lastBlockPos - code))) + 1;
+        lastBlockPos = ((char*)memchr(lastBlockPos, '\n', (size_t)length - (size_t)(lastBlockPos - code))) + 1;
     }
     
     
@@ -434,7 +437,6 @@ LabelParse evaluateLabels(AssemblyParams* compileParams, BinaryFile* binary) {
         current = current->next;
     }
     
-    
     return SPU_LABEL_OK;
 }
 
@@ -461,9 +463,9 @@ LabelParse labelsTableComplete(AssemblyParams* compileParams, int quiet) {
         
         if (current->used > 1) {
             if (quiet!= 1)
-                printf("%s: error: assembly: label '%s' has several definitions instructions\n", compileParams->inputFileName, current->name);
+                printf("%s: error: assembly: label '%s' has several definitions\n", compileParams->inputFileName, current->name);
             if (compileParams->lstFile != NULL)
-                fprintf(compileParams->lstFile, "%s: error: assembly: label '%s' has several definitions instructions\n", compileParams->inputFileName, current->name);
+                fprintf(compileParams->lstFile, "%s: error: assembly: label '%s' has several definitions\n", compileParams->inputFileName, current->name);
             return SPU_LABEL_DUBLICATE;
         }
         

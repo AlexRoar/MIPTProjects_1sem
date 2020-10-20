@@ -11,7 +11,7 @@
 #include <string.h>
 
 int parseSPUArgs(RunParameters* parameters, int argc, const char * argv[]) {
-    RunParameters newParams = {0, 0};
+    RunParameters newParams = {0, 0, 0, 0, 0};
     
     if (argc <= 1){
         spuHelp();

@@ -41,3 +41,22 @@
 #define JUSTCOMMAND  LSTDUMPED({ APPENDCHAR(thou->code); }) return SPU_CTB_OK;
 
 #define SETLABELPOS if (compileParams->labelsStore != NULL) compileParams->labelsStore->setLabelFromPosition((char*)argv[1], (unsigned int)binary->currentSize)
+
+#define GETLABELPOS (int)(compileParams->labelsStore->getLabelToPosition((char*)argv[1])) - (int)(binary->currentSize) + 1
+
+#define ZEROORREGISTERNO LSTDUMPED({{\
+APPENDCHAR(thou->code);\
+if (argc == 1) {\
+    APPENDCHAR(0);\
+} else {\
+    const char* firstArgument = argv[1];\
+    APPENDCHAR(1);\
+    \
+    int registerNo = registerNoFromName((char*)firstArgument);\
+    if (registerNo == -1)\
+        return SPU_CTB_UNKNOWN_REGISTER;\
+    \
+    char registerNoCh = (char)registerNo;\
+    APPENDDATA(&registerNoCh, sizeof(registerNoCh));\
+}}}) return SPU_CTB_OK;\
+

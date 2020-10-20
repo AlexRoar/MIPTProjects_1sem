@@ -4,8 +4,6 @@ push 0
 pop rax
 
 forewer:
-
-forewer:
 push rax
 push rax
 mul
