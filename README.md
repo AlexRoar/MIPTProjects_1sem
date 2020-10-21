@@ -3,15 +3,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/badge/master)](https://www.codefactor.io/repository/github/alexroar/miptprojects_1sem/overview/master)
 
 ## Транслятор assembly-подобного кода и SPU-исполнитель
-В данном проекте реализован транслятор кода в неравномерный байткод, дизассемблер для байткода, исполнитель байткода (Soft Processor Unit).
-
-В дополнение, присутствует анализатор кода, проверяющий синтаксические ошибки и выбрасывающий отчет в clang формате. Поэтому, XCode и другие IDE поддерживающие clang подсвечивают неверные выражения, отображают комментарии.
-
-Во время трансляции генерируется .lst файл, содержащий информацию о трансляции, на каком offset бинарника какая команда и тд. Все доступно в примерах.
-
-<img src="https://github.com/AlexRoar/MIPTProjects_1sem/raw/master/SoftProcessorUnit/Images/Снимок%20экрана%202020-10-16%20в%2000.20.38.png">
-<img height="100px" src="https://github.com/AlexRoar/MIPTProjects_1sem/raw/master/SoftProcessorUnit/Images/Снимок%20экрана%202020-10-16%20в%2000.21.56.png">
-
 - [Репозитроий проекта](https://github.com/AlexRoar/SPUAsm)
 
 ## Нерушимый стек
