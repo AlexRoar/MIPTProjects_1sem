@@ -12,10 +12,7 @@
 <img src="https://github.com/AlexRoar/MIPTProjects_1sem/raw/master/SoftProcessorUnit/Images/Снимок%20экрана%202020-10-16%20в%2000.20.38.png">
 <img height="100px" src="https://github.com/AlexRoar/MIPTProjects_1sem/raw/master/SoftProcessorUnit/Images/Снимок%20экрана%202020-10-16%20в%2000.21.56.png">
 
-- [Основной код транслятора](https://github.com/AlexRoar/MIPTProjects_1sem/blob/master/SoftProcessorUnit/SoftProcessorUnit/Assembly/SPUAssembly.cpp)
-- [Основной код дизассемблера](https://github.com/AlexRoar/MIPTProjects_1sem/blob/master/SoftProcessorUnit/SoftProcessorUnit/Disassembly/SPUDisAssembly.cpp)
-- [Основной код SPU](https://github.com/AlexRoar/MIPTProjects_1sem/blob/master/SoftProcessorUnit/SoftProcessorUnit/SPU/SPU.cpp)
-- [Примеры](https://github.com/AlexRoar/MIPTProjects_1sem/tree/master/SPUAsm/SPUAsm)
+- [Репозитроий проекта](https://github.com/AlexRoar/SPUAsm)
 
 ## Нерушимый стек
 Стек который *почти* невозможно взломать. Хэш-суммы, проверки, валидации - тут. Отчеты о взломе моего стека и мой взлом товарища так же тут.
